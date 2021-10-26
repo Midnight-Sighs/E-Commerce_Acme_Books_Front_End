@@ -29,6 +29,28 @@
         margin-top: 10px;
     }
 }
+//#endregion
+
+//#region BookCard Component
+.book-card{
+    height: 20vh;
+    width:5vw;
+    & p{
+        color:$teal;
+    }
+    & .bc-part{
+        background-color: $dark-chocolate;
+    }
+    & .bc-part img{
+        object-fit: fill;
+    }
+}
+.bc-img{
+    height:20vh;
+    top:0;
+    left:0;
+}
+//#endregion
 
 // .arrow-down {
 //     width: 0;
