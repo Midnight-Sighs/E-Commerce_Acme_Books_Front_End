@@ -1,0 +1,20 @@
+@import '../../Utilities/variables';
+
+.nav-bar{
+    height: 60vh;
+    width: 10vw;
+    background-color: $dark-green;
+    color: $teal;
+    position:relative;
+    & .bm-nav-item{
+        margin-top: 10px;
+    }
+}
+
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 5vw solid transparent;
+    border-right: 5vw solid transparent;
+    border-top: 10vh solid $dark-green;
+  }
