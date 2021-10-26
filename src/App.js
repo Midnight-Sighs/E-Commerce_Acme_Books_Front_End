@@ -1,10 +1,11 @@
 import React from 'react';
 import './Styles/App.css';
+import NavBar from './Components/NavBar/NavBar'
 
 function App() {
   return (
     <div className="App">
-        <h1>Variable Test</h1>
+        
     </div>
   );
 }
