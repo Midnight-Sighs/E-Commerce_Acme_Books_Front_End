@@ -11,13 +11,27 @@
 }
 
 .book-card {
-  height: 40vh;
-  width: 200px;
+  height: 20vh;
+  width: 5vw;
+}
+
+.book-card p {
+  color: #178b69;
+}
+
+.book-card .bc-part {
   background-color: #291306;
 }
 
-.book-card .bc-img {
-  fill: cover;
+.book-card .bc-part img {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.bc-img {
+  height: 20vh;
+  top: 0;
+  left: 0;
 }
 
 .arrow-down {

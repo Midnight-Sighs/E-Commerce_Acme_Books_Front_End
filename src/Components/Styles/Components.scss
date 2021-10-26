@@ -1,6 +1,6 @@
 @import '../../Utilities/variables';
 
-
+//#region NavBar Component
 .nav-bar{
     height: 60vh;
     width: 10vw;
@@ -11,14 +11,28 @@
         margin-top: 10px;
     }
 }
+//#endregion
+
+//#region BookCard Component
 .book-card{
-    height: 40vh;
-    width: 200px;
-    background-color: $dark-chocolate;
-    & .bc-img{
-        fill: cover;
+    height: 20vh;
+    width:5vw;
+    & p{
+        color:$teal;
+    }
+    & .bc-part{
+        background-color: $dark-chocolate;
+    }
+    & .bc-part img{
+        object-fit: fill;
     }
 }
+.bc-img{
+    height:20vh;
+    top:0;
+    left:0;
+}
+//#endregion
 
 .arrow-down {
     width: 0; 
