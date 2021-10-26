@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../../Components/Header/Header'
-import NavBar from '../../Components/NavBar/NavBar'
 
-class Anon extends Component {
+class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -12,10 +11,9 @@ class Anon extends Component {
         return ( 
             <>
             <Header />
-            <NavBar />
             </>
          );
     }
 }
  
-export default Anon;
+export default CartPage;
