@@ -1,5 +1,7 @@
 @import '../Utilities/variables';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap');
 
-h1{
+p, h1, h3{
+    font-family: 'IBM Plex Serif', serif;
     color: $teal;
 }

@@ -6,6 +6,7 @@ function NavBar() {
         <>
             
             <div className="row">
+                <div className="col-1"></div>
                 <div className="col-2">
                     <div className="nav-bar">
                         <table>
@@ -49,7 +50,7 @@ function NavBar() {
                         </table>
                     </div>
                 <div className="row">
-                    <div className="col-2 arrow-down">
+                    <div className="col-2"> 
                     </div>
                 </div>
             </div>

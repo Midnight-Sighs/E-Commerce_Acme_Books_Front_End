@@ -1,5 +1,24 @@
 @import '../../Utilities/variables';
 
+.head{
+    top:0;
+    left:0;
+    width: 100vw;
+    height:30vh;
+    background-color: $dark-chocolate;
+    position:relative;
+    & .title{
+        margin-top: 1em;
+        margin-left: 1em;
+        position:inherit;
+        
+    }
+    & .log-reg{
+        margin-top: 8em;
+        position:inherit;
+    }
+}
+
 .nav-bar{
     height: 60vh;
     width: 10vw;
@@ -11,10 +30,10 @@
     }
 }
 
-.arrow-down {
-    width: 0; 
-    height: 0; 
-    border-left: 5vw solid transparent;
-    border-right: 5vw solid transparent;
-    border-top: 10vh solid $dark-green;
-  }
+// .arrow-down {
+//     width: 0;
+//     height: 0;
+//     border-left: 50px solid transparent;
+//     border-right: 50px solid transparent;
+//     border-top: 5rem solid $dark-green;
+//   }
