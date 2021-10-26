@@ -1,5 +1,6 @@
 @import '../../Utilities/variables';
 
+
 .nav-bar{
     height: 60vh;
     width: 10vw;
@@ -8,6 +9,14 @@
     position:relative;
     & .bm-nav-item{
         margin-top: 10px;
+    }
+}
+.book-card{
+    height: 40vh;
+    width: 200px;
+    background-color: $dark-chocolate;
+    & .bc-img{
+        fill: cover;
     }
 }
 

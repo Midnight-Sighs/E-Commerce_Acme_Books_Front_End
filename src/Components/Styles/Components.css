@@ -10,6 +10,16 @@
   margin-top: 10px;
 }
 
+.book-card {
+  height: 40vh;
+  width: 200px;
+  background-color: #291306;
+}
+
+.book-card .bc-img {
+  fill: cover;
+}
+
 .arrow-down {
   width: 0;
   height: 0;

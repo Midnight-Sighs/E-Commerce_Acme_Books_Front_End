@@ -1,11 +1,13 @@
 import React from 'react';
 import './Styles/App.css';
-import NavBar from './Components/NavBar/NavBar'
+import BookCard from './Components/MainShop/BookCard';
+
 
 function App() {
   return (
     <div className="App">
         
+        <BookCard />
     </div>
   );
 }
