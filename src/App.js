@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './Styles/App.css';
-import { BrowserRouter as Switch, Route, Router} from "react-router-dom";
-import createHistory from 'history/createBrowserHistory';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar'
@@ -13,7 +18,6 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 
 
-const history = createHistory();
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +30,13 @@ class App extends Component {
     };
 
   };
+  // history = useHistory();
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.loggedIn !== this.state.loggedIn) {
+  //     history.push("/")
+  //   }  
+  // }
+
 
   register = async (registerUser) => {
     console.log(registerUser);
@@ -58,15 +69,15 @@ class App extends Component {
         localStorage.setItem('token', this.state.token.token);
         console.log(this.state.token.token);
         console.log(this.state.user);
-        
       }
     }
     catch(err) {
       console.log(err);
     }
+    
 
   }
-  
+
 
 getCurrentUser = async () => {
   try{
@@ -99,16 +110,18 @@ logoutUser = () => {
 
 
   render() {
+    console.log(this.state.token.token);
     console.log(this.state.user);
+    console.log(this.state.loggedIn);
     return (
       <Container fluid>
         <div>
-          <a href="/"> Home </a>
-          <a href="/login"> Login </a> 
-          <a href="/logout"> Logout </a>
-          <a href="/register"> Register </a>
-          <a href="/profile/edit"> Edit Profile </a>
-          <a href="/books"> View books</a>
+        <Link to="/"> ::Home::  </Link>
+        <Link to="/login">  ::Login::  </Link>
+        <Link to="/logout">  ::Logout::  </Link> {/* <a href="/logout"> Logout </a> */}
+          <Link to="/register">  ::Register::  </Link>
+          <Link to="/profile/edit">  ::Profile edit::  </Link>
+          <Link to="/books">  ::view books::  </Link>
         </div>
         <Row>
           <Col><Header/></Col>
@@ -125,7 +138,7 @@ logoutUser = () => {
 
               <Route
               exact path='/login'
-              render={() => <LoginPage  login={this.loginUser} currentUser={this.getCurrentUser}/>}
+              render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
               <Route
@@ -139,7 +152,7 @@ logoutUser = () => {
               />
 
             </Switch>
-          </Router>
+            </Router>
           </Col>
         </Row>
 
