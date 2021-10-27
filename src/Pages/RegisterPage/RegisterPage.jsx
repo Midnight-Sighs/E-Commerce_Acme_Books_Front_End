@@ -32,7 +32,7 @@ class RegisterPage extends Component {
             FirstName: this.state.firstname,
             LastName: this.state.lastname,
             Email: this.state.email,
-            StreetAddress: this.state.street,
+            streetaddress: this.state.street,
             City: this.state.city,
             State: this.state.state,
             ZipCode: this.state.zip

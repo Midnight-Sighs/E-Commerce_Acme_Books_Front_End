@@ -9,6 +9,7 @@ import Header from './Components/Header/Header'
 import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
+import EditProfile from './Pages/EditProfile/EditProfile'
 
 
 const history = createHistory();
@@ -20,6 +21,7 @@ class App extends Component {
       user: [],
       currentUser: [],
       registeredUser: [],
+      loggedIn: []
     };
 
   };
@@ -38,7 +40,11 @@ class App extends Component {
       });
       console.log(registerUser);
     }
-};
+  }
+  catch(err) {
+    console.log(err);
+  }
+
 
 login = async (login) => {
     let response = await axios.post('https://localhost:44394/api/authentication/login', login);
@@ -53,12 +59,16 @@ login = async (login) => {
       console.log(this.state.token.token);
       console.log(this.state.user);
     }
-  };
+  }
+  catch(err) {
+    console.log(err);
+  }
+  
 
 getCurrentUser = async () => {
   try{
     const jwt = localStorage.getItem('token');
-    let response = await axios.get('http://localhost:62321/api/users/b', {headers: {Authorization: 'Bearer ' + jwt}});
+    let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
       this.setState({});
     } 
@@ -73,6 +83,14 @@ getCurrentUser = async () => {
     console.log(err);
   }
 };
+
+logoutUser = () => {
+  localStorage.removeItem('token');
+  window.location = "/";
+  this.setState({
+    user: null
+  })
+}
 
 
   render() {
@@ -98,6 +116,11 @@ getCurrentUser = async () => {
               <Route
               exact path='/register'
               render={() => <RegisterPage register={this.register}/>}
+              />
+
+              <Route
+              exact path='/profile/edit'
+              render={() => <EditProfile user={this.user}/>}
               />
 
             </Switch>
