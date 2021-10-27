@@ -1,0 +1,48 @@
+.bod-bg-img {
+  background-repeat: no-repeat;
+  background-color: #67c5dd;
+  position: contain;
+  z-index: -2;
+  background-size: 100%;
+  height: 100vh;
+}
+
+.login-page-row .login-form {
+  margin-top: 9em;
+  width: 50vw;
+  background-color: #dda47f9d;
+}
+
+.login-page-row .login-label {
+  color: #091931;
+  font-size: 2em;
+  margin-left: 1em;
+}
+
+.login-page-row .login-field {
+  background-color: #67c5dd9d;
+  border: 2px solid #091931;
+  width: 25vw;
+  font-size: 2em;
+  margin-left: 2em;
+}
+
+.login-page-row button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 11em;
+}
+
+.basic-btns {
+  background-color: #67c5dd;
+  color: #091931;
+  font-size: 2em;
+  border: none;
+  border-radius: 10px;
+}
+
+.basic-btns :hover {
+  background-color: #091931;
+  color: #67c5dd;
+}
+/*# sourceMappingURL=Pages.css.map */
