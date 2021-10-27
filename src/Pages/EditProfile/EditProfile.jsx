@@ -10,7 +10,11 @@ const EditProfile = ({user}) => {
 
     return (
         <div>
-        {user.firstName}
+        ID #: {user.id}<br></br>
+        Name: {user.firstName} {user.lastName}<br></br>
+        Email: {user.email}<br></br>
+        Address: {user.street}<br></br>
+        {user.city} , {user.state} {user.zip}
         </div>
         
     )

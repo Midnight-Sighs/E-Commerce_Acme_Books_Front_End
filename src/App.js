@@ -4,7 +4,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory,
 } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
@@ -58,18 +59,23 @@ class App extends Component {
           token: response.data,
           loggedIn: !this.state.loggedIn,
         });
-        localStorage.setItem('token', this.state.token);
-        console.log(this.state.token);
+        localStorage.setItem('token', this.state.token.token);
+        console.log(this.state.token.token);
         console.log(this.state.user);
-        
+        this.routeChange
       }
     }
     catch(err) {
       console.log(err);
     }
+    
 
   }
-  
+routeChange=()=> {
+    let path = `/profile/edit`;
+    let history = useHistory();
+    history.push(path);
+  }
 
 getCurrentUser = async () => {
   try{
