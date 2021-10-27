@@ -113,7 +113,7 @@ logoutUser = () => {
           <Col><Header/></Col>
         </Row>
         <Row>
-          <NavBar/>
+          <NavBar loggedIn={this.state.loggedIn}/>
           
           <Col sm={12}>
           <Router history={history} >

@@ -13,7 +13,7 @@ const MainBody = (props)=> {
                     {/* <div className="col-12">
                         {props.books.map(function(book){
                             return(
-                                <BookCard book={book} />
+                                <BookCard book={book} anon={props.anon} />
                             )
                         })}
                     </div> */}

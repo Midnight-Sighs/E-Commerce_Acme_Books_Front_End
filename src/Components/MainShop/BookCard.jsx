@@ -13,7 +13,7 @@ const BookCard=(props)=> {
                             Title{/*props.book.title*/}
                             <br />Author{/*props.book.author*/}
                             <br />Price {/*props.book.price*/}
-                            <br />Details (Link to detail page))
+                            {/* <br />Details {props.anon ? "View Book Details" : "Please login to see Book details" }) */}
                             </p>
                         </div>
                         <img src={PlaceholderCover}></img>
