@@ -21,13 +21,11 @@ class App extends Component {
       user: [],
       currentUser: [],
       registeredUser: [],
-      loggedIn: []
+      loggedIn: false
     };
 
   };
-//http://localhost:62321/api/authentication
-//http://localhost:62321/api/users/create
-//https://localhost:44394/api/authentication/
+
   register = async (registerUser) => {
     console.log(registerUser);
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
@@ -45,23 +43,27 @@ class App extends Component {
     console.log(err);
   }
 
-
-login = async (login) => {
-    let response = await axios.post('https://localhost:44394/api/authentication/login', login);
-    if (response === undefined) {
-      this.setState({});
-    } else {
-      this.setState({
-        token: response.data,
-        loggedIn: !this.state.loggedIn,
-      });
-      localStorage.setItem('token', this.state.token.token);
-      console.log(this.state.token.token);
-      console.log(this.state.user);
+  loginUser = async(login) => {
+    try{
+      let response = await axios.post('https://localhost:44394/api/authentication/login', login);
+      if (response === undefined) {
+        this.setState({});
+      } 
+      else {
+        this.setState({
+          token: response.data,
+          loggedIn: !this.state.loggedIn,
+        });
+        localStorage.setItem('token', this.state.token.token);
+        console.log(this.state.token.token);
+        console.log(this.state.user);
+        
+      }
     }
-  }
-  catch(err) {
-    console.log(err);
+    catch(err) {
+      console.log(err);
+    }
+
   }
   
 
@@ -88,15 +90,25 @@ logoutUser = () => {
   localStorage.removeItem('token');
   window.location = "/";
   this.setState({
-    user: null
+    loggedIn: false,
+    currentUser: [],
   })
 }
 
 
-  render() {
 
+  render() {
+    console.log(this.state.user);
     return (
       <Container fluid>
+        <div>
+          <a href="/"> Home </a>
+          <a href="/login"> Login </a> 
+          <a href="/logout"> Logout </a>
+          <a href="/register"> Register </a>
+          <a href="/profile/edit"> Edit Profile </a>
+          <a href="/books"> View books</a>
+        </div>
         <Row>
           <Col><Header/></Col>
         </Row>
@@ -104,13 +116,13 @@ logoutUser = () => {
           <NavBar/>
           
           <Col sm={12}>
-          <Router history={history} forceRefresh={true}>
+          <Router history={history} >
             <Switch >                
               <Route exact path="/" render={() => <Anon/>}/>
               
               <Route
               exact path='/login'
-              render={() => <LoginPage login={this.login} currentUser={this.getCurrentUser}/>}
+              render={() => <LoginPage {...props} login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
               <Route
@@ -120,7 +132,7 @@ logoutUser = () => {
 
               <Route
               exact path='/profile/edit'
-              render={() => <EditProfile user={this.user}/>}
+              render={() => <EditProfile user={this.state.user}/>}
               />
 
             </Switch>
