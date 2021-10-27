@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+//import LoginPage from '../LoginPage/LoginPage'
 import Header from '../../Components/Header/Header'
 import NavBar from '../../Components/NavBar/NavBar'
 import MainBody from '../../Components/MainShop/MainBody'
 import BookDetails from '../../Components/BookDetails/BookDetails'
+
 
 class Anon extends Component {
     constructor(props) {
@@ -15,9 +17,7 @@ class Anon extends Component {
     render() { 
         return ( 
             <>
-            <Header />
-            <NavBar currentPage={this.props.currentPage} />
-            <BookDetails />
+            <p>User not logged in</p>
             </>
          );
     }
