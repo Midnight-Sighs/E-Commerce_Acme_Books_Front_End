@@ -4,8 +4,7 @@
 .head{
     top:0;
     left:0;
-    width: 100vw;
-    max-width: 100%;
+    width: 101vw;
     height:25vh;
     overflow: hidden;
     background-color: $light-blue;
@@ -27,6 +26,7 @@
         top:-438px;
         opacity: 95%;
         position: absolute;
+        size: cover;
     }
     & .log-reg{
         margin-top: 8em;
@@ -35,10 +35,19 @@
 }
 //#endregion
 
+//#region Nav Bar
 .nav-bar{
     width: 100vw;
     background: $light-blue;
     height: 10vh;
+    & .nav-links{
+        margin-top:.5em;
+    }
+    & span{
+        padding-right:5px;
+        color: $dark-brown;
+        font-size: 1.5em;
+    }
 }
 //#endregion
 
@@ -63,10 +72,25 @@
 }
 //#endregion
 
-// .arrow-down {
-//     width: 0;
-//     height: 0;
-//     border-left: 50px solid transparent;
-//     border-right: 50px solid transparent;
-//     border-top: 5rem solid $dark-green;
-//   }
+//#region Body Background Image
+.magic-book{
+    background-repeat:no-repeat;
+    background-color: $light-blue;
+    position:contain;
+    z-index: -1;
+    background-size: 100%;
+    & img{
+        margin-top:2em;
+        border: 5px $light-brown solid;
+        margin-bottom: 1em;
+        box-shadow: 0 0 5px 5px $dark-blue;
+    }
+    & .book-details-box{
+        margin-top: 2em;
+        background-color: $light-brown-opacity;
+        margin-bottom: 1em;
+        box-shadow: 0 0 5px 5px $dark-blue;
+    }
+
+}
+//#endregion

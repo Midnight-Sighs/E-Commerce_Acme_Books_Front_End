@@ -1,6 +1,6 @@
 import React from 'react'
 import '../Styles/Components.css'
-import PlaceholderCover from '../../Images/PlaceholderCover.png'
+import PlaceholderCover from '../../Images/PlaceHolder01.jpg'
 
 const BookCard=(props)=> {
     return ( 

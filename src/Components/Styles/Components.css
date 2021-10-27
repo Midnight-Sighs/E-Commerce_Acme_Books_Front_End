@@ -1,8 +1,7 @@
 .head {
   top: 0;
   left: 0;
-  width: 100vw;
-  max-width: 100%;
+  width: 101vw;
   height: 25vh;
   overflow: hidden;
   background-color: #67c5dd;
@@ -28,6 +27,7 @@
   top: -438px;
   opacity: 95%;
   position: absolute;
+  size: cover;
 }
 
 .head .log-reg {
@@ -39,6 +39,16 @@
   width: 100vw;
   background: #67c5dd;
   height: 10vh;
+}
+
+.nav-bar .nav-links {
+  margin-top: .5em;
+}
+
+.nav-bar span {
+  padding-right: 5px;
+  color: #7a6751;
+  font-size: 1.5em;
 }
 
 .book-card {
@@ -63,5 +73,29 @@
   height: 20vh;
   top: 0;
   left: 0;
+}
+
+.magic-book {
+  background-repeat: no-repeat;
+  background-color: #67c5dd;
+  position: contain;
+  z-index: -1;
+  background-size: 100%;
+}
+
+.magic-book img {
+  margin-top: 2em;
+  border: 5px #c09e8a solid;
+  margin-bottom: 1em;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.magic-book .book-details-box {
+  margin-top: 2em;
+  background-color: #dda47f9d;
+  margin-bottom: 1em;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
 }
 /*# sourceMappingURL=Components.css.map */

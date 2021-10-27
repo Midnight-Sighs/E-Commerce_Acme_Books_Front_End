@@ -10,7 +10,7 @@ const NavBar = (props) =>{
     useEffect(()=>{
         let currentPage = props.currentPage
         checkPageType(currentPage)
-    }, [])
+    }, [props])
 
     const checkPageType=(page)=>{
         if(page.currentPage == "anon" ){
@@ -37,12 +37,12 @@ const NavBar = (props) =>{
                 {/*Search Bar Here*/}
             </div>
             <div className="col-4 nav-links">
-                {anon ? <span>Login</span> :null}
-                {anon ? <span>Register</span>:null}
-                {seller ? <span>Logout</span>: null}
-                {seller ? <span>Edit Profile</span>: null}
-                {seller ? <span>Cart</span>:null}
-                {buyer ? <span>New Product</span>:null}
+                {anon ? <span>|  Login</span> :null}
+                {anon ? <span> |  Register </span>:null}
+                {seller ? <span>|  Logout</span>: null}
+                {seller ? <span>|  Edit Profile </span>: null}
+                {seller ? <span>|  Cart</span>:null}
+                {buyer ? <span>|  New Product </span>:null}
             </div>
 
         </div>
