@@ -2,15 +2,32 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 30vh;
-  background-color: #291306;
+  max-width: 100%;
+  height: 25vh;
+  overflow: hidden;
+  background-color: #67c5dd;
   position: relative;
 }
 
 .head .title {
-  margin-top: 1em;
-  margin-left: 1em;
-  position: inherit;
+  right: 1em;
+  top: 1.25em;
+  position: absolute;
+  font-family: 'Indie Flower', cursive;
+  font-size: 3em;
+}
+
+.head .sub-title {
+  font-family: 'Indie Flower', cursive;
+  position: absolute;
+  top: 4em;
+  right: 2em;
+}
+
+.head .fire-hazard {
+  top: -438px;
+  opacity: 95%;
+  position: absolute;
 }
 
 .head .log-reg {
@@ -19,15 +36,9 @@
 }
 
 .nav-bar {
-  height: 60vh;
-  width: 10vw;
-  background-color: #082b12;
-  color: #178b69;
-  position: relative;
-}
-
-.nav-bar .bm-nav-item {
-  margin-top: 10px;
+  width: 100vw;
+  background: #67c5dd;
+  height: 10vh;
 }
 
 .book-card {
@@ -36,11 +47,11 @@
 }
 
 .book-card p {
-  color: #178b69;
+  color: #091931;
 }
 
 .book-card .bc-part {
-  background-color: #291306;
+  background-color: #c09e8a;
 }
 
 .book-card .bc-part img {

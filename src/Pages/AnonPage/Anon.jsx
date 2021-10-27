@@ -6,13 +6,15 @@ import NavBar from '../../Components/NavBar/NavBar'
 class Anon extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+
+         }
     }
     render() { 
         return ( 
             <>
             <Header />
-            <NavBar />
+            <NavBar currentPage={this.props.currentPage} />
             </>
          );
     }

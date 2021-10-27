@@ -1,33 +1,44 @@
 @import '../../Utilities/variables';
 
+//#region Header
 .head{
     top:0;
     left:0;
     width: 100vw;
-    height:30vh;
-    background-color: $dark-chocolate;
+    max-width: 100%;
+    height:25vh;
+    overflow: hidden;
+    background-color: $light-blue;
     position:relative;
     & .title{
-        margin-top: 1em;
-        margin-left: 1em;
-        position:inherit;
-        
+        right:1em;
+        top: 1.25em;
+        position: absolute; 
+        font-family: 'Indie Flower', cursive;  
+        font-size:3em;
+    }
+    & .sub-title{
+        font-family: 'Indie Flower', cursive; 
+        position: absolute;
+        top:4em;
+        right: 2em;
+    }
+    & .fire-hazard{
+        top:-438px;
+        opacity: 95%;
+        position: absolute;
     }
     & .log-reg{
         margin-top: 8em;
         position:inherit;
     }
 }
+//#endregion
 
 .nav-bar{
-    height: 60vh;
-    width: 10vw;
-    background-color: $dark-green;
-    color: $teal;
-    position:relative;
-    & .bm-nav-item{
-        margin-top: 10px;
-    }
+    width: 100vw;
+    background: $light-blue;
+    height: 10vh;
 }
 //#endregion
 
@@ -36,10 +47,10 @@
     height: 20vh;
     width:5vw;
     & p{
-        color:$teal;
+        color:$dark-blue;
     }
     & .bc-part{
-        background-color: $dark-chocolate;
+        background-color: $light-brown;
     }
     & .bc-part img{
         object-fit: fill;
