@@ -15,7 +15,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
-import SearchBar from './Components/SearchBar/SearchBar'
+// import SearchBar from './Components/SearchBar/SearchBar'
 
 
 class App extends Component {
@@ -189,10 +189,6 @@ deleteBook = async () =>{
         </div>
         <Row>
           <Col><Header/></Col>
-        </Row>
-        <Row>
-          <NavBar/>
-          <SearchBar formSubmission={this.getBooks}/>
         </Row>
         <Row>
           <Col sm={3}><NavBar/></Col>
