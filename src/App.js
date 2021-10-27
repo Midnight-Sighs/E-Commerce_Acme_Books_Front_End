@@ -41,7 +41,7 @@ class App extends Component {
 };
 
 login = async (login) => {
-    let response = await axios.post('https://localhost:44394/api/authentication/', login);
+    let response = await axios.post('https://localhost:44394/api/authentication/login', login);
     if (response === undefined) {
       this.setState({});
     } else {
