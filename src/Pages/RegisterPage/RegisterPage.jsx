@@ -9,7 +9,7 @@ class RegisterPage extends Component {
             password: "",
             firstname: "",
             lastname: "",
-            email: "",
+            Email: "",
             street: "",
             city: "",
             state: "",
@@ -27,15 +27,15 @@ class RegisterPage extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const user = {
-            username: this.state.username,
-            password: this.state.password,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            street: this.state.street,
-            city: this.state.city,
-            state: this.state.city,
-            zip: this.state.zip
+            UserName: this.state.username,
+            Password: this.state.password,
+            FirstName: this.state.firstname,
+            LastName: this.state.lastname,
+            Email: this.state.email,
+            StreetAddress: this.state.street,
+            City: this.state.city,
+            State: this.state.state,
+            ZipCode: this.state.zip
 
         }
         console.log(user)
@@ -43,7 +43,7 @@ class RegisterPage extends Component {
         this.setState({
             username: "",
             password: "",
-            firstname: "",
+            FirstName: "",
             lastname: "",
             email: "",
             street: "",

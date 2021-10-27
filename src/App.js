@@ -26,7 +26,7 @@ class App extends Component {
 
   register = async (registerUser) => {
     console.log(registerUser);
-    let response = await axios.post('http://localhost:62321/api/authentication', registerUser);
+    let response = await axios.post('http://localhost:62321/api/users/create', registerUser);
     console.log(response.data);
     if (response === undefined) {
       this.setState({});
