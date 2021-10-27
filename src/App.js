@@ -97,7 +97,6 @@ getCurrentUser = async () => {
   }
 };
 
-<<<<<<< HEAD
 getShoppingCart = async () =>{
   const response = await axios.get('http://localhost:62321/api/shoppingCart');
   this.setState({
@@ -171,17 +170,6 @@ deleteBook = async () =>{
 
   })
 }
-=======
-logoutUser = () => {
-  localStorage.removeItem('token');
-  window.location = "/";
-  this.setState({
-    loggedIn: false,
-    currentUser: [],
-  })
-}
-
->>>>>>> 6ec8ef05c2948c40a25b0eefd3fe9884dd826fd5
 
 
   render() {
@@ -202,14 +190,11 @@ logoutUser = () => {
           <Col><Header/></Col>
         </Row>
         <Row>
-<<<<<<< Updated upstream
           <NavBar/>
-=======
           <SearchBar formSubmission={this.getBooks}/>
         </Row>
         <Row>
           <Col sm={3}><NavBar/></Col>
->>>>>>> Stashed changes
           
           <Col sm={12}>
             <Switch >                
