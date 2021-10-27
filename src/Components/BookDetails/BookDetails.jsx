@@ -8,7 +8,7 @@ function BookDetails(props) {
     
     return ( 
         <>
-        <div className= "main-body">
+        <div className= "main-body-details">
             <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className = "row opac">
                     <div className="col-1"></div>

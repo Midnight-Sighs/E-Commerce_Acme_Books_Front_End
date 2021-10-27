@@ -1,5 +1,13 @@
 @import '../../Utilities/variables';
 
+.body-bg-img{
+    background-repeat:no-repeat;
+    background-color: $light-blue;
+    position:contain;
+    z-index: -1;
+    background-size: 100%;
+}
+
 //#region Header
 .head{
     top:0;
@@ -54,26 +62,24 @@
 //#region BookCard Component
 .book-card{
     height: 20vh;
-    width:5vw;
     & p{
         color:$dark-blue;
+        font-size: 1.5em;
     }
     & .bc-part{
         background-color: $light-brown;
     }
     & .bc-part img{
+        height: 50vh;
+        width: 100%;
         object-fit: fill;
     }
 }
-.bc-img{
-    height:20vh;
-    top:0;
-    left:0;
-}
+
 //#endregion
 
-//#region Body Background Image
-.main-body{
+//#region Detail Page Body
+.main-body-details{
     width:100%;
 }
 .magic-book{
@@ -107,7 +113,6 @@
 }
 //#endregion
 
-
 //#region Animated Book
 // .book{ 
 //     display: flex; 
@@ -135,4 +140,11 @@
 //     position: relative; 
 //     position: absolute; 
 // } 
+//#endregion
+
+//#region Main Shop Page
+.main-body-row{
+    background-color: $light-blue;
+}
+
 //#endregion

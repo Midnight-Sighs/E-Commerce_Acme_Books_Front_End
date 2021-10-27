@@ -7,15 +7,16 @@ const BookCard=(props)=> {
         <>
             <div className="container book-card">
                 <div className="row">
-                    <div className="col-2 bc-part">
-                        <img className="bc-img" src={PlaceholderCover}></img>
-                    </div>
-                    <div className="col-2 bc-part">
-                        <p>
-                        Title{/*props.book.title*/}
-                        <br />Author{/*props.book.author*/}
-                        <br />Price {/*props.book.price*/}
-                        </p>
+                    <div className="col-3">
+                        <div className="row bc-part">
+                            <p>
+                            Title{/*props.book.title*/}
+                            <br />Author{/*props.book.author*/}
+                            <br />Price {/*props.book.price*/}
+                            <br />Details (Link to detail page))
+                            </p>
+                        </div>
+                        <img src={PlaceholderCover}></img>
                     </div>
                     <div className="col-8"></div>
                 </div>
