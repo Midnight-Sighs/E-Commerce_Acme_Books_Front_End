@@ -1,3 +1,11 @@
+.body-bg-img {
+  background-repeat: no-repeat;
+  background-color: #67c5dd;
+  position: contain;
+  z-index: -1;
+  background-size: 100%;
+}
+
 .head {
   top: 0;
   left: 0;
@@ -53,11 +61,11 @@
 
 .book-card {
   height: 20vh;
-  width: 5vw;
 }
 
 .book-card p {
   color: #091931;
+  font-size: 1.5em;
 }
 
 .book-card .bc-part {
@@ -65,17 +73,13 @@
 }
 
 .book-card .bc-part img {
+  height: 50vh;
+  width: 100%;
   -o-object-fit: fill;
      object-fit: fill;
 }
 
-.bc-img {
-  height: 20vh;
-  top: 0;
-  left: 0;
-}
-
-.main-body {
+.main-body-details {
   width: 100%;
 }
 
@@ -113,5 +117,9 @@
   color: #091931;
   font-size: 2em;
   font-weight: 600;
+}
+
+.main-body-row {
+  background-color: #67c5dd;
 }
 /*# sourceMappingURL=Components.css.map */
