@@ -1,0 +1,48 @@
+@import '../../Utilities/variables';
+
+.bod-bg-img{
+    background-repeat:no-repeat;
+    background-color: $light-blue;
+    position:contain;
+    z-index: -2;
+    background-size: 100%;
+    height: 100vh;
+}
+
+.basic-btns{
+    background-color: $light-blue;
+    color: $dark-blue;
+    font-size: 2em;
+    border:none;
+    border-radius: 10px;
+    & :hover{
+        background-color: $dark-blue;
+        color: $light-blue;
+    }
+}
+
+.login-page-row{
+    & button{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 11em;
+    }
+}
+
+.login-form{
+    margin-top: 9em;
+    width: 50vw;
+    background-color: $light-brown-opacity;
+} 
+.login-label, .reg-label{
+    color: $dark-blue;
+    font-size: 2em;
+    margin-left: 1em;
+}
+.login-field, .reg-field{
+    background-color: $light-blue-opacity;
+    border: 2px solid $dark-blue;
+    width: 25vw;
+    font-size: 2em;
+    margin-left: 2em;
+}

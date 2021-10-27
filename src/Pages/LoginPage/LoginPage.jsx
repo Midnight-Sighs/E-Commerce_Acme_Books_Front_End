@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col } from "react-bootstrap";
+import MagicBook from '../../Images/BookCrystalBall.png';
+import '../Styles/Pages.css'
 
 class LoginPage extends Component {
     constructor(props){
@@ -32,26 +34,40 @@ class LoginPage extends Component {
 
     render(){
         return(
-            <div class="col-sm">
-                <Form onSubmit ={this.handleSubmit}>
-                    <Form.Group className="mb-3" controlId="Login">
-                    <Row>
-                        <Col sm={3}>
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control type='text' name='username' onChange={this.handleChange} value={this.state.username}/>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={3}>
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
-                        </Col>
-                    </Row>
-                    
-                    </Form.Group>
-                    <Button variant="outline-primary" type='submit'>Login</Button>
-                </Form>
+            <>
+            <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+                <div className ="row login-page-row">    
+                    <div className="col-5 mx-5"> 
+                        <br />INSERT IMAGE HERE
+                        <br />INSERT IMAGE HERE
+                        <br />INSERT IMAGE HERE
+                        <br />INSERT IMAGE HERE
+                        <br />INSERT IMAGE HERE
+                        <br />INSERT IMAGE HERE
+                    </div>
+                    <div className="col-6">
+                        <Form className = "login-form" onSubmit ={this.handleSubmit}>
+                            <Form.Group className="mb-3" controlId="Login">
+                            <Row>
+                                <Col sm={3}>
+                                    <Form.Label className="login-label">Username</Form.Label>
+                                    <Form.Control className="login-field" type='text' name='username' onChange={this.handleChange} value={this.state.username}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={3}>
+                                    <Form.Label className="login-label">Password</Form.Label>
+                                    <Form.Control className="login-field" type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
+                                </Col>
+                            </Row>
+                            
+                            </Form.Group>
+                            <button className="basic-btns" type='submit'>Login</button>
+                        </Form>
+                    </div>
+                </div>
             </div>
+            </>
         );
     }
 }

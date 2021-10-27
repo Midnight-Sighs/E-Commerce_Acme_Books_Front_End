@@ -8,14 +8,14 @@ function BookDetails(props) {
     
     return ( 
         <>
+        <div className= "main-body-details">
             <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className = "row opac">
                     <div className="col-1"></div>
                     <div className = "col-3">
                         <img src={PlaceHolder01}></img>
                     </div>
-                    <div className="col-1"></div>
-                    <div className = "col-6 book-details-box">
+                    <div className = "col-7 book-details-box">
                         <div className="row">
                             <p className ="book-title">props.book.title</p>
                             <p className ="book-author"> written by props.book.author</p>
@@ -40,6 +40,7 @@ function BookDetails(props) {
                     <div className="col-1"></div>
                 </div>
             </div>
+        </div>
         </>
      );
 }

@@ -1,5 +1,14 @@
 @import '../../Utilities/variables';
 
+.body-bg-img{
+    background-repeat:no-repeat;
+    background-color: $light-blue;
+    position:contain;
+    z-index: -1;
+    background-size: 100%;
+    height: 100vh;
+}
+
 //#region Header
 .head{
     top:0;
@@ -10,7 +19,7 @@
     background-color: $light-blue;
     position:relative;
     & .title{
-        right:1em;
+        right:2em;
         top: 1.25em;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
@@ -20,7 +29,7 @@
         font-family: 'Indie Flower', cursive; 
         position: absolute;
         top:4em;
-        right: 2em;
+        right: 4em;
     }
     & .fire-hazard{
         top:-438px;
@@ -54,25 +63,26 @@
 //#region BookCard Component
 .book-card{
     height: 20vh;
-    width:5vw;
     & p{
         color:$dark-blue;
+        font-size: 1.5em;
     }
     & .bc-part{
         background-color: $light-brown;
     }
     & .bc-part img{
+        height: 50vh;
+        width: 100%;
         object-fit: fill;
     }
 }
-.bc-img{
-    height:20vh;
-    top:0;
-    left:0;
-}
+
 //#endregion
 
-//#region Body Background Image
+//#region Detail Page Body
+.main-body-details{
+    width:100%;
+}
 .magic-book{
     background-repeat:no-repeat;
     background-color: $light-blue;
@@ -104,7 +114,6 @@
 }
 //#endregion
 
-
 //#region Animated Book
 // .book{ 
 //     display: flex; 
@@ -132,4 +141,11 @@
 //     position: relative; 
 //     position: absolute; 
 // } 
+//#endregion
+
+//#region Main Shop Page
+.main-body-row{
+    background-color: $light-blue;
+}
+
 //#endregion

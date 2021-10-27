@@ -12,8 +12,7 @@ class BookDetailPage extends Component {
     render() { 
         return ( 
             <>
-            <Header />
-            <NavBar />
+            
             <BookDetails />
             </>
          );

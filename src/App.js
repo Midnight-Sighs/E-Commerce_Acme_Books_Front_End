@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './Styles/App.css';
-import { BrowserRouter as Switch, Route, Router} from "react-router-dom";
-import createHistory from 'history/createBrowserHistory';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar'
@@ -9,9 +14,9 @@ import Header from './Components/Header/Header'
 import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
+import EditProfile from './Pages/EditProfile/EditProfile'
 
 
-const history = createHistory();
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,15 +25,18 @@ class App extends Component {
       user: [],
       currentUser: [],
       registeredUser: [],
-      books: [],
-      reviews: [],
-      shoppinCart:[]
+      loggedIn: false
     };
 
   };
-//http://localhost:62321/api/authentication
-//http://localhost:62321/api/users/create
-//https://localhost:44394/api/authentication/
+  // history = useHistory();
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.loggedIn !== this.state.loggedIn) {
+  //     history.push("/")
+  //   }  
+  // }
+
+
   register = async (registerUser) => {
     console.log(registerUser);
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
@@ -41,27 +49,39 @@ class App extends Component {
       });
       console.log(registerUser);
     }
-};
+  }
+  catch(err) {
+    console.log(err);
+  }
 
-login = async (login) => {
-    let response = await axios.post('https://localhost:44394/api/authentication/login', login);
-    if (response === undefined) {
-      this.setState({});
-    } else {
-      this.setState({
-        token: response.data,
-        loggedIn: !this.state.loggedIn,
-      });
-      localStorage.setItem('token', this.state.token.token);
-      console.log(this.state.token.token);
-      console.log(this.state.user);
+  loginUser = async(login) => {
+    try{
+      let response = await axios.post('https://localhost:44394/api/authentication/login', login);
+      if (response === undefined) {
+        this.setState({});
+      } 
+      else {
+        this.setState({
+          token: response.data,
+          loggedIn: !this.state.loggedIn,
+        });
+        localStorage.setItem('token', this.state.token.token);
+        console.log(this.state.token.token);
+        console.log(this.state.user);
+      }
     }
-  };
+    catch(err) {
+      console.log(err);
+    }
+    
+
+  }
+
 
 getCurrentUser = async () => {
   try{
     const jwt = localStorage.getItem('token');
-    let response = await axios.get('http://localhost:62321/api/users/b', {headers: {Authorization: 'Bearer ' + jwt}});
+    let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
       this.setState({});
     } 
@@ -77,6 +97,7 @@ getCurrentUser = async () => {
   }
 };
 
+<<<<<<< HEAD
 getShoppingCart = async () =>{
   const response = await axios.get('http://localhost:62321/api/shoppingCart');
   this.setState({
@@ -150,25 +171,53 @@ deleteBook = async () =>{
 
   })
 }
+=======
+logoutUser = () => {
+  localStorage.removeItem('token');
+  window.location = "/";
+  this.setState({
+    loggedIn: false,
+    currentUser: [],
+  })
+}
+
+>>>>>>> 6ec8ef05c2948c40a25b0eefd3fe9884dd826fd5
+
 
   render() {
-
+    console.log(this.state.token.token);
+    console.log(this.state.user);
+    console.log(this.state.loggedIn);
     return (
       <Container fluid>
+        <div>
+        <Link to="/"> ::Home::  </Link>
+        <Link to="/login">  ::Login::  </Link>
+        <Link to="/logout">  ::Logout::  </Link> {/* <a href="/logout"> Logout </a> */}
+          <Link to="/register">  ::Register::  </Link>
+          <Link to="/profile/edit">  ::Profile edit::  </Link>
+          <Link to="/books">  ::view books::  </Link>
+        </div>
         <Row>
           <Col><Header/></Col>
         </Row>
         <Row>
+<<<<<<< Updated upstream
+          <NavBar/>
+=======
+          <SearchBar formSubmission={this.getBooks}/>
+        </Row>
+        <Row>
           <Col sm={3}><NavBar/></Col>
+>>>>>>> Stashed changes
           
-          <Col sm={9}>
-          <Router history={history} forceRefresh={true}>
+          <Col sm={12}>
             <Switch >                
               <Route exact path="/" render={() => <Anon/>}/>
               
               <Route
               exact path='/login'
-              render={() => <LoginPage login={this.login} currentUser={this.getCurrentUser}/>}
+              render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
               <Route
@@ -176,9 +225,13 @@ deleteBook = async () =>{
               render={() => <RegisterPage register={this.register}/>}
               />
 
+              <Route
+              exact path='/profile/edit'
+              render={() => <EditProfile user={this.state.user}/>}
+              />
+
             </Switch>
-          </Router>
-          </Col>
+           </Col>
         </Row>
 
     </Container>

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
+import MainBody from '../../Components/MainShop/MainBody'
 //import axios from 'axios';
 //import LoginPage from '../LoginPage/LoginPage'
-import Header from '../../Components/Header/Header'
-import NavBar from '../../Components/NavBar/NavBar'
-import MainBody from '../../Components/MainShop/MainBody'
-import BookDetails from '../../Components/BookDetails/BookDetails'
-
 
 class Anon extends Component {
     constructor(props) {
@@ -17,7 +13,7 @@ class Anon extends Component {
     render() { 
         return ( 
             <>
-            <p>User not logged in</p>
+                <MainBody />
             </>
          );
     }
