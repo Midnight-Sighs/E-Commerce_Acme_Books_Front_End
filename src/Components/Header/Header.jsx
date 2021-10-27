@@ -12,7 +12,7 @@ function Header() {
                 </div>
                 <div className="col-6">{/*Search Bar Here*/}</div>
                 <div className="col-3 log-reg">
-                    <p>Login   |   Register</p>
+                    <p><a href='/login'>Login</a>   |   Register</p>
                 </div>
                 
             </div>

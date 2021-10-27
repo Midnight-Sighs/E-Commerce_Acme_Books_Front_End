@@ -36,15 +36,18 @@ class LoginPage extends Component {
                 <Form onSubmit ={this.handleSubmit}>
                     <Form.Group className="mb-3" controlId="Login">
                     <Row>
-                    <Col>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type='text' name='username' onChange={this.handleChange} value={this.state.username}/>
-                    </Col>
-                    <Col>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
-                    </Col>
+                        <Col sm={3}>
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type='text' name='username' onChange={this.handleChange} value={this.state.username}/>
+                        </Col>
                     </Row>
+                    <Row>
+                        <Col sm={3}>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
+                        </Col>
+                    </Row>
+                    
                     </Form.Group>
                     <Button variant="outline-primary" type='submit'>Login</Button>
                 </Form>
