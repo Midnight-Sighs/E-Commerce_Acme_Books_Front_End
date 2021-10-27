@@ -15,7 +15,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
-import MainBody from './Components/MainShop/MainBody'
+import MainShop from './Pages/MainShop/MainShop'
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 
@@ -212,7 +212,7 @@ deleteBook = async () =>{
               />
               <Route
               exact path='/books'
-              render={() => <MainBody props={this.state.books}/>}
+              render={() => <MainShop props={this.state.books}/>}
               />
 
             </Switch>

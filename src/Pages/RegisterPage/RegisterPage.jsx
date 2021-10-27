@@ -58,9 +58,6 @@ class RegisterPage extends Component {
     render(){
         return(
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
-                
-
-                
                 <div>
                     <Form onSubmit ={this.handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicRegister">
