@@ -10,6 +10,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
+import MainShop from './Pages/MainShop/MainShop'
 
 
 const history = createHistory();
@@ -117,9 +118,11 @@ logoutUser = () => {
           
           <Col sm={12}>
           <Router history={history} >
-            <Switch >                
-              <Route exact path="/" render={() => <Anon/>}/>
-              
+            <Switch >   
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainShop />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {/* <Route exact path="/" render={() => <Anon/>}/>
+              <Route exact path="/" render={() => <MainShop/>}/> */}
+
               <Route
               exact path='/login'
               render={() => <LoginPage  login={this.loginUser} currentUser={this.getCurrentUser}/>}
