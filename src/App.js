@@ -15,7 +15,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
-import SearchBar from './Components/SearchBar/SearchBar'
+// import SearchBar from './Components/SearchBar/SearchBar'
 
 
 class App extends Component {
@@ -26,7 +26,8 @@ class App extends Component {
       user: [],
       currentUser: [],
       registeredUser: [],
-      loggedIn: false
+      loggedIn: false,
+      books:[]
     };
 
   };
@@ -192,7 +193,7 @@ deleteBook = async () =>{
         </Row>
         <Row>
           <NavBar/>
-          <SearchBar formSubmission={this.getBooks}/>
+          {/* <SearchBar formSubmission={this.getBooks}/> */}
         </Row>
         <Row>
           <Col sm={3}><NavBar/></Col>
