@@ -9,6 +9,7 @@ import Header from './Components/Header/Header'
 import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
+import SearchBar from './Components/SearchBar/SearchBar';
 
 
 const history = createHistory();
@@ -83,6 +84,9 @@ getCurrentUser = async () => {
           <Col><Header/></Col>
         </Row>
         <Row>
+          <SearchBar />
+        </Row>
+        <Row>
           <Col sm={3}><NavBar/></Col>
           
           <Col sm={9}>
@@ -99,7 +103,6 @@ getCurrentUser = async () => {
               exact path='/register'
               render={() => <RegisterPage register={this.register}/>}
               />
-
             </Switch>
           </Router>
           </Col>
