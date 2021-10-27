@@ -17,7 +17,7 @@ class Anon extends Component {
     render() { 
         return ( 
             <>
-            <p>User not logged in</p>
+            
             </>
          );
     }

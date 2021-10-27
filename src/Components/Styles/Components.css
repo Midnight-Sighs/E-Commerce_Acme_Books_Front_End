@@ -9,7 +9,7 @@
 }
 
 .head .title {
-  right: 1em;
+  right: 2em;
   top: 1.25em;
   position: absolute;
   font-family: 'Indie Flower', cursive;
@@ -20,7 +20,7 @@
   font-family: 'Indie Flower', cursive;
   position: absolute;
   top: 4em;
-  right: 2em;
+  right: 4em;
 }
 
 .head .fire-hazard {
@@ -73,6 +73,10 @@
   height: 20vh;
   top: 0;
   left: 0;
+}
+
+.main-body {
+  width: 100%;
 }
 
 .magic-book {

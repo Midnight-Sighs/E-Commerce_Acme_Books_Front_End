@@ -83,9 +83,9 @@ getCurrentUser = async () => {
           <Col><Header/></Col>
         </Row>
         <Row>
-          <Col sm={3}><NavBar/></Col>
+          <NavBar/>
           
-          <Col sm={9}>
+          <Col sm={12}>
           <Router history={history} forceRefresh={true}>
             <Switch >                
               <Route exact path="/" render={() => <Anon/>}/>

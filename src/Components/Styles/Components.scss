@@ -10,7 +10,7 @@
     background-color: $light-blue;
     position:relative;
     & .title{
-        right:1em;
+        right:2em;
         top: 1.25em;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
@@ -20,7 +20,7 @@
         font-family: 'Indie Flower', cursive; 
         position: absolute;
         top:4em;
-        right: 2em;
+        right: 4em;
     }
     & .fire-hazard{
         top:-438px;
@@ -73,6 +73,9 @@
 //#endregion
 
 //#region Body Background Image
+.main-body{
+    width:100%;
+}
 .magic-book{
     background-repeat:no-repeat;
     background-color: $light-blue;
