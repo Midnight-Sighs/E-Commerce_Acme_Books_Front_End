@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+import LoginPage from '../LoginPage/LoginPage'
 import Header from '../../Components/Header/Header'
 import NavBar from '../../Components/NavBar/NavBar'
+
 
 class Anon extends Component {
     constructor(props) {
@@ -13,6 +15,7 @@ class Anon extends Component {
             <>
             <Header />
             <NavBar />
+            <LoginPage/>
             </>
          );
     }
