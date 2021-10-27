@@ -23,10 +23,12 @@ class App extends Component {
     };
 
   };
-
+//http://localhost:62321/api/authentication
+//http://localhost:62321/api/users/create
+//https://localhost:44394/api/authentication/
   register = async (registerUser) => {
     console.log(registerUser);
-    let response = await axios.post('http://localhost:62321/api/users/create', registerUser);
+    let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
     console.log(response.data);
     if (response === undefined) {
       this.setState({});
@@ -39,7 +41,7 @@ class App extends Component {
 };
 
 login = async (login) => {
-    let response = await axios.post('http://localhost:62321/api/authentication/login/', login);
+    let response = await axios.post('https://localhost:44394/api/authentication/', login);
     if (response === undefined) {
       this.setState({});
     } else {
@@ -57,7 +59,7 @@ login = async (login) => {
 getCurrentUser = async () => {
   try{
     const jwt = localStorage.getItem('token');
-    let response = await axios.get('http://localhost:62321/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
+    let response = await axios.get('http://localhost:62321/api/users/b', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
       this.setState({});
     } 
@@ -91,7 +93,7 @@ getCurrentUser = async () => {
               
               <Route
               exact path='/login'
-              render={() => <LoginPage/>}
+              render={() => <LoginPage login={this.login} currentUser={this.getCurrentUser}/>}
               />
 
               <Route
