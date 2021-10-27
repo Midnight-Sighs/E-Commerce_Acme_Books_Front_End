@@ -10,10 +10,11 @@ const BookCard=(props)=> {
                     <div className="col-3">
                         <div className="row bc-part">
                             <p>
-                            Title{/*props.book.title*/}
-                            <br />Author{/*props.book.author*/}
-                            <br />Price {/*props.book.price*/}
                             {/* <br />Details {props.anon ? "View Book Details" : "Please login to see Book details" }) */}
+                            Title {props.book.title}
+                            <br />Author {props.book.book.author}
+                            <br />Price {props.book.book.price}
+                            <br />Details (Link to detail page)
                             </p>
                         </div>
                         <img src={PlaceholderCover}></img>
