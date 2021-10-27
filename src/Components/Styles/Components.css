@@ -98,4 +98,43 @@
   -webkit-box-shadow: 0 0 5px 5px #091931;
           box-shadow: 0 0 5px 5px #091931;
 }
+
+.book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.cover-front, .cover-back {
+  height: 300px;
+  width: 250px;
+  background: purple;
+  border-radius: 2px 20px 20px 2px;
+  position: absolute;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+}
+
+.page {
+  height: 280px;
+  width: 240px;
+  background: white;
+  position: relative;
+  position: absolute;
+}
+
+.cover-front:hover {
+  -webkit-transform: rotateX(10deg) rotateY(180deg);
+          transform: rotateX(10deg) rotateY(180deg);
+}
+
+.cover-front {
+  z-index: 1;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
 /*# sourceMappingURL=Components.css.map */
