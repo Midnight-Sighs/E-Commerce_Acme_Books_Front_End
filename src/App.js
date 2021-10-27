@@ -29,6 +29,12 @@ class App extends Component {
     };
 
   };
+  // history = useHistory();
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.loggedIn !== this.state.loggedIn) {
+  //     history.push("/")
+  //   }  
+  // }
 
 
   register = async (registerUser) => {
@@ -62,7 +68,6 @@ class App extends Component {
         localStorage.setItem('token', this.state.token.token);
         console.log(this.state.token.token);
         console.log(this.state.user);
-        this.routeChange
       }
     }
     catch(err) {
@@ -71,11 +76,7 @@ class App extends Component {
     
 
   }
-routeChange=()=> {
-    let path = `/profile/edit`;
-    let history = useHistory();
-    history.push(path);
-  }
+
 
 getCurrentUser = async () => {
   try{
