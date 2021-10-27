@@ -15,6 +15,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
+import MainBody from './Components/MainShop/MainBody'
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 
@@ -32,11 +33,6 @@ class App extends Component {
 
   };
   // history = useHistory();
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.loggedIn !== this.state.loggedIn) {
-  //     history.push("/")
-  //   }  
-  // }
 
 
   register = async (registerUser) => {
@@ -51,9 +47,6 @@ class App extends Component {
       });
       console.log(registerUser);
     }
-  }
-  catch(err) {
-    console.log(err);
   }
 
   loginUser = async(login) => {
@@ -97,6 +90,7 @@ getCurrentUser = async () => {
   catch(err) {
     console.log(err);
   }
+  this.getBooks()
 };
 
 getShoppingCart = async () =>{
@@ -142,7 +136,7 @@ deleteReview = async () =>{
   })
 }
 getBooks = async () =>{
-  const response = await axios.get('http://localhost:62321/api/book');
+  const response = await axios.get('https://localhost:44394/api/book');
   this.setState({
     books: response.data
   })
@@ -178,6 +172,7 @@ deleteBook = async () =>{
     console.log(this.state.token.token);
     console.log(this.state.user);
     console.log(this.state.loggedIn);
+    console.log(this.state.books)
     return (
       <Container fluid>
         <div>
@@ -216,6 +211,10 @@ deleteBook = async () =>{
               exact path='/profile/edit'
               render={() => <EditProfile user={this.state.user}/>}
               />
+              <Route
+              exact path='/books'
+              render={() => <MainBody props={this.state.books}/>}
+              />
 
             </Switch>
            </Col>
@@ -223,7 +222,7 @@ deleteBook = async () =>{
 
     </Container>
   );
-  }
+  };
 }
  
 export default App;
