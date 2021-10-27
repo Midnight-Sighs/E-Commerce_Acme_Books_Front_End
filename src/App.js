@@ -52,7 +52,6 @@ login = async (login) => {
       localStorage.setItem('token', this.state.token.token);
       console.log(this.state.token.token);
       console.log(this.state.user);
-      this.productTable();
     }
   };
 
