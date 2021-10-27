@@ -16,9 +16,13 @@ function BookDetails(props) {
                     </div>
                     <div className="col-1"></div>
                     <div className = "col-6 book-details-box">
-                        <p className ="book-title">props.book.title</p>
-                        <p className ="book-author"> written by props.book.author</p>
-                        <p className ="book-description">props.book.description</p>
+                        <div className="row">
+                            <p className ="book-title">props.book.title</p>
+                            <p className ="book-author"> written by props.book.author</p>
+                            <p className ="book-description">props.book.description</p>
+                        </div>
+                    </div>
+                    {/* <div className="row">
                         <div> 
                             <div class="book"> 
                                 <div class="cover-back"> 
@@ -32,7 +36,7 @@ function BookDetails(props) {
                                 </div> 
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="col-1"></div>
                 </div>
             </div>

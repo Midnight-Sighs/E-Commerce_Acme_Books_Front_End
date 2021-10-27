@@ -99,42 +99,15 @@
           box-shadow: 0 0 5px 5px #091931;
 }
 
-.book {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
+.magic-book p {
+  color: #091931;
+  font-size: 1.5em;
+  font-weight: 400;
 }
 
-.cover-front, .cover-back {
-  height: 300px;
-  width: 250px;
-  background: purple;
-  border-radius: 2px 20px 20px 2px;
-  position: absolute;
-  -webkit-transform-origin: center left;
-          transform-origin: center left;
-}
-
-.page {
-  height: 280px;
-  width: 240px;
-  background: white;
-  position: relative;
-  position: absolute;
-}
-
-.cover-front:hover {
-  -webkit-transform: rotateX(10deg) rotateY(180deg);
-          transform: rotateX(10deg) rotateY(180deg);
-}
-
-.cover-front {
-  z-index: 1;
-  -webkit-transition: all 3s;
-  transition: all 3s;
+.magic-book .book-title, .magic-book .book-author {
+  color: #091931;
+  font-size: 2em;
+  font-weight: 600;
 }
 /*# sourceMappingURL=Components.css.map */
