@@ -9,31 +9,6 @@
     height: 100vh;
 }
 
-.login-page-row{
-    & .login-form{
-        margin-top: 9em;
-        width: 50vw;
-        background-color: $light-brown-opacity;
-    } 
-    & .login-label{
-        color: $dark-blue;
-        font-size: 2em;
-        margin-left: 1em;
-    }
-    & .login-field{
-        background-color: $light-blue-opacity;
-        border: 2px solid $dark-blue;
-        width: 25vw;
-        font-size: 2em;
-        margin-left: 2em;
-    }
-    & button{
-        margin-top: 1em;
-        margin-bottom: 1em;
-        margin-left: 11em;
-    }
-}
-
 .basic-btns{
     background-color: $light-blue;
     color: $dark-blue;
@@ -44,4 +19,30 @@
         background-color: $dark-blue;
         color: $light-blue;
     }
+}
+
+.login-page-row{
+    & button{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 11em;
+    }
+}
+
+.login-form{
+    margin-top: 9em;
+    width: 50vw;
+    background-color: $light-brown-opacity;
+} 
+.login-label, .reg-label{
+    color: $dark-blue;
+    font-size: 2em;
+    margin-left: 1em;
+}
+.login-field, .reg-field{
+    background-color: $light-blue-opacity;
+    border: 2px solid $dark-blue;
+    width: 25vw;
+    font-size: 2em;
+    margin-left: 2em;
 }

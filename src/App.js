@@ -122,7 +122,7 @@ logoutUser = () => {
               
               <Route
               exact path='/login'
-              render={() => <LoginPage {...props} login={this.loginUser} currentUser={this.getCurrentUser}/>}
+              render={() => <LoginPage  login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
               <Route
