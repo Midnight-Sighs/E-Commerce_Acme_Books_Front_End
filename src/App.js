@@ -15,7 +15,7 @@ import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
-// import SearchBar from './Components/SearchBar/SearchBar'
+import MainShop from './Pages/MainShop/MainShop'
 
 
 class App extends Component {
@@ -191,12 +191,15 @@ deleteBook = async () =>{
           <Col><Header/></Col>
         </Row>
         <Row>
-          <Col sm={3}><NavBar/></Col>
+          <NavBar loggedIn={this.state.loggedIn}/>
           
           <Col sm={12}>
-            <Switch >                
-              <Route exact path="/" render={() => <Anon/>}/>
-              
+          <Router history={history} >
+            <Switch >   
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainShop />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {/* <Route exact path="/" render={() => <Anon/>}/>
+              <Route exact path="/" render={() => <MainShop/>}/> */}
+
               <Route
               exact path='/login'
               render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
@@ -213,7 +216,8 @@ deleteBook = async () =>{
               />
 
             </Switch>
-           </Col>
+            </Router>
+          </Col>
         </Row>
 
     </Container>
