@@ -1,20 +1,25 @@
 import React, {useState, useEffect} from 'react'
+
 import PlaceHolder01 from '../../Images/PlaceHolder01.jpg'
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../Styles/Components.css'
 
 const BookDetails = (props)=> {
 
-    const[bookId, setbookId] = useState("")
-    const[bookRating, setRating] = useState([])
-    const[bookReview, setReview] = useState([])
+    //#region State/Hooks
+    const[singleBook, setSingleBook]=useState({})
+    const[bookId, setbookId] = useState("");
+    const[bookRating, setRating] = useState([]);
+    const[bookReview, setReview] = useState([]);
+    const[newReview, setNewReview] = useState("");
+    const[newRating, setNewRating] = useState(1);
 
     useEffect (() =>{
         filterReviews()
     }, [props])
 
     useEffect(() => {
-
+        setSingleBook(props.singleBook)
     }, [bookReview])
 
     const filterReviews = () =>{
@@ -31,6 +36,7 @@ const BookDetails = (props)=> {
         setReview(allRelevantReviews)
         })
     }
+    //#endregion
 
     return ( 
         <>
@@ -43,9 +49,9 @@ const BookDetails = (props)=> {
                     </div>
                     <div className = "col-7 book-details-box">
                         <div className="row">
-                            <p className ="book-title">{props.singleBook.title}</p>
-                            <p className ="book-author"> written by {props.singleBook.author}</p>
-                            <p className ="book-description">{props.singleBook.description}</p>
+                            <p className ="book-title">{singleBook.title}</p>
+                            <p className ="book-author"> written by {singleBook.author}</p>
+                            <p className ="book-description">{singleBook.description}</p>
                         </div>
                         <div className = "row">
                             <div className="col-12">
@@ -67,6 +73,21 @@ const BookDetails = (props)=> {
                         </div>
                     </div>
                     <div className="col-1"></div>
+                    <div className="row">
+                        <div className="col-12">
+                            <form >
+                                <select name="ratingOptions">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <input type="text" placeholder="Your review here..."></input>
+                                <button type="submit">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

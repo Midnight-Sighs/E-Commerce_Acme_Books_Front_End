@@ -141,9 +141,9 @@ getReviews = async () =>{
   })
 }
 postReview = async () =>{
-  const response = await axios.post('https://localhost:62321/api/reviews/create');
+  const response = await axios.post('https://localhost:44394/api/reviews/create');
   this.setState({
-
+    
   })
 }
 editReviews = async () =>{
