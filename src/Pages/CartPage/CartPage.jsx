@@ -2,32 +2,27 @@ import React, { Component } from 'react';
 import CartItem from '../../Components/CartItem/CartItem';
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css';
+import axios from 'axios';
 
 class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            shoppingCart: [{ title: "Test",
-            description: "Test descr",
-            price: "18.50",
-            quantity: "6",
-
-        
-            }],
-            quantity: 0,
-
+            quantity: 0
         }
     }
 
-    increaseQuantity = () => {
+    increaseQuantity = async (cartId, bookId) =>{
+        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/increase/');
         this.setState({
-            quantity: (this.state.quantity + 1)
+      
         })
     }
 
-    decreaseQuantity = () => {
+    decreaseQuantity = async (cartId, bookId) =>{
+        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/decrease/');
         this.setState({
-            quantity: (this.state.quantity - 1)
+      
         })
     }
 
@@ -49,7 +44,7 @@ class CartPage extends Component {
                         </div>
                         <div className="col-6">
                             <br />
-                            {this.state.shoppingCart.map((book) => {
+                            {this.props.shoppingCart.map((book) => {
                                 return (
                                     <CartItem book={book} increaseQuantity={this.increaseQuantity} decreaseQuantity={this.decreaseQuantity} key={book.bookId} />
                                 );

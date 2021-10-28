@@ -13,9 +13,9 @@ const CartItem = ({ book, increaseQuantity, decreaseQuantity }) => {
             </div>
             <div className="card-footer">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button onClick={ () => decreaseQuantity} type="button" class="btn btn-outline-primary">-</button>
+                    <button onClick={ () => decreaseQuantity(book.cartId, book.bookId)} type="button" class="btn btn-outline-primary">-</button>
                     <button type="button" class="btn btn-outline-primary">{book.quantity}</button>
-                    <button onClick={ () => increaseQuantity} type="button" class="btn btn-outline-primary">+</button>
+                    <button onClick={ () => increaseQuantity(book.cartId, book.bookId)} type="button" class="btn btn-outline-primary">+</button>
                 </div>
             </div>
         </div>
