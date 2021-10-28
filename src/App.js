@@ -249,19 +249,16 @@ logoutUser = () =>{
               exact path='/profile/edit'
               render={() => <EditProfile user={this.state.user}/>}
               />
-              <Route
-              exact path='/cart'
-              render={() => <CartPage />}
-              />
-              {/* <Route
-              exact path='/books'
-              render={() => <MainBody props={this.state.books}/>}
-              /> */}
-
+              
               <Route
               exact path='/cart'
               render={() => <CartPage shoppingCart={this.state.shoppingCart}/>}
               />
+              
+              {/* <Route
+              exact path='/books'
+              render={() => <MainBody props={this.state.books}/>}
+              /> */}
 
             </Switch>
             </Router>
