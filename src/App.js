@@ -42,8 +42,14 @@ class App extends Component {
   }
   componentDidMount() {
     this.getBooks();
-    this.getCurrentUserToken();
     this.getShoppingCart();
+    if(this.state.localToken){
+      this.getCurrentUserToken();
+    }
+    else {
+      this.setState({
+        loggedIn: false,
+      });}
   }
  
 
@@ -77,7 +83,10 @@ class App extends Component {
     }
       catch(err) {
       console.log(err);
-    }}
+    }
+    history.push("/");
+    history.go('/');
+  }
 
   getCurrentUserToken = async () => {
     console.log(localStorage.token)
@@ -193,15 +202,17 @@ deleteBook = async () =>{
   })
 }
 logoutUser = () =>{
-  window.location = "/";
+  localStorage.removeItem('token');
   this.setState({
     loggedIn: false,
     currentUser: []
   })
+  history.push("/");
 }
 
 
   render() {
+    console.log("am i logged in?" + this.state.loggedIn)
     return (
       <Container fluid>
         <Row>
