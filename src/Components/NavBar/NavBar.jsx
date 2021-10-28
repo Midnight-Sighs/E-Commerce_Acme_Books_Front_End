@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import '../Styles/Components.css'
+import {
+    Link
+  } from "react-router-dom";
 
 const NavBar = (props) =>{
 
@@ -13,11 +16,11 @@ const NavBar = (props) =>{
     }, [props])
 
     const checkPageType=(loggedIn)=>{
-        if(loggedIn == false ){
+        if(loggedIn === false ){
             setAnon(true);
             setSeller(false);
         }
-        if(loggedIn == true){
+        if(loggedIn === true){
             // setBuyer(true);
             setSeller(true);
             setAnon(false);
@@ -43,6 +46,7 @@ const NavBar = (props) =>{
                 {seller ? <span>|  <a href="/logout"> Logout </a></span>: null}
                 {seller ? <span>|  <a href="/profile/edit"> Edit Profile </a> </span>: null}
                 {seller ? <span>|  Cart</span>:null}
+                {/* <Link to="/books">  ::view books::  </Link> */}
                 {/* {buyer ? <span>|  New Product </span>:null} */}
             </div>
 

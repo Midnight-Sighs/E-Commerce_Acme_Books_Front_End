@@ -13,7 +13,8 @@ class Anon extends Component {
     render() { 
         return ( 
             <>
-                <MainBody anon={this.props.anon} />
+            THis is the anon lpage
+                {/* <MainBody anon={this.props.anon} /> */}
             </>
          );
     }
