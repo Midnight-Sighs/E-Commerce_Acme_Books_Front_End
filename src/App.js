@@ -32,13 +32,14 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
 
     if (this.state.token !== prevState.token) { // Set a new state if token change
-      console.log("starting componenet did mount")
+      console.log("starting componenet did update")
       this.getCurrentUserToken();
       this.getCurrentUser();
     }
   }
   componentDidMount() {
     this.getBooks();
+    this.getCurrentUserToken();
   }
  
 
