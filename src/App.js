@@ -15,6 +15,7 @@ import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
 import SearchBar from './Components/SearchBar/SearchBar';
+import Randy from './Pages/Randy/Randy'
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
@@ -215,6 +216,10 @@ logoutUser = () =>{
   })
   history.push("/");
 }
+goToRandy = () =>{
+  history.push("/Randy");
+  // history.go("/Randy")
+}
 
 
   render() {
@@ -223,7 +228,7 @@ logoutUser = () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link>
         </Row>
         <Row>
           <SearchBar formSubmission={this.searchBooks} />
@@ -268,6 +273,10 @@ logoutUser = () =>{
               exact path='/books'
               render={() => <MainBody props={this.state.books}/>}
               /> */}
+              <Route
+              exact path='/Randy'
+              render={() => <Randy props={this.state.user}/>}
+              />
 
             </Switch>
             </Router>
