@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Styles/App.css';
 import { BrowserRouter as Switch, Route, Router} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar'
@@ -13,6 +14,7 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
+import CartPage from "./Pages/CartPage/CartPage"
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
@@ -21,7 +23,7 @@ class App extends Component {
     super(props);
     this.state = {
       localToken: localStorage.token,
-      token:"",
+      token:[],
       user: [],
       currentUser: [],
       registeredUser: [],
@@ -42,6 +44,7 @@ class App extends Component {
   componentDidMount() {
     this.getBooks();
     this.getCurrentUserToken();
+    this.getShoppingCart();
   }
  
 
@@ -60,21 +63,25 @@ class App extends Component {
   loginUser = async(login) => {
     try{
       let response = await axios.post('https://localhost:44394/api/authentication/login', login);
+      console.log(response)
       if (response === undefined) {
         this.setState({});
       } 
       else {
+        console.log("setting token state, looks good")
         this.setState({
           token: response.data.token,
         });
-        localStorage.setItem('token', this.state.token);
+        localStorage.setItem('token', response.data.token);
       }
+
     }
       catch(err) {
       console.log(err);
     }}
 
   getCurrentUserToken = async () => {
+    console.log(localStorage.token)
       try{
         const jwt = localStorage.getItem('token');
         if (jwt === undefined) {
@@ -115,6 +122,7 @@ getShoppingCart = async () =>{
   this.setState({
     shoppingCart: response.data
   });
+  console.log(response)
 }
 removeBookFromShoppingCart = async () =>{
   const response = await axios.delete('http://localhost:62321/api/shoppingCart/delete/${}');
@@ -184,13 +192,13 @@ deleteBook = async () =>{
 
   })
 }
-// logoutUser = () =>{
-//   window.location = "/";
-//   this.setState({
-//     loggedIn: false,
-//     currentUser: []
-//   })
-// }
+logoutUser = () =>{
+  window.location = "/";
+  this.setState({
+    loggedIn: false,
+    currentUser: []
+  })
+}
 
 
   render() {
@@ -198,6 +206,7 @@ deleteBook = async () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
         <Row>
           
@@ -228,6 +237,10 @@ deleteBook = async () =>{
               <Route
               exact path='/profile/edit'
               render={() => <EditProfile user={this.state.user}/>}
+              />
+              <Route
+              exact path='/cart'
+              render={() => <CartPage />}
               />
               {/* <Route
               exact path='/books'

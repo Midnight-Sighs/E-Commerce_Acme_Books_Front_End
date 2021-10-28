@@ -20,11 +20,16 @@ class CartPage extends Component {
     }
 
     decreaseQuantity = async (cartId, bookId) =>{
-        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/decrease/');
-        this.setState({
-      
-        })
+        try{
+          const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/decrease/');
+          this.setState({
+            quantity: response
+            })
+        } catch(err){
+            console.log("err decrease", err)
+        }
     }
+
 
 
 

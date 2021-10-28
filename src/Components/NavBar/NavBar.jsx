@@ -45,7 +45,7 @@ const NavBar = (props) =>{
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
                 {seller ? <span>|  <a href="/logout"> Logout </a></span>: null}
                 {seller ? <span>|  <a href="/profile/edit"> Edit Profile </a> </span>: null}
-                {seller ? <span>|  Cart</span>:null}
+                {seller ? <span>|  <a href="/cart">Cart</a></span>:null}
                 {/* <Link to="/books">  ::view books::  </Link> */}
                 {/* {buyer ? <span>|  New Product </span>:null} */}
             </div>
