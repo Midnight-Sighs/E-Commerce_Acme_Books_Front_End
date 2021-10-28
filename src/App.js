@@ -14,6 +14,7 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
+import SearchBar from './Components/SearchBar/SearchBar';
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
@@ -177,20 +178,20 @@ getBooks = async () =>{
 }
 searchBooks = async (searchTerm) =>{
   if (searchTerm !== null && searchTerm !== ''){
-    await axios.get('https://localhost:44394/api/book/${searchTerm}');
+    await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
   }
   else{
     console.log("I'm sorry, we don't have any of these books")
   }
   const response = await axios.get('https://localhost:44394/api/book/${}');
   this.setState({
-
+    book: response.data
   })
 }
 addBook = async () =>{
   const response = await axios.post('https://localhost:44394/api/book');
   this.setState({
-
+    
   })
 }
 
@@ -223,6 +224,9 @@ logoutUser = () =>{
         <Row>
           <Col><Header/></Col>
           <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+        </Row>
+        <Row>
+          <SearchBar formSubmission={this.searchBooks} />
         </Row>
         <Row>
           
