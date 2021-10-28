@@ -7,7 +7,8 @@ import MagicBook from '../../Images/BookCrystalBall.png'
 const MainBody = (props)=> {
 
     console.log(props.props)
-    if (!props.props) {
+    if (props.props === undefined) {
+       // this.props.refreshBooks();
         return <div>no book atm</div>;
       }
     return ( 
