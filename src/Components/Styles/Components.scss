@@ -19,17 +19,17 @@
     background-color: $light-blue;
     position:relative;
     & .title{
-        right:2em;
-        top: 1.25em;
+        right:2rem;
+        top: 1.25rem;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
-        font-size:3em;
+        font-size:3rem;
     }
     & .sub-title{
         font-family: 'Indie Flower', cursive; 
         position: absolute;
-        top:4em;
-        right: 4em;
+        top:4rem;
+        right: 4rem;
     }
     & .fire-hazard{
         top:-438px;
@@ -38,7 +38,7 @@
         size: cover;
     }
     & .log-reg{
-        margin-top: 8em;
+        margin-top: 8rem;
         position:inherit;
     }
 }
@@ -50,30 +50,30 @@
     background: $light-blue;
     height: 10vh;
     & .nav-links{
-        margin-top:.5em;
+        margin-top:.5rem;
     }
     & span{
         padding-right:5px;
         color: $dark-brown;
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
 }
 //#endregion
 
 //#region BookCard Component
 .book-card{
-    height: 20vh;
     & p{
         color:$dark-blue;
-        font-size: 1.5em;
+        font-size: 2.5rem;
     }
     & .bc-part{
+        margin-top: 3rem;
+        height: 20vh;
+        width: 20vw;
         background-color: $light-brown;
     }
-    & .bc-part img{
-        height: 50vh;
-        width: 100%;
-        object-fit: fill;
+    & img{
+        width:20vw;
     }
 }
 
@@ -148,4 +148,48 @@
     background-color: $light-blue;
 }
 
+//#endregion
+
+//region medium screen changes
+@media screen and (max-width: $medium-screen){
+
+.book-card{
+    & p{
+        color:$dark-blue;
+        font-size: .5em;
+    }
+    & .bc-part{
+        margin-top: 3em;
+        height: 20vh;
+        width: 20vw;
+        background-color: $light-brown-opacity
+    }
+    & img{
+        width:20vw;
+    }
+}
+
+
+}
+//#endregion
+
+//#region small screen changes
+@media screen and (max-width: $small-screen){
+
+    .book-card{
+        & p{
+            color:$dark-blue;
+            font-size: .25em;
+        }
+        & .bc-part{
+            margin-top: 3em;
+            height: 20vh;
+            width: 20vw;
+            background-color:$light-brown-opacity
+        }
+        & img{
+            width:20vw;
+        }
+    }
+}
 //#endregion

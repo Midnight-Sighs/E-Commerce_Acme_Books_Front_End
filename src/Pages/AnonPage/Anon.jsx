@@ -7,7 +7,7 @@ class Anon extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            anon : true
+            
          }
     }
     render() { 

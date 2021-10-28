@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import PlaceHolder01 from '../../Images/PlaceHolder01.jpg'
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../Styles/Components.css'
 
-function BookDetails(props) {
-    
+const BookDetails = (props)=> {
+
+    const[bookId, setbookId] = useState("")
+    // const[bookRating, setBookRating] = useState(props.review.rating)
+    // const[bookReview, setReview] = useState(props.review.review)
+
     
     return ( 
         <>
@@ -17,26 +21,11 @@ function BookDetails(props) {
                     </div>
                     <div className = "col-7 book-details-box">
                         <div className="row">
-                            <p className ="book-title">props.book.title</p>
-                            <p className ="book-author"> written by props.book.author</p>
-                            <p className ="book-description">props.book.description</p>
+                            <p className ="book-title">{props.singleBook.title}</p>
+                            <p className ="book-author"> written by {props.singleBook.author}</p>
+                            <p className ="book-description">{props.singleBook.description}</p>
                         </div>
                     </div>
-                    {/* <div className="row">
-                        <div> 
-                            <div class="book"> 
-                                <div class="cover-back"> 
-                                    <h1> props.book.rating</h1>
-                                </div> 
-                                <div class="page">
-                                    <h3>props.book.review </h3>
-                                </div> 
-                                <div class="cover-front">
-                                    <h1>Add Review</h1>
-                                </div> 
-                            </div>
-                        </div>
-                    </div> */}
                     <div className="col-1"></div>
                 </div>
             </div>

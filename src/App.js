@@ -14,7 +14,7 @@ import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
-import MainBody from './Components/MainShop/MainBody'
+import BookDetails from './Components/BookDetails/BookDetails'
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 
@@ -28,16 +28,25 @@ class App extends Component {
       currentUser: [],
       registeredUser: [],
       loggedIn: false,
-      books:[]
+      books:[],
+      singleBookId: "",
+      singleBook: [],
+      newReview: "",
+      allReviews: []
     };
 
   };
   componentDidMount() {
     this.getCurrentUser();
   }
- 
 
+// componentDidUpdate(prevState) {
+//   if (prevState.singleBookId !== this.state.singleBookId) {
+//     this.getOneBook(this.state.singleBookId);
+//   }
+// }
 
+//#region Axios User Requests
   register = async (registerUser) => {
     console.log(registerUser);
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
@@ -98,10 +107,14 @@ getCurrentUser = async () => {
     console.log(err);
   }
   this.getBooks()
+  this.getReviews()
 };
 
+//#endregion 
+
+//#region Axios cart requests
 getShoppingCart = async () =>{
-  const response = await axios.get('http://localhost:62321/api/shoppingCart');
+  const response = await axios.get('https://localhost:62321/api/shoppingCart');
   this.setState({
     shoppingCart: response.data
   });
@@ -118,30 +131,36 @@ addBookToShoppingCart = async () =>{
 
   })
 }
+//#endregion
+
+//#region Axios Reviews
 getReviews = async () =>{
-  const response = await axios.get('http://localhost:62321/api/reviews');
+  const response = await axios.get('https://localhost:44394/api/reviews');
   this.setState({
-    reviews: response.data
+    allReviews: response.data
   })
 }
 postReview = async () =>{
-  const response = await axios.post('http://localhost:62321/api/reviews/create');
+  const response = await axios.post('https://localhost:62321/api/reviews/create');
   this.setState({
 
   })
 }
 editReviews = async () =>{
-  const response = await axios.patch('http://localhost:62321/api/review/edit${}');
+  const response = await axios.patch('https://localhost:62321/api/review/edit${}');
   this.setState({
 
   })
 }
 deleteReview = async (reviewID) =>{
-  const response = await axios.delete('http://localhost:62321/api/review/delete/' + reviewID);
+  const response = await axios.delete('https://localhost:62321/api/review/delete/' + reviewID);
   this.setState({
 
   })
 }
+//#endregion
+
+//#region Book Requests
 getBooks = async () =>{
   const response = await axios.get('https://localhost:44394/api/book');
   this.setState({
@@ -150,27 +169,32 @@ getBooks = async () =>{
   )
   console.log(this.state.books)
 }
-getOneBook = async (bookId) =>{
-  const response = await axios.get('http://localhost:62321/api/book/' + bookId);
+getOneBook = async () =>{
+  try{
+  const response = await axios.get(`https://localhost:44394/api/book/${this.state.singleBookId}/`);
   this.setState({
-
+    singleBook : response.data
   })
+  } catch(err){
+    console.log("Single book error", err)
+  }
 }
+
 addBook = async () =>{
-  const response = await axios.post('http://localhost:62321/api/book');
+  const response = await axios.post('https://localhost:62321/api/book');
   this.setState({
 
   })
 }
 
 editBook = async () =>{
-  const response = await axios.patch('http://localhost:62321/api/book/edit/${}');
+  const response = await axios.patch('https://localhost:62321/api/book/edit/${}');
   this.setState({
 
   })
 }
 deleteBook = async () =>{
-  const response = await axios.get('http://localhost:62321/api/book/delete/${}');
+  const response = await axios.get('https://localhost:62321/api/book/delete/${}');
   this.setState({
 
   })
@@ -183,6 +207,17 @@ deleteBook = async () =>{
 //   })
 // }
 
+//#endregion
+
+//#region setState
+  setBookId = (Id) => {
+    this.setState({
+    singleBookId : Id
+    }, () => {
+      this.getOneBook(this.state.singleBookId);
+    });
+  }
+//#endregion
 
   render() {
     console.log(this.state.localToken.role)
@@ -201,22 +236,22 @@ deleteBook = async () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
+          <NavBar />
         </Row>
         <Row>
           
           
           <Col sm={12}>
           <Router >
-            <NavBar loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
-            <Switch >   
-              {this.state.loggedIn ? <Route exact path="/" render={() => <MainShop props={this.state.books}/>}/> : <Route exact path="/" render={() => <Anon/>}/>}             
-              {/* <Route exact path="/" render={() => <Anon/>}/>
-              <Route exact path="/" render={() => <MainShop/>}/> */}
+            <Switch >
+              <Route exact path="/" render={() => <Anon books={this.state.books} loggedIn={this.state.loggedIn}/>}/>
 
               <Route
               exact path='/login'
               render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
+
+              <Route path='/details'  render={props => <BookDetails {...props} setBookId={this.setBookId} singleBook={this.state.singleBook}/>} />
 
               {/* <Route
               exact path='/logout'
@@ -232,10 +267,10 @@ deleteBook = async () =>{
               exact path='/profile/edit'
               render={() => <EditProfile user={this.state.user}/>}
               />
-              {/* <Route
+              <Route
               exact path='/books'
-              render={() => <MainBody props={this.state.books}/>}
-              /> */}
+              render={() => <MainShop loggedIn={this.state.loggedIn} books={this.state.books} setBookId={this.setBookId}/>}
+              />
 
             </Switch>
             </Router>
