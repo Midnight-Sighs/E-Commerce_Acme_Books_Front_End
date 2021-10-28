@@ -14,7 +14,6 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
-import CartPage from "./Pages/CartPage/CartPage"
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
