@@ -118,44 +118,44 @@ class App extends Component {
   }};
 
 getShoppingCart = async () =>{
-  const response = await axios.get('http://localhost:62321/api/shoppingCart');
+  const response = await axios.get('https://localhost:44394/api/shoppingCart');
   this.setState({
     shoppingCart: response.data
   });
   console.log(response)
 }
 removeBookFromShoppingCart = async () =>{
-  const response = await axios.delete('http://localhost:62321/api/shoppingCart/delete/${}');
+  const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
   this.setState({
     shoppingCart: response.data
   });
 }
 addBookToShoppingCart = async () =>{
-  const response = await axios.post('http://localhost:62321/api/shoppingCart/addBook${}');
+  const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook${}');
   this.setState({
 
   })
 }
 getReviews = async () =>{
-  const response = await axios.get('http://localhost:62321/api/reviews');
+  const response = await axios.get('https://localhost:44394/api/reviews');
   this.setState({
     reviews: response.data
   })
 }
 postReview = async () =>{
-  const response = await axios.post('http://localhost:62321/api/reviews/create');
+  const response = await axios.post('https://localhost:44394/api/reviews/create');
   this.setState({
 
   })
 }
 editReviews = async () =>{
-  const response = await axios.patch('http://localhost:62321/api/review/edit${}');
+  const response = await axios.patch('https://localhost:44394/api/review/edit${}');
   this.setState({
 
   })
 }
 deleteReview = async (reviewID) =>{
-  const response = await axios.delete('http://localhost:62321/api/review/delete/' + reviewID);
+  const response = await axios.delete('https://localhost:44394/api/review/delete/' + reviewID);
   this.setState({
 
   })
@@ -168,26 +168,26 @@ getBooks = async () =>{
   )
 }
 getOneBook = async (bookId) =>{
-  const response = await axios.get('http://localhost:62321/api/book/' + bookId);
+  const response = await axios.get('https://localhost:44394/api/book/' + bookId);
   this.setState({
 
   })
 }
 addBook = async () =>{
-  const response = await axios.post('http://localhost:62321/api/book');
+  const response = await axios.post('https://localhost:44394/api/book');
   this.setState({
 
   })
 }
 
 editBook = async () =>{
-  const response = await axios.patch('http://localhost:62321/api/book/edit/${}');
+  const response = await axios.patch('https://localhost:44394/api/book/edit/${}');
   this.setState({
 
   })
 }
 deleteBook = async () =>{
-  const response = await axios.get('http://localhost:62321/api/book/delete/${}');
+  const response = await axios.get('https://localhost:44394/api/book/delete/${}');
   this.setState({
 
   })
