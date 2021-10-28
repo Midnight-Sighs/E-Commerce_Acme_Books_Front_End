@@ -8,6 +8,7 @@ import Header from './Components/Header/Header'
 import Anon from './Pages/AnonPage/Anon'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
+import CartPage from './Pages/CartPage/CartPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
@@ -231,6 +232,11 @@ deleteBook = async () =>{
               exact path='/books'
               render={() => <MainBody props={this.state.books}/>}
               /> */}
+
+              <Route
+              exact path='/cart'
+              render={() => <CartPage shoppingCart={this.state.shoppingCart}/>}
+              />
 
             </Switch>
             </Router>
