@@ -192,7 +192,7 @@ deleteBook = async () =>{
           <Col sm={12}>
           <Router >
             <Switch >   
-              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainShop />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
               <Route exact path="/" render={() => <MainShop/>}/> */}
 
