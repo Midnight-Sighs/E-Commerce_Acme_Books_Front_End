@@ -25,6 +25,7 @@ class App extends Component {
       user: [],
       currentUser: [],
       registeredUser: [],
+      shoppingCart: [],
       loggedIn: false,
       books:[]
     };
