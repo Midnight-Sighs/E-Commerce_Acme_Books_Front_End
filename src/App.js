@@ -164,11 +164,16 @@ getBooks = async () =>{
   const response = await axios.get('https://localhost:44394/api/book');
   this.setState({
     books: response.data
-  }
-  )
+  })
 }
-getOneBook = async (bookId) =>{
-  const response = await axios.get('https://localhost:44394/api/book/' + bookId);
+searchBooks = async (searchTerm) =>{
+  if (searchTerm !== null && searchTerm !== ''){
+    await axios.get('https://localhost:44394/api/book/${searchTerm}');
+  }
+  else{
+    console.log("I'm sorry, we don't have any of these books")
+  }
+  const response = await axios.get('https://localhost:44394/api/book/${}');
   this.setState({
 
   })
