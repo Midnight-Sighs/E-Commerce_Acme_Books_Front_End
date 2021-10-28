@@ -59,6 +59,7 @@ class App extends Component {
         this.setState({});
       } 
       else {
+        console.log(response.data)
         this.setState({
           token: response.data.token,
           loggedIn: true,
@@ -184,7 +185,7 @@ deleteBook = async () =>{
 
 
   render() {
-    console.log(this.state.localToken)
+    console.log(this.state.localToken.role)
     console.log(this.state.token)
     if (!this.state.token) {
       console.log("There is no token")
