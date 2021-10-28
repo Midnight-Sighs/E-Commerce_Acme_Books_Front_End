@@ -8,31 +8,13 @@ class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quantity: 0
         }
     }
 
-    increaseQuantity = async (cartId, bookId) =>{
-        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/increase/');
-        this.setState({
-      
-        })
+    updateQuantity = async (cartId, bookId, count) =>{
+        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/' + count + '/');
+
     }
-
-    decreaseQuantity = async (cartId, bookId) =>{
-        try{
-          const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/decrease/');
-          this.setState({
-            quantity: response
-            })
-        } catch(err){
-            console.log("err decrease", err)
-        }
-    }
-
-
-
-
 
     render() {
         return (
@@ -51,7 +33,7 @@ class CartPage extends Component {
                             <br />
                             {this.props.shoppingCart.map((book) => {
                                 return (
-                                    <CartItem book={book} increaseQuantity={this.increaseQuantity} decreaseQuantity={this.decreaseQuantity} key={book.bookId} />
+                                    <CartItem book={book} updateQuantity={this.updateQuantity} key={book.bookId} />
                                 );
                             })}
                         </div>

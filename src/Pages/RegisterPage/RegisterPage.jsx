@@ -35,9 +35,9 @@ class RegisterPage extends Component {
             LastName: this.state.lastname,
             Email: this.state.email,
             streetaddress: this.state.street,
-            City: this.state.city,
-            State: this.state.state,
-            ZipCode: this.state.zip
+            city: this.state.city,
+            state: this.state.state,
+            zipCode: this.state.zip
 
         }
         console.log(user)

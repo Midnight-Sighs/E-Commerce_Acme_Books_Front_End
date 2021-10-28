@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const CartItem = ({ book, increaseQuantity, decreaseQuantity }) => {
+const CartItem = ({ book, updateQuantity }) => {
+
+    const [count, setCount] = useState(book.quantity);
+
     return (
         <div className="card">
             <img src={"images/" + book.title} className="card-img-top"  alt={book.description}/>
@@ -13,9 +16,10 @@ const CartItem = ({ book, increaseQuantity, decreaseQuantity }) => {
             </div>
             <div className="card-footer">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button onClick={ () => decreaseQuantity(book.cartId, book.bookId)} type="button" class="btn btn-outline-primary">-</button>
+                    <button onClick={() => setCount(count - 1)} type="button" class="btn btn-outline-primary">-</button>
                     <button type="button" class="btn btn-outline-primary">{book.quantity}</button>
-                    <button onClick={ () => increaseQuantity(book.cartId, book.bookId)} type="button" class="btn btn-outline-primary">+</button>
+                    <button onClick={() => setCount(count + 1)} type="button" class="btn btn-outline-primary">+</button>
+                    <button onClick={ () => updateQuantity(book.cartId, book.bookId, this.state.count)} type="button" class="btn btn-outline-primary">update</button>
                 </div>
             </div>
         </div>
