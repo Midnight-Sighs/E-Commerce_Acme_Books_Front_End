@@ -75,6 +75,87 @@ getCurrentUser = async () => {
   }
 };
 
+getShoppingCart = async () =>{
+  const response = await axios.get('http://localhost:62321/api/shoppingCart');
+  this.setState({
+    shoppingCart: response.data
+  });
+}
+removeBookFromShoppingCart = async () =>{
+  const response = await axios.delete('http://localhost:62321/api/shoppingCart/delete/${}');
+  this.setState({
+    shoppingCart: response.data
+  });
+}
+addBookToShoppingCart = async () =>{
+  const response = await axios.post('http://localhost:62321/api/shoppingCart/addBook${}');
+  this.setState({
+
+  })
+}
+getReviews = async () =>{
+  const response = await axios.get('http://localhost:62321/api/reviews');
+  this.setState({
+    reviews: response.data
+  })
+}
+postReview = async () =>{
+  const response = await axios.post('http://localhost:62321/api/reviews/create');
+  this.setState({
+
+  })
+}
+editReviews = async () =>{
+  const response = await axios.patch('http://localhost:62321/api/review/edit${}');
+  this.setState({
+
+  })
+}
+deleteReview = async () =>{
+  const response = await axios.delete('http://localhost:62321/api/review/delete/${}');
+  this.setState({
+
+  })
+}
+getBooks = async () =>{
+  const response = await axios.get('http://localhost:62321/api/book');
+  this.setState({
+    books: response.data
+  })
+}
+searchBooks = async (searchTerm) =>{
+  if (searchTerm != null && searchTerm != ''){
+    await axios.get('http://localhost:62321/api/book/${searchTerm}');
+  }
+  else{
+    console.log("I'm sorry, we don't have those types right now.")
+  }
+
+  
+  const response = await axios.get('http://localhost:62321/api/book/${}');
+  this.setState({
+
+  })
+}
+addBook = async () =>{
+  const response = await axios.post('http://localhost:62321/api/book');
+  this.setState({
+
+  })
+}
+
+editBook = async () =>{
+  const response = await axios.patch('http://localhost:62321/api/book/edit/${}');
+  this.setState({
+
+  })
+}
+deleteBook = async () =>{
+  const response = await axios.get('http://localhost:62321/api/book/delete/${}');
+  this.setState({
+
+  })
+}
 
   render() {
 
@@ -84,7 +165,7 @@ getCurrentUser = async () => {
           <Col><Header/></Col>
         </Row>
         <Row>
-          <SearchBar />
+          <SearchBar formSubmission={this.searchBooks}/>
         </Row>
         <Row>
           <Col sm={3}><NavBar/></Col>
