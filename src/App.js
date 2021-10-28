@@ -251,7 +251,7 @@ deleteBook = async () =>{
               render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
-              <Route path='/details'  render={props => <BookDetails {...props} setBookId={this.setBookId} singleBook={this.state.singleBook}/>} />
+              <Route path='/details'  render={props => <BookDetails {...props} reviews={this.state.allReviews} setBookId={this.setBookId} singleBook={this.state.singleBook}/>} />
 
               {/* <Route
               exact path='/logout'
@@ -269,7 +269,7 @@ deleteBook = async () =>{
               />
               <Route
               exact path='/books'
-              render={() => <MainShop loggedIn={this.state.loggedIn} books={this.state.books} setBookId={this.setBookId}/>}
+              render={() => <MainShop reviews={this.state.allReviews} loggedIn={this.state.loggedIn} books={this.state.books} setBookId={this.setBookId}/>}
               />
 
             </Switch>

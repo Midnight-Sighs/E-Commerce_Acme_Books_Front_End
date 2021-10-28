@@ -10,7 +10,6 @@ const BookCard=(props)=> {
 
     const onClick = () =>{
         props.setBookId(props.book.bookId)
-        debugger
         setBook(props.book)
     }
 

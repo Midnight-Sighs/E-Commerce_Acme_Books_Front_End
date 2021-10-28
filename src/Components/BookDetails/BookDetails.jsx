@@ -6,10 +6,32 @@ import '../Styles/Components.css'
 const BookDetails = (props)=> {
 
     const[bookId, setbookId] = useState("")
-    // const[bookRating, setBookRating] = useState(props.review.rating)
-    // const[bookReview, setReview] = useState(props.review.review)
+    const[bookRating, setRating] = useState([])
+    const[bookReview, setReview] = useState([])
 
-    
+    useEffect (() =>{
+        filterReviews()
+    }, [props])
+
+    useEffect(() => {
+
+    }, [bookReview])
+
+    const filterReviews = () =>{
+        let allRelevantReviews = []
+        let allRelevantRatings =[]
+        props.reviews.map(function (review){
+            if(review.bookId == props.singleBook.bookId){
+                let bookReview = review.review
+                let bookRating = review.rating
+                allRelevantReviews.push(bookReview)
+                allRelevantRatings.push(bookRating)
+            }
+        setRating(allRelevantRatings)
+        setReview(allRelevantReviews)
+        })
+    }
+
     return ( 
         <>
         <div className= "main-body-details">
@@ -24,6 +46,24 @@ const BookDetails = (props)=> {
                             <p className ="book-title">{props.singleBook.title}</p>
                             <p className ="book-author"> written by {props.singleBook.author}</p>
                             <p className ="book-description">{props.singleBook.description}</p>
+                        </div>
+                        <div className = "row">
+                            <div className="col-12">
+                                {bookRating.map(function(rating){
+                                    return(
+                                    <div className="col-6">
+                                        <p>{rating}/5</p>
+                                    </div>
+                                    )
+                                })}
+                                {bookReview.map(function(review){
+                                   return(
+                                    <div className="col-6">
+                                        <p>{review}</p>
+                                    </div>
+                                   )
+                                })}
+                        </div>
                         </div>
                     </div>
                     <div className="col-1"></div>
