@@ -3,10 +3,13 @@ import PlaceHolder01 from '../../Images/PlaceHolder01.jpg'
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../Styles/Components.css'
 
-function BookDetails(props) {
-    
-    
-    return ( 
+
+    const BookDetails = ( props ) => {
+        console.log(props.props)
+        if (!props.props) {
+            return <div>no book</div>;
+          }
+        return ( 
         <>
         <div className= "main-body-details">
             <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
@@ -17,9 +20,9 @@ function BookDetails(props) {
                     </div>
                     <div className = "col-7 book-details-box">
                         <div className="row">
-                            <p className ="book-title">props.book.title</p>
-                            <p className ="book-author"> written by props.book.author</p>
-                            <p className ="book-description">props.book.description</p>
+                            <p className ="book-title">{props.props.title}</p>
+                            <p className ="book-author"> written by {props.props.author}</p>
+                            <p className ="book-description">{props.props.description}</p>
                         </div>
                     </div>
                     {/* <div className="row">

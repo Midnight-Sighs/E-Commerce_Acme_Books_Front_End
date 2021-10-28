@@ -16,6 +16,7 @@ import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
 import SearchBar from './Components/SearchBar/SearchBar';
 import Randy from './Pages/Randy/Randy'
+import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
@@ -269,10 +270,10 @@ goToRandy = () =>{
               render={() => <CartPage shoppingCart={this.state.shoppingCart}/>}
               />
               
-              {/* <Route
-              exact path='/books'
-              render={() => <MainBody props={this.state.books}/>}
-              /> */}
+              <Route
+              exact path='/BookDetail/:bookid'
+              render={() => <BookDetailPage/>}
+              />
               <Route
               exact path='/Randy'
               render={() => <Randy props={this.state.user}/>}
