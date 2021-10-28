@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 
 const NavBar = (props) =>{
+    console.log(props.status)
 
     const[anon, setAnon] = useState(true);
     // const[buyer, setBuyer] = useState(false);

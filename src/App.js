@@ -14,7 +14,6 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
-import CartPage from "./Pages/CartPage/CartPage"
 // import SearchBar from './Components/SearchBar/SearchBar'
 
 const history = createBrowserHistory();
@@ -112,6 +111,7 @@ class App extends Component {
         loggedIn: true
       });
     }
+    console.log(this.state.user)
   }
   catch(err) {
     console.log(err);
@@ -213,7 +213,7 @@ logoutUser = () =>{
           
           <Col sm={12}>
           <Router history={history} >
-            <NavBar loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
