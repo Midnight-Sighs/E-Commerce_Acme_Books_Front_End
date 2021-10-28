@@ -8,18 +8,19 @@ const BookDetails = (props)=> {
 
     //#region State/Hooks
     const[singleBook, setSingleBook]=useState({})
-    const[bookId, setbookId] = useState("");
+    const[bookId, setBookId] = useState(props.singleBook.bookId);
     const[bookRating, setRating] = useState([]);
     const[bookReview, setReview] = useState([]);
     const[newReview, setNewReview] = useState("");
-    const[newRating, setNewRating] = useState(1);
+    const[newRating, setNewRating] = useState(0);
 
     useEffect (() =>{
         filterReviews()
-    }, [props])
+    }, [bookId])
 
     useEffect(() => {
         setSingleBook(props.singleBook)
+        setBookId(singleBook.bookId)
     }, [bookReview])
 
     const filterReviews = () =>{
@@ -35,6 +36,24 @@ const BookDetails = (props)=> {
         setRating(allRelevantRatings)
         setReview(allRelevantReviews)
         })
+    }
+    //#endregion
+
+    //#region Form
+    const onChange = (event) =>{
+        setNewReview(event.target.value)
+    }
+
+    const onSubmit=(event)=>{
+        event.preventDefault();
+        debugger
+        props.setNewReview(newReview, newRating, bookId)
+    }
+
+    const onDropdownChange=(event) =>{
+        let tempRating = (event.target.value)
+        let newRating = parseInt(tempRating);
+        setNewRating(newRating)
     }
     //#endregion
 
@@ -75,15 +94,15 @@ const BookDetails = (props)=> {
                     <div className="col-1"></div>
                     <div className="row">
                         <div className="col-12">
-                            <form >
-                                <select name="ratingOptions">
+                            <form onSubmit={onSubmit}>
+                                <select onChange={onDropdownChange} name="newRating">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                                <input type="text" placeholder="Your review here..."></input>
+                                <input type="text" name="newReview" onChange={onChange}placeholder="Your review here..."></input>
                                 <button type="submit">Submit Review</button>
                             </form>
                         </div>

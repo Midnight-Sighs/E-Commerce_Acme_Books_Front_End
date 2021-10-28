@@ -141,10 +141,14 @@ getReviews = async () =>{
   })
 }
 postReview = async () =>{
-  const response = await axios.post('https://localhost:44394/api/reviews/create');
-  this.setState({
-    
-  })
+  try{
+    const response = await axios.post('https://localhost:44394/api/reviews/create');
+    this.setState({})
+    console.log("Review successfully created")
+  }
+  catch (err){
+    console.log("Error creating review", err)
+  }
 }
 editReviews = async () =>{
   const response = await axios.patch('https://localhost:62321/api/review/edit${}');
@@ -217,6 +221,15 @@ deleteBook = async () =>{
       this.getOneBook(this.state.singleBookId);
     });
   }
+
+  setNewReview = (review, rating, bookId) =>{
+    let newReview = {
+      "bookId" : bookId,
+      "rating" : rating,
+      "review" : review
+    }
+    this.postReview(newReview);
+  }
 //#endregion
 
   render() {
@@ -251,7 +264,7 @@ deleteBook = async () =>{
               render={() => <LoginPage login={this.loginUser} currentUser={this.getCurrentUser}/>}
               />
 
-              <Route path='/details'  render={props => <BookDetails {...props} reviews={this.state.allReviews} setBookId={this.setBookId} singleBook={this.state.singleBook}/>} />
+              <Route path='/details'  render={props => <BookDetails {...props} setNewReview={this.setNewReview} reviews={this.state.allReviews} setBookId={this.setBookId} singleBook={this.state.singleBook}/>} />
 
               {/* <Route
               exact path='/logout'
