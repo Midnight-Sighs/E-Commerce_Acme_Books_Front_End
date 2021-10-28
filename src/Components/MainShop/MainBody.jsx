@@ -8,7 +8,7 @@ const MainBody = (props)=> {
 
     console.log(props.props)
     if (!props.props) {
-        return <div></div>;
+        return <div>no book atm</div>;
       }
     return ( 
         <>

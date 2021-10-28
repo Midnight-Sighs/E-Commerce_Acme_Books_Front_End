@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css'
 
