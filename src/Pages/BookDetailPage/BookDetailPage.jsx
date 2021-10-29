@@ -13,7 +13,7 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
-            sllComparison: undefined,
+            bookId : this.props.bookId,
           }
     }
 
@@ -59,12 +59,11 @@ class BookDetailPage extends Component {
   //#endregion
 
   componentDidUpdate() {
-    if (this.props.bookId !== this.state.sllComparison) {
+    if (this.state.bookId !== secondLevelLocation) {
       console.log("starting componenet did update")
-      this.getBook();
-      let sll = this.props.bookId
+      this.getBook(secondLevelLocation);
       this.setState({
-        sllComparison : sll
+        bookId: secondLevelLocation
       })
     }}
 
@@ -74,10 +73,6 @@ class BookDetailPage extends Component {
       this.getBook();
       this.getReviews();
 
-      let sll = parseInt(secondLevelLocation)
-      this.setState({
-        sllComparison : sll
-      })
       //this.getShoppingCart();
       // this.getCurrentUser();
     }
@@ -95,7 +90,7 @@ class BookDetailPage extends Component {
         return ( 
             <>
             <p>We are at {secondLevelLocation}</p>
-            <BookDetails book={this.state.book} reviews={this.state.allBookReviews} setSLLComparison={this.setSLLComparison} setNewReview={this.setNewReview} />
+            <BookDetails book={this.state.book} reviews={this.state.allBookReviews} setNewReview={this.setNewReview} />
             </>
          );
     }
