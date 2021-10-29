@@ -14,7 +14,7 @@ class Randy extends Component {
             shoppingCart:[],
             CartEmpty:true
         }
-        console.log(props.props)
+        console.log(props)
         console.log(this.state.user)
     }
     // getBooks = async () =>{
@@ -39,15 +39,15 @@ class Randy extends Component {
     //     console.log("book added", bookid)
     //   }
     // }
-    // getShoppingCart = async () =>{
-    //     const userid = this.state.user.id
-    //     console.log(userid)
-    //     const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
-    //     this.setState({
-    //       shoppingCart: response.data
-    //     });
-    //     console.log(response)
-    // }    
+    getShoppingCart = async () =>{
+        const userid = this.state.user.id
+        console.log(userid)
+        const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
+        this.setState({
+          shoppingCart: response.data
+        });
+        console.log(response)
+    }    
     // componentDidMount() {
     //     this.getBooks();
     //     this.getShoppingCart();

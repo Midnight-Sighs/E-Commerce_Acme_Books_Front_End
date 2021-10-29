@@ -2,6 +2,7 @@ import React from 'react'
 import BookCard from './BookCard'
 import '../Styles/Components.css'
 import MagicBook from '../../Images/BookCrystalBall.png'
+import { withRouter } from 'react-router-dom';
 
 
 const MainBody = (props)=> {
@@ -32,4 +33,4 @@ const MainBody = (props)=> {
     );
 }
 
-export default MainBody;
+export default withRouter (MainBody);
