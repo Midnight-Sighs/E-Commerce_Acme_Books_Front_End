@@ -194,15 +194,18 @@ class App extends Component {
   searchBooks = async (searchTerm) =>{
     console.log(searchTerm)
     if (searchTerm !== null && searchTerm !== ''){
-      await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+      const response = await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+      this.setState({
+        books: response.data
+      })
     }
     else{
       console.log("I'm sorry, we don't have any of these books")
     }
-    const response = await axios.get('https://localhost:44394/api/book/${}');
-    this.setState({
-      books: response.data
-    })
+    // const response = await axios.get('https://localhost:44394/api/book/${}');
+    // this.setState({
+    //   books: response.data
+    // })
   }
 
 // localBookSearch = (searchTerm) =>{
@@ -243,6 +246,7 @@ class App extends Component {
 
     })
   }
+  //#endregion
 
 
 
@@ -263,7 +267,7 @@ class App extends Component {
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.searchBooks}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>

@@ -5,7 +5,15 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             searchTerm : '',
+            books: [],
+            searchResults: [],
         }
+    }
+
+    componentDidMount(){
+        this.setState({
+            books: this.props.books
+        })
     }
 
     handleChange = (event) =>{
@@ -19,7 +27,22 @@ class SearchBar extends Component {
         event.preventDefault();
         const searchTerm = this.state.searchTerm
         console.log("search term from search Bar:" + searchTerm)
-        this.props.formSubmission(searchTerm)
+        this.searchBooks()
+        // this.props.formSubmission(searchTerm)
+    }
+
+    searchBooks = () =>{
+        let tempSearchResults = []
+        let tempBookList=this.state.books
+        let tempTerm = this.state.searchTerm
+        tempBookList.map(function(book){
+            if(book.title.includes(tempTerm)||book.author.includes(tempTerm)||book.isbn.includes(tempTerm)||book.genre.includes(tempTerm)||book.releaseYear.includes(tempTerm)){
+                tempSearchResults.push(book);
+            }
+        })
+        this.setState({
+            searchResults: tempSearchResults
+        })
     }
 
     render() {

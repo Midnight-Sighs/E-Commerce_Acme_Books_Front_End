@@ -57,7 +57,7 @@ const NavBar = (props) =>{
                 
             </div>
             <div className="col-6">
-                <SearchBar formSubmission={props.formSubmission} />
+                <SearchBar formSubmission={props.formSubmission} books={props.books} />
             </div>
             <div className="col-4 nav-links">
             <span> <a href="/"> Home </a> </span>
