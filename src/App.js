@@ -57,6 +57,9 @@ class App extends Component {
   //#region Users
 
   register = async (registerUser) => {
+    console.log(registerUser)
+    let username = registerUser.UserName
+    let secondReg = registerUser
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
     if (response === undefined) {
       this.setState({});
@@ -64,7 +67,10 @@ class App extends Component {
       this.setState({
         registeredUser: response.data,
       });
-    }
+    };
+    console.log(secondReg);
+    console.log(secondReg.UserName)
+    await axios.put('https://localhost:44394/api/users/editname/' + secondReg.UserName, secondReg)
   }
 
   loginUser = async(login) => {
