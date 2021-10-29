@@ -30,8 +30,8 @@
         overflow: hidden;
     }
     & .title{
-        right:1.5em;
-        top: 1.25em;
+        right:5rem;
+        top: 5rem;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
         font-size:5rem;
@@ -40,11 +40,11 @@
         font-family: 'Indie Flower', cursive; 
         font-size: 3rem;
         position: absolute;
-        top:4em;
-        right: 4em;
+        top:10rem;
+        right: 6rem;
     }
     & .log-reg{
-        margin-top: 8em;
+        margin-top: 8rem;
         position:inherit;
     }
 }
@@ -57,13 +57,13 @@
     background: $light-blue;
     height: 10vh;
     & .nav-links{
-        margin-top:1.5em;
-        font-size: 1.5em;
+        margin-top:1.5rem;
+        font-size: 1.5rem;
     }
     & span{
         padding-right:5px;
         color: $dark-brown;
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
     & a{
         color: $dark-brown;
@@ -77,18 +77,20 @@
 
 }
 .search-field{
-    margin-top: 2em;
+    margin-top: 2rem;
     background-color: $dark-blue;
     border-radius: 10px;
     width: 20vw;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    color: $golden;
+    padding: .25rem;
 }
 .search-btn{
     background-color: $light-brown;
     border-radius: 10px;
-    font-size: 1.5em;
-    margin-left: .5em;
-    padding-left: 1em;
+    font-size: 1.5rem;
+    margin-left: .5rem;
+    padding: .25rem;
 }
 //#endregion
 

@@ -2,8 +2,8 @@ $dark-blue: #091931;
 $dark-brown: #7a6751;
 $light-brown:#c09e8a;
 $light-brown-opacity:#dda47f9d;
-$light-blue: #67c5dd;
-$light-blue-opacity: #67c5dd9d;
+$light-blue: #448c9e;
+$light-blue-opacity: #448c9e88;
 $bright-yellow: #f7f2e7;
 $golden: #ffc27d;
 
@@ -14,6 +14,7 @@ $large-screen:1500px;
 $xlarge-screen: 1900px;
 
 $box-shadow-blue: 0 0 5px 5px $dark-blue;
+$box-shadow-golden: 0 0 5px 5px $golden;
 $gold-text-shadow: 2px 2px 5px $golden; 
 
 @media only screen and (max-width: $med-screen){

@@ -1,6 +1,6 @@
 .body-bg-img {
   background-repeat: no-repeat;
-  background-color: #67c5dd;
+  background-color: #448c9e;
   position: contain;
   z-index: -1;
   background-size: 100%;
@@ -33,8 +33,8 @@
 }
 
 .head .title {
-  right: 1.5em;
-  top: 1.25em;
+  right: 5rem;
+  top: 5rem;
   position: absolute;
   font-family: 'Indie Flower', cursive;
   font-size: 5rem;
@@ -44,30 +44,30 @@
   font-family: 'Indie Flower', cursive;
   font-size: 3rem;
   position: absolute;
-  top: 4em;
-  right: 4em;
+  top: 10rem;
+  right: 6rem;
 }
 
 .head .log-reg {
-  margin-top: 8em;
+  margin-top: 8rem;
   position: inherit;
 }
 
 .nav-bar {
   width: 100vw;
-  background: #67c5dd;
+  background: #448c9e;
   height: 10vh;
 }
 
 .nav-bar .nav-links {
-  margin-top: 1.5em;
-  font-size: 1.5em;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .nav-bar span {
   padding-right: 5px;
   color: #7a6751;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .nav-bar a {
@@ -80,19 +80,21 @@
 }
 
 .search-field {
-  margin-top: 2em;
+  margin-top: 2rem;
   background-color: #091931;
   border-radius: 10px;
   width: 20vw;
-  font-size: 1.5em;
+  font-size: 1.5rem;
+  color: #ffc27d;
+  padding: .25rem;
 }
 
 .search-btn {
   background-color: #c09e8a;
   border-radius: 10px;
-  font-size: 1.5em;
-  margin-left: .5em;
-  padding-left: 1em;
+  font-size: 1.5rem;
+  margin-left: .5rem;
+  padding: .25rem;
 }
 
 .book-card {
@@ -156,7 +158,7 @@
 }
 
 .book-card .detail-btn {
-  background-color: #67c5dd;
+  background-color: #448c9e;
   border-radius: 5px;
   border: none;
   margin-top: 1em;
@@ -170,7 +172,7 @@
 
 .magic-book {
   background-repeat: no-repeat;
-  background-color: #67c5dd;
+  background-color: #448c9e;
   position: contain;
   z-index: -1;
   background-size: 100%;
@@ -222,7 +224,7 @@
 }
 
 .main-body-row {
-  background-color: #67c5dd;
+  background-color: #448c9e;
 }
 
 @media only screen and (max-width: 1500px) {
