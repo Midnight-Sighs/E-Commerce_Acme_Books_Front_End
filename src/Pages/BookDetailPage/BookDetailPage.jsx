@@ -67,7 +67,6 @@ class BookDetailPage extends Component {
       })
     }}
 
-
     componentDidMount() {
       console.log('getting book on BookDetailsPage')
       this.getBook();

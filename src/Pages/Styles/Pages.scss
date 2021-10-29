@@ -84,3 +84,18 @@
     opacity: 80%;
     box-shadow: $box-shadow-blue;
 }
+
+.anon-text{
+    color: $dark-blue;
+    font-weight: 700;
+    text-align: justify;
+    margin-top: 3em;
+    padding: 1em;
+    background-color: $light-brown-opacity;
+    box-shadow: $box-shadow-blue;
+}
+.cover-01, .cover-02{
+    margin-top: 3em;
+    margin-left: 9em;
+    opacity: 50%;
+}

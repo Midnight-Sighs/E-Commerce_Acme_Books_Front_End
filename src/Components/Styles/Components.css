@@ -225,80 +225,158 @@
   background-color: #67c5dd;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1500px) {
   .head img {
     margin-bottom: 40vh;
   }
   .head .title {
-    font-size: 3em;
+    font-size: 3rem;
   }
   .head .sub-title {
-    font-size: 1em;
-    margin-top: 3em;
-    margin-right: 1em;
+    font-size: 1rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
   }
   .nav-bar .nav-links {
     margin-top: 0;
-    font-size: 1em;
+    font-size: 1rem;
   }
   .search-field {
-    margin-top: .75em;
+    margin-top: .75rem;
     width: 30vw;
-    font-size: 1em;
+    font-size: 1rem;
   }
   .search-btn {
-    font-size: 1em;
-    margin-top: .75em;
+    font-size: 1rem;
+    margin-top: .75rem;
   }
   .book-card p {
-    font-size: 1em;
+    font-size: 1rem;
   }
   .book-card .bc-part {
-    margin-left: .5em;
-    margin-top: 1em;
+    margin-left: .5rem;
+    margin-top: 1rem;
     width: 50%;
   }
   .book-card img {
-    margin-top: 12em;
+    margin-top: 12rem;
     width: 50%;
   }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
   .head img {
     margin-bottom: 40vh;
   }
   .head .title {
-    font-size: 3em;
+    font-size: 3rem;
   }
   .head .sub-title {
-    font-size: 1em;
-    margin-top: 3em;
-    margin-right: 1em;
+    font-size: 1rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
   }
   .nav-bar .nav-links {
     margin-top: 0;
-    font-size: 1em;
+    font-size: 1rem;
   }
   .search-field {
-    margin-top: .75em;
+    margin-top: .75rem;
     width: 30vw;
-    font-size: 1em;
+    font-size: 1rem;
   }
   .search-btn {
-    font-size: 1em;
-    margin-top: .75em;
+    font-size: 1rem;
+    margin-top: .75rem;
   }
   .book-card p {
-    font-size: 1em;
+    font-size: 1rem;
   }
   .book-card .bc-part {
-    margin-left: .5em;
-    margin-top: 1em;
+    margin-left: .5rem;
+    margin-top: 1rem;
     width: 50%;
   }
   .book-card img {
-    margin-top: 12em;
+    margin-top: 12rem;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .head img {
+    margin-bottom: 40vh;
+  }
+  .head .title {
+    font-size: 3rem;
+  }
+  .head .sub-title {
+    font-size: 1rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
+  }
+  .nav-bar .nav-links {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  .search-field {
+    margin-top: .75rem;
+    width: 30vw;
+    font-size: 1rem;
+  }
+  .search-btn {
+    font-size: 1rem;
+    margin-top: .75rem;
+  }
+  .book-card p {
+    font-size: 1rem;
+  }
+  .book-card .bc-part {
+    margin-left: .5rem;
+    margin-top: 1rem;
+    width: 50%;
+  }
+  .book-card img {
+    margin-top: 12rem;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .head img {
+    margin-bottom: 40vh;
+  }
+  .head .title {
+    font-size: 3rem;
+  }
+  .head .sub-title {
+    font-size: 1rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
+  }
+  .nav-bar .nav-links {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  .search-field {
+    margin-top: .75rem;
+    width: 30vw;
+    font-size: 1rem;
+  }
+  .search-btn {
+    font-size: 1rem;
+    margin-top: .75rem;
+  }
+  .book-card p {
+    font-size: 1rem;
+  }
+  .book-card .bc-part {
+    margin-left: .5rem;
+    margin-top: 1rem;
+    width: 50%;
+  }
+  .book-card img {
+    margin-top: 12rem;
     width: 50%;
   }
 }
