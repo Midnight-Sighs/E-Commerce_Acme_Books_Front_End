@@ -205,7 +205,7 @@ searchBooks = async (searchTerm) =>{
 localBookSearch = (searchTerm) =>{
   const currentBooksDB = this.state.books
   console.log(currentBooksDB)
-  const searchResults = currentBooksDB.filter(book => book.title.includes('searchTerm'))
+  const searchResults = currentBooksDB.filter(book => book.title.includes(searchTerm))
       // if(v.title.toLowerCase().indexOf(searchTerm) >=0) {
       //   console.log("Inside filter", results)  
       //   return results;
@@ -218,6 +218,7 @@ localBookSearch = (searchTerm) =>{
     searchEnable: true
   })
   console.log("local db search" + searchTerm)
+  
   
 }
 
