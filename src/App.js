@@ -35,29 +35,29 @@ class App extends Component {
     };
 
   };
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.token)
-    console.log(this.state.token)
-    console.log(this.state.localToken)
-    if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
-      console.log("starting componenet did update")
-      this.getCurrentUserToken();
-      this.getCurrentUser();
-    }
-    // if (this.state.localToken) { // Set a new state if token change
-    //   console.log("starting componenet did update")
-    //   this.getCurrentUserToken();
-    //   this.getCurrentUser();
-    // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState.token)
+  //   console.log(this.state.token)
+  //   console.log(this.state.localToken)
+  //   if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
+  //     console.log("starting componenet did update")
+  //     this.getCurrentUserToken();
+  //     this.getCurrentUser();
+  //   }
+  //   // if (this.state.localToken) { // Set a new state if token change
+  //   //   console.log("starting componenet did update")
+  //   //   this.getCurrentUserToken();
+  //   //   this.getCurrentUser();
+  //   // }
     
-  }
+  // }
   componentDidMount() {
     this.getBooks();
     this.getShoppingCart();
+    this.getCurrentUserToken();
+    this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
-      this.getCurrentUserToken();
-      this.getCurrentUser();
     }
     else {
       this.setState({
@@ -110,7 +110,7 @@ class App extends Component {
       try{
         const jwt = localStorage.getItem('token');
         if (jwt === undefined) {
-          this.setState({});
+          console.log("No user token.")
         } 
         else {
           this.setState({
@@ -129,7 +129,7 @@ class App extends Component {
     const jwt = localStorage.getItem('token');
     let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
-      this.setState({});
+      console.log("No current logged-in user.")
     } 
     else {
       this.setState({
@@ -248,8 +248,7 @@ deleteBook = async () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         Logged in:  {this.state.loggedIn}
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+         
         </Row>
         <Row>
           {/* <SearchBar formSubmission={this.searchBooks} /> */}

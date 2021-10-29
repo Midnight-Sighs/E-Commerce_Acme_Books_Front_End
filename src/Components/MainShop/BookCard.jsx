@@ -21,7 +21,7 @@ const BookCard=(props)=> {
                     {props.book.title}
                     <br />{props.book.author}
                     <br />{props.book.price}
-                    <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage />}> View Book Details </Link></button> : "Please login to see Book details" }
+                    <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage  book={props.book} />}> View Book Details </Link></button> : "Please login to see Book details" }
                     </p>
                 </div>
                 <img src={PlaceholderCover}></img>  

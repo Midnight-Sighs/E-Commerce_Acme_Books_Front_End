@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import axios from 'axios';
 import BookDetails from '../../Components/BookDetails/BookDetails'
 
@@ -13,7 +13,7 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
-            
+            sllComparison: undefined,
           }
     }
 
@@ -57,17 +57,27 @@ class BookDetailPage extends Component {
   }
 
   //#endregion
-  // componentDidUpdate(prevProps, prevState) {
 
-  //   if (this.state.book !== prevState.book) {
-  //     console.log("starting componenet did update")
-  //     this.getBook();
-  //   }}
+  componentDidUpdate() {
+    if (this.props.bookId !== this.state.sllComparison) {
+      console.log("starting componenet did update")
+      this.getBook();
+      let sll = this.props.bookId
+      this.setState({
+        sllComparison : sll
+      })
+    }}
+
 
     componentDidMount() {
       console.log('getting book on BookDetailsPage')
       this.getBook();
       this.getReviews();
+
+      let sll = parseInt(secondLevelLocation)
+      this.setState({
+        sllComparison : sll
+      })
       //this.getShoppingCart();
       // this.getCurrentUser();
     }
@@ -85,7 +95,7 @@ class BookDetailPage extends Component {
         return ( 
             <>
             <p>We are at {secondLevelLocation}</p>
-            <BookDetails book={this.state.book} reviews={this.state.allBookReviews} setNewReview={this.setNewReview} />
+            <BookDetails book={this.state.book} reviews={this.state.allBookReviews} setSLLComparison={this.setSLLComparison} setNewReview={this.setNewReview} />
             </>
          );
     }
