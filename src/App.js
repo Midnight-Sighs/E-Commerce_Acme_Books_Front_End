@@ -220,27 +220,19 @@ deleteBook = async () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-<<<<<<< HEAD
-          {/* <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link> */}
-=======
          Logged in:  {this.state.loggedIn}
           <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
         <Row>
           {/* <SearchBar formSubmission={this.searchBooks} /> */}
->>>>>>> 533fddd85b699c57401f3f7b9a3f8896c9afbce4
         </Row>
         <Row>
           
           
           <Col sm={12}>
           <Router history={history} >
-<<<<<<< HEAD
-            <NavBar formSubmission={this.searchBooks} status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
-=======
 
             <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
->>>>>>> 533fddd85b699c57401f3f7b9a3f8896c9afbce4
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>

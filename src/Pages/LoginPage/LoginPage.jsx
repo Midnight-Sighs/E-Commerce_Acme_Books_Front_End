@@ -36,15 +36,11 @@ class LoginPage extends Component {
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className ="row login-page-row">    
-                    <div className="col-5 mx-5"> 
-                        <br />INSERT IMAGE HERE
-                        <br />INSERT IMAGE HERE
-                        <br />INSERT IMAGE HERE
-                        <br />INSERT IMAGE HERE
-                        <br />INSERT IMAGE HERE
-                        <br />INSERT IMAGE HERE
+                    <div className="col-4 mx-5"> 
+                        <h1>Welcome!</h1>
+                        <h3>We're happy you've returned to shop with us again!  We're always getting new books from new sellers!  If you're bored with just buying books, you can request to become a seller from your profile!</h3>
                     </div>
-                    <div className="col-6">
+                    <div className="col-6 mx-5">
                         <Form className = "login-form" onSubmit ={this.handleSubmit}>
                             <Form.Group className="mb-3" controlId="Login">
                             <Row>
