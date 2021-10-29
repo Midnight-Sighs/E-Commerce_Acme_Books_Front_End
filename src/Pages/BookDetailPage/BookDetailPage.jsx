@@ -13,6 +13,7 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
+            
           }
     }
 

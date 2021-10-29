@@ -29,7 +29,9 @@ class App extends Component {
       registeredUser: [],
       shoppingCart: [],
       loggedIn: false,
-      books:[]
+      books:[],
+      searchResults: [],
+      searchEnable: false
     };
 
   };
@@ -55,6 +57,7 @@ class App extends Component {
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
       this.getCurrentUserToken();
+      this.getCurrentUser();
     }
     else {
       this.setState({
@@ -153,13 +156,15 @@ class App extends Component {
 //#endregion  
 
   //#region Shopping Cart
-getShoppingCart = async () =>{
-  const response = await axios.get('https://localhost:44394/api/shoppingCart');
-  this.setState({
-    shoppingCart: response.data
-  });
-  console.log(response)
-}
+  getShoppingCart = async () =>{
+    const userid = this.state.user.id
+    console.log(userid)
+    const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
+    this.setState({
+      shoppingCart: response.data
+    });
+    console.log(response)
+} 
 removeBookFromShoppingCart = async () =>{
   const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
   this.setState({
@@ -183,6 +188,7 @@ getBooks = async () =>{
   })
 }
 searchBooks = async (searchTerm) =>{
+  console.log(searchTerm)
   if (searchTerm !== null && searchTerm !== ''){
     await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
   }
@@ -191,9 +197,29 @@ searchBooks = async (searchTerm) =>{
   }
   const response = await axios.get('https://localhost:44394/api/book/${}');
   this.setState({
-    book: response.data
+    books: response.data
   })
 }
+
+// localBookSearch = (searchTerm) =>{
+//   const currentBooksDB = this.state.books
+//   const results = this.BooksDBfilter(currentBooksDB, searchTerm);
+
+//   this.setState({
+//     searchResults: results,
+//     searchEnable: true
+//   })
+//   console.log("local db search")
+//   console.log(this.state.searchResults)
+// }
+// BooksDBfilter = (arrayOfObject, term) => {
+//   let results = ""
+//   var ans = arrayOfObject.filter(function(v,i) {
+//       if(v.name.toLowerCase().indexOf(term) >=0 || v.country.toLowerCase().indexOf(term) >=0) {
+//           return results;
+//       } else false;
+//   });}
+
 addBook = async () =>{
   const response = await axios.post('https://localhost:44394/api/book');
   this.setState({
@@ -213,14 +239,7 @@ deleteBook = async () =>{
 
   })
 }
-// logoutUser = () =>{
-//   localStorage.removeItem('token');
-//   this.setState({
-//     loggedIn: false,
-//     currentUser: []
-//   })
-//   history.push("/");
-// }
+
 
 
   render() {
@@ -241,7 +260,7 @@ deleteBook = async () =>{
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.searchBooks}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
