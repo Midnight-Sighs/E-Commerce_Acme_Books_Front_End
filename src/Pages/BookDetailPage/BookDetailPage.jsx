@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import axios from 'axios';
 import BookDetails from '../../Components/BookDetails/BookDetails'
 
@@ -13,7 +13,7 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
-            
+            bookId : this.props.bookId,
           }
     }
 
@@ -57,17 +57,22 @@ class BookDetailPage extends Component {
   }
 
   //#endregion
-  // componentDidUpdate(prevProps, prevState) {
 
-  //   if (this.state.book !== prevState.book) {
-  //     console.log("starting componenet did update")
-  //     this.getBook();
-  //   }}
+  componentDidUpdate() {
+    if (this.state.bookId !== secondLevelLocation) {
+      console.log("starting componenet did update")
+      this.getBook(secondLevelLocation);
+      this.setState({
+        bookId: secondLevelLocation
+      })
+    }}
+
 
     componentDidMount() {
       console.log('getting book on BookDetailsPage')
       this.getBook();
       this.getReviews();
+
       //this.getShoppingCart();
       // this.getCurrentUser();
     }

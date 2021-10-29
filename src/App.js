@@ -111,7 +111,7 @@ class App extends Component {
       try{
         const jwt = localStorage.getItem('token');
         if (jwt === undefined) {
-          this.setState({});
+          console.log("No user token.")
         } 
         else {
           this.setState({
@@ -130,7 +130,7 @@ class App extends Component {
     const jwt = localStorage.getItem('token');
     let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
-      this.setState({});
+      console.log("No current logged-in user.")
     } 
     else {
       this.setState({
@@ -250,8 +250,7 @@ deleteBook = async () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         Logged in:  {this.state.loggedIn}
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+         
         </Row>
         <Row>
           
@@ -273,10 +272,10 @@ deleteBook = async () =>{
               render={() => <LoginPage login={this.loginUser}/>}
               />
 
-              {/* <Route
+              <Route
               exact path='/logout'
-              render={() => <LogoutPage />}
-              /> */}
+              render={() => <Anon />}
+              />
 
               <Route
               exact path='/register'

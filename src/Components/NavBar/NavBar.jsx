@@ -7,7 +7,6 @@ const NavBar = (props) =>{
     console.log(props.status)
 
     const[anon, setAnon] = useState(true);
-    // const[buyer, setBuyer] = useState(false);
     const[seller, setSeller] =useState(false);
     const[buyer, setBuyer] =useState(false);
 
@@ -19,6 +18,11 @@ const NavBar = (props) =>{
     const logoutStateToggle=()=>{
         setAnon(true)
         setSeller(false)
+    }
+
+    const onClickLogout=()=>{
+        props.logout();
+        logoutStateToggle();
     }
 
     const checkPageType=(loggedIn)=>{
@@ -60,10 +64,12 @@ const NavBar = (props) =>{
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
                 {anon ? <span>|  <a href="/profile/edit"> Edit Profile - anon </a> </span>: null}
-                {seller ? <span>|  <a href="/logout"> Logout </a></span>: null}
-                {seller ? <span>|  <a href="/profile/edit"> Edit Seller Profile </a> </span>: null}
-                {buyer ? <span>|  <a href="/profile/edit"> Edit Buyer Profile </a> </span>: null}
+                {seller ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
+                {buyer ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
+                {seller ? <span>|  <a href="/profile/edit"> Edit Profile </a> </span>: null}
+                {buyer ? <span>|  <a href="/profile/edit"> Edit Profile </a> </span>: null}
                 {seller ? <span>|  <a href="/cart">Cart</a></span>:null}
+                {buyer ? <span>|  <a href="/cart">Cart</a></span>:null}
                 <a href="/Randy"><span>|  Randy</span></a>
                 {/* {buyer ? <span>|  New Product </span>:null} */}
             </div>

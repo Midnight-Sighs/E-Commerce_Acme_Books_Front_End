@@ -12,9 +12,9 @@ import '../Styles/Components.css'
         const[newReview, setNewReview] = useState("");
         const[newRating, setNewRating] = useState(1);
         const[allRelevant, setAllRelevant]=useState([]);
-    
+
         useEffect (() =>{
-            filterReviews()
+            filterReviews();
         }, [props])
     
         useEffect(() => {
