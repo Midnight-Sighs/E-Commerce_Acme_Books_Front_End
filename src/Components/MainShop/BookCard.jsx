@@ -22,6 +22,7 @@ const BookCard=(props)=> {
                     <br />{props.book.author}
                     <br />{props.book.price}
                     <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage />}> View Book Details </Link></button> : "Please login to see Book details" }
+                    <br />{props.loggedIn ? <button className="detail-btn" onClick={() => props.addBookToShoppingCart(props.book.bookId)}> Add to Cart </button> : "Please login to add to cart" }
                     </p>
                 </div>
                 <img src={PlaceholderCover}></img>  
