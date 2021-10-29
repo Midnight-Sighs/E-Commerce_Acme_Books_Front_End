@@ -37,25 +37,22 @@ class NewBook extends Component {
         console.log(this.props)
       }
     async createListing() {
+        let parsedPrice = parseFloat(this.state.Price)
         var newbook = {
             Title: this.state.Title,
             Author: this.state.Author,
             Description: this.state.Description,
             Genre: this.state.Genre,
-            ReleaseYear: this.state.ReleaseYear,
+            ReleaseYear: this.state.releaseYear,
             ISBN: this.state.ISBN,
-            Price: this.state.Price,
+            Price: parsedPrice,
             Id: this.props.user
         }
         console.log(newbook)
         try {
-            let axiosConfig = {
-                headers: {
-                    'Content-Type': 'application/json;charset=UTF-8'                    
-                }
-              };
+            
             console.log(newbook);
-            await axios.post("https://localhost:44394/api/book", newbook, axiosConfig)
+            await axios.post("https://localhost:44394/api/book", newbook)
             alert(`${this.state.title} has been added`)
         } catch (err) {
             console.log(err);

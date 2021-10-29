@@ -169,41 +169,41 @@ class App extends Component {
     });
     console.log(response)
 } 
-removeBookFromShoppingCart = async () =>{
-  const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
-  this.setState({
-    shoppingCart: response.data
-  });
-}
-addBookToShoppingCart = async () =>{
-  const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook${}');
-  this.setState({
+  removeBookFromShoppingCart = async () =>{
+    const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
+    this.setState({
+      shoppingCart: response.data
+    });
+  }
+  addBookToShoppingCart = async () =>{
+    const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook${}');
+    this.setState({
 
-  })
-}
+    })
+  }
 
   //#endregion 
 
   //#region Books
-getBooks = async () =>{
-  const response = await axios.get('https://localhost:44394/api/book');
-  this.setState({
-    books: response.data
-  })
-}
-searchBooks = async (searchTerm) =>{
-  console.log(searchTerm)
-  if (searchTerm !== null && searchTerm !== ''){
-    await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+  getBooks = async () =>{
+    const response = await axios.get('https://localhost:44394/api/book');
+    this.setState({
+      books: response.data
+    })
   }
-  else{
-    console.log("I'm sorry, we don't have any of these books")
+  searchBooks = async (searchTerm) =>{
+    console.log(searchTerm)
+    if (searchTerm !== null && searchTerm !== ''){
+      await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+    }
+    else{
+      console.log("I'm sorry, we don't have any of these books")
+    }
+    const response = await axios.get('https://localhost:44394/api/book/${}');
+    this.setState({
+      books: response.data
+    })
   }
-  const response = await axios.get('https://localhost:44394/api/book/${}');
-  this.setState({
-    books: response.data
-  })
-}
 
 // localBookSearch = (searchTerm) =>{
 //   const currentBooksDB = this.state.books
@@ -224,28 +224,25 @@ searchBooks = async (searchTerm) =>{
 //       } else false;
 //   });}
 
+  addBook = async () =>{
+    const response = await axios.post('https://localhost:44394/api/book');
+    this.setState({
+      
+    })
+  }
 
-  
+  editBook = async () =>{
+    const response = await axios.patch('https://localhost:44394/api/book/edit/${}');
+    this.setState({
 
-addBook = async () =>{
-  const response = await axios.post('https://localhost:44394/api/book');
-  this.setState({
-    
-  })
-}
+    })
+  }
+  deleteBook = async () =>{
+    const response = await axios.get('https://localhost:44394/api/book/delete/${}');
+    this.setState({
 
-editBook = async () =>{
-  const response = await axios.patch('https://localhost:44394/api/book/edit/${}');
-  this.setState({
-
-  })
-}
-deleteBook = async () =>{
-  const response = await axios.get('https://localhost:44394/api/book/delete/${}');
-  this.setState({
-
-  })
-}
+    })
+  }
 
 
 
