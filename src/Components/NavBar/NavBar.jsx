@@ -49,13 +49,13 @@ const NavBar = (props) =>{
     return ( 
         <> 
         <div className="row nav-bar">
-            <div className="col-2">
+            <div className="col-1">
                 
             </div>
             <div className="col-6">
                 <SearchBar formSubmission={props.formSubmission} />
             </div>
-            <div className="col-4 nav-links">
+            <div className="col-5 nav-links">
                 <a href="/"><span>|  Books  </span></a>
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}

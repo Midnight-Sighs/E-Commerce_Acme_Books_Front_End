@@ -57,13 +57,31 @@
     background: $light-blue;
     height: 10vh;
     & .nav-links{
-        margin-top:.5em;
+        margin-top:2em;
+        font-size: 1em;
     }
     & span{
         padding-right:5px;
         color: $dark-brown;
         font-size: 1.5em;
     }
+}
+.search-label{
+
+}
+.search-field{
+    margin-top: 2em;
+    background-color: $dark-blue;
+    border-radius: 10px;
+    width: 20vw;
+    font-size: 1.5em;
+}
+.search-btn{
+    background-color: $light-brown;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-left: .5em;
+    padding-left: 1em;
 }
 //#endregion
 
@@ -90,24 +108,31 @@
     & .bc-part{
         margin-top: 3rem;
         height: 20vh;
-        width: 13.5vw;
+        width: 20vw;
         position: absolute;
     }
     & img{
         margin-top: 17em;
         height: 45vh;
-        width: 13.5vw;
+        width: 20vw;
         object-fit: fill;
         position: absolute;
+        margin-left:10px;
+        border-radius:10px;
         @media only screen and (max-width: $sm-screen){
             display:none;
         }
+    }
+    & a{
+        color: $dark-blue;
+        font-weight: 500;
     }
     & .detail-btn{
         background-color: $light-blue;
         border-radius: 5px;
         border: none;
         margin-top: 1em;
+        box-shadow: $box-shadow-blue;
     }
 }
 

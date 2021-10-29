@@ -21,7 +21,7 @@ const MainBody = (props)=> {
 
                     {props.props.map((book) => {
                             return(
-                                <div className= "col-lg-2 col-md-3 mx-5 mt-5">
+                                <div className= "col-lg-3 col-md-3 mx-5 mt-5">
                                     <BookCard book={book} loggedIn={props.loggedIn} />
                                 </div>
                             )

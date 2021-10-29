@@ -60,13 +60,30 @@
 }
 
 .nav-bar .nav-links {
-  margin-top: .5em;
+  margin-top: 2em;
+  font-size: 1em;
 }
 
 .nav-bar span {
   padding-right: 5px;
   color: #7a6751;
   font-size: 1.5em;
+}
+
+.search-field {
+  margin-top: 2em;
+  background-color: #091931;
+  border-radius: 10px;
+  width: 20vw;
+  font-size: 1.5em;
+}
+
+.search-btn {
+  background-color: #c09e8a;
+  border-radius: 10px;
+  font-size: 1.5em;
+  margin-left: .5em;
+  padding-left: 1em;
 }
 
 .book-card {
@@ -101,17 +118,19 @@
 .book-card .bc-part {
   margin-top: 3rem;
   height: 20vh;
-  width: 13.5vw;
+  width: 20vw;
   position: absolute;
 }
 
 .book-card img {
   margin-top: 17em;
   height: 45vh;
-  width: 13.5vw;
+  width: 20vw;
   -o-object-fit: fill;
      object-fit: fill;
   position: absolute;
+  margin-left: 10px;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -120,11 +139,18 @@
   }
 }
 
+.book-card a {
+  color: #091931;
+  font-weight: 500;
+}
+
 .book-card .detail-btn {
   background-color: #67c5dd;
   border-radius: 5px;
   border: none;
   margin-top: 1em;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
 }
 
 .main-body-details {

@@ -23,14 +23,15 @@ class SearchBar extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="header-search"></label>
+                <label className="search-label" htmlFor="header-search"></label>
                 <input
+                    className = "search-field"
                     type="text"
                     id="header-search"
                     placeholder="Search books..."
                     name="s"
                 />
-                <button type="submit">Search</button>
+                <button className="search-btn" type="submit">Search</button>
             </form>
         )
     }
