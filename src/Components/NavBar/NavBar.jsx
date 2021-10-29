@@ -9,6 +9,7 @@ const NavBar = (props) =>{
     const[anon, setAnon] = useState(true);
     // const[buyer, setBuyer] = useState(false);
     const[seller, setSeller] =useState(false);
+    const[buyer, setBuyer] =useState(false);
 
     useEffect(()=>{
         let loggedIn = props.loggedIn
@@ -16,7 +17,6 @@ const NavBar = (props) =>{
     }, [props])
 
     const logoutStateToggle=()=>{
-        debugger
         setAnon(true)
         setSeller(false)
     }
@@ -25,12 +25,21 @@ const NavBar = (props) =>{
         if(loggedIn === false ){
             setAnon(true);
             setSeller(false);
+            setBuyer(false)
+
         }
         if(loggedIn === true){
-            // setBuyer(true);
-            setSeller(true);
-            setAnon(false);
-        }
+            if(props.status === false){
+                setBuyer(true);
+                setSeller(false);
+                setAnon(false);
+                }
+            else{
+                setBuyer(false);
+                setSeller(true);
+                setAnon(false);
+                }
+            }
         // if(loggedIn == "seller"){
         //     setSeller(true);
         //     setAnon(false);

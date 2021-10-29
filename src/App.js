@@ -14,10 +14,8 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
-import SearchBar from './Components/SearchBar/SearchBar';
-import Randy from './Pages/Randy/Randy'
 import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
-// import SearchBar from './Components/SearchBar/SearchBar'
+
 
 const history = createBrowserHistory();
 class App extends Component {
@@ -46,7 +44,8 @@ class App extends Component {
   componentDidMount() {
     this.getBooks();
     this.getShoppingCart();
-    if(this.state.localToken){
+    if(this.state.localToken || !this.state.token){
+      console.log("starting componentDidMount token update")
       this.getCurrentUserToken();
     }
     else {
@@ -58,6 +57,7 @@ class App extends Component {
   //#region Users
 
   register = async (registerUser) => {
+    let secondReg = registerUser
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
     if (response === undefined) {
       this.setState({});
@@ -65,7 +65,10 @@ class App extends Component {
       this.setState({
         registeredUser: response.data,
       });
-    }
+    };
+    await axios.put('https://localhost:44394/api/users/editname/' + secondReg.UserName, secondReg)
+    history.push("/login");
+    history.go('/login');
   }
 
   loginUser = async(login) => {
@@ -201,14 +204,14 @@ deleteBook = async () =>{
 
   })
 }
-
-  //#endregion
-
-
-goToRandy = () =>{
-  history.push("/Randy");
-  // history.go("/Randy")
-}
+// logoutUser = () =>{
+//   localStorage.removeItem('token');
+//   this.setState({
+//     loggedIn: false,
+//     currentUser: []
+//   })
+//   history.push("/");
+// }
 
 
   render() {
@@ -217,14 +220,27 @@ goToRandy = () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
+<<<<<<< HEAD
           {/* <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link> */}
+=======
+         Logged in:  {this.state.loggedIn}
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+        </Row>
+        <Row>
+          {/* <SearchBar formSubmission={this.searchBooks} /> */}
+>>>>>>> 533fddd85b699c57401f3f7b9a3f8896c9afbce4
         </Row>
         <Row>
           
           
           <Col sm={12}>
           <Router history={history} >
+<<<<<<< HEAD
             <NavBar formSubmission={this.searchBooks} status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
+=======
+
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
+>>>>>>> 533fddd85b699c57401f3f7b9a3f8896c9afbce4
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
@@ -259,10 +275,7 @@ goToRandy = () =>{
               exact path='/BookDetail/:bookid'
               render={() => <BookDetailPage/>}
               />
-              <Route
-              exact path='/Randy'
-              render={() => <Randy props={this.state.user}/>}
-              />
+
 
             </Switch>
             </Router>
