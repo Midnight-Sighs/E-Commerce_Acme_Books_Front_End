@@ -22,7 +22,7 @@ const MainBody = (props)=> {
                     {props.props.map((book) => {
                             return(
                                 <div key={book.bookId} className= "col-lg-3 col-md-3 mx-5 mt-5">
-                                    <BookCard book={book} loggedIn={props.loggedIn} />
+                                    <BookCard book={book} loggedIn={props.loggedIn} addBookToShoppingCart={props.addBookToShoppingCart}/>
                                 </div>
                             )
                         })}
