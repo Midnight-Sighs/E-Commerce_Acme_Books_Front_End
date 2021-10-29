@@ -57,13 +57,20 @@
     background: $light-blue;
     height: 10vh;
     & .nav-links{
-        margin-top:2em;
-        font-size: 1em;
+        margin-top:1.5em;
+        font-size: 1.5em;
     }
     & span{
         padding-right:5px;
         color: $dark-brown;
         font-size: 1.5em;
+    }
+    & a{
+        color: $dark-brown;
+        text-decoration: none;
+        & :hover{
+            color: $dark-blue;
+        }
     }
 }
 .search-label{
@@ -126,6 +133,8 @@
     & a{
         color: $dark-blue;
         font-weight: 500;
+        padding: 10px;
+        text-decoration: none;
     }
     & .detail-btn{
         background-color: $light-blue;
@@ -170,7 +179,27 @@
         font-size: 2em;
         font-weight:600;
     }
+    & .book-title {
+        font-size: 4em;
+    }
+    & .book-author{
+        margin-left: 2em;
+    }
+    & .book-description{
+        overflow-y: scroll;
+        font-size: 1.75em;
+    }
 }
+//#endregion
+
+//#region Book Detail Reviews
+
+.review-row{
+    & .review-box{
+        background-color: $light-brown;
+    }
+}
+
 //#endregion
 
 //#region Main Shop Page
@@ -180,3 +209,197 @@
 }
 
 //#endregion
+
+//#region Medium Screen Resolution
+@media only screen and (max-width: $med-screen){
+    .body-bg-img{
+
+    }
+    .head {
+        & img{
+            margin-bottom: 40vh;
+        }
+        & .title {
+            font-size: 3em;
+        }
+        & .sub-title{
+            font-size: 1em;
+            margin-top: 3em;
+            margin-right: 1em;
+        }
+        & .log-reg{
+
+        }
+    }
+    .nav-bar{
+        & .nav-links{
+            margin-top: 0;
+            font-size: 1em;
+        }
+        & span{
+
+        }
+        & a{
+
+        }
+    }
+
+    .search-field{
+        margin-top: .75em;
+        width: 30vw;
+        font-size: 1em;
+    }
+    .search-btn{
+        font-size: 1em;
+        margin-top: .75em;
+    }
+    
+    .book-card{
+        & p{
+            font-size: 1em;
+        }
+        & .bc-part{
+            margin-left: .5em;
+            margin-top: 1em;
+            width: 50%;
+        }
+        & img{
+            margin-top: 12em;
+            width: 50%;
+        }
+        & a{
+
+        }
+        & .detailbtn{
+
+        }
+    }
+
+    .main-body-details{
+
+    }
+
+    .magic-book{
+
+        & img{
+
+        }
+        & .book-details{
+
+        }
+        & p{
+
+        }
+        & .book-title, .book-author{
+
+        }
+        & .book-title{
+
+        }
+        & .book-author{
+
+        }
+        & .book-description{
+
+        }
+    }
+}
+
+//#endregion
+
+//#region Small Screen Adaptation
+
+
+@media only screen and (max-width: $med-screen){
+    .body-bg-img{
+
+    }
+    .head {
+        & img{
+            margin-bottom: 40vh;
+        }
+        & .title {
+            font-size: 3em;
+        }
+        & .sub-title{
+            font-size: 1em;
+            margin-top: 3em;
+            margin-right: 1em;
+        }
+        & .log-reg{
+
+        }
+    }
+    .nav-bar{
+        & .nav-links{
+            margin-top: 0;
+            font-size: 1em;
+        }
+        & span{
+
+        }
+        & a{
+
+        }
+    }
+
+    .search-field{
+        margin-top: .75em;
+        width: 30vw;
+        font-size: 1em;
+    }
+    .search-btn{
+        font-size: 1em;
+        margin-top: .75em;
+    }
+    
+    .book-card{
+        & p{
+            font-size: 1em;
+        }
+        & .bc-part{
+            margin-left: .5em;
+            margin-top: 1em;
+            width: 50%;
+        }
+        & img{
+            margin-top: 12em;
+            width: 50%;
+        }
+        & a{
+
+        }
+        & .detailbtn{
+
+        }
+    }
+
+    .main-body-details{
+
+    }
+
+    .magic-book{
+
+        & img{
+
+        }
+        & .book-details{
+
+        }
+        & p{
+
+        }
+        & .book-title, .book-author{
+
+        }
+        & .book-title{
+
+        }
+        & .book-author{
+
+        }
+        & .book-description{
+
+        }
+    }
+}

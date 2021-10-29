@@ -10,7 +10,8 @@ import '../Styles/Components.css'
         const[bookRating, setRating] = useState([]);
         const[bookReview, setReview] = useState([]);
         const[newReview, setNewReview] = useState("");
-        const[newRating, setNewRating] = useState(0);
+        const[newRating, setNewRating] = useState(1);
+        const[allRelevant, setAllRelevant]=useState([]);
     
         useEffect (() =>{
             filterReviews()
@@ -23,15 +24,18 @@ import '../Styles/Components.css'
         const filterReviews = () =>{
             let allRelevantReviews = []
             let allRelevantRatings =[]
+            let allRelevant=[]
             props.reviews.map(function (review){
                 if(review.bookId == props.book.bookId){
                     let bookReview = review.review
                     let bookRating = review.rating
                     allRelevantReviews.push(bookReview)
                     allRelevantRatings.push(bookRating)
+                    allRelevant.push(review)
                 }
             setRating(allRelevantRatings)
             setReview(allRelevantReviews)
+            setAllRelevant(allRelevant)
             })
         }
 
@@ -74,30 +78,20 @@ import '../Styles/Components.css'
                         </div>
                     </div>
                     
-                    <div className = "row">
-                            <div className="col-12">
-                                {bookRating.map(function(rating){
+                    <div className = "row review-row">
+                        <div className="col-1"></div>
+                            <div className="col-5 review-box">
+                                {allRelevant.map(function(review){
                                     return(
-                                    <div className="col-6">
-                                        <p>{rating}/5</p>
-                                    </div>
+                                        <p>{review.rating}/5 -- "{review.review}"</p>
                                     )
                                 })}
-                                {newRating}
-                                {bookReview.map(function(review){
-                                   return(
-                                    <div className="col-6">
-                                        <p>{review}</p>
-                                    </div>
-                                   )
-                                })}
-                                {newReview}
-                        </div>
+                                <p>{newRating} {newReview}</p>
+                            </div>
                         </div>
                     </div>
                     <div className="col-1"></div>
-                    <div className="row">
-                        <div className="col-12">
+                        <div className="col-3">
                             <form onSubmit={onSubmit}>
                                 <select onChange={onDropdownChange} name="newRating">
                                     <option value="1">1</option>
@@ -113,7 +107,6 @@ import '../Styles/Components.css'
                     <div className="col-1"></div>
                 </div>
             </div>
-        </div>
         </>
      );
 }
