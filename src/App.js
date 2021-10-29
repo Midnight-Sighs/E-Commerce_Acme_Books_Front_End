@@ -217,17 +217,14 @@ goToRandy = () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link>
-        </Row>
-        <Row>
-          <SearchBar formSubmission={this.searchBooks} />
+          {/* <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link> */}
         </Row>
         <Row>
           
           
           <Col sm={12}>
           <Router history={history} >
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
+            <NavBar formSubmission={this.searchBooks} status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>

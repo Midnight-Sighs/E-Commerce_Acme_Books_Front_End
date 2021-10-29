@@ -5,7 +5,14 @@ $light-brown-opacity:#dda47f9d;
 $light-blue: #67c5dd;
 $light-blue-opacity: #67c5dd9d;
 $bright-yellow: #f7f2e7;
-$golden: #ffe58f;
+$golden: #ffc27d;
 
-$small-screen-max:900px;
-$large-screen-min:1700px;
+$sm-screen: 600px;
+$med-screen: 1200px;
+$large-screen:1700px;
+
+$box-shadow-blue: 0 0 5px 5px $dark-blue;
+
+@media only screen and (max-width: $sm-screen){
+
+}

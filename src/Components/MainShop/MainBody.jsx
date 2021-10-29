@@ -17,13 +17,13 @@ const MainBody = (props)=> {
     return ( 
         <>
             <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
-                <div className="row main-body-row">
+                <div className="row main-body">
 
                     {props.props.map((book) => {
                             return(
-                                <div className= "col-3">
-                                <BookCard book={book} loggedIn={props.loggedIn} />
-                            </div>
+                                <div className= "col-lg-2 col-md-3 mx-5 mt-5">
+                                    <BookCard book={book} loggedIn={props.loggedIn} />
+                                </div>
                             )
                         })}
                 </div>

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import MainBody from '../../Components/MainShop/MainBody'
-//import axios from 'axios';
-//import LoginPage from '../LoginPage/LoginPage'
+import MagicBook from '../../Images/BookCrystalBall.png';
 
 class Anon extends Component {
     constructor(props) {
@@ -13,8 +11,9 @@ class Anon extends Component {
     render() { 
         return ( 
             <>
-            THis is the anon lpage
-                {/* <MainBody anon={this.props.anon} /> */}
+                <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+             
+                </div>
             </>
          );
     }

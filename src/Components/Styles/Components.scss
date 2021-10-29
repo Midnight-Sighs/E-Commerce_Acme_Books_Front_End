@@ -7,41 +7,48 @@
     z-index: -1;
     background-size: 100%;
     height: 100vh;
+    top: 800px;
+    background-attachment: absolute;
+    overflow-y: scroll;
+    @media only screen and (max-width: $sm-screen){
+        background-attachment: cover;
+        height:auto;
+    }
 }
 
 //#region Header
 .head{
     top:0;
     left:0;
-    width: 101vw;
+    width: 100vw;
     height:25vh;
     overflow: hidden;
-    background-color: $light-blue;
-    position:relative;
+    position: relative;
+    & .fire-hazard{
+        top: -700px;
+        position:absolute;
+        overflow: hidden;
+    }
     & .title{
-        right:2em;
+        right:1.5em;
         top: 1.25em;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
-        font-size:3em;
+        font-size:5rem;
     }
     & .sub-title{
         font-family: 'Indie Flower', cursive; 
+        font-size: 3rem;
         position: absolute;
         top:4em;
         right: 4em;
-    }
-    & .fire-hazard{
-        top:-438px;
-        opacity: 95%;
-        position: absolute;
-        size: cover;
     }
     & .log-reg{
         margin-top: 8em;
         position:inherit;
     }
 }
+
 //#endregion
 
 //#region Nav Bar
@@ -62,18 +69,45 @@
 
 //#region BookCard Component
 .book-card{
-    height: 20vh;
+    height: 70vh;
+    background-color: $light-brown-opacity;
+    border-radius: 10px;
+    box-shadow: $box-shadow-blue;
+    position: relative;
+    @media only screen and (max-width: $sm-screen){
+        height: 40vh;
+        width: auto;
+    }
     & p{
         color:$dark-blue;
         font-size: 1.5em;
+        text-align: center;
+        padding-top: 10px;
+        @media only screen and (max-width: $sm-screen){
+            font-size: medium;
+        }
     }
     & .bc-part{
-        background-color: $light-brown;
+        margin-top: 3rem;
+        height: 20vh;
+        width: 13.5vw;
+        position: absolute;
     }
-    & .bc-part img{
-        height: 50vh;
-        width: 100%;
+    & img{
+        margin-top: 17em;
+        height: 45vh;
+        width: 13.5vw;
         object-fit: fill;
+        position: absolute;
+        @media only screen and (max-width: $sm-screen){
+            display:none;
+        }
+    }
+    & .detail-btn{
+        background-color: $light-blue;
+        border-radius: 5px;
+        border: none;
+        margin-top: 1em;
     }
 }
 
@@ -114,38 +148,10 @@
 }
 //#endregion
 
-//#region Animated Book
-// .book{ 
-//     display: flex; 
-//     align-items: center; 
-//     cursor:pointer; 
-//     & .cover-front{ 
-//         z-index: 1; 
-//         transition: all 3s; }
-//         & :hover{ 
-//             transform: rotateX(10deg) rotateY(180deg); 
-//         }
-// } 
-// .cover-front, .cover-back{ 
-//     height:300px; 
-//     width:250px; 
-//     background: $dark-blue; 
-//     border-radius: 2px 20px 20px 2px; 
-//     position: absolute; 
-//     transform-origin: center left; 
-// }
-// .page{ 
-//     height: 280px; 
-//     width: 240px; 
-//     background: $light-yellow; 
-//     position: relative; 
-//     position: absolute; 
-// } 
-//#endregion
-
 //#region Main Shop Page
 .main-body-row{
     background-color: $light-blue;
+    
 }
 
 //#endregion

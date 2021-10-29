@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import '../Styles/Components.css'
-import {
-    Link
-  } from "react-router-dom";
+import {BrowserRouter as Router, Link} from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
 
 const NavBar = (props) =>{
     console.log(props.status)
@@ -15,6 +14,12 @@ const NavBar = (props) =>{
         let loggedIn = props.loggedIn
         checkPageType(loggedIn)
     }, [props])
+
+    const logoutStateToggle=()=>{
+        debugger
+        setAnon(true)
+        setSeller(false)
+    }
 
     const checkPageType=(loggedIn)=>{
         if(loggedIn === false ){
@@ -39,15 +44,16 @@ const NavBar = (props) =>{
                 
             </div>
             <div className="col-6">
-                {/*Search Bar Here*/}
+                <SearchBar formSubmission={props.formSubmission} />
             </div>
             <div className="col-4 nav-links">
+                <a href="/"><span>|  Books  </span></a>
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
-                {seller ? <span>|  <a href="/logout"> Logout </a></span>: null}
+                {seller ? <span>|  <Link to="/logout" onClick = {logoutStateToggle}> Logout </Link></span>: null}
                 {seller ? <span>|  <a href="/profile/edit"> Edit Profile </a> </span>: null}
                 {seller ? <span>|  <a href="/cart">Cart</a></span>:null}
-                {/* <Link to="/books">  ::view books::  </Link> */}
+                <a href="/Randy"><span>|  Randy</span></a>
                 {/* {buyer ? <span>|  New Product </span>:null} */}
             </div>
 

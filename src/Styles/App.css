@@ -1,6 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 p, h1, h3 {
   font-family: 'IBM Plex Serif', serif;
-  color: #178b69;
+  color: #67c5dd;
+}
+
+body {
+  background-color: #091931;
+}
+
+::-webkit-scrollbar {
+  background-color: #091931;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7a6751;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #091931;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #091931;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #091931;
 }
 /*# sourceMappingURL=App.css.map */

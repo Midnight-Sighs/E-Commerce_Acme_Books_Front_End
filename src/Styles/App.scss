@@ -4,5 +4,29 @@
 
 p, h1, h3{
     font-family: 'IBM Plex Serif', serif;
-    color: $teal;
+    color: $light-blue;
+}
+
+body{
+    background-color: $dark-blue
+}
+
+::-webkit-scrollbar{
+    background-color: $dark-blue; 
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: $dark-brown; 
+}
+
+::-webkit-scrollbar-corner{
+    background-color: $dark-blue;
+}
+
+::-webkit-scrollbar-track-piece{
+    background-color: $dark-blue;
+}
+
+::-webkit-scrollbar-track{
+    background-color: $dark-blue;
 }
