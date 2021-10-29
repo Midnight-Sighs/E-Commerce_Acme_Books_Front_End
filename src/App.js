@@ -17,6 +17,7 @@ import { createBrowserHistory } from "history";
 import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
 
 
+
 const history = createBrowserHistory();
 class App extends Component {
   constructor(props) {
@@ -35,29 +36,29 @@ class App extends Component {
     };
 
   };
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.token)
-    console.log(this.state.token)
-    console.log(this.state.localToken)
-    if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
-      console.log("starting componenet did update")
-      this.getCurrentUserToken();
-      this.getCurrentUser();
-    }
-    // if (this.state.localToken) { // Set a new state if token change
-    //   console.log("starting componenet did update")
-    //   this.getCurrentUserToken();
-    //   this.getCurrentUser();
-    // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState.token)
+  //   console.log(this.state.token)
+  //   console.log(this.state.localToken)
+  //   if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
+  //     console.log("starting componenet did update")
+  //     this.getCurrentUserToken();
+  //     this.getCurrentUser();
+  //   }
+  //   if (this.state.localToken) { // Set a new state if token change
+  //     console.log("starting componenet did update")
+  //     this.getCurrentUserToken();
+  //     this.getCurrentUser();
+  //   }
     
-  }
+  // }
   componentDidMount() {
     this.getBooks();
     this.getShoppingCart();
+    this.getCurrentUserToken();
+    this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
-      this.getCurrentUserToken();
-      this.getCurrentUser();
     }
     else {
       this.setState({
@@ -201,24 +202,24 @@ searchBooks = async (searchTerm) =>{
   })
 }
 
-// localBookSearch = (searchTerm) =>{
-//   const currentBooksDB = this.state.books
-//   const results = this.BooksDBfilter(currentBooksDB, searchTerm);
-
-//   this.setState({
-//     searchResults: results,
-//     searchEnable: true
-//   })
-//   console.log("local db search")
-//   console.log(this.state.searchResults)
-// }
-// BooksDBfilter = (arrayOfObject, term) => {
-//   let results = ""
-//   var ans = arrayOfObject.filter(function(v,i) {
-//       if(v.name.toLowerCase().indexOf(term) >=0 || v.country.toLowerCase().indexOf(term) >=0) {
-//           return results;
-//       } else false;
-//   });}
+localBookSearch = (searchTerm) =>{
+  const currentBooksDB = this.state.books
+  console.log(currentBooksDB)
+  const searchResults = currentBooksDB.filter(book => book.title.includes('searchTerm'))
+      // if(v.title.toLowerCase().indexOf(searchTerm) >=0) {
+      //   console.log("Inside filter", results)  
+      //   return results;
+      // } 
+      // else return false
+  // });
+  console.log("*****" , searchResults)
+  this.setState({
+    searchResults: searchResults,
+    searchEnable: true
+  })
+  console.log("local db search" + searchTerm)
+  
+}
 
 addBook = async () =>{
   const response = await axios.post('https://localhost:44394/api/book');
@@ -252,7 +253,7 @@ deleteBook = async () =>{
           <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
         <Row>
-          {/* <SearchBar formSubmission={this.searchBooks} /> */}
+          
         </Row>
         <Row>
           
@@ -260,7 +261,7 @@ deleteBook = async () =>{
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.searchBooks}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.localBookSearch}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
