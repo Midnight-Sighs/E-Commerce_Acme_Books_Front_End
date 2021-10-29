@@ -18,7 +18,7 @@ class BookDetailPage extends Component {
 
     //#region Axios Calls
   getBook = async () =>{
-    console.log('Getting single book')
+    console.log('Getting single book' + secondLevelLocation)
     const response = await axios.get('https://localhost:44394/api/book/' + secondLevelLocation);
     this.setState({
       book: response.data
@@ -58,6 +58,7 @@ class BookDetailPage extends Component {
   //#endregion
 
     componentDidMount() {
+      console.log('getting book on BookDetailsPage')
       this.getBook();
       this.getReviews();
       //this.getShoppingCart();
