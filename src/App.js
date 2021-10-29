@@ -18,6 +18,7 @@ import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
 import SellerPage from './Pages/SellerPage/SellerPage'
 import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
+import BookListing from './Components/SellerPage/BookListing'
 
 
 const history = createBrowserHistory();
@@ -305,6 +306,10 @@ class App extends Component {
               <Route
               exact path='/NewBook'
               render={() => <NewBook user={this.state.user.id}/>}
+              />
+              <Route
+              exact path='/BookListing'
+              render={() => <BookListing user={this.state.user} books={this.state.books}/>}
               />
 
 

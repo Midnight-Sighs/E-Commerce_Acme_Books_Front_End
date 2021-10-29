@@ -49,7 +49,7 @@ const SellerPage = (props) =>{
         <p>Welcome Seller {props.currentUserID.userName}, would you like to play a game?</p>
         <hr></hr>
         <p><li><Link to="/NewBook">List new book for sale</Link></li></p>
-        <p><li><Link to="/NewBook">View my book listings</Link></li></p>
+        <p><li><Link to="/BookListing">View my book listings</Link></li></p>
         </>
      );
 }
