@@ -56,6 +56,12 @@ class BookDetailPage extends Component {
   }
 
   //#endregion
+  // componentDidUpdate(prevProps, prevState) {
+
+  //   if (this.state.book !== prevState.book) {
+  //     console.log("starting componenet did update")
+  //     this.getBook();
+  //   }}
 
     componentDidMount() {
       console.log('getting book on BookDetailsPage')

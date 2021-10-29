@@ -34,17 +34,25 @@ class App extends Component {
 
   };
   componentDidUpdate(prevProps, prevState) {
-
-    if (this.state.token !== prevState.token) { // Set a new state if token change
+    console.log(prevState.token)
+    console.log(this.state.token)
+    console.log(this.state.localToken)
+    if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
       console.log("starting componenet did update")
       this.getCurrentUserToken();
       this.getCurrentUser();
     }
+    // if (this.state.localToken) { // Set a new state if token change
+    //   console.log("starting componenet did update")
+    //   this.getCurrentUserToken();
+    //   this.getCurrentUser();
+    // }
+    
   }
   componentDidMount() {
     this.getBooks();
     this.getShoppingCart();
-    if(this.state.localToken || !this.state.token){
+    if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
       this.getCurrentUserToken();
     }
@@ -138,7 +146,8 @@ class App extends Component {
       loggedIn: false,
       currentUser: []
     })
-    history.push("/");
+    history.push("/")
+    history.go('/');
   }
 
 //#endregion  
