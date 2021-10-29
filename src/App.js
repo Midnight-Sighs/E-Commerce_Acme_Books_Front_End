@@ -55,7 +55,7 @@ class App extends Component {
       });}
   }
  
-
+  //#region Users
 
   register = async (registerUser) => {
     let response = await axios.post('https://localhost:44394/api/authentication/', registerUser);
@@ -129,6 +129,18 @@ class App extends Component {
     console.log(err);
   }};
 
+  logoutUser = () =>{
+    localStorage.removeItem('token');
+    this.setState({
+      loggedIn: false,
+      currentUser: []
+    })
+    history.push("/");
+  }
+
+//#endregion  
+
+  //#region Shopping Cart
 getShoppingCart = async () =>{
   const response = await axios.get('https://localhost:44394/api/shoppingCart');
   this.setState({
@@ -148,30 +160,10 @@ addBookToShoppingCart = async () =>{
 
   })
 }
-getReviews = async () =>{
-  const response = await axios.get('https://localhost:44394/api/reviews');
-  this.setState({
-    reviews: response.data
-  })
-}
-postReview = async () =>{
-  const response = await axios.post('https://localhost:44394/api/reviews/create');
-  this.setState({
 
-  })
-}
-editReviews = async () =>{
-  const response = await axios.patch('https://localhost:44394/api/review/edit${}');
-  this.setState({
+  //#endregion 
 
-  })
-}
-deleteReview = async (reviewID) =>{
-  const response = await axios.delete('https://localhost:44394/api/review/delete/' + reviewID);
-  this.setState({
-
-  })
-}
+  //#region Books
 getBooks = async () =>{
   const response = await axios.get('https://localhost:44394/api/book');
   this.setState({
@@ -209,14 +201,10 @@ deleteBook = async () =>{
 
   })
 }
-logoutUser = () =>{
-  localStorage.removeItem('token');
-  this.setState({
-    loggedIn: false,
-    currentUser: []
-  })
-  history.push("/");
-}
+
+  //#endregion
+
+
 goToRandy = () =>{
   history.push("/Randy");
   // history.go("/Randy")
@@ -224,7 +212,7 @@ goToRandy = () =>{
 
 
   render() {
-    console.log("am i logged in?" + this.state.loggedIn)
+    console.log("Am I logged in?" + this.state.loggedIn)
     return (
       <Container fluid>
         <Row>
@@ -241,7 +229,7 @@ goToRandy = () =>{
           <Router history={history} >
             <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
             <Switch >   
-              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
               <Route exact path="/" render={() => <MainShop/>}/> */}
 
