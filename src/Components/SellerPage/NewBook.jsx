@@ -43,7 +43,7 @@ class NewBook extends Component {
             Author: this.state.Author,
             Description: this.state.Description,
             Genre: this.state.Genre,
-            ReleaseYear: this.state.releaseYear,
+            ReleaseYear: this.state.ReleaseYear,
             ISBN: this.state.ISBN,
             Price: parsedPrice,
             Id: this.props.user
@@ -53,7 +53,7 @@ class NewBook extends Component {
             
             console.log(newbook);
             await axios.post("https://localhost:44394/api/book", newbook)
-            alert(`${this.state.title} has been added`)
+            alert(`${this.state.Title} has been added`)
         } catch (err) {
             console.log(err);
         }
