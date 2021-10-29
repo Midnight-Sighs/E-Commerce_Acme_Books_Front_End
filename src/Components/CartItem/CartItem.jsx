@@ -17,7 +17,7 @@ const CartItem = ({ book, updateQuantity }) => {
             <div className="card-footer">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <button onClick={() => setCount(count - 1)} type="button" class="btn btn-outline-primary">-</button>
-                    <button type="button" class="btn btn-outline-primary">{book.quantity}</button>
+                    <button type="button" class="btn btn-outline-primary">{count}</button>
                     <button onClick={() => setCount(count + 1)} type="button" class="btn btn-outline-primary">+</button>
                     <button onClick={ () => updateQuantity(book.cartId, book.bookId, this.state.count)} type="button" class="btn btn-outline-primary">update</button>
                 </div>
