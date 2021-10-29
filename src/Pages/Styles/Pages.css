@@ -1,6 +1,6 @@
 .bod-bg-img {
   background-repeat: no-repeat;
-  background-color: #67c5dd;
+  background-color: #448c9e;
   position: contain;
   z-index: -2;
   background-size: 100%;
@@ -8,27 +8,32 @@
 }
 
 .basic-btns {
-  background-color: #67c5dd;
+  background-color: #448c9e;
   color: #091931;
-  font-size: 1em;
+  font-size: 1rem;
   border: none;
   border-radius: 10px;
 }
 
 .basic-btns :hover {
   background-color: #091931;
-  color: #67c5dd;
+  color: #448c9e;
 }
 
 .login-page-row button {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 11em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 11rem;
+  font-size: 2rem;
 }
 
 .login-page-row h1 {
-  margin-top: 1em;
-  margin-bottom: .5em;
+  font-size: 4rem;
+  margin-top: 8rem;
+}
+
+.login-page-row h3 {
+  font-size: 2rem;
 }
 
 .login-page-row h1, .login-page-row h3 {
@@ -40,12 +45,12 @@
 }
 
 .login-row {
-  margin-right: 10em;
+  margin-right: 10rem;
 }
 
 .login-row h1 {
-  margin-top: 1em;
-  margin-left: 1em;
+  margin-top: 1rem;
+  margin-left: 1rem;
   color: #091931;
   font-weight: 1000;
   font-family: 'Indie Flower', cursive;
@@ -53,41 +58,74 @@
 }
 
 .login-row button {
-  margin-left: 4em;
-}
-
-.login-field {
-  width: 20em;
+  margin-left: 4rem;
 }
 
 .login-form {
-  margin-top: 9em;
-  width: 30vw;
+  margin-top: 9rem;
+  width: 50vw;
   background-color: #dda47f9d;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
 }
 
-.login-label, .reg-label {
-  margin-top: 1em;
-  color: #091931;
-  font-size: 1.5em;
-  font-weight: 600;
-  margin-left: 1em;
-}
-
-.login-field, .reg-field {
-  background-color: #67c5dd9d;
+.login-form .login-field {
+  background-color: #448c9e88;
   border: 2px solid #091931;
-  font-size: 1.5em;
-  margin-left: 2em;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+}
+
+.login-form .login-label {
+  margin-top: 1rem;
+  color: #091931;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.reg-label {
+  margin-top: 1rem;
+  color: #091931;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.reg-field {
+  background-color: #448c9e88;
+  border: 2px solid #091931;
+  font-size: 1.5rem;
+  margin-left: 2rem;
   border-radius: 5px;
 }
 
 .reading-man {
-  margin-top: 4em;
-  margin-left: 6em;
+  margin-top: 4rem;
+  margin-left: 6rem;
   width: 30vw;
   opacity: 80%;
   -webkit-box-shadow: 0 0 5px 5px #091931;
           box-shadow: 0 0 5px 5px #091931;
+}
+
+.anon-text {
+  color: #091931;
+  font-weight: 700;
+  text-align: justify;
+  margin-top: 3em;
+  padding: 1em;
+  background-color: #dda47f9d;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.cover-01, .cover-02 {
+  margin-top: 3em;
+  margin-left: 9em;
+  opacity: 50%;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
 }
 /*# sourceMappingURL=Pages.css.map */
