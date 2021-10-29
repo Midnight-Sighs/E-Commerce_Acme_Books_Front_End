@@ -17,58 +17,37 @@ class Randy extends Component {
         console.log(props.props)
         console.log(this.state.user)
     }
-    getBooks = async () =>{
-        const response = await axios.get('https://localhost:44394/api/book');
-        this.setState({
-          books: response.data
-        }
-        )
-      }
-    addBookToShoppingCart = async (bookid) =>{
-
-      const addBook = {
-            Quantity: 1,
-            UserId: this.state.user.id,
-            BookId: bookid
-        }
-        console.log(addBook)
-      const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook/' + bookid, addBook);
-      if (response === undefined) {
-        console.log("error adding book", response);
-      } else {
-        console.log("book added", bookid)
-      }
-    }
-    getShoppingCart = async () =>{
-        const userid = this.state.user.id
-        console.log(userid)
-        const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
-        this.setState({
-          shoppingCart: response.data
-        });
-        console.log(response)
-    }
-    // getCurrentUser = async () => {
-    //     if(this.state.user === "") {
-    //     try{
-    //       const jwt = localStorage.getItem('token');
-    //       let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
-    //       if (response === undefined) {
-    //         this.setState({});
-    //       } 
-    //       else {
-    //         this.setState({
-    //           user: response.data,
-    //           loggedIn: true
-    //         });
-    //       }
-    //       console.log(this.state.user)
+    // getBooks = async () =>{
+    //     const response = await axios.get('https://localhost:44394/api/book');
+    //     this.setState({
+    //       books: response.data
     //     }
-    //     catch(err) {
-    //       console.log(err);
-    //     }};}
+    //     )
+    //   }
+    // addBookToShoppingCart = async (bookid) =>{
 
-    
+    //   const addBook = {
+    //         Quantity: 1,
+    //         UserId: this.state.user.id,
+    //         BookId: bookid
+    //     }
+    //     console.log(addBook)
+    //   const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook/' + bookid, addBook);
+    //   if (response === undefined) {
+    //     console.log("error adding book", response);
+    //   } else {
+    //     console.log("book added", bookid)
+    //   }
+    // }
+    // getShoppingCart = async () =>{
+    //     const userid = this.state.user.id
+    //     console.log(userid)
+    //     const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
+    //     this.setState({
+    //       shoppingCart: response.data
+    //     });
+    //     console.log(response)
+    // }    
     // componentDidMount() {
     //     this.getBooks();
     //     this.getShoppingCart();
@@ -76,9 +55,9 @@ class Randy extends Component {
     //   }
     //<Button onclick={this.getCurrentUser()}> Activate Lasers </Button>
     render() {
-        console.log(this.state.books) 
-        console.log(this.state.user)
-        console.log(this.state.shoppingCart)
+        // console.log(this.state.books) 
+        // console.log(this.state.user)
+        // console.log(this.state.shoppingCart)
         return ( 
             <Container fluid>
               <Row>

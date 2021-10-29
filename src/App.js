@@ -14,10 +14,10 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
-import SearchBar from './Components/SearchBar/SearchBar';
-import Randy from './Pages/Randy/Randy'
+// import SearchBar from './Components/SearchBar/SearchBar';
+// import Randy from './Pages/Randy/Randy'
 import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
-// import SearchBar from './Components/SearchBar/SearchBar'
+import { Button} from 'react-bootstrap';
 
 const history = createBrowserHistory();
 class App extends Component {
@@ -35,24 +35,24 @@ class App extends Component {
     };
 
   };
-  componentDidUpdate(prevProps, prevState) {
+  // componentDidUpdate(prevProps, prevState) {
 
-    if (this.state.token !== prevState.token) { // Set a new state if token change
-      console.log("starting componenet did update")
-      this.getCurrentUserToken();
-      this.getCurrentUser();
-    }
-  }
+  //   if (this.state.token !== prevState.token) { // Set a new state if token change
+  //     console.log("starting componenet did update")
+  //     this.getCurrentUserToken();
+  //     this.getCurrentUser();
+  //   }
+  // }
   componentDidMount() {
-    this.getBooks();
-    this.getShoppingCart();
-    if(this.state.localToken){
-      this.getCurrentUserToken();
-    }
-    else {
-      this.setState({
-        loggedIn: false,
-      });}
+    // this.getBooks();
+    // this.getShoppingCart();
+    // if(this.state.localToken && !this.state.token){
+    //   this.getCurrentUserToken();
+    // }
+    // else {
+    //   this.setState({
+    //     loggedIn: false,
+    //   });}
   }
  
   //#region Users
@@ -201,13 +201,13 @@ deleteBook = async () =>{
 
   })
 }
-
-  //#endregion
-
-
-goToRandy = () =>{
-  history.push("/Randy");
-  // history.go("/Randy")
+logoutUser = () =>{
+  localStorage.removeItem('token');
+  this.setState({
+    loggedIn: false,
+    currentUser: []
+  })
+  history.push("/");
 }
 
 
@@ -217,16 +217,17 @@ goToRandy = () =>{
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link><Link to="/Randy" onClick={() => this.goToRandy()} props={this.state.user}>Randy</Link>
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
         <Row>
-          <SearchBar formSubmission={this.searchBooks} />
+          {/* <SearchBar formSubmission={this.searchBooks} /> */}
         </Row>
         <Row>
           
           
           <Col sm={12}>
           <Router history={history} >
+
             <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
@@ -262,10 +263,7 @@ goToRandy = () =>{
               exact path='/BookDetail/:bookid'
               render={() => <BookDetailPage/>}
               />
-              <Route
-              exact path='/Randy'
-              render={() => <Randy props={this.state.user}/>}
-              />
+
 
             </Switch>
             </Router>
