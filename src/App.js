@@ -271,10 +271,10 @@ deleteBook = async () =>{
               render={() => <LoginPage login={this.loginUser}/>}
               />
 
-              {/* <Route
+              <Route
               exact path='/logout'
-              render={() => <LogoutPage />}
-              /> */}
+              render={() => <Anon />}
+              />
 
               <Route
               exact path='/register'
