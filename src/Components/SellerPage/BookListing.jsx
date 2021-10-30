@@ -5,6 +5,8 @@ import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
 import {Link} from "react-router-dom";
+import '../Styles/Components.css';
+import MagicBook from '../../Images/BookCrystalBall.png'
 
 class BookListing extends Component {
     constructor(props) {
@@ -55,21 +57,39 @@ class BookListing extends Component {
         
         return (
             <>
-            <Container fluid="md"><Col sm={6}></Col>
-                <p>Hi {this.state.UserId}</p><hr></hr>
-                <Row>
-                <Col> <React.Fragment>
-                <div>
-                                {this.props.books.filter(book => book.id = this.props.user.id).map(filteredBook => (
-                                            <li>
-                                                Title: {filteredBook.title} Author: {filteredBook.author}  Price: {filteredBook.price} <Link to="/Seller/Edit" onClick={() => this.EditBook(filteredBook)}>Edit Book</Link>
-                                            </li>
-                                            
-                                ))}
+                <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+                    <div className="book-listing" fluid="lg">
+                        <Row>
+                            <Col sm={5}>
+                            <div>
+                                <p className="greeting">Hi {this.state.User.firstName}</p>
+                                <p className="seller-message"> Welcome to your seller page!  You can view and edit the books you have for sale!</p>
+                            </div>
+                            </Col>
+                            <Col> 
+                                <React.Fragment>
+                                        {this.props.books.filter(book => book.id = this.props.user.id).map(filteredBook => (
+                                        <>
+                                            <div className="row posted-books">
+                                                <div className="col-6">
+                                                    <h3>Title: {filteredBook.title}</h3>
+                                                    <h3>Author: {filteredBook.author}</h3>
+                                                </div>  
+                                                <div className="col-6">
+                                                    <h3>Price: {filteredBook.price}</h3> 
+                                                    <div><button><Link to="/Seller/Edit" onClick={() => this.EditBook(filteredBook)}>Edit Book</Link></button></div>         
+                                                    <br />
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </>
+                                        ))}
+                                </React.Fragment>
+                            </Col>
+                        </Row>
+                    </div>
                 </div>
-                        </React.Fragment></Col>
-              </Row>
-            </Container></>
+            </>
         )
     }
 }

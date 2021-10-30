@@ -210,6 +210,54 @@
   background-color: #448c9e;
 }
 
+.book-listing .greeting {
+  margin-top: 1rem;
+  margin-left: 5rem;
+  color: #091931;
+  font-weight: 800;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px #ffc27d;
+}
+
+.book-listing .seller-message {
+  margin-left: 2rem;
+  color: #091931;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: justify;
+  background-color: #ffc27d96;
+  border-radius: 10px;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.book-listing h3 {
+  color: #091931;
+  font-size: 2rem;
+}
+
+.book-listing .posted-books {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.book-listing .posted-books button {
+  background-color: #091931;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.book-listing .posted-books a {
+  color: #ffc27d;
+  font-size: 2rem;
+  padding: 5px;
+}
+
 @media only screen and (max-width: 1500px) {
   .head img {
     margin-bottom: 40vh;

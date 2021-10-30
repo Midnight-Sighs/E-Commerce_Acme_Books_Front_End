@@ -205,6 +205,50 @@
 
 //#endregion
 
+//#region Book Listing
+
+.book-listing{
+    & .greeting{
+        margin-top: 1rem;
+        margin-left:5rem;
+        color: $dark-blue;
+        font-weight: 800;
+        font-size: 3rem;
+        text-shadow: $gold-text-shadow;
+    }
+    & .seller-message{
+        margin-left: 2rem;
+        color: $dark-blue;
+        font-weight: 600;
+        font-size: 2rem;
+        text-align: justify;
+        background-color: $golden-opacity;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: $box-shadow-blue;
+    }
+    & h3 {
+        color: $dark-blue;
+        font-size: 2rem;
+    }
+    & .posted-books {
+        align-items: center;
+        margin: 2rem;
+        box-shadow: $box-shadow-blue;
+        & button {
+            background-color: $dark-blue;
+            border-radius: 15px;
+            padding: 10px;
+        }
+        & a{
+            color: $golden;
+            font-size: 2rem;
+            padding: 5px;
+        }
+    }
+}
+
+//#endregion
 
 
 //#region Large Screen Resolution
