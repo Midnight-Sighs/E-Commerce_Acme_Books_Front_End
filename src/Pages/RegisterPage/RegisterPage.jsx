@@ -65,7 +65,7 @@ class RegisterPage extends Component {
                         <img className="reading-man"src={ReadingMan}></img>
                     </Col>
                     <Col sm={6}>
-                        <Form onSubmit ={this.handleSubmit}>
+                        <Form className="reg-form" onSubmit ={this.handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicRegister">
                             <Row>
                                 <Col sm={6}>
@@ -117,8 +117,8 @@ class RegisterPage extends Component {
 
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicButton">
-                            <button className="basic-btns" type='submit' value='Submit'>Register Account</button>{' '}
-                            <button className="basic-btns" type='reset' value='reset'>Clear Form</button>
+                            <button className="reg-button" type='submit' value='Submit'>Register Account</button>{' '}
+                            <button className="reg-button" type='reset' value='reset'>Clear Form</button>
                             </Form.Group>
                         </Form>
                         <Col sm={1}>

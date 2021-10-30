@@ -113,7 +113,7 @@
   margin-left: 1rem;
 }
 
-.reg-label {
+.reg-form .reg-label {
   margin-top: 1rem;
   color: #091931;
   font-size: 1.5rem;
@@ -121,7 +121,7 @@
   margin-left: 1rem;
 }
 
-.reg-field {
+.reg-form .reg-field {
   background-color: #448c9e88;
   border: 2px solid #091931;
   font-size: 1.5rem;
@@ -129,25 +129,25 @@
   border-radius: 5px;
 }
 
-.reg-field:focus {
+.reg-form .reg-field:focus {
   background-color: #7a6751;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
           box-shadow: 0 0 5px 5px #ffc27d;
 }
 
-.reg-field::-webkit-input-placeholder {
+.reg-form .reg-field::-webkit-input-placeholder {
   color: #091931;
 }
 
-.reg-field:-ms-input-placeholder {
+.reg-form .reg-field:-ms-input-placeholder {
   color: #091931;
 }
 
-.reg-field::-ms-input-placeholder {
+.reg-form .reg-field::-ms-input-placeholder {
   color: #091931;
 }
 
-.reg-field::placeholder {
+.reg-form .reg-field::placeholder {
   color: #091931;
 }
 
@@ -158,6 +158,21 @@
   opacity: 80%;
   -webkit-box-shadow: 0 0 5px 5px #091931;
           box-shadow: 0 0 5px 5px #091931;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.reg-button {
+  background-color: #448c9e;
+  color: #091931;
+  font-size: 2rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.reg-button :hover {
+  background-color: #091931;
+  color: #448c9e;
 }
 
 .anon-text {

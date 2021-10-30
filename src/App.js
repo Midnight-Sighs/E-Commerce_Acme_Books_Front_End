@@ -257,8 +257,8 @@ class App extends Component {
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         Logged in:  {this.state.loggedIn}
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+         {/* Logged in:  {this.state.loggedIn}
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link> */}
         </Row>
        
         <Row>  
