@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 .bod-bg-img {
   background-repeat: no-repeat;
   background-color: #448c9e;
@@ -30,6 +34,7 @@
 .login-page-row h1 {
   font-size: 4rem;
   margin-top: 8rem;
+  font-family: "Indie Flower", cursive;
 }
 
 .login-page-row h3 {
@@ -49,6 +54,7 @@
 }
 
 .login-row h1 {
+  font-family: "Indie Flower", cursive;
   margin-top: 1rem;
   margin-left: 1rem;
   color: #091931;
@@ -77,6 +83,28 @@
   border-radius: 5px;
 }
 
+.login-form .login-field:focus {
+  background-color: #7a6751;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
+}
+
+.login-form .login-field::-webkit-input-placeholder {
+  color: #091931;
+}
+
+.login-form .login-field:-ms-input-placeholder {
+  color: #091931;
+}
+
+.login-form .login-field::-ms-input-placeholder {
+  color: #091931;
+}
+
+.login-form .login-field::placeholder {
+  color: #091931;
+}
+
 .login-form .login-label {
   margin-top: 1rem;
   color: #091931;
@@ -99,6 +127,28 @@
   font-size: 1.5rem;
   margin-left: 2rem;
   border-radius: 5px;
+}
+
+.reg-field:focus {
+  background-color: #7a6751;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
+}
+
+.reg-field::-webkit-input-placeholder {
+  color: #091931;
+}
+
+.reg-field:-ms-input-placeholder {
+  color: #091931;
+}
+
+.reg-field::-ms-input-placeholder {
+  color: #091931;
+}
+
+.reg-field::placeholder {
+  color: #091931;
 }
 
 .reading-man {
@@ -127,5 +177,67 @@
   opacity: 50%;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
           box-shadow: 0 0 5px 5px #ffc27d;
+}
+
+.new-book-container h1 {
+  font-family: "Indie Flower", cursive;
+  font-size: 5rem;
+  font-weight: 600;
+  padding-top: 3rem;
+  padding-left: 2rem;
+  text-shadow: 2px 2px 5px #091931;
+}
+
+.new-book-container .new-book-form {
+  color: #f7f2e7;
+}
+
+.new-book-container .nb-label {
+  margin-top: 1rem;
+  color: #091931;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: 3rem;
+}
+
+.new-book-container .nb-field {
+  background-color: #448c9e88;
+  border: 2px solid #091931;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+  color: #f7f2e7;
+}
+
+.new-book-container .nb-field:focus {
+  background-color: #7a6751;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
+}
+
+.new-book-container .nb-field::-webkit-input-placeholder {
+  color: #091931;
+}
+
+.new-book-container .nb-field:-ms-input-placeholder {
+  color: #091931;
+}
+
+.new-book-container .nb-field::-ms-input-placeholder {
+  color: #091931;
+}
+
+.new-book-container .nb-field::placeholder {
+  color: #091931;
+}
+
+.nb-button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 11rem;
+  font-size: 2rem;
+  background-color: #7a6751;
+  color: #ffc27d;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=Pages.css.map */

@@ -1,5 +1,9 @@
 @import '../../Utilities/variables';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+
+//#region Basic Utilities
 .bod-bg-img{
     background-repeat:no-repeat;
     background-color: $light-blue;
@@ -20,7 +24,9 @@
         color: $light-blue;
     }
 }
+//#endregion
 
+//#region Login Page
 .login-page-row{
     & button{
         margin-top: 1rem;
@@ -31,6 +37,7 @@
     & h1{
         font-size: 4rem;
         margin-top: 8rem;
+        font-family: $playful-font;
     }
     & h3{
         font-size: 2rem;
@@ -47,6 +54,7 @@
 .login-row{
     margin-right: 10rem;
     & h1{
+        font-family: $playful-font;
         margin-top: 1rem;
         margin-left: 1rem;
         color: $dark-blue;
@@ -70,6 +78,13 @@
         margin-left: 2rem;
         border-radius:5px;
     }
+    & .login-field:focus{
+        background-color: $dark-brown;
+        box-shadow: $box-shadow-golden;
+    }
+    & .login-field::placeholder{
+        color: $dark-blue;
+    }
     & .login-label{
         margin-top: 1rem;
         color: $dark-blue;
@@ -78,6 +93,10 @@
         margin-left: 1rem;
     }
 } 
+
+//#endregion
+
+//#region Registration Page
 .reg-label{
     margin-top: 1rem;
     color: $dark-blue;
@@ -92,7 +111,17 @@
     margin-left: 2rem;
     border-radius:5px;
 }
+.reg-field:focus{
+    background-color: $dark-brown;
+    box-shadow: $box-shadow-golden;
+}
+.reg-field::placeholder{
+    color: $dark-blue;
+}
 
+//#endregion
+
+//#region Anon Page
 .reading-man{
     margin-top: 4rem;
     margin-left: 6rem;
@@ -116,3 +145,52 @@
     opacity: 50%;
     box-shadow: $box-shadow-golden;
 }
+
+//#endregion
+
+//#region New Book Page
+.new-book-container{
+    & h1{
+        font-family: $playful-font;
+        font-size: 5rem;
+        font-weight: 600;
+        padding-top:3rem;
+        padding-left: 2rem;
+        text-shadow: $blue-text-shadow;
+    }
+    & .new-book-form{
+        color: $bright-yellow;
+    }
+    & .nb-label{
+        margin-top: 1rem;
+        color: $dark-blue;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+    & .nb-field{
+        background-color: $light-blue-opacity;
+        border: 2px solid $dark-blue;
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+        color: $bright-yellow;
+    }
+    & .nb-field:focus{
+        background-color: $dark-brown;
+        box-shadow: $box-shadow-golden;
+    }
+    & .nb-field::placeholder{
+        color: $dark-blue;
+    }
+}
+.nb-button{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 2rem;
+    background-color: $dark-brown;
+    color: $golden;
+    border-radius:5px;
+}
+//#endregion

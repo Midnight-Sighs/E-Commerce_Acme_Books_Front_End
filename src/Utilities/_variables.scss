@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+$regular-font: 'IBM Plex Serif', serif;
+$playful-font: 'Indie Flower', cursive;
+
 $dark-blue: #091931;
 $dark-brown: #7a6751;
 $light-brown:#c09e8a;
@@ -17,6 +23,7 @@ $xlarge-screen: 1900px;
 $box-shadow-blue: 0 0 5px 5px $dark-blue;
 $box-shadow-golden: 0 0 5px 5px $golden;
 $gold-text-shadow: 2px 2px 5px $golden; 
+$blue-text-shadow: 2px 2px 5px $dark-blue; 
 
 @media only screen and (max-width: $med-screen){
 

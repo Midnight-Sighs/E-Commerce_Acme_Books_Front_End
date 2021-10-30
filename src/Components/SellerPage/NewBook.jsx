@@ -4,6 +4,8 @@ import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
+import MagicBook from '../../Images/BookCrystalBall.png'
+import '../../Pages/Styles/Pages.css'
 
 class NewBook extends Component {
     constructor(props) {
@@ -99,64 +101,68 @@ class NewBook extends Component {
     render() {
         return (
             <>
-            <Container fluid="md"><Col sm={6}>
-                <h1>
-                Sell a book! Get Monies
-                </h1>
-                <Form className="newBook" onSubmit={(event) => this.handleSubmit(event)}>
-                    <Form.Group controlId="name">
-                        <Form.Label className="reg-label">Title</Form.Label>
-                        <Form.Control type="text" placeholder="Title"
-                                      name="Title" onChange={this.handleChange} value={this.state.Title}/>
-                    </Form.Group>
-                    {this.state.errors.title ? <p style={{color: 'red'}}>{this.state.errors.title}</p> : ''}
+            <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+                <div className="new-book-container">
+                    <Col sm={6}>
+                        <h1>
+                            Sell a book! Get Monies!!
+                        </h1>
+                    <Form className="new-book-form" onSubmit={(event) => this.handleSubmit(event)}>
+                        <Form.Group controlId="name">
+                            <Form.Label className="nb-label">Title</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="Title"
+                                        name="Title" onChange={this.handleChange} value={this.state.Title}/>
+                        </Form.Group>
+                        {this.state.errors.title ? <p style={{color: 'red'}}>{this.state.errors.title}</p> : ''}
 
-                    <Form.Group controlId="Author">
-                        <Form.Label>Author</Form.Label>
-                        <Form.Control type="text" placeholder="Author" name="Author"
-                                      onChange={this.handleChange} value={this.state.Author}/>
-                    </Form.Group>
-                    {this.state.errors.author ? <p style={{color: 'red'}}>{this.state.errors.author}</p> : ''}
+                        <Form.Group controlId="Author">
+                            <Form.Label className="nb-label">Author</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="Author" name="Author"
+                                        onChange={this.handleChange} value={this.state.Author}/>
+                        </Form.Group>
+                        {this.state.errors.author ? <p style={{color: 'red'}}>{this.state.errors.author}</p> : ''}
 
-                    <Form.Group controlId="Description">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" placeholder="Description goes here" name="Description"
-                                      onChange={this.handleChange} value={this.state.Description}/>
-                    </Form.Group>
-                    {this.state.errors.description ? <p style={{color: 'red'}}>{this.state.errors.description}</p> : ''}
+                        <Form.Group controlId="Description">
+                            <Form.Label className="nb-label">Description</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="Description goes here" name="Description"
+                                        onChange={this.handleChange} value={this.state.Description}/>
+                        </Form.Group>
+                        {this.state.errors.description ? <p style={{color: 'red'}}>{this.state.errors.description}</p> : ''}
 
-                    <Form.Group controlId="Genre">
-                        <Form.Label>Genre</Form.Label>
-                        <Form.Control type="text" placeholder="Genre" name="Genre"
-                                      onChange={this.handleChange} value={this.state.Genre}/>
-                    </Form.Group>
-                    {this.state.errors.genre ? <p style={{color: 'red'}}>{this.state.errors.genre}</p> : ''}
+                        <Form.Group controlId="Genre">
+                            <Form.Label className="nb-label">Genre</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="Genre" name="Genre"
+                                        onChange={this.handleChange} value={this.state.Genre}/>
+                        </Form.Group>
+                        {this.state.errors.genre ? <p style={{color: 'red'}}>{this.state.errors.genre}</p> : ''}
 
-                    <Form.Group controlId="ReleaseYear">
-                        <Form.Label>Release Year?</Form.Label>
-                        <Form.Control type="text" placeholder="What year was this released?" name="ReleaseYear"
-                                      onChange={this.handleChange} value={this.state.ReleaseYear}/>
-                    </Form.Group>
-                    {this.state.errors.releaseYear ? <p style={{color: 'red'}}>{this.state.errors.releaseYear}</p> : ''}
+                        <Form.Group controlId="ReleaseYear">
+                            <Form.Label className="nb-label">Release Year?</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="What year was this released?" name="ReleaseYear"
+                                        onChange={this.handleChange} value={this.state.ReleaseYear}/>
+                        </Form.Group>
+                        {this.state.errors.releaseYear ? <p style={{color: 'red'}}>{this.state.errors.releaseYear}</p> : ''}
 
-                    <Form.Group controlId="ISBN">
-                        <Form.Label>ISBN</Form.Label>
-                        <Form.Control type="text" placeholder="10 or 13 digit ISB?" name="ISBN"
-                                      onChange={this.handleChange} value={this.state.ISBN}/>
-                    </Form.Group>
-                    {this.state.errors.isbn ? <p style={{color: 'red'}}>{this.state.errors.isbn}</p> : ''}
+                        <Form.Group controlId="ISBN">
+                            <Form.Label className="nb-label">ISBN</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="10 or 13 digit ISB?" name="ISBN"
+                                        onChange={this.handleChange} value={this.state.ISBN}/>
+                        </Form.Group>
+                        {this.state.errors.isbn ? <p style={{color: 'red'}}>{this.state.errors.isbn}</p> : ''}
 
-                    <Form.Group controlId="Price">
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control type="text" placeholder="Price of this?" name="Price"
-                                      onChange={this.handleChange} value={this.state.Price}/>
-                    </Form.Group>
-                    {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
-                    <br/>
-                    <Button variant="primary" type="submit">Create Listing</Button>
-                </Form>
-            </Col>
-            </Container></>
+                        <Form.Group controlId="Price">
+                            <Form.Label className="nb-label">Price</Form.Label>
+                            <Form.Control className="nb-field" type="text" placeholder="Price of this?" name="Price"
+                                        onChange={this.handleChange} value={this.state.Price}/>
+                        </Form.Group>
+                        {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
+                        <br/>
+                        <button className="nb-button" type="submit">Create Listing</button>
+                    </Form>
+                </Col>
+                </div>
+            </div>
+            </>
         )
     }
 }
