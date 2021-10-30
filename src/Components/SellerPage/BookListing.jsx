@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 class BookListing extends Component {
     constructor(props) {
@@ -17,13 +18,11 @@ class BookListing extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props.books)
         this.setState ({
             User:this.props.user,
             UserId: this.props.user.id,
             books:this.props.books
         })
-        console.log(this.state.books)
         this.searchBooks()
       }
     searchBooks = () =>{
@@ -32,7 +31,7 @@ class BookListing extends Component {
         let tempSearchResults = []
         tempBookList.map(function (books){
             if(books.id == tempID){
-                this.filtered.push(books);
+                tempSearchResults.push(books);
                 console.log(tempSearchResults);
             }
         }
@@ -43,10 +42,11 @@ class BookListing extends Component {
         filteredBooks: tempSearchResults,
         newBooks: tempSearchResults,
       });
+    console.log(this.state.filteredBooks)
+    console.log(this.state.newBooks)
         
-
     }
-    searchBooks = () =>{
+    EditBook = () =>{
         console.log("edit a book")
     }
 
@@ -58,11 +58,16 @@ class BookListing extends Component {
             <Container fluid="md"><Col sm={6}></Col>
                 <p>Hi {this.state.UserId}</p><hr></hr>
                 <Row>
-                <Col> <React.Fragment>{this.props.books.map((book) => {
-                            return(
-                                <li>Book ID: {book.bookid}, Title: {book.title}  Price: {book.price} <Button onclick={this.Edit}> Edit Book </Button></li>
-                            )
-                        })}</React.Fragment></Col>
+                <Col> <React.Fragment>
+                <div>
+                                {this.props.books.filter(book => book.id = this.props.user.id).map(filteredBook => (
+                                            <li>
+                                                Title: {filteredBook.title} Author: {filteredBook.author}  Price: {filteredBook.price} <Link to="/Seller/Edit" onClick={() => this.EditBook(filteredBook)}>Edit Book</Link>
+                                            </li>
+                                            
+                                ))}
+                </div>
+                        </React.Fragment></Col>
               </Row>
             </Container></>
         )
