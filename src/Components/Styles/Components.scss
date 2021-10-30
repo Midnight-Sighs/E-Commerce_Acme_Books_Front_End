@@ -299,6 +299,41 @@
 
 //#endregion
 
+//#region Cart Item
+
+.cart-card{
+    background-color: $dark-blue;
+    border-radius: 10px;
+    color: $light-blue;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    width: 30rem;
+    box-shadow: $box-shadow-golden;
+    & .cart-card-body{
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-left: 4rem;
+    }
+    & .cart-card-title{
+        margin-left: 4rem;
+    }
+    & .card-text{
+        margin-left: 4rem;
+    }
+    & .cart-btn-group{
+        margin-left: 4rem;
+        & .cart-btn{
+            background-color: $dark-brown;
+            padding: 10px;
+            color: $golden;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+//#endregion
+
 
 //#region Large Screen Resolution
 @media only screen and (max-width: $large-screen){

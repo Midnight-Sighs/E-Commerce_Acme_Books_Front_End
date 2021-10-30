@@ -208,3 +208,18 @@
     border-radius:5px;
 }
 //#endregion
+
+//region Cart Page
+
+.cart-page-row{
+    & .book-pile img{
+        margin-top: 3rem;
+        width: 40rem;
+        border-radius: 15px;
+        opacity: 80%;
+       margin-left: 4rem;
+       box-shadow: $box-shadow-golden;
+    }
+}
+
+//#endregion

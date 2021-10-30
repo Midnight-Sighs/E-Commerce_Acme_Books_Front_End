@@ -163,7 +163,6 @@ class App extends Component {
 
   //#region Shopping Cart
   getShoppingCart = async () =>{
-    debugger
     const userid = this.state.user.id
     const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
     this.setState({

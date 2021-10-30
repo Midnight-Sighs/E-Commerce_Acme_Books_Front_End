@@ -256,4 +256,14 @@
   color: #ffc27d;
   border-radius: 5px;
 }
+
+.cart-page-row .book-pile img {
+  margin-top: 3rem;
+  width: 40rem;
+  border-radius: 15px;
+  opacity: 80%;
+  margin-left: 4rem;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
+}
 /*# sourceMappingURL=Pages.css.map */
