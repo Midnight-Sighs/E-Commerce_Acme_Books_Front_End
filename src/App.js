@@ -291,7 +291,7 @@ class App extends Component {
 
               <Route
               exact path='/profile/edit'
-              render={() => <EditProfile user={this.state.user.userId}/>}
+              render={() => <EditProfile user={this.state.user.id}/>}
               />
               
               <Route
