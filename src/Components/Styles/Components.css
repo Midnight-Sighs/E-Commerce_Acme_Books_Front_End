@@ -212,8 +212,53 @@
   font-size: 1.75em;
 }
 
-.review-row .review-box {
+.review-row .bi-star-half {
+  height: 5rem;
+  width: 5rem;
+  fill: #ffc27d;
+}
+
+.review-row.review-row .review-box {
+  font-size: 2rem;
+  padding: 5px;
   background-color: #c09e8a;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 20rem;
+  overflow-y: scroll;
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.review-row.review-row .rating-row {
+  margin: 2rem;
+  margin-left: 6rem;
+}
+
+.review-row.review-row select {
+  text-align: center;
+  border-radius: 10px;
+  background-color: #091931;
+  color: #448c9e;
+  font-size: 2rem;
+  width: 10rem;
+}
+
+.review-row.review-row input {
+  background-color: #091931;
+  font-size: 2rem;
+  height: 6rem;
+  color: #ffe3a8;
+  border-radius: 10px;
+}
+
+.review-row.review-row button {
+  margin-top: 1rem;
+  width: 15rem;
+  font-size: 1.5rem;
+  background-color: #091931;
+  color: #ffe3a8;
+  border-radius: 5px;
 }
 
 .main-body-row {

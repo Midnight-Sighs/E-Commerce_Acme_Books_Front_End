@@ -196,12 +196,53 @@
 //#endregion
 
 //#region Book Detail Reviews
-
 .review-row{
-    & .review-box{
-        background-color: $light-brown;
+    & .bi-star-half{
+        height: 5rem;
+        width: 5rem;
+        fill: $golden;
+    }
+    &.review-row{
+        & .review-box{
+            font-size: 2rem;
+            padding: 5px;
+            background-color: $light-brown;
+            margin-top:2rem;
+            margin-bottom: 2rem;
+            height: 20rem;
+            overflow-y: scroll;
+            box-shadow: $box-shadow-blue;
+        }
+        & .rating-row{
+            margin: 2rem;
+            margin-left: 6rem;
+        }
+        & select {
+            text-align: center;
+            border-radius: 10px;
+            background-color: $dark-blue;
+            color: $light-blue;
+            font-size: 2rem;
+            width: 10rem;
+        }
+        & input{
+            background-color: $dark-blue;
+            font-size: 2rem;
+            height: 6rem;
+            color: $bright-yellow;
+            border-radius: 10px;
+        }
+        & button{
+            margin-top: 1rem;
+            width: 15rem;
+            font-size: 1.5rem;
+            background-color: $dark-blue;
+            color: $bright-yellow;
+            border-radius: 5px;
+        }
     }
 }
+
 
 //#endregion
 
