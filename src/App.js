@@ -66,6 +66,7 @@ class App extends Component {
         loggedIn: false,
       });}
   }
+  
  
   //#region Users
 
@@ -191,22 +192,22 @@ class App extends Component {
       books: response.data
     })
   }
-  searchBooks = async (searchTerm) =>{
-    console.log(searchTerm)
-    if (searchTerm !== null && searchTerm !== ''){
-      const response = await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
-      this.setState({
-        books: response.data
-      })
-    }
-    else{
-      console.log("I'm sorry, we don't have any of these books")
-    }
+  // searchBooks = async (searchTerm) =>{
+  //   console.log(searchTerm)
+  //   if (searchTerm !== null && searchTerm !== ''){
+  //     const response = await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+  //     this.setState({
+  //       books: response.data
+  //     })
+  //   }
+  //   else{
+  //     console.log("I'm sorry, we don't have any of these books")
+  //   }
     // const response = await axios.get('https://localhost:44394/api/book/${}');
     // this.setState({
     //   books: response.data
     // })
-  }
+  // }
 
 // localBookSearch = (searchTerm) =>{
 //   const currentBooksDB = this.state.books
@@ -258,12 +259,8 @@ class App extends Component {
          Logged in:  {this.state.loggedIn}
           <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
-        <Row>
-          {/* <SearchBar formSubmission={this.searchBooks} /> */}
-        </Row>
-        <Row>
-          
-          
+       
+        <Row>  
           <Col sm={12}>
           <Router history={history} >
 
