@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
 
 const NavBar = (props) =>{
-    console.log(props.status)
+    console.log(props.userid)
+    let userid = props.userid
 
     const[anon, setAnon] = useState(true);
     const[seller, setSeller] =useState(false);
@@ -49,7 +50,7 @@ const NavBar = (props) =>{
         //     setAnon(false);
         // }
     }
-
+    let editProfileURL = "/profile/edit/" + userid
     return ( 
         <> 
         <div className="row nav-bar">
@@ -63,11 +64,12 @@ const NavBar = (props) =>{
             <span> <a href="/"> Home </a> </span>
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
+                {anon ? <span>|  <a href="/profile/edit/{userid}"> Edit Profile - anon </a> </span>: null}
                 {seller ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
                 {buyer ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
-                {seller ? <span>|  <a href="/profile/edit"> Edit Seller Profile </a> </span>: null}
+                {seller ? <span>|  <a href="/profile/edit/{userid}"> Edit Seller Profile </a> </span>: null}
                 {seller ? <span>|  <a href="/Seller"> Seller Menu </a> </span>: null}
-                {buyer ? <span>|  <a href="/profile/edit"> Edit Buyer Profile </a> </span>: null}
+                {buyer ? <span>|  <a href={editProfileURL}> Edit Buyer Profile </a> </span>: null}
                 {seller ? <span>|  <a href="/cart">Cart</a></span>:null}
                 {buyer ? <span>|  <a href="/cart">Cart</a></span>:null}
                 {/* {buyer ? <span>|  New Product </span>:null} */}
