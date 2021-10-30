@@ -56,10 +56,10 @@ const NavBar = (props) =>{
             <div className="col-1">
                 
             </div>
-            <div className="col-6">
+            <div className="col-4">
                 <SearchBar formSubmission={props.formSubmission} books={props.books} />
             </div>
-            <div className="col-4 nav-links">
+            <div className="col-6 nav-links">
             <span> <a href="/"> Home </a> </span>
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
@@ -74,7 +74,7 @@ const NavBar = (props) =>{
                 <a href="/Randy"><span>|  Randy</span></a>
                 {/* {buyer ? <span>|  New Product </span>:null} */}
             </div>
-
+            <div className="col-1"></div>
         </div>
         </>
      );

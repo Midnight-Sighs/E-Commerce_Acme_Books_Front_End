@@ -29,25 +29,29 @@
 }
 
 .head .fire-hazard {
-  top: -700px;
+  top: -600px;
   position: absolute;
   overflow: hidden;
 }
 
 .head .title {
   right: 5rem;
-  top: 5rem;
+  top: 8rem;
   position: absolute;
+  font-weight: 600;
   font-family: 'Indie Flower', cursive;
   font-size: 5rem;
+  text-shadow: 2px 2px 5px #091931;
 }
 
 .head .sub-title {
   font-family: 'Indie Flower', cursive;
   font-size: 3rem;
+  font-weight: 400;
   position: absolute;
-  top: 10rem;
+  top: 13rem;
   right: 6rem;
+  text-shadow: 2px 2px 5px #091931;
 }
 
 .head .log-reg {
@@ -62,14 +66,14 @@
 }
 
 .nav-bar .nav-links {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   font-size: 1.5rem;
 }
 
 .nav-bar span {
   padding-right: 5px;
   color: #7a6751;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .nav-bar a {
@@ -82,13 +86,17 @@
 }
 
 .search-field {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   background-color: #091931;
   border-radius: 10px;
-  width: 20vw;
+  width: 25vw;
   font-size: 1.5rem;
   color: #ffc27d;
   padding: .25rem;
+}
+
+.search-field:focus {
+  background-color: #091931;
 }
 
 .search-btn {
@@ -96,7 +104,7 @@
   border-radius: 10px;
   font-size: 1.5rem;
   margin-left: .5rem;
-  padding: .25rem;
+  padding: .5rem;
 }
 
 .book-card {
