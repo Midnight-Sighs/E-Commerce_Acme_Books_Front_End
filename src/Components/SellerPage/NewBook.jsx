@@ -6,6 +6,10 @@ import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../../Pages/Styles/Pages.css'
+console.log(window.location.pathname)
+var pathArray = window.location.pathname.split('/');
+var secondLevelLocation = pathArray[2];
+console.log(secondLevelLocation)
 
 class NewBook extends Component {
     constructor(props) {
@@ -78,10 +82,10 @@ class NewBook extends Component {
                 errors.genre = event.target.value.length < 0 ? 'Need a genre' : null;
                 break;
             case 'releaseYear':
-                errors.releaseYear = event.target.value.length < 0 ? 'What year was this book published?' : null;
+                errors.releaseYear = event.target.value.length < 3 & event.target.value.length > 4 ? 'What year was this book published?' : null;
                 break;
             case 'isbn':
-                errors.isbn = event.target.value.length < 0 ? 'Who even knew ISBN was a thing' : null;
+                errors.isbn = event.target.value.length < 8 & event.target.value.length > 14 ? 'Who even knew ISBN was a thing' : null;
                 break;
             case 'price':
                 errors.price = event.target.value.length < 0 ? 'Price it fairly, its not that rare.' : null;

@@ -253,6 +253,7 @@ class App extends Component {
 
 
   render() {
+    let varUser = this.state.user
     return (
       <Container fluid>
         <Row>
@@ -265,7 +266,7 @@ class App extends Component {
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
@@ -277,8 +278,8 @@ class App extends Component {
               />
 
               <Route
-              exact path='/Seller'
-              render={() => <SellerPage currentUserID={this.state.user} status={this.state.user.type} loggedIn={this.state.loggedIn} />}
+              exact path='/Seller/:id'
+              render={() => <SellerPage currentUserID={this.state.user} />}
               />
 
               <Route
@@ -287,8 +288,8 @@ class App extends Component {
               />
 
               <Route
-              exact path='/profile/edit'
-              render={() => <EditProfile user={this.state.user.id}/>}
+              exact path='/profile/edit/:id'
+              render={() => <EditProfile user={this.state.user.id} userprofile={varUser}/>}
               />
               
               <Route

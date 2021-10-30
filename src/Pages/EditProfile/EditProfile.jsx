@@ -5,13 +5,17 @@ import '../Styles/Pages.css'
 import ReadingMan from '../../Images/ReadingMan.jpg'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+console.log(window.location.pathname)
+var pathArray = window.location.pathname.split('/');
+var secondLevelLocation = pathArray[2];
+console.log(secondLevelLocation)
 
 class RegisterPage extends Component {
     constructor(props){
         super(props);
         this.state = {
             User:[],
-            UserId:props.props,
+            UserId:secondLevelLocation,
             firstname: "",
             lastname: "",
             Email: "",
@@ -24,6 +28,7 @@ class RegisterPage extends Component {
         }
     }
     componentDidMount() {
+        console.log(this.props)
         console.log(this.state.UserId)
         console.log(this.props.user)
         this.getCurrentUser()
@@ -87,6 +92,9 @@ class RegisterPage extends Component {
 
             axios.put(getURL, userEdit)
             alert(`${this.state.firstname} has been edited`)
+            if (this.state.seller == true){
+                alert(`${this.state.firstname} can now sell books`)
+            }
         } catch (err) {
             console.log(err);
         }
@@ -143,7 +151,7 @@ class RegisterPage extends Component {
                                 </Col>
                                 <Col sm={4}>
                                     <Form.Label className="reg-label">Code to become a seller:</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='street' onChange={this.handleChange} value={this.state.sellerCode}/>
+                                    <Form.Control className="reg-field" type='text' name='sellerCode' onChange={this.handleChange} value={this.state.sellerCode}/>
                                 </Col>
                             </Row>
 
