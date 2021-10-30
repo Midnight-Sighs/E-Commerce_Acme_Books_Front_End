@@ -55,7 +55,6 @@ class App extends Component {
   // }
   componentDidMount() {
     this.getBooks();
-    this.getShoppingCart();
     this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
@@ -164,8 +163,9 @@ class App extends Component {
 
   //#region Shopping Cart
   getShoppingCart = async () =>{
+    debugger
     const userid = this.state.user.id
-    const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
+    const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
     this.setState({
       shoppingCart: response.data
     });
@@ -177,8 +177,14 @@ class App extends Component {
       shoppingCart: response.data
     });
   }
-  addBookToShoppingCart = async () =>{
-    const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook${}');
+  addBookToShoppingCart = async (bookId) =>{
+    debugger
+    let userId = this.state.user.id
+    let newCart = {
+      "bookId" : bookId,
+      "userId" : userId
+    }
+    const response = await axios.post(`https://localhost:44394/api/shoppingCart/addBook/${bookId}`, newCart);
     this.setState({
 
     })
@@ -268,7 +274,7 @@ class App extends Component {
 
             <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
             <Switch >   
-              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} addBookToShoppingCart={this.addBookToShoppingCart} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
               <Route exact path="/" render={() => <MainShop/>}/> */}
 
@@ -294,7 +300,7 @@ class App extends Component {
               
               <Route
               exact path='/cart'
-              render={() => <CartPage shoppingCart={this.state.shoppingCart}/>}
+              render={() => <CartPage getCart={this.getShoppingCart} shoppingCart={this.state.shoppingCart}/>}
               />
               
               <Route

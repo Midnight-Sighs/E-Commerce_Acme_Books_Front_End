@@ -11,6 +11,10 @@ class CartPage extends Component {
         }
     }
 
+    componentDidMount=()=>{
+        this.props.getCart()
+    }
+
     updateQuantity = async (cartId, bookId, count) =>{
         const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/' + count + '/');
 
