@@ -72,6 +72,7 @@ class BookListing extends Component {
                                         <>
                                             <div className="row posted-books">
                                                 <div className="col-6">
+                                                <img src={filteredBook.imageSrc} className="card-img-top rounded-circle" />
                                                     <h3>Title: {filteredBook.title}</h3>
                                                     <h3>Author: {filteredBook.author}</h3>
                                                 </div>  

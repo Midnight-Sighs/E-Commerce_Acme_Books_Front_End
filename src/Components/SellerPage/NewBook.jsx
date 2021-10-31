@@ -56,18 +56,18 @@ class NewBook extends Component {
         formData.append('Price', parsedPrice)
         formData.append('Id', this.props.user)
         formData.append('Image', this.state.selectedFile)
-        formData.append('ImageName',this.state.selectedFile.name)
-        
-        console.log(formData)
-        //multipart/form-data;
+    
         try {
             
-            await axios.post("https://localhost:44394/api/book", formData,{
+            await axios.post("https://localhost:44394/api/book", formData,
+            {
                 headers: {
                   'accept': 'application/json',
                   'Accept-Language': 'en-US,en;q=0.8',
                   'Content-Type': `multipart/form-data;`,
-                }})
+                }
+            }
+            )
             alert(`${this.state.Title} has been added`)
         } catch (err) {
             console.log(err);
@@ -152,7 +152,7 @@ class NewBook extends Component {
                         <h1>
                             Sell a book! Get Monies!!
                         </h1>
-                    <Form className="new-book-form" onSubmit={(event) => this.handleSubmit(event)}>
+                    <Form className="new-book-form" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
                         <Form.Group controlId="name">
                             <Form.Label className="nb-label">Title</Form.Label>
                             <Form.Control className="nb-field" type="text" placeholder="Title"
