@@ -33,7 +33,6 @@ class App extends Component {
       currentUser: [],
       currentUserID: "",
       registeredUser: [],
-      shoppingCart: [],
       loggedIn: false,
       books:[],
       searchResults: [],
@@ -163,14 +162,14 @@ class App extends Component {
 //#endregion  
 
   //#region Shopping Cart
-  getShoppingCart = async () =>{
-    const userid = this.state.currentUserID
-    const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
-    this.setState({
-      shoppingCart: response.data
-    });
-    console.log(response)
-} 
+//   getShoppingCart = async () =>{
+//     const userid = this.state.currentUserID
+//     const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
+//     this.setState({
+//       shoppingCart: response.data
+//     });
+//     console.log(response)
+// } 
   removeBookFromShoppingCart = async (bookid) =>{
     const userid = this.state.user.id
     const response = await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
@@ -183,9 +182,10 @@ class App extends Component {
     let userId = this.state.user.id
     let newCart = {
       "bookId" : bookId,
-      "userId" : userId
+      "userId" : userId,
+      "quantity" : 1
     }
-    const response = await axios.post(`https://localhost:44394/api/shoppingCart/addBook/${bookId}`, newCart);
+    const response = await axios.post(`https://localhost:44394/api/shoppingCart/addBook/`, newCart);
     this.setState({
 
     })
@@ -301,7 +301,7 @@ class App extends Component {
               
               <Route
               exact path='/cart'
-              render={() => <CartPage getCart={this.getShoppingCart} shoppingCart={this.state.shoppingCart}/>}
+              render={() => <CartPage currentUserID={this.state.currentUserID}/>}
               />
               
               <Route

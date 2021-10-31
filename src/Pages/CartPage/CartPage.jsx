@@ -9,7 +9,9 @@ class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            books:[]
+            books:[],
+            shoppingCart: [],
+            currentUserID: '',
         }
     }
 
@@ -19,9 +21,34 @@ class CartPage extends Component {
         return tempBook
     }
 
+    getShoppingCart = async () =>{
+        const userid = this.state.currentUserID
+        if(userid == ""){
+            return;
+        }
+        else{
+            const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
+            this.setState({
+                shoppingCart: response.data
+                });
+        }
+    }
+
     componentDidMount=()=>{
-        this.props.getCart()
-        this.getAllBookDetails()
+        this.setState({
+            currentUserId : this.props.currentUserID
+        })
+        this.getShoppingCart();
+        this.getAllBookDetails();
+    }
+
+    componentDidUpdate(){
+        if(this.props.currentUserID != this.state.currentUserID){
+            this.setState({
+                currentUserID: this.props.currentUserID
+            })
+        }
+        this.getShoppingCart();
     }
 
     updateQuantity = async (cartId, bookId, count) =>{
@@ -30,7 +57,7 @@ class CartPage extends Component {
 
     getAllBookDetails =() =>{
         let tempBooks = []
-        this.props.shoppingCart.map((book)=>{
+        this.state.shoppingCart.map((book)=>{
             let tempBook = {}
             tempBook = this.getBook(book.bookId)
             tempBooks.push(tempBook)
@@ -50,7 +77,7 @@ class CartPage extends Component {
                         </div>
                         <div className="mt-4 col-6">
                             <br />
-                            {this.props.shoppingCart.map((book) => {
+                            {this.state.shoppingCart.map((book) => {
                                 return (
                                     <CartItem book={book} updateQuantity={this.updateQuantity} key={book.bookId} />
                                 );
