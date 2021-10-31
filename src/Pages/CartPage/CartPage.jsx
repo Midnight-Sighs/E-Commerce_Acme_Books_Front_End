@@ -34,6 +34,13 @@ class CartPage extends Component {
         }
     }
 
+    removeBookFromShoppingCart = async (bookid) =>{
+        debugger
+        const userid = this.state.currentUserID
+        await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
+        this.getShoppingCart();
+      }
+
     componentDidMount=()=>{
         this.setState({
             currentUserId : this.props.currentUserID
@@ -79,7 +86,7 @@ class CartPage extends Component {
                             <br />
                             {this.state.shoppingCart.map((book) => {
                                 return (
-                                    <CartItem book={book} updateQuantity={this.updateQuantity} key={book.bookId} />
+                                    <CartItem book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
                                 );
                             })}
                         </div>

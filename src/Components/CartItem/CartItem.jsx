@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 
-const CartItem = ({ book, updateQuantity }) => {
+const CartItem = ({ book, updateQuantity, deleteBook }) => {
 
     const [count, setCount] = useState(book.quantity);
+
+    const onClickQuantity = () =>{
+        if(count == 0){
+            deleteBook(book.bookId);
+        }
+        else{
+            updateQuantity(book.cartId, book.bookId, count);
+        }
+    }
 
     return (
         <div className="cart-card">
@@ -19,7 +28,7 @@ const CartItem = ({ book, updateQuantity }) => {
                     <button onClick={() => setCount(count - 1)} type="button" className="cart-btn">-</button>
                     <button type="button" className="cart-btn">{count}</button>
                     <button onClick={() => setCount(count + 1)} type="button" className="cart-btn">+</button>
-                    <button onClick={ () => updateQuantity(book.cartId, book.bookId, this.state.count)} type="button" className="cart-btn">update</button>
+                    <button onClick={onClickQuantity} type="button" className="cart-btn">update</button>
                 </div>
             </div>
         </div>
