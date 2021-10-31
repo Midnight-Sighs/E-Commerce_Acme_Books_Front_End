@@ -3,6 +3,7 @@ import { Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css'
 import ReadingMan from '../../Images/ReadingMan.jpg'
+import {withRouter} from 'react-router-dom';
 
 class RegisterPage extends Component {
     constructor(props){
@@ -54,6 +55,7 @@ class RegisterPage extends Component {
             state: "",
             zip: ""
         });
+        this.props.history.push('/');
     }
 
     render(){
@@ -74,7 +76,7 @@ class RegisterPage extends Component {
                                 </Col>
                                 <Col sm={6}>
                                     <Form.Label className="reg-label">Password</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
+                                    <Form.Control className="reg-field" type='password' name='password' onChange={this.handleChange} value={this.state.password}/>
                                 </Col>
                             </Row>
 
@@ -92,7 +94,7 @@ class RegisterPage extends Component {
                             <Row>
                                 <Col sm={12}>
                                     <Form.Label className="reg-label" >Email</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='email' onChange={this.handleChange} value={this.state.email}/>
+                                    <Form.Control className="reg-field" type='email' name='email' onChange={this.handleChange} value={this.state.email}/>
                                 </Col>
                             </Row>
 
@@ -129,4 +131,4 @@ class RegisterPage extends Component {
         );
     }
 }
-export default RegisterPage;
+export default withRouter (RegisterPage);

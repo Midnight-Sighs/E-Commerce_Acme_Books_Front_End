@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Row, Col } from "react-bootstrap";
+import {withRouter} from 'react-router-dom'
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css'
 
@@ -29,6 +30,7 @@ class LoginPage extends Component {
             username: '',
             password: '',
         });
+        this.props.history.push('/');
     }
 
     render(){
@@ -52,7 +54,7 @@ class LoginPage extends Component {
                             <Row>
                                 <Col sm={3}>
                                     <Form.Label className="login-label">Password</Form.Label>
-                                    <Form.Control className="login-field" type='text' name='password' onChange={this.handleChange} value={this.state.password}/>
+                                    <Form.Control className="login-field" type='password' name='password' onChange={this.handleChange} value={this.state.password}/>
                                 </Col>
                             </Row>
                             
@@ -66,4 +68,4 @@ class LoginPage extends Component {
         );
     }
 }
-export default LoginPage;
+export default withRouter (LoginPage);

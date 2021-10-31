@@ -98,6 +98,17 @@
 //#endregion
 
 //#region Registration Page
+.reg-row{
+    & h1{
+        font-family: $playful-font;
+        padding: 2rem;
+        color: $dark-blue;
+        font-weight: 700;
+        text-shadow: $gold-text-shadow;
+        font-size: 5rem;
+    }
+}
+
 .reg-form{
     .reg-label{
         margin-top: 1rem;
@@ -135,6 +146,8 @@
     font-size: 2rem;
     border:none;
     border-radius: 10px;
+    margin: 1rem;
+    margin-left: 1rem;
     & :hover{
         background-color: $dark-blue;
         color: $light-blue;
