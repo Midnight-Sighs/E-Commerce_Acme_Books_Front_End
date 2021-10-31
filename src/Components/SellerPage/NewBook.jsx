@@ -24,6 +24,8 @@ class NewBook extends Component {
             ISBN: "",
             Price: "",
             UserId: props.props,
+            selectedFile: null,
+            selectedFileURL: "",
             errors: {
                 Title: "",
                 Author: "",
@@ -93,9 +95,18 @@ class NewBook extends Component {
         }
         this.setState({
             [event.target.name]: event.target.value,
-            error: errors
+            error: errors,
         })
+        console.log("setting selectedFileURL")
+        console.log(this.state.selectedFileURL)
     }
+
+    onFileChange = event => {
+        this.setState({ 
+            selectedFile: event.target.files[0],
+            selectedFileURL: URL.createObjectURL(event.target.files[0]),
+         });
+      };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -103,6 +114,20 @@ class NewBook extends Component {
     }
 
     render() {
+        const isThereAPhoto = () => {
+            if(this.state.selectedFile) {
+                return (
+                                <div>
+                                    <h2>File Details:</h2>  
+                                    <p>File Name: {this.state.selectedFile.name}</p>
+                                    <p>File Type: {this.state.selectedFile.type}</p><p>
+                                        Last Modified:{" "} {this.state.selectedFile.lastModifiedDate.toDateString()}
+                                    </p><p><img src={this.state.selectedFileURL}></img></p>
+                                    </div>
+                                    
+                        )
+            };
+          }
         return (
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
@@ -161,8 +186,15 @@ class NewBook extends Component {
                         </Form.Group>
                         {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
                         <br/>
+                        <Form.Group controlId="FileUpload">
+                            <Form.Label className="nb-label">Book Cover:</Form.Label>
+                            <Form.Control className="nb-field" type="file" placeholder="Price of this?" name="Price" accept="image/*"
+                                        onChange={this.onFileChange} value={this.state.Price}/>
+                        </Form.Group>
+                        {isThereAPhoto()}
                         <button className="nb-button" type="submit">Create Listing</button>
                     </Form>
+                    
                 </Col>
                 </div>
             </div>

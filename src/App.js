@@ -21,6 +21,7 @@ import { withRouter } from 'react-router-dom';
 import BookListing from './Components/SellerPage/BookListing'
 
 
+
 const history = createBrowserHistory();
 class App extends Component {
   constructor(props) {
@@ -314,6 +315,10 @@ class App extends Component {
               exact path='/BookListing'
               render={() => <BookListing user={this.state.user} books={this.state.books}/>}
               />
+              {/* <Route
+              exact path='/Photos'
+              render={() => <Photos user={this.state.user} books={this.state.books}/>}
+              /> */}
 
 
             </Switch>
