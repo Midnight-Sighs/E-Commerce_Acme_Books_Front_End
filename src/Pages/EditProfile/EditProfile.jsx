@@ -105,59 +105,59 @@ class RegisterPage extends Component {
     render(){
         return(
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
-                <div className="row login-row">
+                <div className="row edit-profile-row">
                     <Col sm={5}>
-                        <h1>You're never too old to find magic in reading...</h1>
-                        <img className="reading-man"src={ReadingMan}></img>
+                        <h1>Welcome {this.state.firstname}</h1>
+                        <p>You're on your profile page!  If you misspelled your name, e-mail, or anything else, you can fix it here!  Here is where you can also enter your super secret code to become a seller.  We take selling serious, here, so you have to be approved to be a seller!  Contact us for more information!  Happy book buying!</p>
                     </Col>
                     <Col sm={6}>
-                        <Form onSubmit ={this.handleSubmit}>
-                            <Form.Group className="mb-3" controlId="formBasicRegister">
+                        <Form  className="profile-form" onSubmit ={this.handleSubmit}>
+                            <Form.Group controlId="formBasicRegister">
 
                             <Row>
                                 <Col sm={6}>
-                                    <Form.Label className="reg-label">First Name</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='firstname' onChange={this.handleChange} value={this.state.firstname}/>
+                                    <Form.Label className="pro-label">First Name</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='firstname' placeholder={this.state.firstname} onChange={this.handleChange} value={this.state.firstname}/>
                                 </Col>
                                 <Col sm={6}>
-                                    <Form.Label className="reg-label">Last Name</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='lastname' onChange={this.handleChange} value={this.state.lastname}/>
+                                    <Form.Label className="pro-label">Last Name</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='lastname' onChange={this.handleChange} value={this.state.lastname}/>
                                 </Col>
                             </Row>
 
                             <Row>
                                 <Col sm={12}>
-                                    <Form.Label className="reg-label" >Email</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='email' onChange={this.handleChange} value={this.state.Email}/>
+                                    <Form.Label className="pro-label" >Email</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='email' onChange={this.handleChange} value={this.state.Email}/>
                                 </Col>
                             </Row>
 
                             <Row>
                                 <Col sm={4}>
-                                    <Form.Label className="reg-label">Street</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='street' onChange={this.handleChange} value={this.state.street}/>
+                                    <Form.Label className="pro-label">Street</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='street' onChange={this.handleChange} value={this.state.street}/>
                                 </Col>
                                 <Col sm={3}>
-                                    <Form.Label className="reg-label">City</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='city' onChange={this.handleChange} value={this.state.city}/>
+                                    <Form.Label className="pro-label">City</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='city' onChange={this.handleChange} value={this.state.city}/>
                                 </Col>
                                 <Col sm={2}>
-                                    <Form.Label className="reg-label">State</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='state' onChange={this.handleChange} value={this.state.state}/>
+                                    <Form.Label className="pro-label">State</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='state' onChange={this.handleChange} value={this.state.state}/>
                                 </Col>
                                 <Col sm={2}>
-                                    <Form.Label className="reg-label">Zip</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='zip' onChange={this.handleChange} value={this.state.zip}/>
+                                    <Form.Label className="pro-label">Zip</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='zip' onChange={this.handleChange} value={this.state.zip}/>
                                 </Col>
                                 <Col sm={4}>
-                                    <Form.Label className="reg-label">Code to become a seller:</Form.Label>
-                                    <Form.Control className="reg-field" type='text' name='sellerCode' onChange={this.handleChange} value={this.state.sellerCode}/>
+                                    <Form.Label className="pro-label">Code to become a seller:</Form.Label>
+                                    <Form.Control className="pro-field" type='text' name='sellerCode' onChange={this.handleChange} value={this.state.sellerCode}/>
                                 </Col>
                             </Row>
 
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicButton">
-                            <button className="basic-btns" type='submit' value='Submit'>Update Profile!</button>
+                            <button className="pro-btn basic-btns" type='submit' value='Submit'>Update Profile!</button>
                             </Form.Group>
                         </Form>
                         <Col sm={1}>

@@ -64,7 +64,6 @@ const NavBar = (props) =>{
             <span> <a href="/"> Home </a> </span>
                 {anon ? <span>|  <a href="/login"> Login </a> </span> :null}
                 {anon ? <span> |  <a href="/register"> Register </a> </span>:null}
-                {anon ? <span>|  <a href="/profile/edit/{userid}"> Edit Profile - anon </a> </span>: null}
                 {seller ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
                 {buyer ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
                 {seller ? <span>|  <a href="/profile/edit/{userid}"> Edit Seller Profile </a> </span>: null}

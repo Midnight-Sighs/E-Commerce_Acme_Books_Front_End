@@ -209,7 +209,7 @@
 }
 //#endregion
 
-//region Cart Page
+//#region Cart Page
 
 .cart-page-row{
     & .book-pile img{
@@ -219,6 +219,43 @@
         opacity: 80%;
        margin-left: 4rem;
        box-shadow: $box-shadow-golden;
+    }
+}
+
+//#endregion
+
+//#region Edit Profile
+.edit-profile-row{
+    & h1{
+        font-family: $playful-font;
+        margin-left: 4rem;
+        font-size: 6rem;
+        font-weight: 700;
+        text-shadow: $gold-text-shadow;
+    }
+    & p{
+        text-align: justify;
+        font-size: 2rem;
+        color: $golden;
+        margin-left: 2rem;
+        padding: 2rem;
+        background-color: $dark-blue;
+    }
+    & .profile-form{
+        margin-top: 5rem;
+        margin-left: 2rem;
+        & .pro-label{
+            font-size: 2rem;
+        }
+        & .pro-field{
+            font-size: 2rem;
+            background-color: $light-blue;
+            border: solid 2px $golden;
+            color: $light-yellow;
+        }
+        & .pro-field:focus{
+            background-color: $dark-brown;
+        }
     }
 }
 
