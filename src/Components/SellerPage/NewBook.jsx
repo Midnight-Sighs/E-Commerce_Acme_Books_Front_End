@@ -24,6 +24,8 @@ class NewBook extends Component {
             ISBN: "",
             Price: "",
             UserId: props.props,
+            selectedFile: null,
+            selectedFileURL: "",
             errors: {
                 Title: "",
                 Author: "",
@@ -44,21 +46,28 @@ class NewBook extends Component {
       }
     async createListing() {
         let parsedPrice = parseFloat(this.state.Price)
-        var newbook = {
-            Title: this.state.Title,
-            Author: this.state.Author,
-            Description: this.state.Description,
-            Genre: this.state.Genre,
-            ReleaseYear: this.state.ReleaseYear,
-            ISBN: this.state.ISBN,
-            Price: parsedPrice,
-            Id: this.props.user
-        }
-        console.log(newbook)
+        const formData = new FormData()
+        formData.append('title', this.state.Title)
+        formData.append('Author', this.state.Author)
+        formData.append('Description', this.state.Description)
+        formData.append('Genre', this.state.Genre)
+        formData.append('ReleaseYear', this.state.ReleaseYear)
+        formData.append('ISBN', this.state.ISBN)
+        formData.append('Price', parsedPrice)
+        formData.append('Id', this.props.user)
+        formData.append('Image', this.state.selectedFile)
+        formData.append('ImageName',this.state.selectedFile.name)
+        
+        console.log(formData)
+        //multipart/form-data;
         try {
             
-            console.log(newbook);
-            await axios.post("https://localhost:44394/api/book", newbook)
+            await axios.post("https://localhost:44394/api/book", formData,{
+                headers: {
+                  'accept': 'application/json',
+                  'Accept-Language': 'en-US,en;q=0.8',
+                  'Content-Type': `multipart/form-data;`,
+                }})
             alert(`${this.state.Title} has been added`)
         } catch (err) {
             console.log(err);
@@ -93,9 +102,18 @@ class NewBook extends Component {
         }
         this.setState({
             [event.target.name]: event.target.value,
-            error: errors
+            error: errors,
         })
+        console.log("setting selectedFileURL")
+        console.log(this.state.selectedFileURL)
     }
+
+    onFileChange = event => {
+        this.setState({ 
+            selectedFile: event.target.files[0],
+            selectedFileURL: URL.createObjectURL(event.target.files[0]),
+         });
+      };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -103,6 +121,29 @@ class NewBook extends Component {
     }
 
     render() {
+        console.log(this.state.selectedFile)
+        const isThereAPhoto = () => {
+            if(this.state.selectedFile) {
+                return (
+                                <div>
+                                    <h2>File Details:</h2>  
+                                    <p>File Name: {this.state.selectedFile.name}</p>
+                                    <p>File Type: {this.state.selectedFile.type}</p><p>
+                                        Last Modified:{" "} {this.state.selectedFile.lastModifiedDate.toDateString()}
+                                    </p><p><img src={this.state.selectedFileURL}></img></p>
+                                    </div>
+                                    
+                        )
+            }
+            // else {
+            //     <Form.Group controlId="FileUpload">
+            //     <Form.Label className="nb-label">Book Cover:</Form.Label>
+            //     <Form.Control className="nb-field" type="file" placeholder="Price of this?" name="Price" accept="image/*"
+            //                 onChange={this.onFileChange}/>
+            //     </Form.Group>
+                
+            // };
+          }
         return (
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
@@ -161,8 +202,15 @@ class NewBook extends Component {
                         </Form.Group>
                         {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
                         <br/>
+                        <Form.Group controlId="FileUpload">
+                <Form.Label className="nb-label">Book Cover:</Form.Label>
+                <Form.Control className="nb-field" type="file" name="selectedFile" accept="image/*"
+                            onChange={this.onFileChange}/>
+                </Form.Group>
+                        {isThereAPhoto()}
                         <button className="nb-button" type="submit">Create Listing</button>
                     </Form>
+                    
                 </Col>
                 </div>
             </div>

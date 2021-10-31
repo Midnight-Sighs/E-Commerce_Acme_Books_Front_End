@@ -51,6 +51,7 @@ const NavBar = (props) =>{
         // }
     }
     let editProfileURL = "/profile/edit/" + userid
+    let sellerURL = "/Seller/" + userid
     return ( 
         <> 
         <div className="row nav-bar">
@@ -67,7 +68,7 @@ const NavBar = (props) =>{
                 {seller ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
                 {buyer ? <span>|  <a href="/logout" onClick={onClickLogout}> Logout </a></span>: null}
                 {seller ? <span>|  <a href="/profile/edit/{userid}"> Edit Seller Profile </a> </span>: null}
-                {seller ? <span>|  <a href="/Seller"> Seller Menu </a> </span>: null}
+                {seller ? <span>|  <a href={sellerURL}> Seller Menu </a> </span>: null}
                 {buyer ? <span>|  <a href={editProfileURL}> Edit Buyer Profile </a> </span>: null}
                 {seller ? <span>|  <a href="/cart">Cart</a></span>:null}
                 {buyer ? <span>|  <a href="/cart">Cart</a></span>:null}
