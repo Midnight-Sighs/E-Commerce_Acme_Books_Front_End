@@ -59,7 +59,7 @@ class RegisterPage extends Component {
     render(){
         return(
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
-                <div className="row login-row">
+                <div className="row reg-row">
                     <Col sm={5}>
                         <h1>You're never too old to find magic in reading...</h1>
                         <img className="reading-man"src={ReadingMan}></img>

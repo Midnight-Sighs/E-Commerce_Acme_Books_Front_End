@@ -266,4 +266,40 @@
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
           box-shadow: 0 0 5px 5px #ffc27d;
 }
+
+.edit-profile-row h1 {
+  font-family: "Indie Flower", cursive;
+  margin-left: 4rem;
+  font-size: 6rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px #ffc27d;
+}
+
+.edit-profile-row p {
+  text-align: justify;
+  font-size: 2rem;
+  color: #ffc27d;
+  margin-left: 2rem;
+  padding: 2rem;
+  background-color: #091931;
+}
+
+.edit-profile-row .profile-form {
+  margin-top: 5rem;
+  margin-left: 2rem;
+}
+
+.edit-profile-row .profile-form .pro-label {
+  font-size: 2rem;
+}
+
+.edit-profile-row .profile-form .pro-field {
+  font-size: 2rem;
+  background-color: #448c9e;
+  border: solid 2px #ffc27d;
+}
+
+.edit-profile-row .profile-form .pro-field:focus {
+  background-color: #7a6751;
+}
 /*# sourceMappingURL=Pages.css.map */
