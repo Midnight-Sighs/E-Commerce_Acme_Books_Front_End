@@ -164,7 +164,7 @@ class App extends Component {
 
   //#region Shopping Cart
   getShoppingCart = async () =>{
-    const userid = this.state.user.id
+    const userid = this.state.currentUserID
     const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
     this.setState({
       shoppingCart: response.data
