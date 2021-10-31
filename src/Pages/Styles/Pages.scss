@@ -251,12 +251,32 @@
             font-size: 2rem;
             background-color: $light-blue;
             border: solid 2px $golden;
-            color: $light-yellow;
+            color: $bright-yellow;
         }
         & .pro-field:focus{
             background-color: $dark-brown;
         }
     }
+}
+
+//#endregion
+
+//#region Seller Page
+
+.seller-page{
+    background-color: $dark-blue;
+    width: 50rem;
+    margin-left: 5rem;
+    padding-top: 3rem;
+    border-radius: 15px;
+    & p {
+        font-size: 3rem;
+    }
+    & a {
+        text-decoration: none;
+         color: $golden;
+         text-shadow: $blue-text-shadow;
+        }
 }
 
 //#endregion

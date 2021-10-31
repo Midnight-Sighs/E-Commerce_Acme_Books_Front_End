@@ -297,9 +297,28 @@
   font-size: 2rem;
   background-color: #448c9e;
   border: solid 2px #ffc27d;
+  color: #ffe3a8;
 }
 
 .edit-profile-row .profile-form .pro-field:focus {
   background-color: #7a6751;
+}
+
+.seller-page {
+  background-color: #091931;
+  width: 50rem;
+  margin-left: 5rem;
+  padding-top: 3rem;
+  border-radius: 15px;
+}
+
+.seller-page p {
+  font-size: 3rem;
+}
+
+.seller-page a {
+  text-decoration: none;
+  color: #ffc27d;
+  text-shadow: 2px 2px 5px #091931;
 }
 /*# sourceMappingURL=Pages.css.map */

@@ -20,7 +20,6 @@ class CartPage extends Component {
     }
 
     componentDidMount=()=>{
-        debugger
         this.props.getCart()
         this.getAllBookDetails()
     }
