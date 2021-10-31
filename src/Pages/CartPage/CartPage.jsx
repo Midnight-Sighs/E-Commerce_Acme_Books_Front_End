@@ -58,8 +58,11 @@ class CartPage extends Component {
         this.getShoppingCart();
     }
 
-    updateQuantity = async (cartId, bookId, count) =>{
-        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/' + count + '/');
+    updateQuantity = async (userId, bookId, count) =>{
+        let newQuantity = {
+            "quantity" : count
+        }
+        await axios.put(`https://localhost:44394/api/shoppingCart/update/${userId}/${bookId}`, newQuantity);
     }
 
     getAllBookDetails =() =>{
@@ -86,7 +89,7 @@ class CartPage extends Component {
                             <br />
                             {this.state.shoppingCart.map((book) => {
                                 return (
-                                    <CartItem book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
+                                    <CartItem userId={this.state.currentUserID} book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
                                 );
                             })}
                         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const CartItem = ({ book, updateQuantity, deleteBook }) => {
+const CartItem = ({ userId, book, updateQuantity, deleteBook }) => {
 
     const [count, setCount] = useState(book.quantity);
 
@@ -9,7 +9,8 @@ const CartItem = ({ book, updateQuantity, deleteBook }) => {
             deleteBook(book.bookId);
         }
         else{
-            updateQuantity(book.cartId, book.bookId, count);
+            debugger
+            updateQuantity(userId, book.bookId, count);
         }
     }
 
