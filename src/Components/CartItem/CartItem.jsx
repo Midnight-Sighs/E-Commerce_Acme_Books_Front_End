@@ -9,7 +9,6 @@ const CartItem = ({ userId, book, updateQuantity, deleteBook }) => {
             deleteBook(book.bookId);
         }
         else{
-            debugger
             updateQuantity(userId, book.bookId, count);
         }
     }

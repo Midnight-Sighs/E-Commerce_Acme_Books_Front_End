@@ -24,7 +24,7 @@ class BookDetailPage extends Component {
     console.log(window.location.pathname)
     console.log('Getting single book' + this.state.endpoint)
     let endpoint = parseInt(this.state.endpoint)
-    const response = await axios.get('https://localhost:44394/api/' + endpoint);
+    const response = await axios.get('https://localhost:44394/api/book/' + endpoint);
     this.setState({
       book: response.data
     })

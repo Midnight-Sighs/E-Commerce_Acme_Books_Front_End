@@ -179,6 +179,8 @@ class App extends Component {
     this.setState({
 
     })
+    debugger
+    this.deleteBook(bookId)
   }
 
   //#endregion 
@@ -239,10 +241,19 @@ class App extends Component {
 
     })
   }
-  deleteBook = async () =>{
-    const response = await axios.get('https://localhost:44394/api/book/delete/${}');
+  deleteBook = async (bookId) =>{
+    const response = await axios.delete(`https://localhost:44394/api/book/delete/${bookId}`);
+    debugger
+    let allBooks = [];
+    allBooks = this.state.books;
+    let newBooks = []
+    allBooks.map((book)=>{
+      if(book.bookId != bookId){
+        newBooks.push(book)
+      }
+    })
     this.setState({
-
+      books : newBooks
     })
   }
   //#endregion

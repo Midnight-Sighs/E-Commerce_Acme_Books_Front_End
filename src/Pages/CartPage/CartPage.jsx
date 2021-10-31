@@ -16,7 +16,7 @@ class CartPage extends Component {
     }
 
     getBook = async (bookId) =>{
-        const response = await axios.get('https://localhost:44394/api/' + bookId);
+        const response = await axios.get('https://localhost:44394/api/book/' + bookId);
         let tempBook = response.data
         return tempBook
     }
@@ -35,7 +35,6 @@ class CartPage extends Component {
     }
 
     removeBookFromShoppingCart = async (bookid) =>{
-        debugger
         const userid = this.state.currentUserID
         await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
         this.getShoppingCart();
@@ -46,7 +45,6 @@ class CartPage extends Component {
             currentUserId : this.props.currentUserID
         })
         this.getShoppingCart();
-        this.getAllBookDetails();
     }
 
     componentDidUpdate(){
@@ -56,6 +54,7 @@ class CartPage extends Component {
             })
         }
         this.getShoppingCart();
+        
     }
 
     updateQuantity = async (userId, bookId, count) =>{
