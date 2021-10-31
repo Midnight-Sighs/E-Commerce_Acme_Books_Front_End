@@ -164,15 +164,16 @@ class App extends Component {
 
   //#region Shopping Cart
   getShoppingCart = async () =>{
-    const userid = this.state.user.id
+    const userid = this.state.currentUserID
     const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
     this.setState({
       shoppingCart: response.data
     });
     console.log(response)
 } 
-  removeBookFromShoppingCart = async () =>{
-    const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
+  removeBookFromShoppingCart = async (bookid) =>{
+    const userid = this.state.user.id
+    const response = await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
     this.setState({
       shoppingCart: response.data
     });
