@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import '../Styles/Components.css'
 import PlaceholderCover from '../../Images/PlaceHolder01.jpg'
 import {BrowserRouter as Router, Link} from "react-router-dom";
-import BookDetailPage from '../../Pages/BookDetailPage/BookDetailPage';
+import BookDetailPage2 from '../../Pages/BookDetailPage/BookDetailPage2';
 
 const BookCard=(props)=> {
     
@@ -24,7 +24,7 @@ const BookCard=(props)=> {
                             <br />{props.book.price}</p>
                         </div>
                         <div className="col-6">
-                        <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage {...props} bookId={props.book.bookId} />}> View Book Details </Link></button> : "Please login to see Book details" }
+                        <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage2 {...props} bookId={props.book.bookId} />}> View Book Details </Link></button> : "Please login to see Book details" }
                         <br />{props.loggedIn ? <button className="detail-btn" onClick={() => props.addBookToShoppingCart(props.book.bookId)}> Add to Cart </button> : "Please login to add to cart" }
                         </div>
                     </div>
