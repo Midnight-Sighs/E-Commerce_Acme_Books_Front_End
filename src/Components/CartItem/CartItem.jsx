@@ -20,7 +20,7 @@ const CartItem = ({ userId, book, updateQuantity, deleteBook }) => {
                     <button onClick={() => setCount(count - 1)} type="button" className="cart-btn">-</button>
                     <button type="button" className="cart-btn">{count}</button>
                     <button onClick={() => setCount(count + 1)} type="button" className="cart-btn">+</button>
-                    <button onClick={onClickQuantity} type="button" className="cart-btn">update</button>
+                    <button onClick={onClickQuantity} type="button" className="cart-btn">Update</button>
                 </div>
             </div>
         </div>

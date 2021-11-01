@@ -141,7 +141,7 @@ import defaultImg from '../../Images/defaultImg.png'
 
         //<img src="https://localhost:44394/Images/BookCover021310285.jpg" class="card-img-top">
         <>
-        <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
+        <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className= "main-body-details">
                     <div className = "row opac">
                         <div className="col-1"></div>

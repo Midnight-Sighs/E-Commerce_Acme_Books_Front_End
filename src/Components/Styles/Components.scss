@@ -5,7 +5,7 @@
     position: fixed;
     background-color: $light-blue;
     left: 0;
-    top: 455px;
+    top: 475px;
     overflow-y:scroll;
     z-index: -2;
     background-size: 100%;
@@ -32,15 +32,15 @@
         position: absolute; 
         font-weight: 600;
         font-family: 'Indie Flower', cursive;  
-        font-size:5rem;
+        font-size:7rem;
         text-shadow: $blue-text-shadow;
     }
     & .sub-title{
         font-family: 'Indie Flower', cursive; 
-        font-size: 3rem;
+        font-size: 4rem;
         font-weight: 400;
         position: absolute;
-        top:13rem;
+        top:14rem;
         right: 6rem;
         text-shadow: $blue-text-shadow;
     }
@@ -64,7 +64,7 @@
     & span{
         padding-right:5px;
         color: $dark-brown;
-        font-size: 2.5rem;
+        font-size: 2.7rem;
     }
     & a{
         color: $dark-brown;
@@ -81,8 +81,8 @@
     margin-top: 2.5rem;
     background-color: $dark-blue;
     border-radius: 10px;
-    width: 25vw;
-    font-size: 1.5rem;
+    width: 20vw;
+    font-size: 2rem;
     color: $golden;
     padding: .25rem;
 }
@@ -93,7 +93,7 @@
 .search-btn{
     background-color: $light-brown;
     border-radius: 10px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-left: .5rem;
     padding: .5rem;
 }
@@ -155,13 +155,7 @@
 //#region Detail Page Body
 .main-body-details{
     width:100%;
-}
-.magic-book{
-    background-repeat:no-repeat;
-    background-color: $light-blue;
-    position:contain;
-    z-index: -1;
-    background-size: 100%;
+    margin-top: 4rem;
     & img{
         margin-top:2em;
         border: 5px $light-brown solid;
@@ -251,6 +245,8 @@
 //#region Main Shop Page
 .main-body{
    overflow-y: scroll;
+   margin-top: 4rem;
+   height: 25rem;
 }
 
 //#endregion
@@ -313,7 +309,7 @@
     border-radius: 10px;
     color: $light-blue;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 8rem;
     margin-left: 5rem;
     width: 30rem;
     box-shadow: $box-shadow-golden;
@@ -335,6 +331,7 @@
             padding: 10px;
             color: $golden;
             margin-bottom: 1rem;
+            margin-top: 1rem;
         }
     }
 }

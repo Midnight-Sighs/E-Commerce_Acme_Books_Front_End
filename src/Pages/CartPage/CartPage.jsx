@@ -130,25 +130,34 @@ class CartPage extends Component {
             <>
                 <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})` }}>
                     <div className="row cart-page-row">
-                        <div className=" book-pile col-5 mx-5">
+                        <div className=" book-pile col-4 mx-5">
                             <img src={BlueBookPile}></img>
                         </div>
-                        <div className="mt-4 col-6">
+                        <div className="mt-4 col-3">
                             <br />
                             {this.state.filteredBooks.map((book)=>{
                                 return(
-                                    <h1>{book.title}
-                                    {book.author}
-                                    {book.price}</h1>
+                                    <div className="cart-details">
+                                        <h1>{book.title}</h1>
+                                        <h1>by {book.author}</h1>
+                                        <h1>$ {book.price}</h1>
+                                    </div>
                                 )
                             })}
+                        </div>
+                        <div className="quantity-box col-3">
                             {this.state.shoppingCart.map((book) => {
                                 return (
                                     <CartItem userId={this.state.currentUserID} book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
                                 );
                             })}
                         </div>
-                        <h1> Your Total: {this.state.cartTotal} </h1><button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                    </div>
+                    <div className="row">
+                        <div className = "checkout-box">
+                            <h1> Your Total: {this.state.cartTotal} </h1>
+                            <button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                        </div>
                     </div>
                 </div>
             </>

@@ -134,7 +134,7 @@ class NewBook extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.createListing();
-        window.location.href = 'http://localhost:3000/NewBook';
+        window.location.href = 'http://localhost:3000/';
     }
 
     render() {

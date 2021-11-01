@@ -258,6 +258,37 @@
         margin-left: 5rem;
         box-shadow: $box-shadow-golden;
     }
+    & .cart-details{
+        margin-top: 3rem;
+        background-color: $dark-blue;
+        border-radius: 15px;
+        box-shadow: $box-shadow-golden;
+        & h1{
+            padding: 5px;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+    & .quantity-box{
+        margin-top: 9rem;
+    }
+}
+
+.checkout-box{
+    margin-left: 50rem;
+    & h1{
+        color: $bright-yellow;
+        font-weight: 800;
+        padding: 5px;
+    }
+    & button{
+        background-color: $dark-blue;
+        color: $bright-yellow;
+        padding: 10px;
+        font-size: 2rem;
+        border: none;
+        border-radius: 5px;
+    }
 }
 
 //#endregion
@@ -306,8 +337,9 @@
     background-color: $dark-blue;
     width: 50rem;
     margin-left: 5rem;
+    margin-top: 10rem;
     padding-top: 3rem;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow-y: scroll;
     & p {
         font-size: 3rem;

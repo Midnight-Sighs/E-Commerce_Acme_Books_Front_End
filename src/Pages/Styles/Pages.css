@@ -309,6 +309,43 @@
           box-shadow: 0 0 5px 5px #ffc27d;
 }
 
+.cart-page-row .cart-details {
+  margin-top: 3rem;
+  background-color: #091931;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 5px 5px #ffc27d;
+          box-shadow: 0 0 5px 5px #ffc27d;
+}
+
+.cart-page-row .cart-details h1 {
+  padding: 5px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cart-page-row .quantity-box {
+  margin-top: 9rem;
+}
+
+.checkout-box {
+  margin-left: 50rem;
+}
+
+.checkout-box h1 {
+  color: #ffe3a8;
+  font-weight: 800;
+  padding: 5px;
+}
+
+.checkout-box button {
+  background-color: #091931;
+  color: #ffe3a8;
+  padding: 10px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 5px;
+}
+
 .edit-profile-row h1 {
   margin-top: 4rem;
   font-family: "Indie Flower", cursive;
@@ -351,8 +388,9 @@
   background-color: #091931;
   width: 50rem;
   margin-left: 5rem;
+  margin-top: 10rem;
   padding-top: 3rem;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow-y: scroll;
 }
 

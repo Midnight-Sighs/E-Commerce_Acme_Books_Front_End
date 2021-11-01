@@ -10,7 +10,6 @@ const SellerPage = (props) =>{
     return ( 
         <> 
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
-                <div className="mt-5">
                     <div className = "seller-page">
                         <p className="welcome">Welcome {props.currentUserID.userName}, this is your seller profile!</p>
                         <hr></hr>
@@ -18,7 +17,6 @@ const SellerPage = (props) =>{
                         <p><Link to="/BookListing">View my book listings</Link></p>
                     </div>
                 </div>
-            </div>
         </>
      );
 }
