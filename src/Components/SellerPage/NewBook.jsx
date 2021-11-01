@@ -56,7 +56,9 @@ class NewBook extends Component {
         formData.append('Price', parsedPrice)
         formData.append('Id', this.props.user)
         formData.append('Image', this.state.selectedFile)
+        formData.append('ImagePath', this.state.selectedFile.name)
         console.log(formData)
+        console.log(this.state.selectedFile.name)
         // var newbook = {
         //     Title: this.state.Title,
         //     Author: this.state.Author,
@@ -70,21 +72,22 @@ class NewBook extends Component {
         // }
         try {
             
-            // console.log(newbook)
+            console.log(formData)
             await axios.post("https://localhost:44394/api/book", formData,
             {
                 headers: {
                   'accept': 'application/json',
                   'Accept-Language': 'en-US,en;q=0.8',
-                  'content-type': 'multipart/form-data'
+                  
                 }
             }
             )
             alert(`${this.state.Title} has been added`)
         } catch (err) {
             console.log(err);
+         }
         }
-    }
+    
 
     handleChange = (event) => {
         let errors = this.state.errors;
@@ -128,7 +131,6 @@ class NewBook extends Component {
       };
 
     handleSubmit = (event) => {
-        debugger
         event.preventDefault();
         this.createListing();
     }
@@ -138,7 +140,7 @@ class NewBook extends Component {
         const isThereAPhoto = () => {
             if(this.state.selectedFile) {
                 return (
-                                <div className = "file-details">
+                                <div>
                                     <h2>File Details:</h2>  
                                     <p>File Name: {this.state.selectedFile.name}</p>
                                     <p>File Type: {this.state.selectedFile.type}</p><p>
@@ -161,11 +163,11 @@ class NewBook extends Component {
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className="new-book-container">
-                    <div className="row">
+                    <Col sm={6}>
                         <h1>
                             Sell a book! Get Monies!!
                         </h1>
-                    <Form className="new-book-form col-6" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
+                    <Form className="new-book-form" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
                         <Form.Group controlId="name">
                             <Form.Label className="nb-label">Title</Form.Label>
                             <Form.Control className="nb-field" type="text" placeholder="Title"
@@ -215,17 +217,16 @@ class NewBook extends Component {
                         </Form.Group>
                         {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
                         <br/>
+                        <Form.Group controlId="FileUpload">
+                <Form.Label className="nb-label">Book Cover:</Form.Label>
+                <Form.Control className="nb-field" type="file" name="selectedFile" accept="image/*"
+                            onChange={this.onFileChange}/>
+                </Form.Group>
+                        {isThereAPhoto()}
                         <button className="nb-button" type="submit">Create Listing</button>
                     </Form>
-                    <Form className="new-book-form col-6" onSubmit={(event) => this.handleSubmit(event)}>   
-                        <Form.Group controlId="FileUpload">
-                        <Form.Label className="nb-label">Book Cover:</Form.Label>
-                        <Form.Control className="nb-field file-submit" type="file" name="selectedFile" accept="image/*"
-                                    onChange={this.onFileChange}/>
-                        </Form.Group>
-                                {isThereAPhoto()}
-                    </Form> 
-                    </div>
+                    
+                </Col>
                 </div>
             </div>
             </>
