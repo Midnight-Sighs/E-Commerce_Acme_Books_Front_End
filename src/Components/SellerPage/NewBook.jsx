@@ -134,7 +134,6 @@ class NewBook extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.createListing();
-        window.location.href = 'http://localhost:3000/';
     }
 
     render() {
@@ -142,7 +141,7 @@ class NewBook extends Component {
         const isThereAPhoto = () => {
             if(this.state.selectedFile) {
                 return (
-                                <div>
+                                <div className="file-details">
                                     <h2>File Details:</h2>  
                                     <p>File Name: {this.state.selectedFile.name}</p>
                                     <p>File Type: {this.state.selectedFile.type}</p><p>
@@ -165,70 +164,74 @@ class NewBook extends Component {
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className="new-book-container">
-                    <Col sm={6}>
+                    <div className="row">
                         <h1>
                             Sell a book! Get Monies!!
                         </h1>
-                    <Form className="new-book-form" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
-                        <Form.Group controlId="name">
-                            <Form.Label className="nb-label">Title</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="Title"
-                                        name="Title" onChange={this.handleChange} value={this.state.Title}/>
-                        </Form.Group>
-                        {this.state.errors.title ? <p style={{color: 'red'}}>{this.state.errors.title}</p> : ''}
+                        <div className="col-6">
+                        <Form className="new-book-form" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
+                                <Form.Group controlId="name">
+                                    <Form.Label className="nb-label">Title</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="Title"
+                                                name="Title" onChange={this.handleChange} value={this.state.Title}/>
+                                </Form.Group>
+                                {this.state.errors.title ? <p style={{color: 'red'}}>{this.state.errors.title}</p> : ''}
 
-                        <Form.Group controlId="Author">
-                            <Form.Label className="nb-label">Author</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="Author" name="Author"
-                                        onChange={this.handleChange} value={this.state.Author}/>
-                        </Form.Group>
-                        {this.state.errors.author ? <p style={{color: 'red'}}>{this.state.errors.author}</p> : ''}
+                                <Form.Group controlId="Author">
+                                    <Form.Label className="nb-label">Author</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="Author" name="Author"
+                                                onChange={this.handleChange} value={this.state.Author}/>
+                                </Form.Group>
+                                {this.state.errors.author ? <p style={{color: 'red'}}>{this.state.errors.author}</p> : ''}
 
-                        <Form.Group controlId="Description">
-                            <Form.Label className="nb-label">Description</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="Description goes here" name="Description"
-                                        onChange={this.handleChange} value={this.state.Description}/>
-                        </Form.Group>
-                        {this.state.errors.description ? <p style={{color: 'red'}}>{this.state.errors.description}</p> : ''}
+                                <Form.Group controlId="Description">
+                                    <Form.Label className="nb-label">Description</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="Description goes here" name="Description"
+                                                onChange={this.handleChange} value={this.state.Description}/>
+                                </Form.Group>
+                                {this.state.errors.description ? <p style={{color: 'red'}}>{this.state.errors.description}</p> : ''}
 
-                        <Form.Group controlId="Genre">
-                            <Form.Label className="nb-label">Genre</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="Genre" name="Genre"
-                                        onChange={this.handleChange} value={this.state.Genre}/>
-                        </Form.Group>
-                        {this.state.errors.genre ? <p style={{color: 'red'}}>{this.state.errors.genre}</p> : ''}
+                                <Form.Group controlId="Genre">
+                                    <Form.Label className="nb-label">Genre</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="Genre" name="Genre"
+                                                onChange={this.handleChange} value={this.state.Genre}/>
+                                </Form.Group>
+                                {this.state.errors.genre ? <p style={{color: 'red'}}>{this.state.errors.genre}</p> : ''}
 
-                        <Form.Group controlId="ReleaseYear">
-                            <Form.Label className="nb-label">Release Year?</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="What year was this released?" name="ReleaseYear"
-                                        onChange={this.handleChange} value={this.state.ReleaseYear}/>
-                        </Form.Group>
-                        {this.state.errors.releaseYear ? <p style={{color: 'red'}}>{this.state.errors.releaseYear}</p> : ''}
+                                <Form.Group controlId="ReleaseYear">
+                                    <Form.Label className="nb-label">Release Year?</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="What year was this released?" name="ReleaseYear"
+                                                onChange={this.handleChange} value={this.state.ReleaseYear}/>
+                                </Form.Group>
+                                {this.state.errors.releaseYear ? <p style={{color: 'red'}}>{this.state.errors.releaseYear}</p> : ''}
 
-                        <Form.Group controlId="ISBN">
-                            <Form.Label className="nb-label">ISBN</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="10 or 13 digit ISB?" name="ISBN"
-                                        onChange={this.handleChange} value={this.state.ISBN}/>
-                        </Form.Group>
-                        {this.state.errors.isbn ? <p style={{color: 'red'}}>{this.state.errors.isbn}</p> : ''}
+                                <Form.Group controlId="ISBN">
+                                    <Form.Label className="nb-label">ISBN</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="10 or 13 digit ISB?" name="ISBN"
+                                                onChange={this.handleChange} value={this.state.ISBN}/>
+                                </Form.Group>
+                                {this.state.errors.isbn ? <p style={{color: 'red'}}>{this.state.errors.isbn}</p> : ''}
 
-                        <Form.Group controlId="Price">
-                            <Form.Label className="nb-label">Price</Form.Label>
-                            <Form.Control className="nb-field" type="text" placeholder="Price of this?" name="Price"
-                                        onChange={this.handleChange} value={this.state.Price}/>
-                        </Form.Group>
-                        {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
-                        <br/>
-                        <Form.Group controlId="FileUpload">
-                <Form.Label className="nb-label">Book Cover:</Form.Label>
-                <Form.Control className="nb-field" type="file" name="selectedFile" accept="image/*"
-                            onChange={this.onFileChange}/>
-                </Form.Group>
-                        {isThereAPhoto()}
-                        <button className="nb-button" type="submit">Create Listing</button>
-                    </Form>
-                    
-                </Col>
+                                <Form.Group controlId="Price">
+                                    <Form.Label className="nb-label">Price</Form.Label>
+                                    <Form.Control className="nb-field" type="text" placeholder="Price of this?" name="Price"
+                                                onChange={this.handleChange} value={this.state.Price}/>
+                                </Form.Group>  
+                            {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
+                            </Form>
+                            </div>
+                            <div className="col-6">
+                            <Form className="photo-upload" enctype="multipart/form-data" onSubmit={(event) => this.handleSubmit(event)}>
+                                <Form.Group controlId="FileUpload">
+                                    <Form.Label className="nb-label">Book Cover:</Form.Label>
+                                    <Form.Control className="nb-field" type="file" name="selectedFile" accept="image/*"
+                                    onChange={this.onFileChange}/>
+                                </Form.Group>
+                                {isThereAPhoto()}
+                                <button className="nb-button" type="submit">Create Listing</button>
+                            </Form>
+                            </div>
+                        </div>
                 </div>
             </div>
             </>

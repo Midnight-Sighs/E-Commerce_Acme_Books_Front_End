@@ -9,7 +9,7 @@
     position: fixed;
     background-color: $light-blue;
     left: 0;
-    top: 455px;
+    top: 475px;
     overflow-y:scroll;
     z-index: -2;
     background-size: 100%;
@@ -190,6 +190,7 @@
         font-weight: 600;
         padding-top:3rem;
         padding-left: 2rem;
+        margin-top: 3rem;
         text-shadow: $blue-text-shadow;
     }
     & .new-book-form{

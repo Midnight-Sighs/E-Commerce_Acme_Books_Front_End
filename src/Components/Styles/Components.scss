@@ -160,6 +160,7 @@
         margin-top:2em;
         border: 5px $light-brown solid;
         margin-bottom: 1em;
+        width: 25rem;
         box-shadow: 0 0 5px 5px $dark-blue;
     }
     & .book-details-box{
@@ -246,7 +247,7 @@
 .main-body{
    overflow-y: scroll;
    margin-top: 4rem;
-   height: 25rem;
+   height: 65rem;
 }
 
 //#endregion

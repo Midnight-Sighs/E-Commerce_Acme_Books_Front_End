@@ -167,6 +167,7 @@
   margin-top: 2em;
   border: 5px #c09e8a solid;
   margin-bottom: 1em;
+  width: 25rem;
   -webkit-box-shadow: 0 0 5px 5px #091931;
           box-shadow: 0 0 5px 5px #091931;
 }
@@ -256,7 +257,7 @@
 .main-body {
   overflow-y: scroll;
   margin-top: 4rem;
-  height: 25rem;
+  height: 65rem;
 }
 
 .book-listing {

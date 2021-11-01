@@ -73,6 +73,11 @@ class CartPage extends Component {
             "quantity" : count
         }
         await axios.put(`https://localhost:44394/api/shoppingCart/update/${userId}/${bookId}`, newQuantity);
+        this.setState({
+
+        }, ()=>{
+            this.filterBooks();
+        })
     }
 
 

@@ -43,6 +43,16 @@ class RegisterPage extends Component {
         })
       }
 
+      componentDidUpdate(){
+          if(this.state.UserId != this.props.user){
+            this.setState ({
+                UserId: this.props.user,
+            }, ()=>{
+                this.getCurrentUser()
+            })
+          }
+      }
+
       getCurrentUser = async () => {
         try{
           let getURL = 'https://localhost:44394/api/users/' + this.props.user
