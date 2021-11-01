@@ -4,6 +4,7 @@ import MagicBook from '../../Images/BookCrystalBall.png'
 import { useParams } from 'react-router-dom'
 import '../Styles/Components.css'
 import axios from "axios";
+import defaultImg from '../../Images/defaultImg.png'
 
 
 
@@ -123,8 +124,21 @@ import axios from "axios";
     if (!book) {
         return <div>no book</div>;
         }
-    const urlImage = ("https://localhost:44394/Images/" + book.imagePath)
+    const isThereAPhoto = () => {
+        if (!book.imagePath){
+            return(<img src={defaultImg}/>)
+        }
+        else{
+            const urlImage = ("https://localhost:44394/Images/" + book.imagePath)
+            return(<img src={urlImage}/>)
+             
+         }
+        }
+
+
     return ( 
+
+
         //<img src="https://localhost:44394/Images/BookCover021310285.jpg" class="card-img-top">
         <>
         <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
@@ -132,7 +146,8 @@ import axios from "axios";
                     <div className = "row opac">
                         <div className="col-1"></div>
                         <div className = "col-3">
-                            <img src={urlImage}/>
+                            
+                        {isThereAPhoto()}   
                         </div> 
                         <div className = "col-7 book-details-box">
                             <div className="row">
