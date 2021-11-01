@@ -8,9 +8,10 @@ import axios from "axios";
 
 
     const BookDetails = ( props ) => {
-        console.log(props)
+        console.log(props.userId)
         const { urlBookId } = useParams();
         const[bookId, setBookId] = useState(urlBookId);
+        const userId = props.userId;
         const[book, setBook] = useState([]);
         const [bookReviewList, setBookReviewList] = useState([])
         const[bookRating, setRating] = useState([]);
@@ -19,20 +20,21 @@ import axios from "axios";
         const[newRating, setNewRating] = useState(null);
         const[allRelevant, setAllRelevant]=useState([]);
         const[reviewStatus, setReviewStatus]=useState(false);
+        console.log(userId)
         
         
 
         const baseURL = 'https://localhost:44394/api/reviews'
         const getByBook = '/book/' + bookId
+        const createURL = '/create'
         const editURL = '/edit/'
         const deleteURL = '/delete/'
         //book/delete/{id:int}
-        console.log(urlBookId)
 
         const reviewsAPI = () => {
             return {
                 fetchAll: () => axios.get(baseURL),
-                create: newRecord => axios.post(baseURL, newRecord),
+                create: newRecord => axios.post(baseURL + createURL, newRecord),
                 update: (BookId, updatedRecord) => axios.put(baseURL + editURL + BookId, updatedRecord),
                 delete: id => axios.delete(baseURL + deleteURL + id)
             }
@@ -96,7 +98,16 @@ import axios from "axios";
 
     const onSubmit=(event)=>{
         event.preventDefault();
-        props.setNewReview(newReview, newRating, bookId)
+        let parsedBookId = parseInt(bookId)
+        const NewReview = {
+            bookId: parsedBookId,
+            userId: userId, 
+            rating: newRating,
+            review: newReview
+        }
+        console.log(NewReview)
+        reviewsAPI().create(NewReview)
+        refreshReviewBookList()
     }
 
     const onDropdownChange=(event) =>{
@@ -110,14 +121,16 @@ import axios from "axios";
     if (!book) {
         return <div>no book</div>;
         }
+    const urlImage = ("https://localhost:44394/Images/" + book.imagePath)
     return ( 
+        //<img src="https://localhost:44394/Images/BookCover021310285.jpg" class="card-img-top">
         <>
         <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className= "main-body-details">
                     <div className = "row opac">
                         <div className="col-1"></div>
                         <div className = "col-3">
-                            <img src={book.imageSrc} />
+                            <img src={urlImage}/>
                         </div> 
                         <div className = "col-7 book-details-box">
                             <div className="row">

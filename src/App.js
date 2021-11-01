@@ -252,7 +252,7 @@ class App extends Component {
               
               <Route
               exact path='/BookDetail/:urlBookId'
-              render={() => <BookDetailPage2 books={this.state.books}/>}
+              render={() => <BookDetailPage2 books={this.state.books} userId={this.state.user.id}/>}
               />
               <Route
               exact path='/NewBook'
