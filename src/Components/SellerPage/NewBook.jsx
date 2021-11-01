@@ -215,7 +215,7 @@ class NewBook extends Component {
                         </Form.Group>
                         {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
                         <br/>
-                        <button className="nb-button" type="submit">Create Listing</button>
+                        sadsad<button className="nb-button" type="submit">Create Listing</button>asdasd
                     </Form>
                     <Form className="new-book-form col-6" onSubmit={(event) => this.handleSubmit(event)}>   
                         <Form.Group controlId="FileUpload">

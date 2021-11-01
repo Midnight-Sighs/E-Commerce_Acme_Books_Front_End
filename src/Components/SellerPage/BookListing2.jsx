@@ -36,7 +36,10 @@ export default function BookListing(props) {
     }
 
     const addOrEdit = (formData, onSuccess) => {
-        if (formData.get('bookId') == "0")
+        formData.append('Id', props.currentUser.id)
+        console.log(props.currentUser.id)
+        console.log(formData)
+        if (formData.get('BookId') == "0")
         bookAPI().create(formData)
                 .then(res => {
                     onSuccess();
