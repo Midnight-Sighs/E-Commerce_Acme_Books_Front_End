@@ -36,18 +36,12 @@ class RegisterPage extends Component {
         console.log(this.props)
         console.log(this.state.UserId)
         console.log(this.props.user)
-        this.getCurrentUser()
-
         this.setState ({
             UserId: this.props.user,
+        }, ()=>{
+            this.getCurrentUser()
         })
       }
-
-    // componentDidUpdate(prevState){
-    //     if(prevState.User != this.state.User){
-    //         this.getCurrentUser();
-    //     }
-    // }
 
       getCurrentUser = async () => {
         try{

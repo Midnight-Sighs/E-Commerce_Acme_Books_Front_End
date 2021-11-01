@@ -77,7 +77,6 @@ class CartPage extends Component {
 
 
     filterBooks = () => {
-        debugger
         let tempBooks = this.props.books;
         let tempCart = this.state.shoppingCart;
         let filteredBooks = [];
@@ -118,6 +117,11 @@ class CartPage extends Component {
             let bookId = boughtBooks[i].bookId
             this.props.deleteBook(bookId);
         }
+        alert("Thank you for your purchase!  We'll charge the card we have on file and ship them right out!  Enjoy your books!")
+        this.setState({
+            filteredBooks : [],
+            shoppingCart: [],
+        })
     }
     
 
@@ -144,7 +148,7 @@ class CartPage extends Component {
                                 );
                             })}
                         </div>
-                        <h1> Your Total: {this.state.cartTotal} </h1><button type="button">Checkout</button>
+                        <h1> Your Total: {this.state.cartTotal} </h1><button type="button" onClick={this.onClickCheckout}>Checkout</button>
                     </div>
                 </div>
             </>
