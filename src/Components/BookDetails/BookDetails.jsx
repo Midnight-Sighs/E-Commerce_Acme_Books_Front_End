@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import PlaceHolder01 from '../../Images/PlaceHolder01.jpg'
 import MagicBook from '../../Images/BookCrystalBall.png'
+import { useParams } from 'react-router-dom'
 import '../Styles/Components.css'
 import axios from "axios";
 
 
 
     const BookDetails = ( props ) => {
-        console.log(props.book[0])
-        const[bookId, setBookId] = useState(props.book[0].bookId);
-        const[book, setBook] = useState(props.book[0]);
+        console.log(props)
+        const { urlBookId } = useParams();
+        const[bookId, setBookId] = useState(urlBookId);
+        const[book, setBook] = useState([]);
         const [bookReviewList, setBookReviewList] = useState([])
         const[bookRating, setRating] = useState([]);
         const[bookReview, setReview] = useState([]);
@@ -17,12 +19,15 @@ import axios from "axios";
         const[newRating, setNewRating] = useState(null);
         const[allRelevant, setAllRelevant]=useState([]);
         const[reviewStatus, setReviewStatus]=useState(false);
+        
+        
 
         const baseURL = 'https://localhost:44394/api/reviews'
         const getByBook = '/book/' + bookId
         const editURL = '/edit/'
         const deleteURL = '/delete/'
         //book/delete/{id:int}
+        console.log(urlBookId)
 
         const reviewsAPI = () => {
             return {
@@ -32,11 +37,18 @@ import axios from "axios";
                 delete: id => axios.delete(baseURL + deleteURL + id)
             }
         }
+        const getMyBook = () => {
+            return {
+                fetch: () => axios.get('https://localhost:44394/api/book/' + bookId),
+            }
+        }
 
 
         useEffect (() =>{
+            setNewBook();
             refreshReviewBookList();
             filterReviews();
+
             console.log(bookReviewList)
         }, [props])
 
@@ -44,6 +56,13 @@ import axios from "axios";
             reviewsAPI().fetchAll()
                 .then(res => {
                     setBookReviewList(res.data)
+                })
+                .catch(err => console.log(err))
+        }
+        function setNewBook() {
+            getMyBook().fetch()
+                .then(res => {
+                    setBook(res.data)
                 })
                 .catch(err => console.log(err))
         }
@@ -157,5 +176,3 @@ import axios from "axios";
 }
 
 export default BookDetails;
-
-            
