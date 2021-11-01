@@ -18,7 +18,7 @@ import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
 import SellerPage from './Pages/SellerPage/SellerPage'
 import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
-import BookListing from './Components/SellerPage/BookListing'
+import BookListing from './Components/SellerPage/BookListing2'
 
 
 
@@ -315,7 +315,7 @@ class App extends Component {
               />
               <Route
               exact path='/BookListing'
-              render={() => <BookListing user={this.state.user} books={this.state.books}/>}
+              render={() => <BookListing currentUser={this.state.user}/>}
               />
               {/* <Route
               exact path='/Photos'
