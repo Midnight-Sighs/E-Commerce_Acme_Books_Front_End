@@ -14,7 +14,8 @@ const initialFieldValues = {
     userId: "",
     imageName: '',
     imageSrc: defaultImageSrc,
-    imageFile: null
+    imageFile: null,
+    imagePath:""
 }
 
 export default function Book(props) {
@@ -23,6 +24,7 @@ export default function Book(props) {
 
     const [values, setValues] = useState(initialFieldValues)
     const [errors, setErrors] = useState({})
+    console.log(values)
 
 
     useEffect(() => {
@@ -87,6 +89,7 @@ export default function Book(props) {
             formData.append('Isbn', values.isbn)
             formData.append('Price', parsedPrice)
             formData.append('Image', values.imageFile)
+            formData.append('ImagePath', values.imagePath)
             formData.append('BookId', values.bookId)
             console.log(formData)
             addOrEdit(formData, resetForm)
