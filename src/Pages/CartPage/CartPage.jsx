@@ -16,6 +16,7 @@ class CartPage extends Component {
             currentUserID: '',
             cartLoaded: false,
             filteredBooks:[],
+            cartTotal: 0
         }
     }
     
@@ -102,8 +103,22 @@ class CartPage extends Component {
             })
             this.setState({
                 filteredBooks: filteredBooks
+            }, ()=>{
+                this.totalCart()
             })
         }
+    }
+
+    totalCart=()=>{
+        let cartBooks = this.state.filteredBooks
+        let cartTotal = 0
+        for(let i = 0; i<cartBooks.length; i++){
+            let price = cartBooks[i].price
+            cartTotal += price;
+        }
+        this.setState({
+            cartTotal : cartTotal
+        })
     }
 
     render() {
@@ -122,6 +137,7 @@ class CartPage extends Component {
                                 );
                             })}
                         </div>
+                        <h1> Your Total: {this.state.cartTotal} </h1><button type="button">Checkout</button>
                     </div>
                 </div>
             </>
