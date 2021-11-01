@@ -4,11 +4,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 .bod-bg-img {
   background-repeat: no-repeat;
+  position: fixed;
   background-color: #448c9e;
-  position: contain;
+  left: 0;
+  top: 455px;
+  overflow-y: scroll;
   z-index: -2;
   background-size: 100%;
-  height: 100vh;
+  height: 70vh;
+  width: 100vw;
 }
 
 .basic-btns {
@@ -206,6 +210,10 @@
           box-shadow: 0 0 5px 5px #ffc27d;
 }
 
+.new-book-container {
+  overflow-y: scroll;
+}
+
 .new-book-container h1 {
   font-family: "Indie Flower", cursive;
   font-size: 5rem;
@@ -338,6 +346,7 @@
   margin-left: 5rem;
   padding-top: 3rem;
   border-radius: 15px;
+  overflow-y: scroll;
 }
 
 .seller-page p {
