@@ -30,8 +30,8 @@
         overflow: hidden;
     }
     & .title{
-        right:1.5em;
-        top: 1.25em;
+        right:5rem;
+        top: 5rem;
         position: absolute; 
         font-family: 'Indie Flower', cursive;  
         font-size:5rem;
@@ -40,11 +40,11 @@
         font-family: 'Indie Flower', cursive; 
         font-size: 3rem;
         position: absolute;
-        top:4em;
-        right: 4em;
+        top:10rem;
+        right: 6rem;
     }
     & .log-reg{
-        margin-top: 8em;
+        margin-top: 8rem;
         position:inherit;
     }
 }
@@ -57,13 +57,13 @@
     background: $light-blue;
     height: 10vh;
     & .nav-links{
-        margin-top:1.5em;
-        font-size: 1.5em;
+        margin-top:1.5rem;
+        font-size: 1.5rem;
     }
     & span{
         padding-right:5px;
         color: $dark-brown;
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
     & a{
         color: $dark-brown;
@@ -77,58 +77,53 @@
 
 }
 .search-field{
-    margin-top: 2em;
+    margin-top: 2rem;
     background-color: $dark-blue;
     border-radius: 10px;
     width: 20vw;
-    font-size: 1.5em;
+    font-size: 1.5rem;
+    color: $golden;
+    padding: .25rem;
 }
 .search-btn{
     background-color: $light-brown;
     border-radius: 10px;
-    font-size: 1.5em;
-    margin-left: .5em;
-    padding-left: 1em;
+    font-size: 1.5rem;
+    margin-left: .5rem;
+    padding: .25rem;
 }
 //#endregion
 
 //#region BookCard Component
+
 .book-card{
-    height: 70vh;
+    height: 65vh;
+    width: 20vw;
+    margin-top: 5rem;
     background-color: $light-brown-opacity;
     border-radius: 10px;
     box-shadow: $box-shadow-blue;
     position: relative;
-    @media only screen and (max-width: $sm-screen){
-        height: 40vh;
-        width: auto;
-    }
     & p{
         color:$dark-blue;
         font-size: 1.5em;
         text-align: center;
-        padding-top: 10px;
-        @media only screen and (max-width: $sm-screen){
-            font-size: medium;
-        }
+        position: absolute;
+        font-weight: 600;
     }
     & .bc-part{
         margin-top: 3rem;
         height: 20vh;
-        width: 20vw;
+        width: 100%;
         position: absolute;
     }
     & img{
-        margin-top: 17em;
-        height: 45vh;
-        width: 20vw;
+        margin-top: 21rem;
+        width: auto;
         object-fit: fill;
         position: absolute;
-        margin-left:10px;
+        margin-left: 2vw;
         border-radius:10px;
-        @media only screen and (max-width: $sm-screen){
-            display:none;
-        }
     }
     & a{
         color: $dark-blue;
@@ -209,6 +204,7 @@
 }
 
 //#endregion
+
 
 
 //#region Large Screen Resolution

@@ -2,6 +2,7 @@ import React from 'react'
 import BookCard from './BookCard'
 import '../Styles/Components.css'
 import MagicBook from '../../Images/BookCrystalBall.png'
+import { withRouter } from 'react-router-dom';
 
 
 const MainBody = (props)=> {
@@ -21,9 +22,13 @@ const MainBody = (props)=> {
 
                     {props.props.map((book) => {
                             return(
-                                <div key={book.bookId} className= "col-lg-3 col-md-3 mx-5 mt-5">
-                                    <BookCard book={book} loggedIn={props.loggedIn} addBookToShoppingCart={props.addBookToShoppingCart}/>
-                                </div>
+                                <>
+                                    <div className="col-1"></div>
+                                    <div key={book.bookId} className= "col-lg-1 col-md-2 col-sm-4 col-xsm-10 col-for-card">
+                                        <BookCard book={book} loggedIn={props.loggedIn} addBookToShoppingCart={props.addBookToShoppingCart}/>
+                                    </div>
+                                    <div className="col-1"></div>
+                                </>
                             )
                         })}
                 </div>
@@ -32,4 +37,4 @@ const MainBody = (props)=> {
     );
 }
 
-export default MainBody;
+export default withRouter (MainBody);

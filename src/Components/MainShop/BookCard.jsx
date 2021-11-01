@@ -15,7 +15,7 @@ const BookCard=(props)=> {
 
     return ( 
         <>
-            <div className="container book-card">
+            <div className="book-card">
                 <div className="row bc-part">
                     <p>
                     {props.book.title}

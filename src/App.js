@@ -15,7 +15,9 @@ import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
 import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
-
+import SellerPage from './Pages/SellerPage/SellerPage'
+import NewBook from './Components/SellerPage/NewBook'
+import { withRouter } from 'react-router-dom';
 
 
 const history = createBrowserHistory();
@@ -27,6 +29,7 @@ class App extends Component {
       token:[],
       user: [],
       currentUser: [],
+      currentUserID: "",
       registeredUser: [],
       shoppingCart: [],
       loggedIn: false,
@@ -37,28 +40,26 @@ class App extends Component {
 
   };
   // componentDidUpdate(prevProps, prevState) {
-  //   console.log(prevState.token)
-  //   console.log(this.state.token)
-  //   console.log(this.state.localToken)
-  //   if (this.state.localToken !== prevState.token) { // Set a new state if token change check, local token to current token
+  //   if (this.state.localToken !== prevState.token ) { // Set a new state if token change check, local token to current token
   //     console.log("starting componenet did update")
   //     this.getCurrentUserToken();
   //     this.getCurrentUser();
   //   }
-  //   if (this.state.localToken) { // Set a new state if token change
-  //     console.log("starting componenet did update")
-  //     this.getCurrentUserToken();
-  //     this.getCurrentUser();
-  //   }
+    // if (this.state.localToken) { // Set a new state if token change
+    //   console.log("starting componenet did update")
+    //   this.getCurrentUserToken();
+    //   this.getCurrentUser();
+    // }
     
   // }
   componentDidMount() {
     this.getBooks();
     this.getShoppingCart();
-    this.getCurrentUserToken();
     this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
+      this.getCurrentUserToken();
+      this.getCurrentUser();
     }
     else {
       this.setState({
@@ -88,10 +89,11 @@ class App extends Component {
       let response = await axios.post('https://localhost:44394/api/authentication/login', login);
       console.log(response)
       if (response === undefined) {
+        console.log("bad response", response)
         this.setState({});
       } 
       else {
-        console.log("setting token state, looks good")
+        console.log("got a good response, setting token")
         this.setState({
           token: response.data.token,
         });
@@ -107,11 +109,10 @@ class App extends Component {
   }
 
   getCurrentUserToken = async () => {
-    console.log(localStorage.token)
       try{
         const jwt = localStorage.getItem('token');
         if (jwt === undefined) {
-          console.log("No user token.")
+          this.setState({});
         } 
         else {
           this.setState({
@@ -130,14 +131,17 @@ class App extends Component {
     const jwt = localStorage.getItem('token');
     let response = await axios.get('https://localhost:44394/api/examples/user/', {headers: {Authorization: 'Bearer ' + jwt}});
     if (response === undefined) {
-      console.log("No current logged-in user.")
+      this.setState({});
     } 
     else {
+      console.log("data id: " + response.data.id)
       this.setState({
         user: response.data,
-        loggedIn: true
+        loggedIn: true,
+        currentUserID: response.data.id
       });
     }
+    console.log("set state of id", this.state.currentUserID)
     console.log(this.state.user)
   }
   catch(err) {
@@ -159,7 +163,6 @@ class App extends Component {
   //#region Shopping Cart
   getShoppingCart = async () =>{
     const userid = this.state.user.id
-    console.log(userid)
     const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
     this.setState({
       shoppingCart: response.data
@@ -245,15 +248,15 @@ deleteBook = async () =>{
 
 
   render() {
-    console.log("Am I logged in?" + this.state.loggedIn)
     return (
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         
+         Logged in:  {this.state.loggedIn}
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
         </Row>
         <Row>
-          
+          {/* <SearchBar formSubmission={this.searchBooks} /> */}
         </Row>
         <Row>
           
@@ -261,7 +264,7 @@ deleteBook = async () =>{
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.localBookSearch}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.searchBooks}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
@@ -273,8 +276,8 @@ deleteBook = async () =>{
               />
 
               <Route
-              exact path='/logout'
-              render={() => <Anon />}
+              exact path='/Seller'
+              render={() => <SellerPage currentUserID={this.state.user} status={this.state.user.type} loggedIn={this.state.loggedIn} />}
               />
 
               <Route
@@ -284,7 +287,7 @@ deleteBook = async () =>{
 
               <Route
               exact path='/profile/edit'
-              render={() => <EditProfile user={this.state.user}/>}
+              render={() => <EditProfile user={this.state.user.userId}/>}
               />
               
               <Route
@@ -294,7 +297,11 @@ deleteBook = async () =>{
               
               <Route
               exact path='/BookDetail/:bookid'
-              render={() => <BookDetailPage/>}
+              render={() => <BookDetailPage />}
+              />
+              <Route
+              exact path='/NewBook'
+              render={() => <NewBook user={this.state.user.id}/>}
               />
 
 
@@ -308,4 +315,4 @@ deleteBook = async () =>{
   };
 }
  
-export default App;
+export default withRouter (App);

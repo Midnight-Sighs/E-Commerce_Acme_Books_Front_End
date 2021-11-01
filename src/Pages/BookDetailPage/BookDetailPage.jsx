@@ -1,6 +1,7 @@
 import React, { Component, useEffect } from 'react';
 import axios from 'axios';
 import BookDetails from '../../Components/BookDetails/BookDetails'
+import { withRouter } from 'react-router-dom';
 
 console.log(window.location.pathname)
 var pathArray = window.location.pathname.split('/');
@@ -14,13 +15,21 @@ class BookDetailPage extends Component {
             book:[],
             allBookReviews:[],
             bookId : this.props.bookId,
+            endpoint:""
           }
     }
 
     //#region Axios Calls
+    componentDidMount() {
+      this.setState({
+        endpoint: secondLevelLocation
+      })
+      this.getBook();
+    }
   getBook = async () =>{
-    console.log('Getting single book' + secondLevelLocation)
-    const response = await axios.get('https://localhost:44394/api/book/' + secondLevelLocation);
+    console.log(window.location.pathname)
+    console.log('Getting single book' + this.state.endpoint)
+    const response = await axios.get('https://localhost:44394/api/book/' + this.state.endpoint);
     this.setState({
       book: response.data
     })
@@ -67,7 +76,6 @@ class BookDetailPage extends Component {
       })
     }}
 
-
     componentDidMount() {
       console.log('getting book on BookDetailsPage')
       this.getBook();
@@ -89,11 +97,10 @@ class BookDetailPage extends Component {
     render() { 
         return ( 
             <>
-            <p>We are at {secondLevelLocation}</p>
             <BookDetails book={this.state.book} reviews={this.state.allBookReviews} setNewReview={this.setNewReview} />
             </>
          );
     }
 }
  
-export default BookDetailPage;
+export default withRouter (BookDetailPage);
