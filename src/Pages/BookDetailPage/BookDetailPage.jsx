@@ -66,9 +66,11 @@ class BookDetailPage extends Component {
       console.log('getting book on BookDetailsPage')
       this.setState({
         endpoint: secondLevelLocation
-      })
+      }, ()=>{
       this.getBook();
       this.getReviews();
+      })
+
 
       //this.getShoppingCart();
       // this.getCurrentUser();
