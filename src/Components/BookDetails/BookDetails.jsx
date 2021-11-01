@@ -89,6 +89,7 @@ import axios from "axios";
             if(allRelevant.length > 0){
                 setReviewStatus(true)
             }
+            console.log(allRelevant)
         }
 
          //#region Form
@@ -108,6 +109,7 @@ import axios from "axios";
         console.log(NewReview)
         reviewsAPI().create(NewReview)
         refreshReviewBookList()
+        filterReviews();
     }
 
     const onDropdownChange=(event) =>{
