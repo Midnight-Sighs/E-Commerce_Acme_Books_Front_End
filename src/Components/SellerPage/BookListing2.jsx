@@ -75,7 +75,7 @@ export default function BookListing(props) {
                 <h5>{data.title}</h5>
                 <span>{data.author}</span> <br />
                 <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.BookId))}>
-                    <i className="far fa-trash-alt"></i>
+                   Delete <i className="far fa-trash-alt"></i>
                 </button>
             </div>
         </div>
