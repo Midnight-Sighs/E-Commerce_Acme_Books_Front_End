@@ -125,7 +125,7 @@ class NewBook extends Component {
         const isThereAPhoto = () => {
             if(this.state.selectedFile) {
                 return (
-                                <div>
+                                <div className = "file-details">
                                     <h2>File Details:</h2>  
                                     <p>File Name: {this.state.selectedFile.name}</p>
                                     <p>File Type: {this.state.selectedFile.type}</p><p>
@@ -148,11 +148,11 @@ class NewBook extends Component {
             <>
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className="new-book-container">
-                    <Col sm={6}>
+                    <div className="row">
                         <h1>
                             Sell a book! Get Monies!!
                         </h1>
-                    <Form className="new-book-form" onSubmit={(event) => this.handleSubmit(event)}>
+                    <Form className="new-book-form col-6" onSubmit={(event) => this.handleSubmit(event)}>
                         <Form.Group controlId="name">
                             <Form.Label className="nb-label">Title</Form.Label>
                             <Form.Control className="nb-field" type="text" placeholder="Title"
@@ -202,16 +202,17 @@ class NewBook extends Component {
                         </Form.Group>
                         {this.state.errors.price ? <p style={{color: 'red'}}>{this.state.errors.price}</p> : ''}
                         <br/>
-                        <Form.Group controlId="FileUpload">
-                <Form.Label className="nb-label">Book Cover:</Form.Label>
-                <Form.Control className="nb-field" type="file" name="selectedFile" accept="image/*"
-                            onChange={this.onFileChange}/>
-                </Form.Group>
-                        {isThereAPhoto()}
                         <button className="nb-button" type="submit">Create Listing</button>
                     </Form>
-                    
-                </Col>
+                    <Form className="new-book-form col-6" onSubmit={(event) => this.handleSubmit(event)}>   
+                        <Form.Group controlId="FileUpload">
+                        <Form.Label className="nb-label">Book Cover:</Form.Label>
+                        <Form.Control className="nb-field file-submit" type="file" name="selectedFile" accept="image/*"
+                                    onChange={this.onFileChange}/>
+                        </Form.Group>
+                                {isThereAPhoto()}
+                    </Form> 
+                    </div>
                 </div>
             </div>
             </>

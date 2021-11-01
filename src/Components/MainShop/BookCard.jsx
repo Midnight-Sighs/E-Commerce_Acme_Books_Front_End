@@ -7,6 +7,7 @@ import BookDetailPage from '../../Pages/BookDetailPage/BookDetailPage';
 const BookCard=(props)=> {
     
     const[linkPath, setLinkPath]=useState(`/BookDetail/${props.book.bookId}` )
+    const[imgPath, setImagePath]= useState(props.imagePath)
 
     console.log(props.book)
     if (!props.book) {
@@ -23,9 +24,11 @@ const BookCard=(props)=> {
                     <br />{props.book.price}
                     <br />{props.loggedIn ? <button className="detail-btn" ><Link to={linkPath} render={() => <BookDetailPage book={props.book} />}> View Book Details </Link></button> : "Please login to see Book details" }
                     <br />{props.loggedIn ? <button className="detail-btn" onClick={() => props.addBookToShoppingCart(props.book.bookId)}> Add to Cart </button> : "Please login to add to cart" }
+                    
+                    <img src={imgPath}></img>
                     </p>
                 </div>
-                <img src={PlaceholderCover}></img>  
+                {/* <img src={PlaceholderCover}></img>   */}
             </div>
         </>
      );

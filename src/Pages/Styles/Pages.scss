@@ -187,6 +187,7 @@
     }
     & .new-book-form{
         color: $bright-yellow;
+        width: 50%;
     }
     & .nb-label{
         margin-top: 1rem;
@@ -202,6 +203,7 @@
         margin-left: 2rem;
         border-radius:5px;
         color: $bright-yellow;
+        width: 40rem;
     }
     & .nb-field:focus{
         background-color: $dark-brown;
@@ -220,6 +222,21 @@
     color: $golden;
     border-radius:5px;
 }
+.upload-img{
+    width: 40rem;
+}
+.file-details{
+    & h2{
+        color: $dark-blue;
+        padding-top: 1rem;
+        text-shadow: $gold-text-shadow;
+    }
+    & p{
+        color: $dark-blue;
+        font-weight: 600;
+    }
+}
+
 //#endregion
 
 //#region Cart Page

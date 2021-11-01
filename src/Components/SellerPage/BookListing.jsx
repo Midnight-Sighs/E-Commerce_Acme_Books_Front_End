@@ -75,7 +75,7 @@ class BookListing extends Component {
                                                     <h3>Title: {filteredBook.title}</h3>
                                                     <h3>Author: {filteredBook.author}</h3>
                                                 </div>  
-                                                <div className="col-6">
+                                                <div className="col-6 second-col">
                                                     <h3>Price: {filteredBook.price}</h3> 
                                                     <div><button><Link to="/Seller/Edit" onClick={() => this.EditBook(filteredBook)}>Edit Book</Link></button></div>         
                                                     <br />

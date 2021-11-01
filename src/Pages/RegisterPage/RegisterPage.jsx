@@ -55,7 +55,6 @@ class RegisterPage extends Component {
             state: "",
             zip: ""
         });
-        this.props.history.push('/');
     }
 
     render(){

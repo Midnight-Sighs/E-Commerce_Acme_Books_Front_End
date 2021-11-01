@@ -37,6 +37,11 @@ class RegisterPage extends Component {
             UserId: this.props.user,
         })
       }
+
+    componentDidUpdate(){
+        
+    }
+
       getCurrentUser = async () => {
         try{
           let getURL = 'https://localhost:44394/api/users/' + this.props.user
@@ -91,14 +96,15 @@ class RegisterPage extends Component {
             let getURL = 'https://localhost:44394/api/users/' + this.props.user
 
             axios.put(getURL, userEdit)
-            alert(`${this.state.firstname} has been edited`)
             if (this.state.seller == true){
                 alert(`${this.state.firstname} can now sell books`)
+            }
+            else{
+                alert(`${this.state.firstname} has been edited`)
             }
         } catch (err) {
             console.log(err);
         }
-
     }
 
 

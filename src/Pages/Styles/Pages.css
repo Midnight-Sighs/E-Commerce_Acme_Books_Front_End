@@ -217,6 +217,7 @@
 
 .new-book-container .new-book-form {
   color: #ffe3a8;
+  width: 50%;
 }
 
 .new-book-container .nb-label {
@@ -234,6 +235,7 @@
   margin-left: 2rem;
   border-radius: 5px;
   color: #ffe3a8;
+  width: 40rem;
 }
 
 .new-book-container .nb-field:focus {
@@ -266,6 +268,21 @@
   background-color: #7a6751;
   color: #ffc27d;
   border-radius: 5px;
+}
+
+.upload-img {
+  width: 40rem;
+}
+
+.file-details h2 {
+  color: #091931;
+  padding-top: 1rem;
+  text-shadow: 2px 2px 5px #ffc27d;
+}
+
+.file-details p {
+  color: #091931;
+  font-weight: 600;
 }
 
 .cart-page-row .book-pile img {

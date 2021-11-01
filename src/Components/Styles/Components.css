@@ -3,20 +3,11 @@
 .body-bg-img {
   background-repeat: no-repeat;
   background-color: #448c9e;
-  position: contain;
   z-index: -1;
-  background-size: 100%;
+  background-size: 105%;
   height: 100vh;
-  top: 800px;
   background-attachment: absolute;
   overflow-y: scroll;
-}
-
-@media only screen and (max-width: 900px) {
-  .body-bg-img {
-    background-attachment: cover;
-    height: auto;
-  }
 }
 
 .head {
@@ -289,6 +280,7 @@
 
 .book-listing h3 {
   color: #091931;
+  font-weight: 600;
   font-size: 2rem;
 }
 
@@ -311,6 +303,10 @@
   color: #ffc27d;
   font-size: 2rem;
   padding: 5px;
+}
+
+.book-listing .second-col {
+  padding-top: 1.5rem;
 }
 
 .cart-card {
@@ -348,161 +344,5 @@
   padding: 10px;
   color: #ffc27d;
   margin-bottom: 1rem;
-}
-
-@media only screen and (max-width: 1500px) {
-  .head img {
-    margin-bottom: 40vh;
-  }
-  .head .title {
-    font-size: 3rem;
-  }
-  .head .sub-title {
-    font-size: 1rem;
-    margin-top: 3rem;
-    margin-right: 1rem;
-  }
-  .nav-bar .nav-links {
-    margin-top: 0;
-    font-size: 1rem;
-  }
-  .search-field {
-    margin-top: .75rem;
-    width: 30vw;
-    font-size: 1rem;
-  }
-  .search-btn {
-    font-size: 1rem;
-    margin-top: .75rem;
-  }
-  .book-card p {
-    font-size: 1rem;
-  }
-  .book-card .bc-part {
-    margin-left: .5rem;
-    margin-top: 1rem;
-    width: 50%;
-  }
-  .book-card img {
-    margin-top: 12rem;
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .head img {
-    margin-bottom: 40vh;
-  }
-  .head .title {
-    font-size: 3rem;
-  }
-  .head .sub-title {
-    font-size: 1rem;
-    margin-top: 3rem;
-    margin-right: 1rem;
-  }
-  .nav-bar .nav-links {
-    margin-top: 0;
-    font-size: 1rem;
-  }
-  .search-field {
-    margin-top: .75rem;
-    width: 30vw;
-    font-size: 1rem;
-  }
-  .search-btn {
-    font-size: 1rem;
-    margin-top: .75rem;
-  }
-  .book-card p {
-    font-size: 1rem;
-  }
-  .book-card .bc-part {
-    margin-left: .5rem;
-    margin-top: 1rem;
-    width: 50%;
-  }
-  .book-card img {
-    margin-top: 12rem;
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .head img {
-    margin-bottom: 40vh;
-  }
-  .head .title {
-    font-size: 3rem;
-  }
-  .head .sub-title {
-    font-size: 1rem;
-    margin-top: 3rem;
-    margin-right: 1rem;
-  }
-  .nav-bar .nav-links {
-    margin-top: 0;
-    font-size: 1rem;
-  }
-  .search-field {
-    margin-top: .75rem;
-    width: 30vw;
-    font-size: 1rem;
-  }
-  .search-btn {
-    font-size: 1rem;
-    margin-top: .75rem;
-  }
-  .book-card p {
-    font-size: 1rem;
-  }
-  .book-card .bc-part {
-    margin-left: .5rem;
-    margin-top: 1rem;
-    width: 50%;
-  }
-  .book-card img {
-    margin-top: 12rem;
-    width: 50%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .head img {
-    margin-bottom: 40vh;
-  }
-  .head .title {
-    font-size: 3rem;
-  }
-  .head .sub-title {
-    font-size: 1rem;
-    margin-top: 3rem;
-    margin-right: 1rem;
-  }
-  .nav-bar .nav-links {
-    margin-top: 0;
-    font-size: 1rem;
-  }
-  .search-field {
-    margin-top: .75rem;
-    width: 30vw;
-    font-size: 1rem;
-  }
-  .search-btn {
-    font-size: 1rem;
-    margin-top: .75rem;
-  }
-  .book-card p {
-    font-size: 1rem;
-  }
-  .book-card .bc-part {
-    margin-left: .5rem;
-    margin-top: 1rem;
-    width: 50%;
-  }
-  .book-card img {
-    margin-top: 12rem;
-    width: 50%;
-  }
 }
 /*# sourceMappingURL=Components.css.map */
