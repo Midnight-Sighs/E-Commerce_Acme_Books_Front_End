@@ -72,7 +72,7 @@ import '../Styles/Components.css'
                     <div className = "row opac">
                         <div className="col-1"></div>
                         <div className = "col-3">
-                            <img src={PlaceHolder01}></img>
+                            <img src={props.book.imageSrc} />
                         </div>
                         <div className = "col-7 book-details-box">
                             <div className="row">

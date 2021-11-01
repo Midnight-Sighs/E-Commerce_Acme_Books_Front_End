@@ -5,10 +5,15 @@ import '../Styles/Pages.css'
 import ReadingMan from '../../Images/ReadingMan.jpg'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-console.log(window.location.pathname)
+import { createBrowserHistory } from "history";
+
+
+const history = createBrowserHistory();
+
 var pathArray = window.location.pathname.split('/');
 var secondLevelLocation = pathArray[2];
-console.log(secondLevelLocation)
+
+
 
 class RegisterPage extends Component {
     constructor(props){
@@ -38,9 +43,11 @@ class RegisterPage extends Component {
         })
       }
 
-    componentDidUpdate(){
-        
-    }
+    // componentDidUpdate(prevState){
+    //     if(prevState.User != this.state.User){
+    //         this.getCurrentUser();
+    //     }
+    // }
 
       getCurrentUser = async () => {
         try{
@@ -77,9 +84,9 @@ class RegisterPage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        let seller = false
+        let seller = "Buyer"
         if(this.state.sellerCode == "SqueezeMe"){
-            seller = true
+            seller = "Seller"
         }
         const userEdit = {
             FirstName: this.state.firstname,
@@ -96,7 +103,7 @@ class RegisterPage extends Component {
             let getURL = 'https://localhost:44394/api/users/' + this.props.user
 
             axios.put(getURL, userEdit)
-            if (this.state.seller == true){
+            if (this.state.seller = "Seller"){
                 alert(`${this.state.firstname} can now sell books`)
             }
             else{
@@ -105,6 +112,8 @@ class RegisterPage extends Component {
         } catch (err) {
             console.log(err);
         }
+        history.push('/');
+        history.go('/');
     }
 
 

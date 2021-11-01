@@ -14,8 +14,7 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
-            bookId : this.props.bookId,
-            endpoint:""
+            endpoint: secondLevelLocation
           }
     }
 
@@ -26,7 +25,7 @@ class BookDetailPage extends Component {
     let endpoint = parseInt(this.state.endpoint)
     const response = await axios.get('https://localhost:44394/api/book/' + endpoint);
     this.setState({
-      book: response.data
+      book: response.data,
     })
     console.log(this.state.book)
   }
@@ -61,15 +60,6 @@ class BookDetailPage extends Component {
   }
 
   //#endregion
-
-  componentDidUpdate() {
-    if (this.state.bookId !== secondLevelLocation) {
-      console.log("starting componenet did update")
-      this.getBook(secondLevelLocation);
-      this.setState({
-        bookId: secondLevelLocation
-      })
-    }}
 
 
     componentDidMount() {

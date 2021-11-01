@@ -16,6 +16,7 @@ export default function BookListing(props) {
     const urlSeller = '/seller/' + props.currentUser.id
     const editURL = '/edit/'
     const deleteURL = '/delete/'
+    //book/delete/{id:int}
 
     const bookAPI = () => {
         console.log(baseURL+urlSeller)
@@ -62,7 +63,7 @@ export default function BookListing(props) {
 
     const onDelete = (e, id) => {
         e.stopPropagation();
-        if (window.confirm('Are you sure to delete this record?'))
+        if (window.confirm('Are you sure to delete this record?' + id))
             bookAPI().delete(id)
                 .then(res => refreshBookList())
                 .catch(err => console.log(err))
@@ -74,7 +75,7 @@ export default function BookListing(props) {
             <div className="card-body">
                 <h5>{data.title}</h5>
                 <span>{data.author}</span> <br />
-                <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.BookId))}>
+                <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.bookId))}>
                    Delete <i className="far fa-trash-alt"></i>
                 </button>
             </div>

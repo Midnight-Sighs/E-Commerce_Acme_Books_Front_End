@@ -119,12 +119,17 @@
 }
 
 .reg-row h1 {
+  margin-top: 3rem;
   font-family: "Indie Flower", cursive;
   padding: 2rem;
   color: #091931;
   font-weight: 700;
   text-shadow: 2px 2px 5px #ffc27d;
   font-size: 5rem;
+}
+
+.reg-form {
+  margin-top: 4rem;
 }
 
 .reg-form .reg-label {
@@ -195,7 +200,7 @@
   color: #091931;
   font-weight: 700;
   text-align: justify;
-  margin-top: 3em;
+  margin-top: 6em;
   padding: 1em;
   background-color: #dda47f9d;
   -webkit-box-shadow: 0 0 5px 5px #091931;
@@ -203,7 +208,7 @@
 }
 
 .cover-01, .cover-02 {
-  margin-top: 3em;
+  margin-top: 7em;
   margin-left: 9em;
   opacity: 50%;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;

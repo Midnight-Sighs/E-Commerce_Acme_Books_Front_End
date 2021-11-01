@@ -104,6 +104,7 @@
 //#region Registration Page
 .reg-row{
     & h1{
+        margin-top: 3rem;
         font-family: $playful-font;
         padding: 2rem;
         color: $dark-blue;
@@ -114,6 +115,7 @@
 }
 
 .reg-form{
+    margin-top: 4rem;
     .reg-label{
         margin-top: 1rem;
         color: $dark-blue;
@@ -165,13 +167,13 @@
     color: $dark-blue;
     font-weight: 700;
     text-align: justify;
-    margin-top: 3em;
+    margin-top: 6em;
     padding: 1em;
     background-color: $light-brown-opacity;
     box-shadow: $box-shadow-blue;
 }
 .cover-01, .cover-02{
-    margin-top: 3em;
+    margin-top: 7em;
     margin-left: 9em;
     opacity: 50%;
     box-shadow: $box-shadow-golden;
