@@ -46,28 +46,32 @@ class NewBook extends Component {
       }
     async createListing() {
         let parsedPrice = parseFloat(this.state.Price)
-        const formData = new FormData()
-        formData.append('title', this.state.Title)
-        formData.append('Author', this.state.Author)
-        formData.append('Description', this.state.Description)
-        formData.append('Genre', this.state.Genre)
-        formData.append('ReleaseYear', this.state.ReleaseYear)
-        formData.append('ISBN', this.state.ISBN)
-        formData.append('Price', parsedPrice)
-        formData.append('Id', this.props.user)
-        formData.append('Image', this.state.selectedFile)
-    
+        // const formData = new FormData()
+        // formData.append('Title', this.state.Title)
+        // formData.append('Author', this.state.Author)
+        // formData.append('Description', this.state.Description)
+        // formData.append('Genre', this.state.Genre)
+        // formData.append('ReleaseYear', this.state.ReleaseYear)
+        // formData.append('Isbn', this.state.ISBN)
+        // formData.append('Price', parsedPrice)
+        // formData.append('Id', this.props.user)
+        // formData.append('Image', this.state.selectedFile)
+        // console.log(formData)
+        var newbook = {
+            Title: this.state.Title,
+            Author: this.state.Author,
+            Description: this.state.Description,
+            Genre: this.state.Genre,
+            ReleaseYear: this.state.ReleaseYear,
+            ISBN: this.state.ISBN,
+            Price: this.state.Price,
+            Id: this.props.user,
+            Image: this.state.selectedFile
+        }
         try {
             
-            await axios.post("https://localhost:44394/api/book", formData,
-            {
-                headers: {
-                  'accept': 'application/json',
-                  'Accept-Language': 'en-US,en;q=0.8',
-                  'Content-Type': `multipart/form-data;`,
-                }
-            }
-            )
+            console.log(newbook)
+            await axios.post("https://localhost:44394/api/book", newbook)
             alert(`${this.state.Title} has been added`)
         } catch (err) {
             console.log(err);
