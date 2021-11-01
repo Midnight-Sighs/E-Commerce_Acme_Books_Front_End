@@ -110,14 +110,16 @@ import axios from "axios";
     if (!book) {
         return <div>no book</div>;
         }
+    const urlImage = ("https://localhost:44394/Images/" + book.imagePath)
     return ( 
+        //<img src="https://localhost:44394/Images/BookCover021310285.jpg" class="card-img-top">
         <>
         <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className= "main-body-details">
                     <div className = "row opac">
                         <div className="col-1"></div>
                         <div className = "col-3">
-                            <img src={book.imageSrc} />
+                            <img src={urlImage}/>
                         </div> 
                         <div className = "col-7 book-details-box">
                             <div className="row">
