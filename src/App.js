@@ -34,7 +34,8 @@ class App extends Component {
       loggedIn: false,
       books:[],
       searchResults: [],
-      searchEnable: false
+      searchEnable: false,
+      usertype:false
     };
 
   };
@@ -133,19 +134,21 @@ class App extends Component {
       this.setState({});
     } 
     else {
-      console.log("data id: " + response.data.id)
       this.setState({
         user: response.data,
         loggedIn: true,
         currentUserID: response.data.id
       });
     }
-    console.log("set state of id", this.state.currentUserID)
-    console.log(this.state.user)
   }
   catch(err) {
     console.log(err);
-  }};
+  }
+  if(this.state.user.type == "Seller"){
+    this.setState({usertype:true})
+  }
+  console.log(this.state.user.type, this.state.usertype)
+};
 
   logoutUser = () =>{
     localStorage.removeItem('token');
@@ -271,7 +274,7 @@ class App extends Component {
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
+            <NavBar status={this.state.usertype} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} addBookToShoppingCart={this.addBookToShoppingCart} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>

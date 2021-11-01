@@ -39,7 +39,8 @@ class RegisterPage extends Component {
             streetaddress: this.state.street,
             city: this.state.city,
             state: this.state.state,
-            zipCode: this.state.zip
+            zipCode: this.state.zip,
+            type: "Buyer"
 
         }
         console.log(user)
