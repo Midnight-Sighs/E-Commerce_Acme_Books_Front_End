@@ -20,8 +20,6 @@ import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
 import BookListing from './Components/SellerPage/BookListing2'
 
-
-
 const history = createBrowserHistory();
 class App extends Component {
   constructor(props) {
@@ -155,7 +153,7 @@ class App extends Component {
       loggedIn: false,
       currentUser: []
     })
-    history.push("/")
+    history.push('/')
     history.go('/');
   }
 
@@ -266,8 +264,7 @@ class App extends Component {
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         {/* Logged in:  {this.state.loggedIn}
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link> */}
+         
         </Row>
        
         <Row>  
@@ -317,6 +314,7 @@ class App extends Component {
               exact path='/BookListing'
               render={() => <BookListing currentUser={this.state.user}/>}
               />
+              
               {/* <Route
               exact path='/Photos'
               render={() => <Photos user={this.state.user} books={this.state.books}/>}

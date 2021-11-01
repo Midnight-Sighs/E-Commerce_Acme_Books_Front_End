@@ -134,7 +134,7 @@ class RegisterPage extends Component {
                             <Row>
                                 <Col sm={12}>
                                     <Form.Label className="pro-label" >Email</Form.Label>
-                                    <Form.Control className="pro-field" type='text' name='email' onChange={this.handleChange} value={this.state.Email}/>
+                                    <Form.Control className="pro-field" type='text' name='Email' onChange={this.handleChange} value={this.state.Email}/>
                                 </Col>
                             </Row>
 

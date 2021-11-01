@@ -1,5 +1,5 @@
 import react, {Component} from 'react'
-import {BrowserRouter as Router, Link} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import MainBody from '../../Components/MainShop/MainBody'
 
 class SearchBar extends Component {
@@ -45,11 +45,19 @@ class SearchBar extends Component {
         this.setState({
             searchResults: tempSearchResults
         })
+
     }
 
     render() {
         return (
             <>
+
+            <Router>
+                <Switch>
+                    <Route exact path ='/SearchResults' render={() => <MainBody loggedIn={this.props.loggedIn} props={this.state.searchResults} />}/>
+                </Switch>
+            </Router>
+
                 <form onSubmit={this.handleSubmit}>
                     <label className="search-label" htmlFor="header-search"></label>
                     <input
@@ -61,7 +69,7 @@ class SearchBar extends Component {
                         value={this.state.searchTerm}
                         onChange={this.handleChange}
                     />
-                    <button className="search-btn" type="submit">Search</button>
+                    <button className="search-btn" type="submit"><Link className="search-btn" to='/SearchResults'>Search</Link></button>
                 </form>
 
             </>
