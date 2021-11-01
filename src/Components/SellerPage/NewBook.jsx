@@ -120,6 +120,7 @@ class NewBook extends Component {
       };
 
     handleSubmit = (event) => {
+        debugger
         event.preventDefault();
         this.createListing();
     }
