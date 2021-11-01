@@ -38,8 +38,10 @@ class RegisterPage extends Component {
         })
       }
 
-    componentDidUpdate(){
-        
+    componentDidUpdate(prevState){
+        if(prevState.User != this.state.User){
+            this.getCurrentUser();
+        }
     }
 
       getCurrentUser = async () => {

@@ -14,7 +14,6 @@ class BookDetailPage extends Component {
         this.state = {
             book:[],
             allBookReviews:[],
-            bookId : this.props.bookId,
             endpoint:""
           }
     }
@@ -62,14 +61,11 @@ class BookDetailPage extends Component {
 
   //#endregion
 
-  componentDidUpdate() {
-    if (this.state.bookId !== secondLevelLocation) {
-      console.log("starting componenet did update")
-      this.getBook(secondLevelLocation);
-      this.setState({
-        bookId: secondLevelLocation
-      })
-    }}
+  componentDidUpdate(prevState) {
+    if(prevState.endpoint != secondLevelLocation){
+      this.getBook();
+    }
+  }
 
 
     componentDidMount() {
