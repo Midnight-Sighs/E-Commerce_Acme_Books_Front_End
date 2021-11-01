@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Link} from 'react-router-dom'
+import MagicBook from '../../Images/BookCrystalBall.png'
+import '../Styles/Pages.css'
 
 const SellerPage = (props) =>{
     console.log(props)
@@ -46,10 +48,16 @@ const SellerPage = (props) =>{
 
     return ( 
         <> 
-        <p>Welcome Seller {props.currentUserID.userName}, would you like to play a game?</p>
-        <hr></hr>
-        <p><li><Link to="/NewBook">List new book for sale</Link></li></p>
-        <p><li><Link to="/NewBook">View my book listings</Link></li></p>
+            <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+                <div className="mt-5">
+                    <div className = "seller-page">
+                        <p className="welcome">Welcome {props.currentUserID.userName}, this is your seller profile!</p>
+                        <hr></hr>
+                        <p><Link to="/NewBook">List new book for sale</Link></p>
+                        <p><Link to="/BookListing">View my book listings</Link></p>
+                    </div>
+                </div>
+            </div>
         </>
      );
 }

@@ -3,37 +3,92 @@ import CartItem from '../../Components/CartItem/CartItem';
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css';
 import axios from 'axios';
+import BlueBookPile from '../../Images/BlueBookPile.jpg'
 
 class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            books:[],
+            shoppingCart: [],
+            currentUserID: '',
         }
     }
 
-    updateQuantity = async (cartId, bookId, count) =>{
-        const response = await axios.post('http://localhost:62321/api/shoppingCart/' + cartId + '/' + bookId + '/' + count + '/');
+    getBook = async (bookId) =>{
+        const response = await axios.get('https://localhost:44394/api/book/' + bookId);
+        let tempBook = response.data
+        return tempBook
+    }
 
+    getShoppingCart = async () =>{
+        const userid = this.state.currentUserID
+        if(userid == ""){
+            return;
+        }
+        else{
+            const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
+            this.setState({
+                shoppingCart: response.data
+                });
+        }
+    }
+
+    removeBookFromShoppingCart = async (bookid) =>{
+        const userid = this.state.currentUserID
+        await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
+        this.getShoppingCart();
+      }
+
+    componentDidMount=()=>{
+        this.setState({
+            currentUserId : this.props.currentUserID
+        })
+        this.getShoppingCart();
+    }
+
+    componentDidUpdate(){
+        if(this.props.currentUserID != this.state.currentUserID){
+            this.setState({
+                currentUserID: this.props.currentUserID
+            })
+        }
+        this.getShoppingCart();
+        
+    }
+
+    updateQuantity = async (userId, bookId, count) =>{
+        let newQuantity = {
+            "quantity" : count
+        }
+        await axios.put(`https://localhost:44394/api/shoppingCart/update/${userId}/${bookId}`, newQuantity);
+    }
+
+    getAllBookDetails =() =>{
+        let tempBooks = []
+        this.state.shoppingCart.map((book)=>{
+            let tempBook = {}
+            tempBook = this.getBook(book.bookId)
+            tempBooks.push(tempBook)
+        });
+        this.setState({
+            books: tempBooks
+        })
     }
 
     render() {
         return (
             <>
                 <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})` }}>
-                    <div className="row login-page-row">
-                        <div className="col-5 mx-5">
-                            <br />INSERT IMAGE HERE
-                            <br />INSERT IMAGE HERE
-                            <br />INSERT IMAGE HERE
-                            <br />INSERT IMAGE HERE
-                            <br />INSERT IMAGE HERE
-                            <br />INSERT IMAGE HERE
+                    <div className="row cart-page-row">
+                        <div className=" book-pile col-5 mx-5">
+                            <img src={BlueBookPile}></img>
                         </div>
-                        <div className="col-6">
+                        <div className="mt-4 col-6">
                             <br />
-                            {this.props.shoppingCart.map((book) => {
+                            {this.state.shoppingCart.map((book) => {
                                 return (
-                                    <CartItem book={book} updateQuantity={this.updateQuantity} key={book.bookId} />
+                                    <CartItem userId={this.state.currentUserID} book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
                                 );
                             })}
                         </div>

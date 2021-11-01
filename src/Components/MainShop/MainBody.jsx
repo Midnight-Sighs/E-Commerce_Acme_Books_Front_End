@@ -23,8 +23,7 @@ const MainBody = (props)=> {
                     {props.props.map((book) => {
                             return(
                                 <>
-                                    <div className="col-1"></div>
-                                    <div key={book.bookId} className= "col-lg-1 col-md-2 col-sm-4 col-xsm-10 col-for-card">
+                                    <div key={book.bookId} className= "col-lg-3 col-md-3 col-sm-4 col-xsm-10 col-for-card">
                                         <BookCard book={book} loggedIn={props.loggedIn} addBookToShoppingCart={props.addBookToShoppingCart}/>
                                     </div>
                                     <div className="col-1"></div>

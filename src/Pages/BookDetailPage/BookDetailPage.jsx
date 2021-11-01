@@ -20,16 +20,11 @@ class BookDetailPage extends Component {
     }
 
     //#region Axios Calls
-    componentDidMount() {
-      this.setState({
-        endpoint: secondLevelLocation
-      })
-      this.getBook();
-    }
   getBook = async () =>{
     console.log(window.location.pathname)
     console.log('Getting single book' + this.state.endpoint)
-    const response = await axios.get('https://localhost:44394/api/book/' + this.state.endpoint);
+    let endpoint = parseInt(this.state.endpoint)
+    const response = await axios.get('https://localhost:44394/api/book/' + endpoint);
     this.setState({
       book: response.data
     })
@@ -76,8 +71,12 @@ class BookDetailPage extends Component {
       })
     }}
 
+
     componentDidMount() {
       console.log('getting book on BookDetailsPage')
+      this.setState({
+        endpoint: secondLevelLocation
+      })
       this.getBook();
       this.getReviews();
 

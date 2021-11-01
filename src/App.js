@@ -18,6 +18,8 @@ import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
 import SellerPage from './Pages/SellerPage/SellerPage'
 import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
+import BookListing from './Components/SellerPage/BookListing'
+
 
 
 const history = createBrowserHistory();
@@ -31,7 +33,6 @@ class App extends Component {
       currentUser: [],
       currentUserID: "",
       registeredUser: [],
-      shoppingCart: [],
       loggedIn: false,
       books:[],
       searchResults: [],
@@ -54,7 +55,6 @@ class App extends Component {
   // }
   componentDidMount() {
     this.getBooks();
-    this.getShoppingCart();
     this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
       console.log("starting componentDidMount token update")
@@ -66,6 +66,7 @@ class App extends Component {
         loggedIn: false,
       });}
   }
+  
  
   //#region Users
 
@@ -160,113 +161,122 @@ class App extends Component {
 
 //#endregion  
 
-  //#region Shopping Cart
-  getShoppingCart = async () =>{
-    const userid = this.state.user.id
-    const response = await axios.get('https://localhost:44394/api/shoppingCart/' + userid);
+  // removeBookFromShoppingCart = async (bookid) =>{
+  //   const userid = this.state.user.id
+  //   const response = await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
+  //   this.setState({
+  //     shoppingCart: response.data
+  //   });
+  // }
+  addBookToShoppingCart = async (bookId) =>{
+    let userId = this.state.user.id
+    let newCart = {
+      "bookId" : bookId,
+      "userId" : userId,
+      "quantity" : 1
+    }
+    const response = await axios.post(`https://localhost:44394/api/shoppingCart/addBook/`, newCart);
     this.setState({
-      shoppingCart: response.data
-    });
-    console.log(response)
-} 
-removeBookFromShoppingCart = async () =>{
-  const response = await axios.delete('https://localhost:44394/api/shoppingCart/delete/${}');
-  this.setState({
-    shoppingCart: response.data
-  });
-}
-addBookToShoppingCart = async () =>{
-  const response = await axios.post('https://localhost:44394/api/shoppingCart/addBook${}');
-  this.setState({
 
-  })
-}
+    })
+    debugger
+    this.deleteBook(bookId)
+  }
 
   //#endregion 
 
   //#region Books
-getBooks = async () =>{
-  const response = await axios.get('https://localhost:44394/api/book');
-  this.setState({
-    books: response.data
-  })
-}
-searchBooks = async (searchTerm) =>{
-  console.log(searchTerm)
-  if (searchTerm !== null && searchTerm !== ''){
-    await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+  getBooks = async () =>{
+    const response = await axios.get('https://localhost:44394/api/book');
+    this.setState({
+      books: response.data
+    })
   }
-  else{
-    console.log("I'm sorry, we don't have any of these books")
+  // searchBooks = async (searchTerm) =>{
+  //   console.log(searchTerm)
+  //   if (searchTerm !== null && searchTerm !== ''){
+  //     const response = await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
+  //     this.setState({
+  //       books: response.data
+  //     })
+  //   }
+  //   else{
+  //     console.log("I'm sorry, we don't have any of these books")
+  //   }
+    // const response = await axios.get('https://localhost:44394/api/book/${}');
+    // this.setState({
+    //   books: response.data
+    // })
+  // }
+
+// localBookSearch = (searchTerm) =>{
+//   const currentBooksDB = this.state.books
+//   const results = this.BooksDBfilter(currentBooksDB, searchTerm);
+
+//   this.setState({
+//     searchResults: results,
+//     searchEnable: true
+//   })
+//   console.log("local db search")
+//   console.log(this.state.searchResults)
+// }
+// BooksDBfilter = (arrayOfObject, term) => {
+//   let results = ""
+//   var ans = arrayOfObject.filter(function(v,i) {
+//       if(v.name.toLowerCase().indexOf(term) >=0 || v.country.toLowerCase().indexOf(term) >=0) {
+//           return results;
+//       } else false;
+//   });}
+
+  addBook = async () =>{
+    const response = await axios.post('https://localhost:44394/api/book');
+    this.setState({
+      
+    })
   }
-  const response = await axios.get('https://localhost:44394/api/book/${}');
-  this.setState({
-    books: response.data
-  })
-}
 
-localBookSearch = (searchTerm) =>{
-  const currentBooksDB = this.state.books
-  console.log(currentBooksDB)
-  const searchResults = currentBooksDB.filter(book => book.title.includes(searchTerm))
-      // if(v.title.toLowerCase().indexOf(searchTerm) >=0) {
-      //   console.log("Inside filter", results)  
-      //   return results;
-      // } 
-      // else return false
-  // });
-  console.log("*****" , searchResults)
-  this.setState({
-    searchResults: searchResults,
-    searchEnable: true
-  })
-  console.log("local db search" + searchTerm)
-  
-  
-}
+  editBook = async () =>{
+    const response = await axios.patch('https://localhost:44394/api/book/edit/${}');
+    this.setState({
 
-addBook = async () =>{
-  const response = await axios.post('https://localhost:44394/api/book');
-  this.setState({
-    
-  })
-}
-
-editBook = async () =>{
-  const response = await axios.patch('https://localhost:44394/api/book/edit/${}');
-  this.setState({
-
-  })
-}
-deleteBook = async () =>{
-  const response = await axios.get('https://localhost:44394/api/book/delete/${}');
-  this.setState({
-
-  })
-}
+    })
+  }
+  deleteBook = async (bookId) =>{
+    const response = await axios.delete(`https://localhost:44394/api/book/delete/${bookId}`);
+    debugger
+    let allBooks = [];
+    allBooks = this.state.books;
+    let newBooks = []
+    allBooks.map((book)=>{
+      if(book.bookId != bookId){
+        newBooks.push(book)
+      }
+    })
+    this.setState({
+      books : newBooks
+    })
+  }
+  //#endregion
 
 
 
   render() {
+    let varUser = this.state.user
     return (
       <Container fluid>
         <Row>
           <Col><Header/></Col>
-         Logged in:  {this.state.loggedIn}
-          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link>
+         {/* Logged in:  {this.state.loggedIn}
+          <Link to="/logout" onClick={() => this.logoutUser()}>Logout</Link> */}
         </Row>
-        <Row>
-          {/* <SearchBar formSubmission={this.searchBooks} /> */}
-        </Row>
-        <Row>
-          
-          
+       
+        <Row>  
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} formSubmission={this.searchBooks}/>
+            <NavBar status={this.state.user.type} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
             <Switch >   
-              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
+              {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} addBookToShoppingCart={this.addBookToShoppingCart} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
               <Route exact path="/" render={() => <MainShop/>}/> */}
 
@@ -276,8 +286,8 @@ deleteBook = async () =>{
               />
 
               <Route
-              exact path='/Seller'
-              render={() => <SellerPage currentUserID={this.state.user} status={this.state.user.type} loggedIn={this.state.loggedIn} />}
+              exact path='/Seller/:id'
+              render={() => <SellerPage currentUserID={this.state.user} />}
               />
 
               <Route
@@ -286,13 +296,13 @@ deleteBook = async () =>{
               />
 
               <Route
-              exact path='/profile/edit'
-              render={() => <EditProfile user={this.state.user.userId}/>}
+              exact path='/profile/edit/:id'
+              render={() => <EditProfile user={this.state.user.id} userprofile={varUser}/>}
               />
               
               <Route
               exact path='/cart'
-              render={() => <CartPage shoppingCart={this.state.shoppingCart}/>}
+              render={() => <CartPage currentUserID={this.state.currentUserID}/>}
               />
               
               <Route
@@ -303,6 +313,14 @@ deleteBook = async () =>{
               exact path='/NewBook'
               render={() => <NewBook user={this.state.user.id}/>}
               />
+              <Route
+              exact path='/BookListing'
+              render={() => <BookListing user={this.state.user} books={this.state.books}/>}
+              />
+              {/* <Route
+              exact path='/Photos'
+              render={() => <Photos user={this.state.user} books={this.state.books}/>}
+              /> */}
 
 
             </Switch>
