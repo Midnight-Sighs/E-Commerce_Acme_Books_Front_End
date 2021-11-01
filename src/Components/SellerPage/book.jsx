@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 const defaultImageSrc = '/img/image_placeholder.png'
-
 const initialFieldValues = {
-    bookID: 0,
+    bookId: 0,
     title: '',
     author: '',
     description: "",
@@ -87,7 +86,6 @@ export default function Book(props) {
             formData.append('ReleaseYear', values.releaseYear)
             formData.append('Isbn', values.isbn)
             formData.append('Price', parsedPrice)
-            formData.append('Id', values.user)
             formData.append('Image', values.imageFile)
             formData.append('BookId', values.bookId)
             console.log(formData)
@@ -148,7 +146,8 @@ export default function Book(props) {
                         <div className="form-group text-center">
                             <button type="submit" className="btn btn-light">Submit</button>
                         </div>
-                        <input type="hidden" id="bookId" name="postId" value={values.bookId}></input>
+                        <input type="hidden" id="bookId" name="bookId" value={values.bookId}></input>
+                        <input type="hidden" id="userId" name="userId" value={values.userId}></input>
                     </div>
                 </div>
             </form>
