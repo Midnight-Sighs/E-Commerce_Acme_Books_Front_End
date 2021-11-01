@@ -180,8 +180,6 @@ class App extends Component {
     this.setState({
 
     })
-    debugger
-    this.deleteBook(bookId)
   }
 
   //#endregion 
@@ -302,7 +300,7 @@ class App extends Component {
               
               <Route
               exact path='/cart'
-              render={() => <CartPage currentUserID={this.state.currentUserID}/>}
+              render={() => <CartPage currentUserID={this.state.currentUserID} books={this.state.books} />}
               />
               
               <Route
