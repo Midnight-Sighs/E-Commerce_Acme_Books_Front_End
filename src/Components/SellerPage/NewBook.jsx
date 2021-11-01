@@ -6,10 +6,11 @@ import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../../Pages/Styles/Pages.css'
-console.log(window.location.pathname)
+//import '../../Images/defaultimg.png'
+
 var pathArray = window.location.pathname.split('/');
 var secondLevelLocation = pathArray[2];
-console.log(secondLevelLocation)
+
 
 class NewBook extends Component {
     constructor(props) {

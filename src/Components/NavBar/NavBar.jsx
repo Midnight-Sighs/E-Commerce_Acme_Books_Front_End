@@ -4,10 +4,7 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
 
 const NavBar = (props) =>{
-    console.log(props.userid)
     let userid = props.userid
-    console.log(props.status)
-
 
     const[anon, setAnon] = useState(true);
     const[seller, setSeller] =useState(false);
@@ -36,7 +33,6 @@ const NavBar = (props) =>{
 
         }
         if(loggedIn === true){
-            console.log(props.status)
             if(props.status === false){
                 setBuyer(true);
                 setSeller(false);
@@ -55,9 +51,6 @@ const NavBar = (props) =>{
     }
     let editProfileURL = "/profile/edit/" + userid
     let sellerURL = "/Seller/" + userid
-    console.log(anon)
-    console.log(buyer)
-    console.log(seller)
     return ( 
         <> 
         <div className="row nav-bar">

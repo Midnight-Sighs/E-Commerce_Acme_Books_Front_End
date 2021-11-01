@@ -2,11 +2,15 @@ import React, {useState, useEffect} from 'react'
 import PlaceHolder01 from '../../Images/PlaceHolder01.jpg'
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../Styles/Components.css'
+import axios from "axios";
+
 
 
     const BookDetails = ( props ) => {
-
-        const[bookId, setBookId] = useState(props.book.bookId);
+        console.log(props.book[0])
+        const[bookId, setBookId] = useState(props.book[0].bookId);
+        const[book, setBook] = useState(props.book[0]);
+        const [bookReviewList, setBookReviewList] = useState([])
         const[bookRating, setRating] = useState([]);
         const[bookReview, setReview] = useState([]);
         const[newReview, setNewReview] = useState("");
@@ -14,20 +18,43 @@ import '../Styles/Components.css'
         const[allRelevant, setAllRelevant]=useState([]);
         const[reviewStatus, setReviewStatus]=useState(false);
 
+        const baseURL = 'https://localhost:44394/api/reviews'
+        const getByBook = '/book/' + bookId
+        const editURL = '/edit/'
+        const deleteURL = '/delete/'
+        //book/delete/{id:int}
+
+        const reviewsAPI = () => {
+            return {
+                fetchAll: () => axios.get(baseURL),
+                create: newRecord => axios.post(baseURL, newRecord),
+                update: (BookId, updatedRecord) => axios.put(baseURL + editURL + BookId, updatedRecord),
+                delete: id => axios.delete(baseURL + deleteURL + id)
+            }
+        }
+
+
         useEffect (() =>{
+            refreshReviewBookList();
             filterReviews();
+            console.log(bookReviewList)
         }, [props])
+
+        function refreshReviewBookList() {
+            reviewsAPI().fetchAll()
+                .then(res => {
+                    setBookReviewList(res.data)
+                })
+                .catch(err => console.log(err))
+        }
     
-        useEffect(() => {
-            setBookId(props.book.bookId)
-        }, [bookReview])
     
         const filterReviews = () =>{
             let allRelevantReviews = []
             let allRelevantRatings =[]
             let allRelevant=[]
-            props.reviews.map(function (review){
-                if(review.bookId == props.book.bookId){
+            bookReviewList.map(function (review){
+                if(review.bookId == bookId){
                     let bookReview = review.review
                     let bookRating = review.rating
                     allRelevantReviews.push(bookReview)
@@ -60,25 +87,24 @@ import '../Styles/Components.css'
     }
     //#endregion
 
-
-    console.log(props.book)
-    if (!props.book) {
+    console.log(book)
+    if (!book) {
         return <div>no book</div>;
         }
     return ( 
         <>
-            <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
+        <div className="magic-book" style={{ backgroundImage: `url(${MagicBook})`}}>
                 <div className= "main-body-details">
                     <div className = "row opac">
                         <div className="col-1"></div>
                         <div className = "col-3">
-                            <img src={props.book.imageSrc} />
-                        </div>
+                            <img src={book.imageSrc} />
+                        </div> 
                         <div className = "col-7 book-details-box">
                             <div className="row">
-                                <p className ="book-title">{props.book.title}</p>
-                                <p className ="book-author"> written by {props.book.author}</p>
-                                <p className ="book-description">{props.book.description}</p>
+                                <p className ="book-title">{book.title}</p>
+                                <p className ="book-author"> written by {book.author}</p>
+                                <p className ="book-description">{book.description}</p>
                             </div>
                         </div>
                     </div>
@@ -131,3 +157,5 @@ import '../Styles/Components.css'
 }
 
 export default BookDetails;
+
+            

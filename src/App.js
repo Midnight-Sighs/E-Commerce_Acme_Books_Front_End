@@ -14,7 +14,9 @@ import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
 import { createBrowserHistory } from "history";
-import BookDetailPage from './Pages/BookDetailPage/BookDetailPage'
+
+import BookDetailPage2 from './Pages/BookDetailPage/BookDetailPage2'
+
 import SellerPage from './Pages/SellerPage/SellerPage'
 import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
@@ -39,19 +41,7 @@ class App extends Component {
     };
 
   };
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (this.state.localToken !== prevState.token ) { // Set a new state if token change check, local token to current token
-  //     console.log("starting componenet did update")
-  //     this.getCurrentUserToken();
-  //     this.getCurrentUser();
-  //   }
-    // if (this.state.localToken) { // Set a new state if token change
-    //   console.log("starting componenet did update")
-    //   this.getCurrentUserToken();
-    //   this.getCurrentUser();
-    // }
-    
-  // }
+
   componentDidMount() {
     this.getBooks();
     this.getCurrentUser();
@@ -87,13 +77,11 @@ class App extends Component {
   loginUser = async(login) => {
     try{
       let response = await axios.post('https://localhost:44394/api/authentication/login', login);
-      console.log(response)
       if (response === undefined) {
         console.log("bad response", response)
         this.setState({});
       } 
       else {
-        console.log("got a good response, setting token")
         this.setState({
           token: response.data.token,
         });
@@ -147,7 +135,6 @@ class App extends Component {
   if(this.state.user.type == "Seller"){
     this.setState({usertype:true})
   }
-  console.log(this.state.user.type, this.state.usertype)
 };
 
   logoutUser = () =>{
@@ -180,8 +167,6 @@ class App extends Component {
     this.setState({
 
     })
-    debugger
-    this.deleteBook(bookId)
   }
 
   //#endregion 
@@ -193,42 +178,6 @@ class App extends Component {
       books: response.data
     })
   }
-  // searchBooks = async (searchTerm) =>{
-  //   console.log(searchTerm)
-  //   if (searchTerm !== null && searchTerm !== ''){
-  //     const response = await axios.get(`https://localhost:44394/api/book/${searchTerm}`);
-  //     this.setState({
-  //       books: response.data
-  //     })
-  //   }
-  //   else{
-  //     console.log("I'm sorry, we don't have any of these books")
-  //   }
-    // const response = await axios.get('https://localhost:44394/api/book/${}');
-    // this.setState({
-    //   books: response.data
-    // })
-  // }
-
-// localBookSearch = (searchTerm) =>{
-//   const currentBooksDB = this.state.books
-//   const results = this.BooksDBfilter(currentBooksDB, searchTerm);
-
-//   this.setState({
-//     searchResults: results,
-//     searchEnable: true
-//   })
-//   console.log("local db search")
-//   console.log(this.state.searchResults)
-// }
-// BooksDBfilter = (arrayOfObject, term) => {
-//   let results = ""
-//   var ans = arrayOfObject.filter(function(v,i) {
-//       if(v.name.toLowerCase().indexOf(term) >=0 || v.country.toLowerCase().indexOf(term) >=0) {
-//           return results;
-//       } else false;
-//   });}
-
   addBook = async () =>{
     const response = await axios.post('https://localhost:44394/api/book');
     this.setState({
@@ -307,7 +256,7 @@ class App extends Component {
               
               <Route
               exact path='/BookDetail/:bookid'
-              render={() => <BookDetailPage />}
+              render={() => <BookDetailPage2 books={this.state.books}/>}
               />
               <Route
               exact path='/NewBook'

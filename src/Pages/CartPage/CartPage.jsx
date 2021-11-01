@@ -6,7 +6,9 @@ import axios from 'axios';
 import BlueBookPile from '../../Images/BlueBookPile.jpg'
 
 class CartPage extends Component {
+    
     constructor(props) {
+        console.log(props)
         super(props);
         this.state = {
             books:[],
@@ -14,7 +16,7 @@ class CartPage extends Component {
             currentUserID: '',
         }
     }
-
+    
     getBook = async (bookId) =>{
         const response = await axios.get('https://localhost:44394/api/book/' + bookId);
         let tempBook = response.data

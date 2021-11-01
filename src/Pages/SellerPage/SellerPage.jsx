@@ -6,45 +6,6 @@ import '../Styles/Pages.css'
 const SellerPage = (props) =>{
     console.log(props)
 
-    const[anon, setAnon] = useState(true);
-    // const[buyer, setBuyer] = useState(false);
-    const[seller, setSeller] =useState(false);
-    const[buyer, setBuyer] =useState(false);
-
-    useEffect(()=>{
-        let loggedIn = props.loggedIn
-        checkPageType(loggedIn)
-    }, [props])
-
-    const logoutStateToggle=()=>{
-        setAnon(true)
-        setSeller(false)
-    }
-
-    const checkPageType=(loggedIn)=>{
-        if(loggedIn === false ){
-            setAnon(true);
-            setSeller(false);
-            setBuyer(false)
-
-        }
-        if(loggedIn === true){
-            if(props.status === false){
-                setBuyer(true);
-                setSeller(false);
-                setAnon(false);
-                }
-            else{
-                setBuyer(false);
-                setSeller(true);
-                setAnon(false);
-                }
-            }
-        // if(loggedIn == "seller"){
-        //     setSeller(true);
-        //     setAnon(false);
-        // }
-    }
 
     return ( 
         <> 
