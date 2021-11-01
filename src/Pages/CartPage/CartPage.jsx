@@ -14,7 +14,6 @@ class CartPage extends Component {
             books:[],
             shoppingCart: [],
             currentUserID: '',
-            cartLoaded: false,
             filteredBooks:[],
             cartTotal: 0
         }
@@ -35,7 +34,6 @@ class CartPage extends Component {
             const response = await axios.get(`https://localhost:44394/api/shoppingCart/${userid}`);
             this.setState({
                 shoppingCart: response.data,
-                cartLoaded: true,
                 },()=>{
                     this.filterBooks();
                 });
@@ -46,6 +44,7 @@ class CartPage extends Component {
         const userid = this.state.currentUserID
         await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
         this.getShoppingCart();
+        this.filterBooks();
       }
 
     componentDidMount=()=>{
@@ -54,6 +53,7 @@ class CartPage extends Component {
             books: this.props.books
         })
         this.getShoppingCart();
+        this.filterBooks();
 
     }
 
@@ -63,6 +63,7 @@ class CartPage extends Component {
                 currentUserID: this.props.currentUserID
             }, ()=>{
                 this.getShoppingCart()
+                this.filterBooks();
             })
         }  
     }
@@ -74,19 +75,9 @@ class CartPage extends Component {
         await axios.put(`https://localhost:44394/api/shoppingCart/update/${userId}/${bookId}`, newQuantity);
     }
 
-    // getAllBookDetails =() =>{
-    //     let tempBooks = []
-    //     this.state.shoppingCart.map((book)=>{
-    //         let tempBook = {}
-    //         tempBook = this.getBook(book.bookId)
-    //         tempBooks.push(tempBook)
-    //     });
-    //     this.setState({
-    //         books: tempBooks
-    //     })
-    // }
 
     filterBooks = () => {
+        debugger
         let tempBooks = this.props.books;
         let tempCart = this.state.shoppingCart;
         let filteredBooks = [];
@@ -94,10 +85,10 @@ class CartPage extends Component {
             return
         }
         else{
-            tempBooks.map(function(cartBook){
-                for(let i=0; i < tempCart.length; i++){
+            tempCart.map(function(cartBook){
+                for(let i=0; i < tempBooks.length; i++){
                     if(cartBook.bookId == tempBooks[i].bookId){
-                        filteredBooks.push(cartBook)
+                        filteredBooks.push(tempBooks[i])
                     }
                 }
             })
@@ -121,6 +112,15 @@ class CartPage extends Component {
         })
     }
 
+    onClickCheckout =()=>{
+        let boughtBooks = this.state.filteredBooks
+        for(let i =0; i<boughtBooks.length; i++){
+            let bookId = boughtBooks[i].bookId
+            this.props.deleteBook(bookId);
+        }
+    }
+    
+
     render() {
         return (
             <>
@@ -131,7 +131,14 @@ class CartPage extends Component {
                         </div>
                         <div className="mt-4 col-6">
                             <br />
-                            {this.state.filteredBooks.map((book) => {
+                            {this.state.filteredBooks.map((book)=>{
+                                return(
+                                    <h1>{book.title}
+                                    {book.author}
+                                    {book.price}</h1>
+                                )
+                            })}
+                            {this.state.shoppingCart.map((book) => {
                                 return (
                                     <CartItem userId={this.state.currentUserID} book={book} deleteBook={this.removeBookFromShoppingCart} updateQuantity={this.updateQuantity} />
                                 );

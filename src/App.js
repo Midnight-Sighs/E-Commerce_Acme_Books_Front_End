@@ -149,13 +149,8 @@ class App extends Component {
 
 //#endregion  
 
-  // removeBookFromShoppingCart = async (bookid) =>{
-  //   const userid = this.state.user.id
-  //   const response = await axios.delete(`https://localhost:44394/api/shoppingCart/${userid}/delete/${bookid}`);
-  //   this.setState({
-  //     shoppingCart: response.data
-  //   });
-  // }
+  
+  //#region Shopping Cart
   addBookToShoppingCart = async (bookId) =>{
     let userId = this.state.user.id
     let newCart = {
@@ -167,6 +162,8 @@ class App extends Component {
     this.setState({
 
     })
+    history.push('/cart')
+    history.go('/cart');
   }
 
   //#endregion 
@@ -183,6 +180,7 @@ class App extends Component {
     this.setState({
       
     })
+    
   }
 
   editBook = async () =>{
@@ -193,7 +191,6 @@ class App extends Component {
   }
   deleteBook = async (bookId) =>{
     const response = await axios.delete(`https://localhost:44394/api/book/delete/${bookId}`);
-    debugger
     let allBooks = [];
     allBooks = this.state.books;
     let newBooks = []
@@ -207,7 +204,6 @@ class App extends Component {
     })
   }
   //#endregion
-
 
 
   render() {
@@ -251,7 +247,7 @@ class App extends Component {
               
               <Route
               exact path='/cart'
-              render={() => <CartPage currentUserID={this.state.currentUserID} books={this.state.books} />}
+              render={() => <CartPage deleteBook={this.deleteBook} currentUserID={this.state.currentUserID} books={this.state.books} />}
               />
               
               <Route
