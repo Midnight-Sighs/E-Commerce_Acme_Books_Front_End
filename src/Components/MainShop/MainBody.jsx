@@ -70,7 +70,7 @@ const MainBody = (props)=> {
                     value={searchTerms}
                     onChange={handleChange}
                 />
-                <button className="search-btn" type="submit">Search</button>
+                {/* <button className="search-btn" type="submit">Search</button> */}
             </form>
                 
                 <div className="row main-body">

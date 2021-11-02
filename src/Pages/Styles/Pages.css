@@ -7,11 +7,11 @@
   position: fixed;
   background-color: #448c9e;
   left: 0;
-  top: 475px;
+  top: 250px;
   overflow-y: scroll;
   z-index: -2;
   background-size: 100%;
-  height: 70vh;
+  height: 80vh;
   width: 100vw;
 }
 
@@ -37,7 +37,7 @@
 
 .login-page-row h1 {
   font-size: 4rem;
-  margin-top: 8rem;
+  margin-top: 12rem;
   font-family: "Indie Flower", cursive;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .login-row {
-  margin-right: 10rem;
+  margin-right: 15rem;
 }
 
 .login-row h1 {
@@ -72,7 +72,7 @@
 }
 
 .login-form {
-  margin-top: 9rem;
+  margin-top: 15rem;
   width: 50vw;
   background-color: #dda47f9d;
   -webkit-box-shadow: 0 0 5px 5px #091931;
@@ -119,17 +119,17 @@
 }
 
 .reg-row h1 {
-  margin-top: 3rem;
+  margin-top: 12rem;
   font-family: "Indie Flower", cursive;
   padding: 2rem;
   color: #091931;
   font-weight: 700;
   text-shadow: 2px 2px 5px #ffc27d;
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 .reg-form {
-  margin-top: 4rem;
+  margin-top: 15rem;
 }
 
 .reg-form .reg-label {
@@ -200,7 +200,7 @@
   color: #091931;
   font-weight: 700;
   text-align: justify;
-  margin-top: 6em;
+  margin-top: 8em;
   padding: 1em;
   background-color: #dda47f9d;
   -webkit-box-shadow: 0 0 5px 5px #091931;
@@ -208,7 +208,7 @@
 }
 
 .cover-01, .cover-02 {
-  margin-top: 7em;
+  margin-top: 12em;
   margin-left: 9em;
   opacity: 50%;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
@@ -225,7 +225,7 @@
   font-weight: 600;
   padding-top: 3rem;
   padding-left: 2rem;
-  margin-top: 3rem;
+  margin-top: 6rem;
   text-shadow: 2px 2px 5px #091931;
 }
 
@@ -300,9 +300,9 @@
 }
 
 .cart-page-row .book-pile img {
-  margin-top: 6rem;
-  width: 30rem;
-  height: 50rem;
+  margin-top: 10rem;
+  width: 25rem;
+  height: 40rem;
   border-radius: 15px;
   opacity: 80%;
   margin-left: 5rem;
@@ -311,7 +311,7 @@
 }
 
 .cart-page-row .cart-details {
-  margin-top: 3rem;
+  margin-top: 8rem;
   background-color: #091931;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
@@ -325,7 +325,7 @@
 }
 
 .cart-page-row .quantity-box {
-  margin-top: 9rem;
+  margin-top: 12rem;
 }
 
 .checkout-box {
@@ -343,12 +343,17 @@
   color: #ffe3a8;
   padding: 10px;
   font-size: 2rem;
+  margin-bottom: 1rem;
   border: none;
   border-radius: 5px;
 }
 
+.checkout-box .paypal-btns {
+  width: 30rem;
+}
+
 .edit-profile-row h1 {
-  margin-top: 4rem;
+  margin-top: 12rem;
   font-family: "Indie Flower", cursive;
   margin-left: 4rem;
   font-size: 6rem;
@@ -366,7 +371,7 @@
 }
 
 .edit-profile-row .profile-form {
-  margin-top: 5rem;
+  margin-top: 12rem;
   margin-left: 2rem;
 }
 
@@ -407,7 +412,7 @@
 }
 
 .book-edit h1 {
-  margin-top: 5rem;
+  margin-top: 9rem;
   text-align: center;
   margin-bottom: 1rem;
   font-family: "Indie Flower", cursive;
@@ -455,9 +460,7 @@
 
 @media only screen and (max-width: 1500px) {
   .bod-bg-img {
-    position: fixed;
-    left: 0;
-    top: 200px;
+    top: 300px;
     overflow-y: scroll;
     z-index: -2;
     background-size: 100%;
@@ -545,8 +548,6 @@
     margin-left: 2rem;
   }
   .anon-text {
-    font-weight: 700;
-    text-align: justify;
     margin-top: 4em;
     padding: 1em;
     font-size: 2rem;
@@ -628,7 +629,7 @@
     border-radius: 5px;
   }
   .edit-profile-row h1 {
-    margin-top: 6rem;
+    margin-top: 10rem;
     margin-left: 4rem;
     font-size: 4rem;
     font-weight: 700;
@@ -639,7 +640,7 @@
     padding: 2rem;
   }
   .edit-profile-row .profile-form {
-    margin-top: 5rem;
+    margin-top: 7rem;
     margin-left: 2rem;
   }
   .edit-profile-row .profile-form .pro-label {
@@ -700,6 +701,102 @@
     margin-bottom: 1rem;
     padding: 10px;
     border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .bod-bg-img {
+    top: 250px;
+    height: 80vh;
+    width: 100vw;
+  }
+  .anon-text {
+    margin-top: 6em;
+    padding: 1em;
+    font-size: 1.5rem;
+  }
+  .cover-01, .cover-02 {
+    margin-top: 6em;
+    margin-left: 2em;
+    opacity: 50%;
+    width: 20rem;
+  }
+  .cart-page-row .book-pile img {
+    margin-top: 6rem;
+    width: 15rem;
+    height: 25rem;
+    margin-left: 8rem;
+  }
+  .cart-page-row .cart-details {
+    margin-top: 3rem;
+  }
+  .cart-page-row .cart-details h1 {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .cart-page-row .quantity-box {
+    margin-top: 7rem;
+  }
+  .checkout-box {
+    margin-left: 40rem;
+  }
+  .checkout-box h1 {
+    font-size: 2rem;
+  }
+  .checkout-box button {
+    width: 15rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+  }
+  .paypal-btns {
+    width: 15rem;
+  }
+  .new-book-container h1 {
+    font-size: 3rem;
+    margin-top: 4rem;
+  }
+  .new-book-container .nb-label {
+    margin-top: 1rem;
+    font-size: 1rem;
+    margin-left: 3rem;
+  }
+  .new-book-container .nb-field {
+    font-size: 1rem;
+    margin-left: 2rem;
+    width: 30rem;
+  }
+  .nb-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 1rem;
+  }
+  .file-details h2 {
+    padding-top: 1rem;
+  }
+  .book-edit h1 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
+  .book-edit p {
+    font-size: 2rem;
+  }
+  .book-edit td img {
+    width: 10rem;
+    margin: 1rem;
+  }
+  .edit-book-card {
+    margin: 1rem;
+  }
+  .edit-book-card h5 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .edit-book-card button {
+    font-size: 1rem;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
   }
 }
 /*# sourceMappingURL=Pages.css.map */

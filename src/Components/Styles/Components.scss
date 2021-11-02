@@ -5,11 +5,11 @@
     position: fixed;
     background-color: $light-blue;
     left: 0;
-    top: 475px;
+    top: 250px;
     overflow-y:scroll;
     z-index: -2;
     background-size: 100%;
-    height: 70vh;
+    height: 78vh;
     width: 100vw;
 }
 
@@ -22,13 +22,13 @@
     overflow: hidden;
     position: relative;
     & .fire-hazard{
-        top: -600px;
+        top: -800px;
         position:absolute;
         overflow: hidden;
     }
     & .title{
         right:5rem;
-        top: 8rem;
+        top: 6rem;
         position: absolute; 
         font-weight: 600;
         font-family: 'Indie Flower', cursive;  
@@ -40,7 +40,7 @@
         font-size: 4rem;
         font-weight: 400;
         position: absolute;
-        top:14rem;
+        top:12rem;
         right: 6rem;
         text-shadow: $blue-text-shadow;
     }
@@ -83,7 +83,7 @@
 
 }
 .search-field{
-    margin-top: 2.5rem;
+    margin-top: 8rem;
     background-color: $dark-blue;
     border-radius: 10px;
     width: 20vw;
@@ -383,10 +383,6 @@
 
     
 .body-bg-img{
-    background-repeat:no-repeat;
-    position: fixed;
-    background-color: $light-blue;
-    left: 0;
     top: 200px;
     overflow-y:scroll;
     z-index: -2;
@@ -695,6 +691,93 @@
 
 @media only screen and (max-width: 1200px){
 
+    .body-bg-img{
+        top: 250px;
+        height: 80vh;
+        width: 100vw;
+    }
+
+    .head{
+        top:0;
+        left:0;
+        width: 100vw;
+        height:25vh;
+        overflow: hidden;
+        position: relative;
+        & .fire-hazard{
+            top: -370px;
+            position:absolute;
+            overflow: hidden;
+        }
+    }
+
+    .book-card{
+        width: 20rem;
+        & .book-card-row{
+            margin-left: 2rem;
+            height: 17rem;
+        }
+        & .title-details{
+            width: 8rem;
+        }
+        & .button-col{
+            margin-left: 1rem;
+            position: absolute;
+        }
+        & p{
+            font-size: 1.25rem;
+            text-align: left;
+            margin: 1rem;
+            width: 8rem;
+        }
+        & .detail-btn{
+            margin-top: 1em;
+            box-shadow: $box-shadow-blue;
+            font-size: 1.25rem;
+        }
+    }
+    //#region Nav Bar
+    .nav-bar{
+        
+        & span{
+            font-size: 1.5rem;
+        }
+    }
+
+    //#endregion
+
+    
+    //#region Edit Book Card
+
+    .edit-form-card{
+        width: 25rem;
+        & img{
+
+        }
+        & .form-group{
+            font-size: 1rem;
+        }
+        & .form-control{
+            font-size: 1rem;
+        }
+        & button{
+            font-size: 1rem;
+        }
+    }
+
+
+    //#endregion
+
+    .main-body-details{
+        width:100%;
+        margin-top: 4rem;
+        & img{
+            margin-top:2rem;
+            margin-bottom: 1rem;
+            width: 10rem;
+        }
     
 
+
+    }
 }

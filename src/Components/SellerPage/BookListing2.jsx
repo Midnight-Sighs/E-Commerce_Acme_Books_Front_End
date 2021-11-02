@@ -93,7 +93,7 @@ export default function BookListing(props) {
                         <h1>My book listings</h1>
                         <p>To the right are your book listings.  Select one to edit on the left.</p>
                     </div>
-                    <div className="col-md-5 mx-5 book-to-edit">
+                    <div className="col-sm-4 col-lg-5 mx-5 book-to-edit">
                         <Book
                             addOrEdit={addOrEdit}
                             recordForEdit={recordForEdit}

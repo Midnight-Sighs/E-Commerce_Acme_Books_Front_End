@@ -182,12 +182,12 @@ class CartPage extends Component {
                         <div className = "checkout-box">
                             <h1> Your Total: {this.state.cartTotal} </h1>
                             <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "BookStore" }}>
-                            <PayPalButtons
+                            <PayPalButtons className="paypal-btns"
                             createOrder={(data, actions) => this.createOrder(data, actions)}
                             onApprove={(data, actions) => this.onApprove(data, actions)}
                             />
                             </PayPalScriptProvider>
-                            <button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                            <button type="button" onClick={this.onClickCheckout}>Acme Checkout</button>
                             
                         </div>
                     </div>
