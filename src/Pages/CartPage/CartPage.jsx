@@ -4,11 +4,11 @@ import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css';
 import axios from 'axios';
 import BlueBookPile from '../../Images/BlueBookPile.jpg'
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 class CartPage extends Component {
     
     constructor(props) {
-        console.log(props)
         super(props);
         this.state = {
             books:[],
@@ -18,6 +18,26 @@ class CartPage extends Component {
             cartTotal: 0
         }
     }
+    createOrder(data, actions) {
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: this.state.cartTotal,
+              },
+            },
+          ],
+        });
+    }
+    onApprove(data, actions) {
+        this.onClickCheckout()
+        this.setState({
+            books: [],
+            cartTotal: 0,
+            showSuccess: true,
+        })
+        return actions.order.capture();
+      }
     
     getBook = async (bookId) =>{
         const response = await axios.get('https://localhost:44394/api/book/' + bookId);
@@ -142,7 +162,7 @@ class CartPage extends Component {
                             <br />
                             {this.state.filteredBooks.map((book)=>{
                                 return(
-                                    <div className="cart-details">
+                                    <div className="cart-details" key={book.cartid}>
                                         <h1>{book.title}</h1>
                                         <h1>by {book.author}</h1>
                                         <h1>$ {book.price}</h1>
@@ -161,7 +181,14 @@ class CartPage extends Component {
                     <div className="row">
                         <div className = "checkout-box">
                             <h1> Your Total: {this.state.cartTotal} </h1>
+                            <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "BookStore" }}>
+                            <PayPalButtons
+                            createOrder={(data, actions) => this.createOrder(data, actions)}
+                            onApprove={(data, actions) => this.onApprove(data, actions)}
+                            />
+                            </PayPalScriptProvider>
                             <button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                            
                         </div>
                     </div>
                 </div>

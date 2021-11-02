@@ -9,7 +9,6 @@ import '../Styles/Pages.css'
 
 
 const BookDetailPage = (props) =>{
-    console.log("************", props.userId)
     const [book, setBook] = useState([props.books[0]])
 
 
@@ -18,7 +17,6 @@ const BookDetailPage = (props) =>{
         
     }, [props])
 
-    console.log(book)
     return ( 
         <> 
             <div className="bod-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>

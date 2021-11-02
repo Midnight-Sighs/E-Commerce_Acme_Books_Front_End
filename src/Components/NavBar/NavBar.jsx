@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import '../Styles/Components.css'
-import {BrowserRouter as Router, Link} from 'react-router-dom'
-import SearchBar from '../SearchBar/SearchBar'
 
 const NavBar = (props) =>{
     let userid = props.userid

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css'
 import MainBody from '../../Components/MainShop/MainBody'
 

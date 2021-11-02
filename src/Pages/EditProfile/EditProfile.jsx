@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png';
 import '../Styles/Pages.css'
-import ReadingMan from '../../Images/ReadingMan.jpg'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import { createBrowserHistory } from "history";
@@ -44,7 +43,7 @@ class RegisterPage extends Component {
       }
 
       componentDidUpdate(){
-          if(this.state.UserId != this.props.user){
+          if(this.state.UserId !== this.props.user){
             this.setState ({
                 UserId: this.props.user,
             }, ()=>{
@@ -102,12 +101,11 @@ class RegisterPage extends Component {
             zipCode: this.state.zip,
             type: seller
         }
-        console.log(userEdit)
         try {
             let getURL = 'https://localhost:44394/api/users/' + this.props.user
 
             axios.put(getURL, userEdit)
-            if (this.state.seller = "Seller"){
+            if (this.state.seller == "Seller"){
                 alert(`${this.state.firstname} can now sell books`)
             }
             else{

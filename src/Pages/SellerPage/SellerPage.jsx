@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import {BrowserRouter as Router, Link} from 'react-router-dom'
+import React from 'react'
+import {Link} from 'react-router-dom'
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../Styles/Pages.css'
 
 const SellerPage = (props) =>{
-    console.log(props)
-
 
     return ( 
         <> 

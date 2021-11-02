@@ -8,7 +8,6 @@ const BookCard=(props)=> {
     
     const[linkPath, setLinkPath]=useState(`/BookDetail/${props.book.bookId}` )
     
-    console.log(props.book)
     if (!props.book) {
         return <div>no book</div>;
       }
