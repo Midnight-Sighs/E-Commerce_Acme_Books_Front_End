@@ -16,7 +16,8 @@ class CartPage extends Component {
             shoppingCart: [],
             currentUserID: '',
             filteredBooks:[],
-            cartTotal: 0
+            cartTotal: 0,
+            loaded:true
         }
     }
 
@@ -36,6 +37,7 @@ class CartPage extends Component {
           ],
         });
     }
+
     onApprove(data, actions) {
         this.onClickCheckout()
         this.setState({
@@ -77,13 +79,18 @@ class CartPage extends Component {
     componentDidMount=()=>{
         this.setState({
             currentUserId : this.props.currentUserID,
-            books: this.props.books
+            books: this.props.books,
         })
         this.getShoppingCart();
         this.filterBooks();
 
     }
-
+    componentWillMount() {
+        //show button on load
+        this.setState({
+            loaded: false
+      })
+    }
     componentDidUpdate(){
         if(this.props.currentUserID != this.state.currentUserID){
             this.setState({
@@ -155,6 +162,7 @@ class CartPage extends Component {
             shoppingCart: [],
         })
     }
+
     
 
     render() {
@@ -186,7 +194,10 @@ class CartPage extends Component {
                         </div>
 
                     </div>
+
+
                     <div className="row">
+<<<<<<< Updated upstream
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                     <div>
                             <div className = "checkout-box"></div>
@@ -197,11 +208,18 @@ class CartPage extends Component {
                             </div>
                             <button className="acme-button" type="button" onClick={this.onClickCheckout}>Acme Checkout</button>
                             <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "sb" }}>
+=======
+                        <div className = "checkout-box">
+                            <h1> Your Total: {this.state.cartTotal} </h1>
+                            <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx":""}}>
+>>>>>>> Stashed changes
                             <PayPalButtons
                             createOrder={(data, actions) => this.createOrder(data, actions)}
                             onApprove={(data, actions) => this.onApprove(data, actions)}
                             />
                             </PayPalScriptProvider>
+                            <button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                            
                         </div>
                     </div>
                 </div>
