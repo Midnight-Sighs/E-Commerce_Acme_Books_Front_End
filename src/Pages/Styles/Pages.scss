@@ -407,3 +407,325 @@
 }
 
 //#endregion
+
+
+
+
+
+
+
+//#region Basic Utilities
+.bod-bg-img{
+    position: fixed;
+    left: 0;
+    top: 475px;
+    overflow-y:scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 70vh;
+    width: 100vw;
+}
+
+.basic-btns{
+    font-size: 1rem;
+    border:none;
+    border-radius: 10px;
+}
+//#endregion
+
+//#region Login Page
+.login-page-row{
+    & button{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 11rem;
+        font-size: 2rem;
+    }
+    & h1{
+        font-size: 4rem;
+        margin-top: 8rem;
+    }
+    & h3{
+        font-size: 2rem;
+    }
+    & h1, h3 {
+        font-weight: 800;
+        padding: 5px;
+    }
+}
+
+.login-row{
+    margin-right: 10rem;
+    & h1{}
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-weight: 1000;
+        text-shadow: 2px 2px 5px $golden;  
+    }
+    & button{
+        margin-left: 4rem;
+    }
+}
+.login-form{
+    margin-top: 9rem;
+    width: 50vw;
+    & .login-field{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+        width: 20rem;
+    }
+    & .login-field:focus{
+        
+    }
+    & .login-field::placeholder{
+        
+    }
+    & .login-label{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+} 
+
+//#endregion
+
+//#region Registration Page
+.reg-row{
+    & h1{
+        margin-top: 3rem;
+        padding: 2rem;
+        font-weight: 700;
+        font-size: 5rem;
+    }
+}
+
+.reg-form{
+    margin-top: 4rem;
+    .reg-label{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+    .reg-field{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+    }
+    .reg-field:focus{
+    }
+    .reg-field::placeholder{
+       
+    }
+}    
+.reading-man{
+    margin-top: 4rem;
+    margin-left: 6rem;
+    width: 30vw;
+    transform: scaleX(-1)
+}
+.reg-button{
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-left: 1rem;
+}
+
+//#endregion
+
+//#region Anon Page
+.anon-text{
+    font-weight: 700;
+    text-align: justify;
+    margin-top: 6em;
+    padding: 1em;
+}
+.cover-01, .cover-02{
+    margin-top: 7em;
+    margin-left: 9em;
+    opacity: 50%;
+}
+
+//#endregion
+
+//#region New Book Page
+.new-book-container{
+    overflow-y: scroll;
+    & h1{
+        font-size: 5rem;
+        font-weight: 600;
+        padding-top:3rem;
+        padding-left: 2rem;
+        margin-top: 3rem;
+    }
+    & .new-book-form{
+        width: 50%;
+    }
+    & .nb-label{
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+    & .nb-field{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+        color: $bright-yellow;
+        width: 40rem;
+    }
+    & .nb-field:focus{
+    }
+    & .nb-field::placeholder{
+    }
+}
+.nb-button{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 2rem;
+}
+.upload-img{
+    width: 40rem;
+}
+.file-details{
+    & h2{
+        padding-top: 1rem;
+    }
+    & p{
+        font-weight: 600;
+    }
+}
+
+//#endregion
+
+//#region Cart Page
+
+.cart-page-row{
+    & .book-pile img{
+        margin-top: 6rem;
+        width: 30rem;
+        height: 50rem;
+        border-radius: 15px;
+        opacity: 80%;
+        margin-left: 5rem;
+    }
+    & .cart-details{
+        margin-top: 3rem;
+        & h1{
+            padding: 5px;
+        }
+    }
+    & .quantity-box{
+        margin-top: 9rem;
+    }
+}
+
+.checkout-box{
+    margin-left: 50rem;
+    & h1{
+        font-weight: 800;
+        padding: 5px;
+    }
+    & button{
+        padding: 10px;
+        font-size: 2rem;
+        border-radius: 5px;
+    }
+}
+
+//#endregion
+
+//#region Edit Profile
+.edit-profile-row{
+    & h1{
+        margin-top: 4rem;
+        margin-left: 4rem;
+        font-size: 6rem;
+        font-weight: 700;
+    }
+    & p{
+        font-size: 2rem;
+        margin-left: 2rem;
+        padding: 2rem;
+    }
+    & .profile-form{
+        margin-top: 5rem;
+        margin-left: 2rem;
+        & .pro-label{
+            font-size: 2rem;
+        }
+        & .pro-field{
+            font-size: 2rem;
+        }
+        & .pro-field:focus{
+        }
+    }
+}
+
+//#endregion
+
+//#region Seller Page
+
+.seller-page{
+    width: 50rem;
+    margin-left: 5rem;
+    margin-top: 10rem;
+    padding-top: 3rem;
+    border-radius: 20px;
+    overflow-y: scroll;
+    & p {
+        font-size: 3rem;
+        padding: 1rem;
+    }
+    & a {
+        
+        }
+}
+
+//#endregion
+
+//#region Edit Book Page
+
+.book-edit{
+
+    & h1{
+        margin-top: 5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 5rem;
+        font-weight: 700;
+    }
+    & p{
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        
+    }
+    & td {
+        
+        & img{
+            width: 15rem;
+            margin: 1rem;
+        }
+    }
+}
+.edit-book-card{
+    border-radius: 5px;
+    margin: 1rem;
+    & h5{
+        font-size: 2rem;
+    }
+    & button {
+        font-size: 2rem;
+        margin-left: 5rem;
+        margin-bottom: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+
+    }
+}
+
+//#endregion
