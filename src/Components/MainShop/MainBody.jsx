@@ -27,7 +27,7 @@ const MainBody = (props)=> {
             console.log(tempBookList)
             let tempTerm = searchTerms
             let tempSearchReults = tempBookList.map(function(book){
-                if(book.title.includes(searchTerms)||book.author.includes(searchTerms)||book.isbn.includes(searchTerms)||book.genre.includes(searchTerms)||book.releaseYear.includes(searchTerms)){
+                if(book.title.toLowerCase().includes(searchTerms)||book.author.toLowerCase().includes(searchTerms)||book.isbn.includes(searchTerms)||book.genre.toLowerCase().includes(searchTerms)||book.releaseYear.includes(searchTerms)){
                     tempSearchResults.push(book);
                 }
             })
