@@ -405,4 +405,51 @@
   color: #ffc27d;
   text-shadow: 2px 2px 5px #091931;
 }
+
+.book-edit h1 {
+  margin-top: 5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: "Indie Flower", cursive;
+  font-size: 5rem;
+  color: #091931;
+  font-weight: 700;
+  text-shadow: 2px 2px 5px #ffc27d;
+}
+
+.book-edit p {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #091931;
+}
+
+.book-edit td img {
+  width: 15rem;
+  margin: 1rem;
+}
+
+.edit-book-card {
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+  background-color: #448c9e88;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.edit-book-card h5 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.edit-book-card button {
+  background-color: #091931;
+  border: none;
+  color: #ffc27d;
+  font-size: 2rem;
+  margin-left: 5rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
 /*# sourceMappingURL=Pages.css.map */

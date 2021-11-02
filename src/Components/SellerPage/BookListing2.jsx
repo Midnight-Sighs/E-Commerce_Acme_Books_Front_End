@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Book from './book'
 import axios from "axios";
+import MagicBook from '../../Images/BookCrystalBall.png'
+import '../../Pages/Styles/Pages.css'
 
 export default function BookListing(props) {
     const [bookList, setBookList] = useState([])
@@ -70,12 +72,12 @@ export default function BookListing(props) {
     }
 
     const imageCard = data => (
-        <div className="card" onClick={() => { showRecordDetails(data) }}>
-            <img src={data.imageSrc} className="card-img-top rounded-circle" />
-            <div className="card-body">
+        <div className="edit-book-card" onClick={() => { showRecordDetails(data) }}>
+            <img src={data.imageSrc} className="card-img-top" />
+            <div className="edit-card-body">
                 <h5>{data.title}</h5>
-                <span>{data.author}</span> <br />
-                <button className="btn btn-light delete-button" onClick={e => onDelete(e, parseInt(data.bookId))}>
+                <h5>{data.author}</h5> <br />
+                <button className="delete-button" onClick={e => onDelete(e, parseInt(data.bookId))}>
                    Delete <i className="far fa-trash-alt"></i>
                 </button>
             </div>
@@ -84,36 +86,38 @@ export default function BookListing(props) {
 
 
     return (
-        <div className="row">
-            <div className="col-md-12">
-                <div className="jumbotron jumbotron-fluid py-4">
-                    <div className="container text-center">
-                        <h1 className="display-4">My book listings</h1>
+        <>
+            <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+                <div className="row book-edit mt-5">
+                    <div className="col-md-12">
+                        <h1>My book listings</h1>
+                        <p>To the right are your book listings.  Select one to edit on the left.</p>
                     </div>
+                    <div className="col-md-5 mx-5 book-to-edit">
+                        <Book
+                            addOrEdit={addOrEdit}
+                            recordForEdit={recordForEdit}
+                        />
+                    </div>
+                    <div className="col-md-5">
+                        <table>
+                            <tbody>
+                                {
+                                    //tr > 3 td
+                                    [...Array(Math.ceil(bookList.length / 3))].map((e, i) =>
+                                        <tr key={i}>
+                                            <td>{imageCard(bookList[3 * i])}</td>
+                                            <td>{bookList[3 * i + 1] ? imageCard(bookList[3 * i + 1]) : null}</td>
+                                            <td>{bookList[3 * i + 2] ? imageCard(bookList[3 * i + 2]) : null}</td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="col-1"></div>
                 </div>
             </div>
-            <div className="col-md-4">
-                <Book
-                    addOrEdit={addOrEdit}
-                    recordForEdit={recordForEdit}
-                />
-            </div>
-            <div className="col-md-8">
-                <table>
-                    <tbody>
-                        {
-                            //tr > 3 td
-                            [...Array(Math.ceil(bookList.length / 3))].map((e, i) =>
-                                <tr key={i}>
-                                    <td>{imageCard(bookList[3 * i])}</td>
-                                    <td>{bookList[3 * i + 1] ? imageCard(bookList[3 * i + 1]) : null}</td>
-                                    <td>{bookList[3 * i + 2] ? imageCard(bookList[3 * i + 2]) : null}</td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        </>
     )
 }

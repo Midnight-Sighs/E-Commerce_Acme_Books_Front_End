@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import defaultImageSrc from '../../Images/defaultImg.png'
+import '../Styles/Components.css'
 //const defaultImageSrc = '/Images/defaultImg.png'
 
 const initialFieldValues = {
@@ -102,11 +103,11 @@ export default function Book(props) {
     return (
         <>
             <div className="container text-center">
-                <p className="lead">Book:</p>
+                <p className="lead">Selected Book:</p>
                 
             </div>
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
-                <div className="card">
+                <div className="edit-form-card">
                     {/* <img src={values.imageSrc} className="card-img-top" /> */}
                     <img src={values.imageSrc} className="card-img-top" />
                     <div className="card-body">
