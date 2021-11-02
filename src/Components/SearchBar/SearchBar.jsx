@@ -1,80 +1,71 @@
-import react, {Component} from 'react'
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import MainBody from '../../Components/MainShop/MainBody'
-
-class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchTerm : '',
-            books: [],
-            searchResults: [],
-        }
+import { createBrowserHistory } from "history";
+import React, {useState, useEffect} from 'react'
+import { withRouter } from 'react-router-dom';
+import {useParams} from "react-router-dom";
+const history = createBrowserHistory();
+const initialFieldValues = {
+        searchTerm: "",
     }
 
-    componentDidMount(){
-        this.setState({
-            books: this.props.books
+
+
+const SearchBar = (props) =>{
+
+    console.log("************", props)
+    // const [book, setBook] = useState([props.books[0]])
+
+
+    useEffect(()=>{
+        // let loggedIn = props.loggedIn
+        
+    }, [props])
+    const [values, setValues] = useState(initialFieldValues)
+
+    const handleInputChange = e => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
         })
     }
+    const { pushSearch} = props
 
-    handleChange = (event) =>{
-        this.setState({
-            searchTerm : event.target.value
-        })
-        console.log(this.state.searchTerm)
+    const handleFormSubmit = e => {
+        const mySearchTerm = values.searchTerm
+        console.log(mySearchTerm)
+        history.push('/SearchResults/' + mySearchTerm)
+        history.go('/SearchResults/' + mySearchTerm);
     }
 
-    handleSubmit = (event) =>{
-        event.preventDefault();
-        const searchTerm = this.state.searchTerm
-        console.log("search term from search Bar:" + searchTerm)
-        this.searchBooks()
-        // this.props.formSubmission(searchTerm)
-    }
-
-    searchBooks = () =>{
-        let tempSearchResults = []
-        let tempBookList=this.state.books
-        let tempTerm = this.state.searchTerm
-        tempBookList.map(function(book){
-            if(book.title.includes(tempTerm)||book.author.includes(tempTerm)||book.isbn.includes(tempTerm)||book.genre.includes(tempTerm)||book.releaseYear.includes(tempTerm)){
-                tempSearchResults.push(book);
-            }
-        })
-        this.setState({
-            searchResults: tempSearchResults
-        })
-
-    }
-
-    render() {
-        return (
-            <>
-
-            <Router>
-                <Switch>
-                    <Route exact path ='/SearchResults' render={() => <MainBody loggedIn={this.props.loggedIn} props={this.state.searchResults} />}/>
-                </Switch>
-            </Router>
-
-                <form onSubmit={this.handleSubmit}>
-                    <label className="search-label" htmlFor="header-search"></label>
-                    <input
-                        className = "search-field"
-                        type="text"
-                        id="header-search"
-                        placeholder="Search books..."
-                        name="s"
-                        value={this.state.searchTerm}
-                        onChange={this.handleChange}
-                    />
-                    <button className="search-btn" type="submit"><Link className="search-btn" to='/SearchResults'>Search</Link></button>
-                </form>
-
-            </>
-        )
-    }
+    return ( 
+        <> 
+            <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
+            <label className="search-label" htmlFor="header-search"></label>
+            <input
+                className = "search-field"
+                type="text"
+                id="header-search"
+                placeholder="Search books..."
+                name="searchTerm"
+                value={values.searchTerm}
+                onChange={handleInputChange}
+            />
+            <button className="search-btn" type="submit">Search</button>
+        </form>
+        </>
+     );
 }
 
-export default SearchBar;
+export default withRouter (SearchBar);
+
+
+// const searchURL = '/SearchResults/' + this.state.searchTerm
+// return (
+//     <>
+
+
+//     </>
+// )
+// }

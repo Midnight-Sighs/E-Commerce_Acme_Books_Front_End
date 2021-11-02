@@ -13,7 +13,9 @@ import CartPage from './Pages/CartPage/CartPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
 import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
+import MainBodySearchy from './'
 import { createBrowserHistory } from "history";
+import SearchPage from './Pages/SearchPage/SearchPage'
 
 import BookDetailPage2 from './Pages/BookDetailPage/BookDetailPage2'
 
@@ -37,11 +39,17 @@ class App extends Component {
       books:[],
       searchResults: [],
       searchEnable: false,
-      usertype:false
+      usertype:false,
+      searchTerm:""
     };
 
   };
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.searchTerm !== prevState.searchTerm ) { // Set a new state if token change check, local token to current token
+      console.log("starting componenet did update")
 
+    }    
+  }
   componentDidMount() {
     this.getBooks();
     this.getCurrentUser();
@@ -207,6 +215,7 @@ class App extends Component {
 
 
   render() {
+    console.log("************************", this.state.searchTerm)
     let varUser = this.state.user
     return (
       <Container fluid>
@@ -219,7 +228,7 @@ class App extends Component {
           <Col sm={12}>
           <Router history={history} >
 
-            <NavBar status={this.state.usertype} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id}/>
+            <NavBar status={this.state.usertype} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id} searchTerms={this.state.searchTerm}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} addBookToShoppingCart={this.addBookToShoppingCart} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
               {/* <Route exact path="/" render={() => <Anon/>}/>
@@ -262,6 +271,9 @@ class App extends Component {
               exact path='/BookListing'
               render={() => <BookListing currentUser={this.state.user}/>}
               />
+              <Route 
+              path ='/SearchResults/' 
+              render={() => <SearchPage loggedIn={this.props.loggedIn} props={this.state.books}/>}/>
               
               {/* <Route
               exact path='/Photos'
