@@ -109,7 +109,9 @@ export default function Book(props) {
             <form autoComplete="off" noValidate onSubmit={handleFormSubmit}>
                 <div className="edit-form-card">
                     {/* <img src={values.imageSrc} className="card-img-top" /> */}
-                    <img src={values.imageSrc} className="card-img-top" />
+                    <div className="edit-book-card">
+                    <img src={values.imageSrc} className="card-img-top" height="500" width="300" />
+                    </div>
                     <div className="card-body">
                         <div className="form-group">
                             <input type="file" accept="image/*" className={"form-control-file" + applyErrorClass('imageSrc')}
