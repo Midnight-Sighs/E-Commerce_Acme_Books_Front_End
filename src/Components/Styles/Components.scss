@@ -338,3 +338,34 @@
 }
 
 //#endregion
+
+//#region Edit Book Card
+
+.edit-form-card{
+    box-shadow: $box-shadow-blue;
+    & img{
+
+    }
+    & .form-group{
+        font-size: 2rem;
+    }
+    & .form-control{
+        background-color: $light-blue-opacity;
+        border: none;
+        font-size: 2rem;
+        color: $bright-yellow;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
+    & button{
+        background-color: $dark-blue;
+        font-size: 2rem;
+        color: $golden;
+        border:none;
+        border-radius: 5px;
+        margin: 1rem;
+    }
+}
+
+
+//#endregion

@@ -354,4 +354,31 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.edit-form-card {
+  -webkit-box-shadow: 0 0 5px 5px #091931;
+          box-shadow: 0 0 5px 5px #091931;
+}
+
+.edit-form-card .form-group {
+  font-size: 2rem;
+}
+
+.edit-form-card .form-control {
+  background-color: #448c9e88;
+  border: none;
+  font-size: 2rem;
+  color: #ffe3a8;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.edit-form-card button {
+  background-color: #091931;
+  font-size: 2rem;
+  color: #ffc27d;
+  border: none;
+  border-radius: 5px;
+  margin: 1rem;
+}
 /*# sourceMappingURL=Components.css.map */
