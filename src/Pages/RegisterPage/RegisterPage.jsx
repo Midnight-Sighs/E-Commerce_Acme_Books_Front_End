@@ -64,7 +64,7 @@ class RegisterPage extends Component {
                 <div className="row reg-row">
                     <Col sm={5}>
                         <h1>You're never too old to find magic in reading...</h1>
-                        <img className="reading-man"src={ReadingMan}></img>
+                        <img className="reading-man"src={ReadingMan} alt="reading"></img>
                     </Col>
                     <Col sm={6}>
                         <Form className="reg-form" onSubmit ={this.handleSubmit}>

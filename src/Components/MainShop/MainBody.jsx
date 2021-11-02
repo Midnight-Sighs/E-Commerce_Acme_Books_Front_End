@@ -24,7 +24,6 @@ const MainBody = (props)=> {
       useEffect(() => {
             let tempSearchResults = []
             let tempBookList=props.props
-            console.log(tempBookList)
             let tempTerm = searchTerms
             let tempSearchReults = tempBookList.map(function(book){
                 if(book.title.toLowerCase().includes(searchTerms)||book.author.toLowerCase().includes(searchTerms)||book.isbn.includes(searchTerms)||book.genre.toLowerCase().includes(searchTerms)||book.releaseYear.includes(searchTerms)){
@@ -37,7 +36,6 @@ const MainBody = (props)=> {
 
 
     const baseURL = 'https://localhost:44394/api/book'
-    //book/delete/{id:int}
     const bookAPI = () => {
         return {
             fetchAll: () => axios.get(baseURL),
@@ -50,23 +48,7 @@ const MainBody = (props)=> {
             })
             .catch(err => console.log(err))
     }
-
-    // const searchBooks = () =>{
-    //     let tempSearchResults = []
-    //     let tempBookList=bookList
-    //     let tempTerm = searchTerms
-    //     tempBookList.map(function(book){
-    //         if(book.title.includes(tempTerm)||book.author.includes(tempTerm)||book.isbn.includes(tempTerm)||book.genre.includes(tempTerm)||book.releaseYear.includes(tempTerm)){
-    //             tempSearchResults.push(book);
-    //         }
-    //     })
-        
-    //     setBookList(tempSearchResults)
-    // };
-
-    console.log(props.props)
     if (props.props === undefined) {
-       // this.props.refreshBooks();
         return (
         <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
             <h1>OOPS!! There are no books to see here!</h1>

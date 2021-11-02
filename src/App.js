@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Styles/App.css';
 import { BrowserRouter as Switch, Route, Router} from "react-router-dom";
-import {Link} from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar'
@@ -11,14 +10,9 @@ import LoginPage from './Pages/LoginPage/LoginPage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import CartPage from './Pages/CartPage/CartPage'
 import EditProfile from './Pages/EditProfile/EditProfile'
-import MainShop from './Pages/MainShop/MainShop'
 import MainBody from './Components/MainShop/MainBody'
-import MainBodySearchy from './'
 import { createBrowserHistory } from "history";
-import SearchPage from './Pages/SearchPage/SearchPage'
-
 import BookDetailPage2 from './Pages/BookDetailPage/BookDetailPage2'
-
 import SellerPage from './Pages/SellerPage/SellerPage'
 import NewBook from './Components/SellerPage/NewBook'
 import { withRouter } from 'react-router-dom';
@@ -44,17 +38,11 @@ class App extends Component {
     };
 
   };
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.searchTerm !== prevState.searchTerm ) { // Set a new state if token change check, local token to current token
-      console.log("starting componenet did update")
 
-    }    
-  }
   componentDidMount() {
     this.getBooks();
     this.getCurrentUser();
     if(this.state.localToken && !this.state.token){
-      console.log("starting componentDidMount token update")
       this.getCurrentUserToken();
       this.getCurrentUser();
     }
@@ -86,7 +74,6 @@ class App extends Component {
     try{
       let response = await axios.post('https://localhost:44394/api/authentication/login', login);
       if (response === undefined) {
-        console.log("bad response", response)
         this.setState({});
       } 
       else {
@@ -215,7 +202,6 @@ class App extends Component {
 
 
   render() {
-    console.log("************************", this.state.searchTerm)
     let varUser = this.state.user
     return (
       <Container fluid>
@@ -231,8 +217,6 @@ class App extends Component {
             <NavBar status={this.state.usertype} loggedIn={this.state.loggedIn} logout={this.logoutUser} books={this.state.books} formSubmission={this.searchBooks} userid={this.state.user.id} searchTerms={this.state.searchTerm}/>
             <Switch >   
               {this.state.loggedIn ? <Route exact path="/" render={() => <MainBody props={this.state.books} addBookToShoppingCart={this.addBookToShoppingCart} loggedIn={this.state.loggedIn} />}/> : <Route exact path="/" render={() => <Anon/>}/>}             
-              {/* <Route exact path="/" render={() => <Anon/>}/>
-              <Route exact path="/" render={() => <MainShop/>}/> */}
 
               <Route
               exact path='/login'
@@ -271,16 +255,6 @@ class App extends Component {
               exact path='/BookListing'
               render={() => <BookListing currentUser={this.state.user}/>}
               />
-              <Route 
-              path ='/SearchResults/' 
-              render={() => <SearchPage loggedIn={this.props.loggedIn} props={this.state.books}/>}/>
-              
-              {/* <Route
-              exact path='/Photos'
-              render={() => <Photos user={this.state.user} books={this.state.books}/>}
-              /> */}
-
-
             </Switch>
             </Router>
           </Col>

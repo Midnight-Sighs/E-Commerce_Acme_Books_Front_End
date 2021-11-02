@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
 import { Container, Form, Row, Col } from "react-bootstrap";
 import MagicBook from '../../Images/BookCrystalBall.png'
 import '../../Pages/Styles/Pages.css'
-//import '../../Images/defaultimg.png'
-
-var pathArray = window.location.pathname.split('/');
-var secondLevelLocation = pathArray[2];
-
 
 class NewBook extends Component {
     constructor(props) {
@@ -42,9 +35,6 @@ class NewBook extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentDidMount() {
-        console.log(this.props)
-      }
     async createListing() {
         let parsedPrice = parseFloat(this.state.Price)
         const formData = new FormData()
@@ -58,22 +48,7 @@ class NewBook extends Component {
         formData.append('Id', this.props.user)
         formData.append('Image', this.state.selectedFile)
         formData.append('ImagePath', this.state.selectedFile.name)
-        console.log(formData)
-        console.log(this.state.selectedFile.name)
-        // var newbook = {
-        //     Title: this.state.Title,
-        //     Author: this.state.Author,
-        //     Description: this.state.Description,
-        //     Genre: this.state.Genre,
-        //     ReleaseYear: this.state.ReleaseYear,
-        //     ISBN: this.state.ISBN,
-        //     Price: this.state.Price,
-        //     Id: this.props.user,
-        //     Image: this.state.selectedFile
-        // }
         try {
-            
-            console.log(formData)
             await axios.post("https://localhost:44394/api/book", formData,
             {
                 headers: {
@@ -120,8 +95,6 @@ class NewBook extends Component {
             [event.target.name]: event.target.value,
             error: errors,
         })
-        console.log("setting selectedFileURL")
-        console.log(this.state.selectedFileURL)
     }
 
     onFileChange = event => {
@@ -137,7 +110,6 @@ class NewBook extends Component {
     }
 
     render() {
-        console.log(this.state.selectedFile)
         const isThereAPhoto = () => {
             if(this.state.selectedFile) {
                 return (

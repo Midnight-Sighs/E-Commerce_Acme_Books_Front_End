@@ -9,7 +9,6 @@ import defaultImg from '../../Images/defaultImg.png'
 
 
     const BookDetails = ( props ) => {
-        console.log(props.userId)
         const { urlBookId } = useParams();
         const[bookId, setBookId] = useState(urlBookId);
         const userId = props.userId;
@@ -21,16 +20,11 @@ import defaultImg from '../../Images/defaultImg.png'
         const[newRating, setNewRating] = useState(null);
         const[allRelevant, setAllRelevant]=useState([]);
         const[reviewStatus, setReviewStatus]=useState(false);
-        console.log(userId)
-        
-        
-
         const baseURL = 'https://localhost:44394/api/reviews'
         const getByBook = '/book/' + bookId
         const createURL = '/create'
         const editURL = '/edit/'
         const deleteURL = '/delete/'
-        //book/delete/{id:int}
 
         const reviewsAPI = () => {
             return {
@@ -51,8 +45,6 @@ import defaultImg from '../../Images/defaultImg.png'
             setNewBook();
             refreshReviewBookList();
             filterReviews();
-
-            console.log(bookReviewList)
         }, [props])
 
         function refreshReviewBookList() {
@@ -90,7 +82,6 @@ import defaultImg from '../../Images/defaultImg.png'
             if(allRelevant.length > 0){
                 setReviewStatus(true)
             }
-            console.log(allRelevant)
         }
 
          //#region Form
@@ -107,7 +98,6 @@ import defaultImg from '../../Images/defaultImg.png'
             rating: newRating,
             review: newReview
         }
-        console.log(NewReview)
         reviewsAPI().create(NewReview)
         refreshReviewBookList()
         filterReviews();
@@ -119,8 +109,6 @@ import defaultImg from '../../Images/defaultImg.png'
         setNewRating(newRating)
     }
     //#endregion
-
-    console.log(book)
     if (!book) {
         return <div>no book</div>;
         }
