@@ -58,7 +58,7 @@ const NavBar = (props) =>{
                 
             </div>
             <div className="col-4">
-                <SearchBar loggedIn={props.loggedIn} books={props.books} />
+                {/* <SearchBar loggedIn={props.loggedIn} books={props.books} /> */}
             </div>
             <div className="col-6 nav-links">
             <span> <a href="/"> Home </a> </span>
