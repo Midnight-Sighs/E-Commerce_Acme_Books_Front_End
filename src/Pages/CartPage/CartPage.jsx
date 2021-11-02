@@ -7,6 +7,7 @@ import BlueBookPile from '../../Images/BlueBookPile.jpg'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 class CartPage extends Component {
+     
     
     constructor(props) {
         super(props);
@@ -18,12 +19,18 @@ class CartPage extends Component {
             cartTotal: 0
         }
     }
+
+
     createOrder(data, actions) {
+        const min = 100;
+        const max = 10000000;
+        const randomOrderID = min + Math.random() * (max - min);
         return actions.order.create({
           purchase_units: [
             {
               amount: {
                 value: this.state.cartTotal,
+                orderId: randomOrderID
               },
             },
           ],
@@ -177,18 +184,24 @@ class CartPage extends Component {
                                 );
                             })}
                         </div>
+
                     </div>
                     <div className="row">
-                        <div className = "checkout-box">
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <div>
+                            <div className = "checkout-box"></div>
+                    </div>
+                            
                             <h1> Your Total: {this.state.cartTotal} </h1>
-                            <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "BookStore" }}>
-                            <PayPalButtons className="paypal-btns"
+                            <div>
+                            </div>
+                            <button type="button" onClick={this.onClickCheckout}>Acme Checkout</button>
+                            <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "sb" }}>
+                            <PayPalButtons
                             createOrder={(data, actions) => this.createOrder(data, actions)}
                             onApprove={(data, actions) => this.onApprove(data, actions)}
                             />
                             </PayPalScriptProvider>
-                            <button type="button" onClick={this.onClickCheckout}>Acme Checkout</button>
-                            
                         </div>
                     </div>
                 </div>
