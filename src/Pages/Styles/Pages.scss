@@ -408,21 +408,18 @@
 
 //#endregion
 
-
-
-
-
+@media only screen and (max-width: 1500px){
 
 
 //#region Basic Utilities
 .bod-bg-img{
     position: fixed;
     left: 0;
-    top: 475px;
+    top: 200px;
     overflow-y:scroll;
     z-index: -2;
     background-size: 100%;
-    height: 70vh;
+    height: 80vh;
     width: 100vw;
 }
 
@@ -456,7 +453,7 @@
 
 .login-row{
     margin-right: 10rem;
-    & h1{}
+    & h1{
         margin-top: 1rem;
         margin-left: 1rem;
         font-weight: 1000;
@@ -473,7 +470,7 @@
         font-size: 1.5rem;
         margin-left: 2rem;
         border-radius:5px;
-        width: 20rem;
+        width: 30rem;
     }
     & .login-field:focus{
         
@@ -494,10 +491,7 @@
 //#region Registration Page
 .reg-row{
     & h1{
-        margin-top: 3rem;
-        padding: 2rem;
-        font-weight: 700;
-        font-size: 5rem;
+        font-size: 3rem;
     }
 }
 
@@ -530,7 +524,7 @@
     font-size: 2rem;
     border-radius: 10px;
     margin: 1rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
 }
 
 //#endregion
@@ -539,12 +533,13 @@
 .anon-text{
     font-weight: 700;
     text-align: justify;
-    margin-top: 6em;
+    margin-top: 4em;
     padding: 1em;
+    font-size: 2rem;
 }
 .cover-01, .cover-02{
     margin-top: 7em;
-    margin-left: 9em;
+    margin-left: 5em;
     opacity: 50%;
 }
 
@@ -606,8 +601,8 @@
 .cart-page-row{
     & .book-pile img{
         margin-top: 6rem;
-        width: 30rem;
-        height: 50rem;
+        width: 20rem;
+        height: 35rem;
         border-radius: 15px;
         opacity: 80%;
         margin-left: 5rem;
@@ -615,11 +610,12 @@
     & .cart-details{
         margin-top: 3rem;
         & h1{
+            font-size: 1.5rem;
             padding: 5px;
         }
     }
     & .quantity-box{
-        margin-top: 9rem;
+        margin-top: 7rem;
     }
 }
 
@@ -641,13 +637,13 @@
 //#region Edit Profile
 .edit-profile-row{
     & h1{
-        margin-top: 4rem;
+        margin-top: 6rem;
         margin-left: 4rem;
-        font-size: 6rem;
+        font-size: 4rem;
         font-weight: 700;
     }
     & p{
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin-left: 2rem;
         padding: 2rem;
     }
@@ -655,10 +651,10 @@
         margin-top: 5rem;
         margin-left: 2rem;
         & .pro-label{
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         & .pro-field{
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
         & .pro-field:focus{
         }
@@ -674,10 +670,10 @@
     margin-left: 5rem;
     margin-top: 10rem;
     padding-top: 3rem;
-    border-radius: 20px;
+    border-radius: px;
     overflow-y: scroll;
     & p {
-        font-size: 3rem;
+        font-size: 2rem;
         padding: 1rem;
     }
     & a {
@@ -689,19 +685,24 @@
 
 //#region Edit Book Page
 
+
 .book-edit{
 
     & h1{
         margin-top: 5rem;
         text-align: center;
         margin-bottom: 1rem;
+        font-family: $playful-font;
         font-size: 5rem;
+        color: $dark-blue;
         font-weight: 700;
+        text-shadow: $gold-text-shadow;
     }
     & p{
         text-align: center;
         font-size: 3rem;
         font-weight: 600;
+        color: $dark-blue;
         
     }
     & td {
@@ -713,12 +714,18 @@
     }
 }
 .edit-book-card{
+    box-shadow: $box-shadow-blue;
+    background-color: $light-blue-opacity;
     border-radius: 5px;
     margin: 1rem;
     & h5{
         font-size: 2rem;
+        text-align: center;
     }
     & button {
+        background-color: $dark-blue;
+        border: none;
+        color: $golden;
         font-size: 2rem;
         margin-left: 5rem;
         margin-bottom: 1rem;
@@ -729,3 +736,147 @@
 }
 
 //#endregion
+
+}
+
+
+@media only screen and (max-width: 1200px){
+
+    //#region Basic Utilities
+.bod-bg-img{
+    position: fixed;
+    left: 0;
+    top: 200px;
+    overflow-y:scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 80vh;
+    width: 100vw;
+}
+
+.basic-btns{
+    font-size: 1rem;
+    border:none;
+    border-radius: 10px;
+}
+//#endregion
+
+//#region Login Page
+.login-page-row{
+    & button{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 11rem;
+        font-size: 2rem;
+    }
+    & h1{
+        font-size: 4rem;
+        margin-top: 8rem;
+    }
+    & h3{
+        font-size: 2rem;
+    }
+    & h1, h3 {
+        font-weight: 800;
+        padding: 5px;
+    }
+}
+
+.login-row{
+    margin-right: 10rem;
+    & h1{
+        margin-top: 1rem;
+        margin-left: 1rem;
+        font-weight: 1000;
+        text-shadow: 2px 2px 5px $golden;  
+    }
+    & button{
+        margin-left: 4rem;
+    }
+}
+.login-form{
+    margin-top: 9rem;
+    width: 50vw;
+    & .login-field{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+        width: 30rem;
+    }
+    & .login-field:focus{
+        
+    }
+    & .login-field::placeholder{
+        
+    }
+    & .login-label{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+} 
+
+//#endregion
+
+//#region Registration Page
+.reg-row{
+    & h1{
+        font-size: 3rem;
+    }
+}
+
+.reg-form{
+    margin-top: 4rem;
+    .reg-label{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 1rem;
+    }
+    .reg-field{
+        font-size: 1.5rem;
+        margin-left: 2rem;
+        border-radius:5px;
+    }
+    .reg-field:focus{
+    }
+    .reg-field::placeholder{
+       
+    }
+}    
+.reading-man{
+    margin-top: 4rem;
+    margin-left: 6rem;
+    width: 30vw;
+    transform: scaleX(-1)
+}
+.reg-button{
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-left: 2rem;
+}
+
+//#endregion
+
+//#region Anon Page
+.anon-text{
+    font-weight: 700;
+    text-align: justify;
+    margin-top: 4em;
+    padding: 1em;
+    font-size: 2rem;
+}
+.cover-01, .cover-02{
+    margin-top: 7em;
+    margin-left: 5em;
+    opacity: 50%;
+}
+
+//#endregion
+
+
+}
+
+

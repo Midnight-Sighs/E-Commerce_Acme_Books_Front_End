@@ -79,6 +79,12 @@
   color: #091931;
 }
 
+.search-bar-form {
+  background-color: none;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
 .search-field {
   margin-top: 2.5rem;
   background-color: #091931;
@@ -209,6 +215,10 @@
   height: 5rem;
   width: 5rem;
   fill: #ffc27d;
+}
+
+.review-row.review-row p {
+  color: #091931;
 }
 
 .review-row.review-row .review-box {
@@ -380,5 +390,261 @@
   border: none;
   border-radius: 5px;
   margin: 1rem;
+}
+
+@media only screen and (max-width: 1500px) {
+  .body-bg-img {
+    background-repeat: no-repeat;
+    position: fixed;
+    background-color: #448c9e;
+    left: 0;
+    top: 200px;
+    overflow-y: scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 80vh;
+    width: 100vw;
+  }
+  .head {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 20vh;
+    overflow: hidden;
+    position: relative;
+  }
+  .head .fire-hazard {
+    top: -500px;
+    position: absolute;
+    overflow: hidden;
+  }
+  .head .title {
+    right: 5rem;
+    top: 2rem;
+    position: absolute;
+    font-weight: 600;
+    font-size: 5rem;
+  }
+  .head .sub-title {
+    font-size: 2rem;
+    top: 6rem;
+  }
+  .head .log-reg {
+    margin-top: 8rem;
+  }
+  .nav-bar {
+    width: 100vw;
+    height: 8vh;
+  }
+  .nav-bar .nav-links {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .nav-bar span {
+    padding-right: 5px;
+    font-size: 2rem;
+  }
+  .search-bar-form {
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .search-field {
+    margin-top: 2.5rem;
+    border-radius: 10px;
+    width: 30vw;
+    font-size: 2rem;
+    padding: .25rem;
+  }
+  .search-btn {
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-left: .5rem;
+    padding: .5rem;
+  }
+  .book-card {
+    width: 25rem;
+    margin-top: 3rem;
+    position: relative;
+    margin-left: 1rem;
+  }
+  .book-card .book-card-row {
+    margin-left: 2rem;
+    position: relative;
+    border-radius: 10px;
+    height: 13rem;
+  }
+  .book-card .title-details {
+    padding: 1rem;
+    position: fill;
+    overflow-wrap: break-word;
+    width: 10rem;
+  }
+  .book-card .button-col {
+    margin-left: 1rem;
+    position: absolute;
+  }
+  .book-card p {
+    font-size: 1.5em;
+    position: absolute;
+    margin: 1rem;
+    width: 10rem;
+  }
+  .book-card a {
+    font-weight: 500;
+    padding: 10px;
+  }
+  .book-card .detail-btn {
+    border-radius: 5px;
+    margin-top: 1em;
+    font-size: 1.5rem;
+  }
+  .main-body-details {
+    width: 100%;
+    margin-top: 4rem;
+  }
+  .main-body-details img {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    width: 20rem;
+  }
+  .main-body-details .book-details-box {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .main-body-details p {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .main-body-details .book-title, .main-body-details .book-author {
+    font-size: 2rem;
+  }
+  .main-body-details .book-title {
+    font-size: 3rem;
+  }
+  .main-body-details .book-author {
+    margin-left: 2rem;
+  }
+  .main-body-details .book-description {
+    overflow-y: scroll;
+    font-size: 1.75rem;
+  }
+  .review-row .bi-star-half {
+    height: 5rem;
+    width: 5rem;
+  }
+  .review-row.review-row .review-box {
+    font-size: 2rem;
+    padding: 5px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 20rem;
+    overflow-y: scroll;
+  }
+  .review-row.review-row .rating-row {
+    margin: 2rem;
+    margin-left: 6rem;
+  }
+  .review-row.review-row select {
+    border-radius: 10px;
+    font-size: 2rem;
+    width: 10rem;
+  }
+  .review-row.review-row input {
+    font-size: 2rem;
+    height: 6rem;
+    border-radius: 10px;
+  }
+  .review-row.review-row button {
+    margin-top: 1rem;
+    width: 15rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+  }
+  .main-body {
+    overflow-y: scroll;
+    margin-top: 4rem;
+    height: 65rem;
+  }
+  .book-listing {
+    margin-top: 4rem;
+  }
+  .book-listing .greeting {
+    margin-top: 4rem;
+    margin-left: 5rem;
+    font-weight: 800;
+    font-size: 3rem;
+  }
+  .book-listing .seller-message {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .book-listing h3 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  .book-listing .posted-books {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 2rem;
+  }
+  .book-listing .posted-books button {
+    border-radius: 15px;
+    padding: 10px;
+  }
+  .book-listing .posted-books a {
+    font-size: 2rem;
+    padding: 5px;
+  }
+  .book-listing .second-col {
+    padding-top: 1.5rem;
+  }
+  .cart-card {
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-bottom: 8rem;
+    margin-left: 5rem;
+    width: 25rem;
+  }
+  .cart-card .cart-card-body {
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 4rem;
+  }
+  .cart-card .cart-card-title {
+    margin-left: 4rem;
+  }
+  .cart-card .card-text {
+    margin-left: 4rem;
+  }
+  .cart-card .cart-btn-group {
+    margin-left: 4rem;
+    font-size: 1.5rem;
+  }
+  .cart-card .cart-btn-group .cart-btn {
+    padding: 10px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .edit-form-card {
+    width: 30rem;
+  }
+  .edit-form-card .form-group {
+    font-size: 1rem;
+  }
+  .edit-form-card .form-control {
+    font-size: 2rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+  }
+  .edit-form-card button {
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    margin: 1rem;
+  }
 }
 /*# sourceMappingURL=Components.css.map */

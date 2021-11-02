@@ -452,4 +452,359 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 1500px) {
+  .bod-bg-img {
+    position: fixed;
+    left: 0;
+    top: 200px;
+    overflow-y: scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 80vh;
+    width: 100vw;
+  }
+  .basic-btns {
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  .login-page-row button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 2rem;
+  }
+  .login-page-row h1 {
+    font-size: 4rem;
+    margin-top: 8rem;
+  }
+  .login-page-row h3 {
+    font-size: 2rem;
+  }
+  .login-page-row h1, .login-page-row h3 {
+    font-weight: 800;
+    padding: 5px;
+  }
+  .login-row {
+    margin-right: 10rem;
+  }
+  .login-row h1 {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: 1000;
+    text-shadow: 2px 2px 5px #ffc27d;
+  }
+  .login-row button {
+    margin-left: 4rem;
+  }
+  .login-form {
+    margin-top: 9rem;
+    width: 50vw;
+  }
+  .login-form .login-field {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+    width: 30rem;
+  }
+  .login-form .login-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+  .reg-row h1 {
+    font-size: 3rem;
+  }
+  .reg-form {
+    margin-top: 4rem;
+  }
+  .reg-form .reg-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+  .reg-form .reg-field {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+  }
+  .reading-man {
+    margin-top: 4rem;
+    margin-left: 6rem;
+    width: 30vw;
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  .reg-button {
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-left: 2rem;
+  }
+  .anon-text {
+    font-weight: 700;
+    text-align: justify;
+    margin-top: 4em;
+    padding: 1em;
+    font-size: 2rem;
+  }
+  .cover-01, .cover-02 {
+    margin-top: 7em;
+    margin-left: 5em;
+    opacity: 50%;
+  }
+  .new-book-container {
+    overflow-y: scroll;
+  }
+  .new-book-container h1 {
+    font-size: 5rem;
+    font-weight: 600;
+    padding-top: 3rem;
+    padding-left: 2rem;
+    margin-top: 3rem;
+  }
+  .new-book-container .new-book-form {
+    width: 50%;
+  }
+  .new-book-container .nb-label {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 3rem;
+  }
+  .new-book-container .nb-field {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+    color: #ffe3a8;
+    width: 40rem;
+  }
+  .nb-button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 2rem;
+  }
+  .upload-img {
+    width: 40rem;
+  }
+  .file-details h2 {
+    padding-top: 1rem;
+  }
+  .file-details p {
+    font-weight: 600;
+  }
+  .cart-page-row .book-pile img {
+    margin-top: 6rem;
+    width: 20rem;
+    height: 35rem;
+    border-radius: 15px;
+    opacity: 80%;
+    margin-left: 5rem;
+  }
+  .cart-page-row .cart-details {
+    margin-top: 3rem;
+  }
+  .cart-page-row .cart-details h1 {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .cart-page-row .quantity-box {
+    margin-top: 7rem;
+  }
+  .checkout-box {
+    margin-left: 50rem;
+  }
+  .checkout-box h1 {
+    font-weight: 800;
+    padding: 5px;
+  }
+  .checkout-box button {
+    padding: 10px;
+    font-size: 2rem;
+    border-radius: 5px;
+  }
+  .edit-profile-row h1 {
+    margin-top: 6rem;
+    margin-left: 4rem;
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  .edit-profile-row p {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    padding: 2rem;
+  }
+  .edit-profile-row .profile-form {
+    margin-top: 5rem;
+    margin-left: 2rem;
+  }
+  .edit-profile-row .profile-form .pro-label {
+    font-size: 1.5rem;
+  }
+  .edit-profile-row .profile-form .pro-field {
+    font-size: 1.5rem;
+  }
+  .seller-page {
+    width: 50rem;
+    margin-left: 5rem;
+    margin-top: 10rem;
+    padding-top: 3rem;
+    border-radius: px;
+    overflow-y: scroll;
+  }
+  .seller-page p {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  .book-edit h1 {
+    margin-top: 5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: "Indie Flower", cursive;
+    font-size: 5rem;
+    color: #091931;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px #ffc27d;
+  }
+  .book-edit p {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #091931;
+  }
+  .book-edit td img {
+    width: 15rem;
+    margin: 1rem;
+  }
+  .edit-book-card {
+    -webkit-box-shadow: 0 0 5px 5px #091931;
+            box-shadow: 0 0 5px 5px #091931;
+    background-color: #448c9e88;
+    border-radius: 5px;
+    margin: 1rem;
+  }
+  .edit-book-card h5 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .edit-book-card button {
+    background-color: #091931;
+    border: none;
+    color: #ffc27d;
+    font-size: 2rem;
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .bod-bg-img {
+    position: fixed;
+    left: 0;
+    top: 200px;
+    overflow-y: scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 80vh;
+    width: 100vw;
+  }
+  .basic-btns {
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  .login-page-row button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 11rem;
+    font-size: 2rem;
+  }
+  .login-page-row h1 {
+    font-size: 4rem;
+    margin-top: 8rem;
+  }
+  .login-page-row h3 {
+    font-size: 2rem;
+  }
+  .login-page-row h1, .login-page-row h3 {
+    font-weight: 800;
+    padding: 5px;
+  }
+  .login-row {
+    margin-right: 10rem;
+  }
+  .login-row h1 {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: 1000;
+    text-shadow: 2px 2px 5px #ffc27d;
+  }
+  .login-row button {
+    margin-left: 4rem;
+  }
+  .login-form {
+    margin-top: 9rem;
+    width: 50vw;
+  }
+  .login-form .login-field {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+    width: 30rem;
+  }
+  .login-form .login-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+  .reg-row h1 {
+    font-size: 3rem;
+  }
+  .reg-form {
+    margin-top: 4rem;
+  }
+  .reg-form .reg-label {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+  .reg-form .reg-field {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    border-radius: 5px;
+  }
+  .reading-man {
+    margin-top: 4rem;
+    margin-left: 6rem;
+    width: 30vw;
+    -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+  .reg-button {
+    font-size: 2rem;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-left: 2rem;
+  }
+  .anon-text {
+    font-weight: 700;
+    text-align: justify;
+    margin-top: 4em;
+    padding: 1em;
+    font-size: 2rem;
+  }
+  .cover-01, .cover-02 {
+    margin-top: 7em;
+    margin-left: 5em;
+    opacity: 50%;
+  }
+}
 /*# sourceMappingURL=Pages.css.map */

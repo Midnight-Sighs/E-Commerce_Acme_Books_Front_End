@@ -74,6 +74,11 @@
         }
     }
 }
+.search-bar-form{
+    background-color: none;
+    margin-top: 3rem;
+    margin-left: 2rem;
+}
 .search-label{
 
 }
@@ -200,6 +205,9 @@
         fill: $golden;
     }
     &.review-row{
+        & p {
+            color: $dark-blue;
+        }
         & .review-box{
             font-size: 2rem;
             padding: 5px;
@@ -369,3 +377,323 @@
 
 
 //#endregion
+
+
+@media only screen and (max-width: 1500px){
+
+    
+.body-bg-img{
+    background-repeat:no-repeat;
+    position: fixed;
+    background-color: $light-blue;
+    left: 0;
+    top: 200px;
+    overflow-y:scroll;
+    z-index: -2;
+    background-size: 100%;
+    height: 80vh;
+    width: 100vw;
+}
+
+//#region Header
+.head{
+    top:0;
+    left:0;
+    width: 100vw;
+    height:20vh;
+    overflow: hidden;
+    position: relative;
+    & .fire-hazard{
+        top: -500px;
+        position:absolute;
+        overflow: hidden;
+    }
+    & .title{
+        right:5rem;
+        top: 2rem;
+        position: absolute; 
+        font-weight: 600;  
+        font-size:5rem;
+        
+    }
+    & .sub-title{
+        font-size: 2rem;
+        top:6rem;
+    }
+    & .log-reg{
+        margin-top: 8rem;
+    }
+}
+
+//#endregion
+
+//#region Nav Bar
+.nav-bar{
+    width: 100vw;
+    height: 8vh;
+    & .nav-links{
+        margin-top:1rem;
+        font-size: 1rem;
+    }
+    & span{
+        padding-right:5px;
+        font-size: 2rem;
+    }
+}
+.search-bar-form{
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+.search-label{
+
+}
+.search-field{
+    margin-top: 2.5rem;
+    border-radius: 10px;
+    width: 30vw;
+    font-size: 2rem;
+    padding: .25rem;
+}
+.search-field:focus{
+}
+
+.search-btn{
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-left: .5rem;
+    padding: .5rem;
+}
+//#endregion
+
+//#region BookCard Component
+
+.book-card{
+    width: 25rem;
+    margin-top: 3rem;
+    position: relative;
+    margin-left: 1rem;
+    & .book-card-row{
+        margin-left: 2rem;
+        position: relative;
+        border-radius: 10px;
+        height: 13rem;
+    }
+    & .title-details{
+        padding: 1rem;
+        position: fill;
+        overflow-wrap: break-word;
+        width: 10rem;
+    }
+    & .button-col{
+        margin-left: 1rem;
+        position: absolute;
+    }
+    & p{
+        font-size: 1.5em;
+        position: absolute;
+        margin: 1rem;
+        width: 10rem;
+    }
+    & a{
+        font-weight: 500;
+        padding: 10px;
+    }
+    & .detail-btn{
+        border-radius: 5px;
+        margin-top: 1em;
+        font-size: 1.5rem;
+    }
+}
+
+//#endregion
+
+//#region Detail Page Body
+.main-body-details{
+    width:100%;
+    margin-top: 4rem;
+    & img{
+        margin-top:2rem;
+        margin-bottom: 1rem;
+        width: 20rem;
+    }
+    & .book-details-box{
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    & p{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    & .book-title, .book-author{
+        font-size: 2rem;
+    }
+    & .book-title {
+        font-size: 3rem;
+    }
+    & .book-author{
+        margin-left: 2rem;
+    }
+    & .book-description{
+        overflow-y: scroll;
+        font-size: 1.75rem;
+    }
+}
+//#endregion
+
+//#region Book Detail Reviews
+.review-row{
+    & .bi-star-half{
+        height: 5rem;
+        width: 5rem;
+    }
+    &.review-row{
+        & .review-box{
+            font-size: 2rem;
+            padding: 5px;
+            margin-top:2rem;
+            margin-bottom: 2rem;
+            height: 20rem;
+            overflow-y: scroll;
+        }
+        & .rating-row{
+            margin: 2rem;
+            margin-left: 6rem;
+        }
+        & select {
+            border-radius: 10px;
+            font-size: 2rem;
+            width: 10rem;
+        }
+        & input{
+            font-size: 2rem;
+            height: 6rem;
+            border-radius: 10px;
+        }
+        & button{
+            margin-top: 1rem;
+            width: 15rem;
+            font-size: 1.5rem;
+            border-radius: 5px;
+        }
+    }
+}
+
+
+//#endregion
+
+//#region Main Shop Page
+.main-body{
+   overflow-y: scroll;
+   margin-top: 4rem;
+   height: 65rem;
+}
+
+//#endregion
+
+//#region Book Listing
+
+.book-listing{
+    margin-top: 4rem;
+    & .greeting{
+        margin-top: 4rem;
+        margin-left:5rem;
+        font-weight: 800;
+        font-size: 3rem;
+    }
+    & .seller-message{
+        margin-left: 2rem;
+        font-weight: 600;
+        font-size: 2rem;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+    & h3 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    & .posted-books {
+        align-items: center;
+        margin: 2rem;
+        & button {
+            border-radius: 15px;
+            padding: 10px;
+        }
+        & a{
+            font-size: 2rem;
+            padding: 5px;
+        }
+    }
+    .second-col{
+        padding-top: 1.5rem;
+    }
+}
+
+//#endregion
+
+//#region Cart Item
+
+.cart-card{
+    border-radius: 10px;
+    font-size: 2rem;
+    margin-bottom: 8rem;
+    margin-left: 5rem;
+    width: 25rem;
+    & .cart-card-body{
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-left: 4rem;
+    }
+    & .cart-card-title{
+        margin-left: 4rem;
+    }
+    & .card-text{
+        margin-left: 4rem;
+    }
+    & .cart-btn-group{
+        margin-left: 4rem;
+        font-size: 1.5rem;
+        & .cart-btn{
+            padding: 10px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+    }
+}
+
+//#endregion
+
+//#region Edit Book Card
+
+.edit-form-card{
+    width: 30rem;
+    & img{
+
+    }
+    & .form-group{
+        font-size: 1rem;
+    }
+    & .form-control{
+        font-size: 2rem;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
+    & button{
+        font-size: 2rem;
+        border:none;
+        border-radius: 5px;
+        margin: 1rem;
+    }
+}
+
+
+//#endregion
+
+
+
+}
+
+
+@media only screen and (max-width: 1200px){
+
+
+}

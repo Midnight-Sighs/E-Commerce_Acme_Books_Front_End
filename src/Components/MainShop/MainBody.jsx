@@ -75,22 +75,22 @@ const MainBody = (props)=> {
 
 
     return ( 
-        <><form autoComplete="off" noValidate>
-        <label className="search-label" htmlFor="header-search"></label>
-        <input
-            className = "search-field"
-            type="text"
-            id="header-search"
-            placeholder="Search books..."
-            name="searchTerm"
-            value={searchTerms}
-            onChange={handleChange}
-        />
-        <button className="search-btn" type="submit">Search</button>
-    </form>
-
-    <hr></hr>
-            <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+        <>
+        <div className="body-bg-img" style={{ backgroundImage: `url(${MagicBook})`}}>
+            <form className="search-bar-form" autoComplete="off" noValidate>
+                <label className="search-label" htmlFor="header-search"></label>
+                <input
+                    className = "search-field"
+                    type="text"
+                    id="header-search"
+                    placeholder="Search books..."
+                    name="searchTerm"
+                    value={searchTerms}
+                    onChange={handleChange}
+                />
+                <button className="search-btn" type="submit">Search</button>
+            </form>
+                
                 <div className="row main-body">
 
                     {searchResults.map((book) => {
