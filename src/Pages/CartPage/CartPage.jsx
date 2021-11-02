@@ -197,7 +197,6 @@ class CartPage extends Component {
 
 
                     <div className="row">
-<<<<<<< Updated upstream
                     <div style={{display: 'flex', justifyContent: 'center'}}>
                     <div>
                             <div className = "checkout-box"></div>
@@ -208,11 +207,6 @@ class CartPage extends Component {
                             </div>
                             <button className="acme-button" type="button" onClick={this.onClickCheckout}>Acme Checkout</button>
                             <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx": "sb" }}>
-=======
-                        <div className = "checkout-box">
-                            <h1> Your Total: {this.state.cartTotal} </h1>
-                            <PayPalScriptProvider options={{ "AUYAwm7oN_UntsxzkMv8qp2cXRSfxZ1TmQTaljBs0cI_qM4_3fUt5zpcywj3yPJgeDaUTPLzEflsDDNx":""}}>
->>>>>>> Stashed changes
                             <PayPalButtons
                             createOrder={(data, actions) => this.createOrder(data, actions)}
                             onApprove={(data, actions) => this.onApprove(data, actions)}
