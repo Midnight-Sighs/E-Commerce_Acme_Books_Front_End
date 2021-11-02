@@ -225,7 +225,7 @@
   font-weight: 600;
   padding-top: 3rem;
   padding-left: 2rem;
-  margin-top: 6rem;
+  margin-top: 10rem;
   text-shadow: 2px 2px 5px #091931;
 }
 
@@ -300,7 +300,7 @@
 }
 
 .cart-page-row .book-pile img {
-  margin-top: 10rem;
+  margin-top: 15rem;
   width: 25rem;
   height: 40rem;
   border-radius: 15px;
@@ -311,7 +311,7 @@
 }
 
 .cart-page-row .cart-details {
-  margin-top: 8rem;
+  margin-top: 10rem;
   background-color: #091931;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 5px 5px #ffc27d;
@@ -325,31 +325,27 @@
 }
 
 .cart-page-row .quantity-box {
-  margin-top: 12rem;
+  margin-top: 15rem;
 }
 
 .checkout-box {
   margin-left: 50rem;
 }
 
-.checkout-box h1 {
+.total-due {
   color: #ffe3a8;
   font-weight: 800;
   padding: 5px;
 }
 
-.checkout-box button {
+.acme-button {
   background-color: #091931;
   color: #ffe3a8;
   padding: 10px;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   border: none;
   border-radius: 5px;
-}
-
-.checkout-box .paypal-btns {
-  width: 30rem;
 }
 
 .edit-profile-row h1 {

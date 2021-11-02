@@ -190,7 +190,7 @@
         font-weight: 600;
         padding-top:3rem;
         padding-left: 2rem;
-        margin-top: 6rem;
+        margin-top: 10rem;
         text-shadow: $blue-text-shadow;
     }
     & .new-book-form{
@@ -251,7 +251,7 @@
 
 .cart-page-row{
     & .book-pile img{
-        margin-top: 10rem;
+        margin-top: 15rem;
         width: 25rem;
         height: 40rem;
         border-radius: 15px;
@@ -260,7 +260,7 @@
         box-shadow: $box-shadow-golden;
     }
     & .cart-details{
-        margin-top: 8rem;
+        margin-top: 10rem;
         background-color: $dark-blue;
         border-radius: 15px;
         box-shadow: $box-shadow-golden;
@@ -271,29 +271,27 @@
         }
     }
     & .quantity-box{
-        margin-top: 12rem;
+        margin-top: 15rem;
     }
 }
 
 .checkout-box{
     margin-left: 50rem;
-    & h1{
-        color: $bright-yellow;
-        font-weight: 800;
-        padding: 5px;
-    }
-    & button{
-        background-color: $dark-blue;
-        color: $bright-yellow;
-        padding: 10px;
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        border: none;
-        border-radius: 5px;
-    }
-    & .paypal-btns{
-        width: 30rem;
-    }
+}
+
+.total-due {
+    color: $bright-yellow;
+    font-weight: 800;
+    padding: 5px;
+}
+.acme-button{
+    background-color: $dark-blue;
+    color: $bright-yellow;
+    padding: 10px;
+    font-size: 2rem;
+    margin: 1rem;
+    border: none;
+    border-radius: 5px;
 }
 
 //#endregion
