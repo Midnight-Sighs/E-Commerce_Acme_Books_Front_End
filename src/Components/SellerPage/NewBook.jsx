@@ -107,6 +107,17 @@ class NewBook extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.createListing();
+        this.state = {
+            Title: "",
+            Author: "",
+            Description: "",
+            Genre: "",
+            ReleaseYear: "",
+            Genre: "",
+            ISBN: "",
+            Price: "",
+        }
+
     }
 
     render() {

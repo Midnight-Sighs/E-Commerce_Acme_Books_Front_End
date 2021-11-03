@@ -212,7 +212,7 @@ class CartPage extends Component {
                             onApprove={(data, actions) => this.onApprove(data, actions)}
                             />
                             </PayPalScriptProvider>
-                            <button type="button" onClick={this.onClickCheckout}>Checkout</button>
+                            {/* <button type="button" onClick={this.onClickCheckout}>Checkout</button> */}
                             
                         </div>
                     </div>
