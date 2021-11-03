@@ -6,13 +6,9 @@ import { withRouter } from 'react-router-dom';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 
-const initialFieldValues = {
-    searchTerm: "",
-}
 //comment
 
 const MainBody = (props)=> {
-    const [values, setValues] = useState(initialFieldValues)
     const [bookList, setBookList] = useState([props.props])
     const [searchTerms, setSearchTerms]= useState([])
     const [searchResults, setSearchResults] = React.useState([]);
